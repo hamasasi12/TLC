@@ -1,0 +1,40 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+    "./node_modules/flowbite/**/*.js"
+  ],
+  theme: {
+    extend: {
+      colors: {
+        abu: "#F6F8FD",
+        biru: "#0C548C",
+        tombol: "#34364A",
+        kuning: "#FBCB04",
+        greys: "#E8EBF3",
+        birutua: "#2E4D69",
+        inputan: "#E5E9F2",
+        primary: {
+          50: "#eff6ff",
+          100: "#dbeafe",
+          200: "#bfdbfe",
+          300: "#93c5fd",
+          400: "#60a5fa",
+          500: "#3b82f6",
+          600: "#2563eb",
+          700: "#1d4ed8",
+          800: "#1e40af",
+          900: "#1e3a8a",
+        },
+      },
+      fontFamily: {
+        sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+      },
+    },
+  },
+  plugins: [
+    require('flowbite/plugin')
+  ],
+}
