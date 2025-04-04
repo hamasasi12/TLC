@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - TLC Care</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gradient-to-r from-blue-100 via-green-100 to-yellow-100 flex items-center justify-center min-h-screen p-4">
     <div class="bg-white shadow-lg rounded-3xl overflow-hidden w-full max-w-4xl flex flex-col md:flex-row">
@@ -189,3 +189,4 @@
 </body>
 
 </html> --}}
+

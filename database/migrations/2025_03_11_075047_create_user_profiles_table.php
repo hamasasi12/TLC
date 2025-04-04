@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_profiles', function (Blueprint $table) {
-            $table->id();
 
+            $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nik')->nullable();
             $table->string('fullname')->nullable();
@@ -22,24 +22,18 @@ return new class extends Migration
             $table->date('tanggal_lahir')->nullable();
             $table->enum('jenis_kelamin', ['L', 'P'])->nullable();
             $table->string('provinsi')->nullable();
-            $table->string('kabupaten')->nullable();
             $table->string('kecamatan')->nullable();
+            $table->string('kabupaten')->nullable();
             $table->string('kelurahan')->nullable();
             $table->string('no_wa')->nullable();
             $table->string('profile_image')->nullable();
             $table->string('custom_instansi')->nullable();
-
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('user_profiles');
     }
-
 };
-
