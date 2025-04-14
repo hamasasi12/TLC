@@ -46,12 +46,12 @@
 
                 <!-- Authentication Buttons -->
                 <div class="hidden lg:flex lg:items-center lg:space-x-4">
-                    <a href="{{ route('auth.index') }}">
+                    <a href="#">
                         <button
                             class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Log
                             in</button>
                     </a>
-                    <a href="{{ route('register') }}">
+                    <a href="#">
                         <button
                             class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Register
                             Now</button>
