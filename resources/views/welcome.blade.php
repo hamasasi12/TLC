@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-
 <body class="bg-abu">
 
     <!-- Navbar -->
