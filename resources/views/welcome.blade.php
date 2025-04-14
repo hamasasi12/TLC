@@ -46,7 +46,7 @@
 
                 <!-- Authentication Buttons -->
                 <div class="hidden lg:flex lg:items-center lg:space-x-4">
-                    <a href="{{ route('login') }}">
+                    <a href="{{ route('auth.index') }}">
                         <button
                             class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Log
                             in</button>
@@ -68,7 +68,9 @@
                 <a href="#skema" class="text-white hover:text-[#F4A261] transition duration-300">Skema</a>
                 <a href="#proses" class="text-white hover:text-[#F4A261] transition duration-300">Sertifikasi</a>
                 <a href="#faq" class="text-white hover:text-[#F4A261] transition duration-300">FAQ</a>
+
                 <a href="{{ route('login') }}">
+
                     <button
                         class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Log
                         in</button>
@@ -559,6 +561,7 @@
                     Pilih Paket
                 </button>
             </div>
+            
 
             <!-- Paket Intermediate (Level B) -->
             <div
@@ -1865,3 +1868,6 @@
 </script>
 
 </html>
+
+
+
