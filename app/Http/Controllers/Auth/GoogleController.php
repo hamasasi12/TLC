@@ -41,7 +41,7 @@ class GoogleController extends Controller
 
             Auth::login($user);
             DB::commit();
-            return redirect()->route('asesi.dashboard')->with('success', 'Berhasil login dengan Google');
+        return redirect()->route('asesi.dashboard')->with('success', 'Berhasil login dengan Google');
 
         } catch (\Exception $e) {
             DB::rollBack();

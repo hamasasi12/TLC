@@ -25,7 +25,7 @@ Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallb
 
 
 // AUTH ASESI
-Route::middleware(['auth','role:asesi'])->prefix('asesi')->group(function () {
+Route::middleware(['auth', 'role:asesi'])->prefix('asesi')->group(function () {
     Route::get('/dashboard', [AsesiDashboardController::class, 'index'])->name('asesi.dashboard');
 });
 
