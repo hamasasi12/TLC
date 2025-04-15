@@ -191,7 +191,7 @@
                     mencapai hasil belajar optimal.
                 </p>
                 <div
-                    class="bg-gray-100 text-gray-900 p-5 mt-6 rounded-xl shadow-lg italic border-l-4 border-[#1D4E89] text-lg">
+                    class="bg-gray-100 text-gray-900 p-5 mt-6 rounded-xl shadow-sm italic border-l-4 border-[#1D4E89] text-lg">
                     "Dengan mengikuti program ini, guru dapat menunjukkan keterampilan mengajar mereka, meningkatkan
                     keahlian, dan memperoleh sertifikasi sebagai pengakuan atas kemampuan mereka dalam mengelola kelas
                     secara efektif."
@@ -239,7 +239,7 @@
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 mt-10">
             <!-- Visi -->
             <div
-                class="bg-white p-8 rounded-2xl shadow-xl border-l-4 border-[#1D4E89] transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl active:scale-95">
+                class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl active:scale-95">
                 <div class="flex items-center gap-4 mb-5">
                     <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
                         <svg class="w-7 h-7 text-[#1D4E89]" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -269,7 +269,7 @@
 
             <!-- Misi -->
             <div
-                class="bg-white p-8 rounded-2xl shadow-xl border-l-4 border-[#E76F51] transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl active:scale-95">
+                class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#E76F51] transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl active:scale-95">
                 <div class="flex items-center gap-4 mb-5">
                     <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
                         <svg class="w-7 h-7 text-[#E76F51]" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -318,7 +318,7 @@
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mt-10">
             <!-- Item Manfaat -->
             <div
-                class="group bg-white p-8 rounded-2xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
+                class="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
                 <div class="flex items-center gap-4 mb-5">
                     <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
                         <span class="text-[#1D4E89] text-4xl">🏅</span>
@@ -332,7 +332,7 @@
             </div>
 
             <div
-                class="group bg-white p-8 rounded-2xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
+                class="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
                 <div class="flex items-center gap-4 mb-5">
                     <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
                         <span class="text-[#1D4E89] text-4xl">📖</span>
@@ -346,7 +346,7 @@
             </div>
 
             <div
-                class="group bg-white p-8 rounded-2xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
+                class="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
                 <div class="flex items-center gap-4 mb-5">
                     <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
                         <span class="text-[#1D4E89] text-4xl">🤝</span>
@@ -360,7 +360,7 @@
             </div>
 
             <div
-                class="group bg-white p-8 rounded-2xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
+                class="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
                 <div class="flex items-center gap-4 mb-5">
                     <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
                         <span class="text-[#1D4E89] text-4xl">💡</span>
@@ -388,7 +388,7 @@
             </div> --}}
 
             <div
-                class="group bg-white p-8 rounded-2xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
+                class="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
                 <div class="flex items-center gap-4 mb-5">
                     <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
                         <span class="text-[#1D4E89] text-4xl">📚</span>
@@ -482,7 +482,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
             <!-- Testimonial 1 -->
             <div
-                class="bg-white border border-gray-200 rounded-2xl shadow-xl p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <img src="images/hamas.png" alt="Hamas, M.Pd"
                     class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -top-10 left-6">
                 <div class="mt-12">
@@ -498,7 +498,7 @@
 
             <!-- Testimonial 2 -->
             <div
-                class="bg-white border border-gray-200 rounded-2xl shadow-xl p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <img src="images/aliando.jpg" alt="Candra, M.Pd"
                     class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -top-10 left-6">
                 <div class="mt-12">
@@ -514,7 +514,7 @@
 
             <!-- Testimonial 3 -->
             <div
-                class="bg-white border border-gray-200 rounded-2xl shadow-xl p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <img src="images/guru.png" alt="Yudha, M.Pd"
                     class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -top-10 left-6">
                 <div class="mt-12">
@@ -546,7 +546,7 @@
         <div class="max-w-6xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Paket Basic (Level A) -->
             <div
-                class="bg-white border border-gray-200 rounded-xl shadow-lg p-8 text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer">
+                class="bg-white border border-gray-200 rounded-xl shadow-sm p-8 text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer">
                 <h3 class="text-lg font-bold text-white bg-blue-900 py-3 rounded-lg">LEVEL A</h3>
                 <p class="text-gray-600 mt-3">Paket dasar untuk memulai perjalanan TLC Anda</p>
                 <p class="text-3xl font-extrabold text-blue-900 mt-5">Rp 2.500.000</p>
@@ -566,7 +566,7 @@
 
             <!-- Paket Intermediate (Level B) -->
             <div
-                class="bg-white border border-gray-200 rounded-xl shadow-lg p-8 text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer">
+                class="bg-white border border-gray-200 rounded-xl shadow-sm p-8 text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer">
                 <h3 class="text-lg font-bold text-white bg-blue-900 py-3 rounded-lg">LEVEL B</h3>
                 <p class="text-gray-600 mt-3">Paket dasar untuk memulai perjalanan TLC Anda</p>
                 <p class="text-3xl font-extrabold text-blue-900 mt-5">Rp 2.500.000</p>
@@ -585,7 +585,7 @@
 
             <!-- Paket Advanced (Level C) -->
             <div
-                class="bg-white border border-gray-200 rounded-xl shadow-lg p-8 text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer">
+                class="bg-white border border-gray-200 rounded-xl shadow-sm p-8 text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer">
                 <h3 class="text-lg font-bold text-white bg-blue-900 py-3 rounded-lg">LEVEL C</h3>
                 <p class="text-gray-600 mt-3">Pengalaman TLC paling komprehensif</p>
                 <p class="text-3xl font-extrabold text-blue-900 mt-5">Rp 7.500.000</p>
@@ -608,7 +608,7 @@
             <!-- Bundle Package - Added inside the grid with full-width on larger screens -->
             <div class="col-span-1 md:col-span-3 flex justify-center">
                 <div
-                    class="bg-gradient-to-b from-orange-500 to-orange-600 text-white border border-orange-500 rounded-xl shadow-lg p-8 text-center relative transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer w-full md:w-2/3 lg:w-1/2">
+                    class="bg-gradient-to-b from-orange-500 to-orange-600 text-white border border-orange-500 rounded-xl shadow-sm p-8 text-center relative transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer w-full md:w-2/3 lg:w-1/2">
                     <span
                         class="absolute top-0 right-0 bg-yellow-400 text-xs font-bold text-gray-900 px-4 py-2 rounded-bl-lg shadow-md">TERPOPULER</span>
                     <h3 class="text-lg font-bold bg-orange-700 py-3 rounded-lg">PAKET BUNDLE</h3>
@@ -654,7 +654,7 @@
                 <div class="flex flex-col md:flex-row items-center justify-between w-full">
                     <div class="w-full md:w-1/2 flex items-center">
                         <div
-                            class="bg-white p-6 rounded-lg shadow-lg w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                            class="bg-white p-6 rounded-lg shadow-sm w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                             <span class="text-5xl mr-5">📅</span>
                             <div>
                                 <h3 class="text-xl font-semibold text-blue-700">Pendaftaran</h3>
@@ -668,7 +668,7 @@
                 <div class="flex flex-col md:flex-row-reverse items-center justify-between w-full">
                     <div class="w-full md:w-1/2 flex items-center justify-end">
                         <div
-                            class="bg-white p-6 rounded-lg shadow-lg w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                            class="bg-white p-6 rounded-lg shadow-sm w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                             <span class="text-5xl mr-5">🎯</span>
                             <div>
                                 <h3 class="text-xl font-semibold text-blue-700">Orientasi Program</h3>
@@ -682,7 +682,7 @@
                 <div class="flex flex-col md:flex-row items-center justify-between w-full">
                     <div class="w-full md:w-1/2 flex items-center">
                         <div
-                            class="bg-white p-6 rounded-lg shadow-lg w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                            class="bg-white p-6 rounded-lg shadow-sm w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                             <span class="text-5xl mr-5">📖</span>
                             <div>
                                 <h3 class="text-xl font-semibold text-blue-700">Sesi Pelatihan</h3>
@@ -695,7 +695,7 @@
                 <div class="flex flex-col md:flex-row-reverse items-center justify-between w-full">
                     <div class="w-full md:w-1/2 flex items-center justify-end">
                         <div
-                            class="bg-white p-6 rounded-lg shadow-lg w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                            class="bg-white p-6 rounded-lg shadow-sm w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                             <span class="text-5xl mr-5">👨‍🏫</span>
                             <div>
                                 <h3 class="text-xl font-semibold text-blue-700">Penugasan</h3>
@@ -832,7 +832,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-5 justify-center">
             <!-- Step 1 -->
             <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <div
                     class="w-14 h-14 mx-auto flex items-center justify-center bg-blue-600 text-white font-bold rounded-full text-xl">
                     1
@@ -843,7 +843,7 @@
 
             <!-- Step 2 -->
             <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <div
                     class="w-14 h-14 mx-auto flex items-center justify-center bg-green-500 text-white font-bold rounded-full text-xl">
                     2
@@ -854,7 +854,7 @@
 
             <!-- Step 3 -->
             <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <div
                     class="w-14 h-14 mx-auto flex items-center justify-center bg-yellow-500 text-white font-bold rounded-full text-xl">
                     3
@@ -865,7 +865,7 @@
 
             <!-- Step 4 -->
             <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <div
                     class="w-14 h-14 mx-auto flex items-center justify-center bg-orange-500 text-white font-bold rounded-full text-xl">
                     4
@@ -876,7 +876,7 @@
 
             <!-- Step 5 -->
             <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <div
                     class="w-14 h-14 mx-auto flex items-center justify-center bg-red-500 text-white font-bold rounded-full text-xl">
                     5
@@ -887,7 +887,7 @@
 
             <!-- Step 6 -->
             <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <div
                     class="w-14 h-14 mx-auto flex items-center justify-center bg-purple-500 text-white font-bold rounded-full text-xl">
                     6
@@ -921,7 +921,7 @@
 
         <!-- Video Container -->
         <div
-            class="max-w-6xl mx-auto mt-10 bg-white p-6 rounded-xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]">
+            class="max-w-6xl mx-auto mt-10 bg-white p-6 rounded-xl shadow-sm transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]">
             <!-- Tab Navigation -->
             <div class="flex justify-between bg-[#A8DADC] text-gray-800 rounded-t-lg overflow-hidden">
                 <button
@@ -1219,7 +1219,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-12 max-w-6xl mx-auto">
             <!-- Book Item 1 -->
             <div
-                class="relative w-full h-96 bg-white shadow-xl rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
+                class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
                 <div class="relative w-full h-full">
                     <img src="images/buku1.png" alt="Buku 1"
                         class="w-full h-full object-cover rounded-lg shadow-md">
@@ -1238,7 +1238,7 @@
 
             <!-- Book Item 2 -->
             <div
-                class="relative w-full h-96 bg-white shadow-xl rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
+                class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
                 <div class="relative w-full h-full">
                     <img src="images/buku2.png" alt="Buku 2"
                         class="w-full h-full object-cover rounded-lg shadow-md">
@@ -1257,7 +1257,7 @@
 
             <!-- Book Item 3 -->
             <div
-                class="relative w-full h-96 bg-white shadow-xl rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
+                class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
                 <div class="relative w-full h-full">
                     <img src="images/buku3.png" alt="Buku 3"
                         class="w-full h-full object-cover rounded-lg shadow-md">
@@ -1276,7 +1276,7 @@
 
             <!-- Book Item 4 -->
             <div
-                class="relative w-full h-96 bg-white shadow-xl rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
+                class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
                 <div class="relative w-full h-full">
                     <img src="images/buku4.png" alt="Buku 4"
                         class="w-full h-full object-cover rounded-lg shadow-md">
@@ -1295,7 +1295,7 @@
 
             <!-- Book Item 5 -->
             <div
-                class="relative w-full h-96 bg-white shadow-xl rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
+                class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
                 <div class="relative w-full h-full">
                     <img src="images/buku5.png" alt="Buku 5"
                         class="w-full h-full object-cover rounded-lg shadow-md">
@@ -1314,7 +1314,7 @@
 
             <!-- Book Item 6 -->
             <div
-                class="relative w-full h-96 bg-white shadow-xl rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
+                class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
                 <div class="relative w-full h-full">
                     <img src="images/buku6.png" alt="Buku 6"
                         class="w-full h-full object-cover rounded-lg shadow-md">
@@ -1348,7 +1348,7 @@
                 Temukan jawaban untuk pertanyaan yang sering diajukan tentang program TLC
             </p>
         </div>
-        <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
+        <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-sm">
             <!-- Search Bar -->
             {{-- <div class="mb-6 relative">
                 <input type="text" placeholder="Cari pertanyaan..."
