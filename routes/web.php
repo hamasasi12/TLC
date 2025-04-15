@@ -15,9 +15,9 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/loginn', [AuthController::class, 'index'])->name('auth.index');
 });
 
-// Route::get('/login', function () {
-//     return view('auth.loginPage');
-// })->name('login');
+Route::get('/login', function () {
+    return view('auth.loginPage');
+})->name('login');
 
 Route::get('/user-dashboard', function () {
     return view('user.userDashboard.index');
