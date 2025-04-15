@@ -37,7 +37,7 @@ class RolePermissionSeeders extends Seeder
             Permission::create(['name' => $permission]);
         };
         
-        // KATEGORI LEVEL A
+        // KATEGORI LEVEL A, BELUM FIX JUGA
         $permission_kategories = [
             'HOTS',
             'PCK',

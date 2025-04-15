@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Asesi\AsesiDashboardController;
 use App\Http\Controllers\Asesor\AsesorDashboardController;
-use App\Http\Controllers\Auth\AuthController;
-use Illuminate\Support\Facades\Route;
 
 
 
@@ -17,6 +18,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.post');
 });
+
+// GOOGLE SSO
+Route::get('/auth/google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
 
 // AUTH ASESI
 Route::middleware(['auth','role:asesi'])->prefix('asesi')->group(function () {
@@ -32,6 +38,7 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
 Route::middleware(['auth','role:asesor'])->prefix('asesor')->group(function () {
     Route::get('/dashboard', [AsesorDashboardController::class, 'index'])->name('asesor.dashboard');
 });
+
 // Auth
 Route::get('/login', function () {
     return view('auth.loginPage');
@@ -56,12 +63,12 @@ Route::get('/sertifikasi', function () {
 
 Route::get('/transaksi', function () {
     return view('userDashboard.transaksi');
-})->name('transaksi');
+})->name('transaksi'    );
 
 // admin dan asesor
 Route::get('/admin', function () {
     return view('admin.admin');
-})->name('admin');
+})->name('admin');  
 
 Route::get('/asesor', function () {
     return view('admin.asesor');
