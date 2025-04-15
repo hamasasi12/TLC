@@ -19,3 +19,10 @@ Route::middleware(['guest'])->group(function () {
 //     return view('auth.loginPage');
 // })->name('login');
 
+Route::get('/user-dashboard', function () {
+    return view('user.userDashboard.index');
+})->name('userDashboard');
+
+Route::get('/sertifikasi', function () {
+    return view('user.sertifikasi.index');
+})->name('userSertifikasi');
