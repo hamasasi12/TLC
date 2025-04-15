@@ -30,17 +30,17 @@ class AuthController extends Controller
 
             switch (auth()->user()->hasRole->role) {
                 case 'admin':
-                    // return redirect()->intended('dashboard'); //admin dashboard
+                    // return redirect()->intended('dashboard'); //ADMIN DASHBOARD
                 case 'asesi':
-                    return redirect()->intended('dashboard'); //asesi dashboard
+                    return redirect()->route('asesi.dashboard'); //ASESI DASHBOARD
                 case 'asesor':
-                    // return redirect()->intended('dashboard'); //asesor dashboard
+                    // return redirect()->intended('dashboard'); //ASESOR DASHBOARD
                 default:
                     Alert::error('Login Gagal!', 'Role tidak dikenali')->autoClose(3000);
             }
         }
 
-        // if failed
+        // JIKA GAGAL
         Alert::error('Login Gagal!', 'Email atau Password salah')->autoClose(3000);
         Log::warning('User login failed', ['email' => $request->email, 'ip' => $request->ip()]);
         return back()->withInput($request->only('email'))->with('error', 'Email atau Password salah');
@@ -59,7 +59,7 @@ class AuthController extends Controller
 
             Alert::success('Berhasil!', 'Akun berhasil dibuat')->autoClose(3000);
             DB::commit();
-            return redirect()->route('login'); //arahkan ke halaman dashboard
+            return redirect()->route('login'); //ARAHKAN KEARAH DASHBORD
 
         } catch (\Exception $e) {
             DB::rollBack();
