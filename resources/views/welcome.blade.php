@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-
 <body class="bg-abu">
 
     <!-- Navbar -->
@@ -47,7 +46,7 @@
 
                 <!-- Authentication Buttons -->
                 <div class="hidden lg:flex lg:items-center lg:space-x-4">
-                    <a href="{{ route('auth.index') }}">
+                    <a href="{{ route('login') }}">
                         <button
                             class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Log
                             in</button>

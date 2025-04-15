@@ -5,60 +5,68 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\loginRequest;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
-    public function index()
-    {
+    public function login() {
         return view('auth.loginPage');
     }
 
-    public function login(loginRequest $request)
-    {
-        $credentials = $request->validated();
+    public function register() {
+        return view('auth.register');
+    }
 
-        if (Auth::attempt($credentials)) {
+    public function loginProcess(LoginRequest $request) {
+        $credentials = $request->only('email', 'password');
+
+        if (auth()->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard')->with('success', 'You are logged in!');
+
+            switch (auth()->user()->hasRole->role) {
+                case 'admin':
+                    // return redirect()->intended('dashboard'); //ADMIN DASHBOARD
+                case 'asesi':
+                    return redirect()->route('asesi.dashboard'); //ASESI DASHBOARD
+                case 'asesor':
+                    // return redirect()->intended('dashboard'); //ASESOR DASHBOARD
+                default:
+                    Alert::error('Login Gagal!', 'Role tidak dikenali')->autoClose(3000);
+            }
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        // JIKA GAGAL
+        Alert::error('Login Gagal!', 'Email atau Password salah')->autoClose(3000);
+        Log::warning('User login failed', ['email' => $request->email, 'ip' => $request->ip()]);
+        return back()->withInput($request->only('email'))->with('error', 'Email atau Password salah');
     }
 
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+    public function registerProcess(RegisterRequest $request) {
+        $validated = $request->validated();
+        $validated['password'] = Hash::make($validated['password']);
+        $validated['status'] = 'active';
 
-        return redirect('/')->with('success', 'You have been logged out!');
-    }
-
-    public function registerUser(RegisterRequest $request)
-    {
-        $request->validated();
-
-        DB::beginTransaction();
         try {
-            User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => bcrypt($request->password),
-            ]);
-            DB::commit();
+            DB::beginTransaction();
 
-            return redirect()->route('login')->with('success', 'Registration successful! Please log in.');
-        } catch (\Throwable $th) {
+            $user = User::create($validated);
+            $user->assignRole('asesi');
+
+            Alert::success('Berhasil!', 'Akun berhasil dibuat')->autoClose(3000);
+            DB::commit();
+            return redirect()->route('login'); //ARAHKAN KEARAH DASHBORD
+
+        } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withErrors([
-                'error' => 'An error occurred during registration. Please try again.',
-            ])->withInput();
+            Log::error('User registration failed', ['error' => $e->getMessage()]);
+            Alert::error('Gagal!', 'Akun gagal dibuat')->autoClose(3000);
+            return back()->withInput($request->only('email'))->with('error', 'Akun gagal dibuat');
         }
     }
+
 }
