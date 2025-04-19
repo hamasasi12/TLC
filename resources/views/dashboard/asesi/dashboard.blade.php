@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-pt-24 scroll-smooth focus:scroll-auto">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TLC Program Navbar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-abu">
 
     {{-- Navbar --}}
     <header class="mb-20">
@@ -103,15 +105,20 @@
                                     </svg>
                                     <span class="text-gray-700">Lihat Profil</span>
                                 </div>
-                                <div class="px-4 py-2 hover:bg-gray-100 flex items-center space-x-3 text-red-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                        <polyline points="16 17 21 12 16 7"></polyline>
-                                        <line x1="21" y1="12" x2="9" y2="12"></line>
-                                    </svg>
-                                    <span>Logout</span>
+                                <div>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center space-x-3 text-red-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                                <polyline points="16 17 21 12 16 7"></polyline>
+                                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                                            </svg>
+                                            <span>Logout</span>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -141,1925 +148,2315 @@
     </header>
     {{-- End Navbar --}}
 
-    {{-- Banner --}}
-    <section class="relative max-w-7xl mx-auto px-4 py-8">
-        <!-- Navigation Buttons -->
-        <button id="prevBtn"
-            class="absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-        </button>
-        <button id="nextBtn"
-            class="absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-        </button>
-
-        <!-- Carousel Container -->
-        <div class="carousel-container overflow-hidden rounded-lg relative">
-            <div class="carousel flex transition-transform ease-in-out duration-500" id="banner-carousel">
-                <div id="slide-0"
-                    class="slide w-full flex-shrink-0 bg-blue-900 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg overflow-hidden">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="w-full md:w-2/5 p-4">
-                            <img src="images/karakter.jpg" alt="Kedinasan Characters"
-                                class="w-full h-64 object-cover">
+    {{-- Tampilan Home --}}
+    <main id="home" class="w-full px-5 py-12 bg-white text-gray-900 transition-all duration-500">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-8">
+                <div class="lg:col-span-7 p-5 text-center lg:text-left">
+                    <h1
+                        class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug text-gray-800 transition-transform duration-300 hover:scale-105">
+                        Teaching and Learning Certification (TLC)
+                        <span class="text-[#F4A261] block lg:inline">Program Sesuai Jenjang Paket</span>
+                    </h1>
+                    <p
+                        class="text-base sm:text-lg text-gray-700 mt-4 transition-opacity duration-300 hover:opacity-80">
+                        Memberdayakan pendidik dengan pengetahuan, <span class="font-bold">keterampilan,</span> dan
+                        alat
+                        untuk berkembang <span class="font-bold">dalam pendidikan masa kini.</span>.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start my-6 gap-4">
+                        <a href="#"
+                            class="bg-[#F4A261] text-white px-6 py-3 rounded-xl shadow-md text-lg font-semibold hover:bg-[#E76F51] transition-transform duration-300 hover:scale-110 active:scale-95 text-center">
+                            Daftar Sekarang
+                        </a>
+                        <a href="#"
+                            class="bg-gray-100 text-gray-900 px-6 py-3 rounded-xl shadow-md text-lg font-semibold hover:bg-gray-200 transition-transform duration-300 hover:scale-110 active:scale-95 text-center">
+                            Pelajari Lebih Lanjut
+                        </a>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start mt-6 gap-4">
+                        <div class="flex -space-x-2 overflow-hidden">
+                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white hover:scale-110 transition-transform duration-300"
+                                src="images/hamas.png" alt="User 1">
+                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white hover:scale-110 transition-transform duration-300"
+                                src="images/aliando.jpg" alt="User 2">
+                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white hover:scale-110 transition-transform duration-300"
+                                src="images/guru.png" alt="User 3">
                         </div>
-                        <div class="w-full md:w-3/5 p-6 text-white text-center md:text-left">
-                            <h2 class="text-xl md:text-3xl font-bold mb-2">Jadi #KebanggaanKeluarga dengan</h2>
-                            <h1
-                                class="text-2xl md:text-5xl font-extrabold text-yellow-400 leading-tight mb-6 drop-shadow-md">
-                                Lolos Tes Sekolah Kedinasan bersama Bimbel TLC!
-                            </h1>
-                            <a href="#"
-                                class="inline-block bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold py-3 px-6 md:px-8 rounded-full transition duration-300 transform hover:-translate-y-1">
-                                Cek Program di Sini
-                            </a>
+                        <div class="text-center sm:text-left">
+                            <p class="text-lg font-bold text-gray-800">4.9</p>
+                            <div class="flex justify-center sm:justify-start text-[#F4A261]">
+                                <span class="hover:scale-125 transition-transform duration-300">&#9733;</span>
+                                <span class="hover:scale-125 transition-transform duration-300">&#9733;</span>
+                                <span class="hover:scale-125 transition-transform duration-300">&#9733;</span>
+                                <span class="hover:scale-125 transition-transform duration-300">&#9733;</span>
+                                <span class="hover:scale-125 transition-transform duration-300">&#9733;</span>
+                            </div>
+                            <p class="text-sm text-gray-600">Dipercaya oleh 25 ribu++ siswa</p>
                         </div>
                     </div>
                 </div>
-
-                <div id="slide-1"
-                    class="slide w-full flex-shrink-0 bg-green-900 bg-gradient-to-r from-green-900 to-green-800 rounded-lg overflow-hidden">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="w-full md:w-2/5 p-4">
-                            <img src="images/konten_satu.jpg" alt="Alumni Sukses" class="w-full h-64 object-cover">
-                        </div>
-                        <div class="w-full md:w-3/5 p-6 text-white text-center md:text-left">
-                            <h2 class="text-xl md:text-3xl font-bold mb-2">Ikuti Jejak Alumni Kami</h2>
-                            <h1
-                                class="text-2xl md:text-5xl font-extrabold text-yellow-400 leading-tight mb-6 drop-shadow-md">
-                                Ratusan Siswa Diterima di PKN STAN & IPDN!
-                            </h1>
-                            <a href="#"
-                                class="inline-block bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-3 px-6 md:px-8 rounded-full transition duration-300 transform hover:-translate-y-1">
-                                Lihat Testimoni
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="slide-2"
-                    class="slide w-full flex-shrink-0 bg-purple-900 bg-gradient-to-r from-purple-900 to-purple-800 rounded-lg overflow-hidden">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="w-full md:w-2/5 p-4">
-                            <img src="images/konten_dua.jpeg" alt="Tim Pengajar" class="w-full h-64 object-cover">
-                        </div>
-                        <div class="w-full md:w-3/5 p-6 text-white text-center md:text-left">
-                            <h2 class="text-xl md:text-3xl font-bold mb-2">Diajar Oleh Tim Terbaik</h2>
-                            <h1
-                                class="text-2xl md:text-5xl font-extrabold text-yellow-400 leading-tight mb-6 drop-shadow-md">
-                                Tutor Lulusan Kampus Top & Sekolah Kedinasan!
-                            </h1>
-                            <a href="#"
-                                class="inline-block bg-yellow-400 hover:bg-yellow-500 text-purple-900 font-bold py-3 px-6 md:px-8 rounded-full transition duration-300 transform hover:-translate-y-1">
-                                Kenali Pengajar Kami
-                            </a>
-                        </div>
-                    </div>
+                <div
+                    class="lg:col-span-5 w-full rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-500">
+                    <iframe class="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px] rounded-xl"
+                        src="https://www.youtube.com/embed/Jn7vuXLozJI?autoplay=1&mute=1" frameborder="0"
+                        allowfullscreen></iframe>
                 </div>
             </div>
         </div>
+    </main>
+    {{-- End Tampilan Home --}}
 
-        <div class="flex justify-center mt-4 space-x-2">
-            <button class="dot w-3 h-3 bg-blue-900 rounded-full active" data-slide="0"></button>
-            <button class="dot w-3 h-3 bg-blue-900 bg-opacity-50 rounded-full" data-slide="1"></button>
-            <button class="dot w-3 h-3 bg-blue-900 bg-opacity-50 rounded-full" data-slide="2"></button>
-        </div>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const carousel = document.getElementById("banner-carousel");
-                const slides = document.querySelectorAll(".slide");
-                const dots = document.querySelectorAll(".dot");
-                let currentIndex = 0;
-                const totalSlides = slides.length;
-
-                function updateCarousel() {
-                    const offset = -currentIndex * 100;
-                    carousel.style.transform = `translateX(${offset}%)`;
-
-                    // Update dot active state
-                    dots.forEach(dot => dot.classList.remove("bg-opacity-100", "active"));
-                    dots[currentIndex].classList.add("bg-opacity-100", "active");
-                }
-
-                document.getElementById("prevBtn").addEventListener("click", function() {
-                    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                    updateCarousel();
-                });
-
-                document.getElementById("nextBtn").addEventListener("click", function() {
-                    currentIndex = (currentIndex + 1) % totalSlides;
-                    updateCarousel();
-                });
-
-                dots.forEach((dot, index) => {
-                    dot.addEventListener("click", function() {
-                        currentIndex = index;
-                        updateCarousel();
-                    });
-                });
-
-                setInterval(function() {
-                    currentIndex = (currentIndex + 1) % totalSlides;
-                    updateCarousel();
-                }, 5000);
-            });
-        </script>
-    </section>
-    {{-- End Banner --}}
-
-    {{-- Diskon --}}
-    <section class="py-16 px-4 md:px-8 lg:px-16 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <!-- Enhanced Header with Animation -->
-            <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 animate-pulse"
-                    style="background: linear-gradient(90deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%); 
-                    -webkit-background-clip: text; background-clip: text; color: transparent; 
-                    text-shadow: 0px 2px 15px rgba(59, 130, 246, 0.3);">
-                    PROMO SPESIAL TLC!
+    {{-- Apa yang akan Guru Dapatkan? --}}
+    <section class="max-w-7xl mx-auto px-6 sm:px-8 py-16 sm:py-20 bg-white">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-14">
+            <div class="md:w-1/3 text-center md:text-left">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-gray-800">
+                    Apa yang akan Guru Dapatkan?
                 </h2>
-                <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-medium">
-                    Penawaran eksklusif dengan harga terbaik hanya untukmu!
-                </p>
-                <div class="flex justify-center mt-4">
-                    <div class="w-32 h-1 bg-blue-500 rounded-full"></div>
-                </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
-                <!-- Enhanced Promo Card 1 -->
-                <div class="relative group transform transition duration-500 hover:scale-105">
+            <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <!-- Box 1 -->
+                <div
+                    class="flex items-start bg-white p-6 rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-purple-200 cursor-pointer group">
                     <div
-                        class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl opacity-75 
-                        group-hover:opacity-90 transition duration-300 blur-lg group-hover:blur-xl animate-pulse">
+                        class="bg-purple-500 p-3 rounded-full mr-4 shadow-md group-hover:scale-110 transition-all duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4v1m0 14v1m8-8h1M4 12H3m15.364-6.364l.707.707M6.343 17.657l-.707.707m12.728 0l.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                        </svg>
                     </div>
-                    <div class="relative bg-white rounded-3xl overflow-hidden shadow-2xl border border-blue-100">
-                        <div class="absolute -top-1 -right-1">
-                            <div
-                                class="bg-gradient-to-r from-blue-700 to-blue-500 text-white px-8 py-2 
-                                transform rotate-12 shadow-lg font-bold text-lg">
-                                DISKON 48%</div>
-                        </div>
-                        <div class="p-6 pt-10 text-center flex flex-col h-full">
-                            <div class="relative mb-6 overflow-hidden rounded-xl shadow-lg">
-                                <img src="images/ss.png" alt="Paket 1 Tahun"
-                                    class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                            </div>
-                            <div class="mb-6 flex-1">
-                                <h3
-                                    class="text-2xl md:text-3xl font-bold text-blue-600 mb-2 group-hover:text-blue-700 transition">
-                                    Paket 1 Tahun + GRATIS
-                                </h3>
-                                <h4 class="text-xl text-blue-500 font-semibold mb-3">Semester Genap</h4>
-                                <p class="text-gray-600 text-lg">
-                                    Potongan mulai dari <span class="line-through text-red-400">Rp 8.100.000</span>
-                                </p>
-                                <p class="text-gray-800 text-xl font-bold">
-                                    Hemat hingga Rp 3.900.000!
-                                </p>
-                            </div>
-                            <button
-                                class="relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white 
-                                px-8 py-4 rounded-full text-lg font-bold transform transition duration-300 
-                                hover:shadow-lg hover:shadow-blue-500/50">
-                                <span class="relative z-10">KLAIM SEKARANG</span>
-                                <span
-                                    class="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 transform scale-x-0 
-                                    group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
-                            </button>
-                        </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2 text-purple-600 group-hover:text-purple-700">
+                            3 Event (Semnas, Praktik Baik, Diknas 32JP)
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            3 Event Guru dapatkan setiap bulannya, untuk pengembangan diri guru.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Enhanced Promo Card 2 -->
-                <div class="relative group transform transition duration-500 hover:scale-105">
+                <!-- Box 2 -->
+                <div
+                    class="flex items-start bg-white p-6 rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-blue-200 cursor-pointer group">
                     <div
-                        class="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-3xl opacity-75 
-                        group-hover:opacity-90 transition duration-300 blur-lg group-hover:blur-xl animate-pulse">
+                        class="bg-blue-500 p-3 rounded-full mr-4 shadow-md group-hover:scale-110 transition-all duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M4 6h16M4 18h16M4 12h8" />
+                        </svg>
                     </div>
-                    <div class="relative bg-white rounded-3xl overflow-hidden shadow-2xl border border-green-100">
-                        <div class="absolute -top-1 -right-1">
-                            <div
-                                class="bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-2 
-                                transform rotate-12 shadow-lg font-bold text-lg">
-                                KUPON</div>
-                        </div>
-                        <div class="p-6 pt-10 text-center flex flex-col h-full">
-                            <div class="relative mb-6 overflow-hidden rounded-xl shadow-lg">
-                                <img src="images/ss3.png" alt="Siswa Berprestasi"
-                                    class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                            </div>
-                            <div class="mb-6 flex-1">
-                                <h3
-                                    class="text-2xl md:text-3xl font-bold text-green-600 mb-2 group-hover:text-green-700 transition">
-                                    Siswa Berprestasi
-                                </h3>
-                                <h4 class="text-xl text-green-500 font-semibold mb-3">Diskon Khusus</h4>
-                                <p class="text-gray-600 text-lg">
-                                    Potongan Tambahan Spesial
-                                </p>
-                                <p class="text-gray-800 text-xl font-bold">
-                                    Hingga Rp 750.000!
-                                </p>
-                            </div>
-                            <button
-                                class="relative overflow-hidden bg-gradient-to-r from-green-600 to-green-500 text-white 
-                                px-8 py-4 rounded-full text-lg font-bold transform transition duration-300 
-                                hover:shadow-lg hover:shadow-green-500/50">
-                                <span class="relative z-10">KLAIM SEKARANG</span>
-                                <span
-                                    class="absolute inset-0 bg-gradient-to-r from-green-700 to-green-600 transform scale-x-0 
-                                    group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Enhanced Promo Card 3 -->
-                <div class="relative group transform transition duration-500 hover:scale-105">
-                    <div
-                        class="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-indigo-400 rounded-3xl opacity-75 
-                        group-hover:opacity-90 transition duration-300 blur-lg group-hover:blur-xl animate-pulse">
-                    </div>
-                    <div class="relative bg-white rounded-3xl overflow-hidden shadow-2xl border border-indigo-100">
-                        <div class="absolute -top-1 -right-1">
-                            <div
-                                class="bg-gradient-to-r from-indigo-700 to-indigo-500 text-white px-8 py-2 
-                                transform rotate-12 shadow-lg font-bold text-lg">
-                                DISKON 25%</div>
-                        </div>
-                        <div class="p-6 pt-10 text-center flex flex-col h-full">
-                            <div class="relative mb-6 overflow-hidden rounded-xl shadow-lg">
-                                <img src="images/ss2.png" alt="Diskon Anak Guru"
-                                    class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                            </div>
-                            <div class="mb-6 flex-1">
-                                <h3
-                                    class="text-2xl md:text-3xl font-bold text-indigo-600 mb-2 group-hover:text-indigo-700 transition">
-                                    Diskon Anak Guru
-                                </h3>
-                                <h4 class="text-xl text-indigo-500 font-semibold mb-3">Penghargaan Spesial</h4>
-                                <p class="text-gray-600 text-lg">
-                                    Potongan Tambahan Eksklusif
-                                </p>
-                                <p class="text-gray-800 text-xl font-bold">
-                                    Hingga 25% Tambahan!
-                                </p>
-                            </div>
-                            <button
-                                class="relative overflow-hidden bg-gradient-to-r from-indigo-600 to-indigo-500 text-white 
-                                px-8 py-4 rounded-full text-lg font-bold transform transition duration-300 
-                                hover:shadow-lg hover:shadow-indigo-500/50">
-                                <span class="relative z-10">KLAIM SEKARANG</span>
-                                <span
-                                    class="absolute inset-0 bg-gradient-to-r from-indigo-700 to-indigo-600 transform scale-x-0 
-                                    group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
-                            </button>
-                        </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2 text-blue-600 group-hover:text-blue-700">Rekaman Sesi
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Akses rekaman pelatihan jika tidak bisa hadir langsung.
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Added Call to Action -->
-            <div class="mt-12 text-center">
-                <p class="text-xl text-gray-700 mb-4">Jangan lewatkan kesempatan terbatas ini!</p>
-                <div class="inline-block relative group">
-                    <div
-                        class="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full opacity-70 
-                        group-hover:opacity-100 blur-sm group-hover:blur-md transition duration-300">
-                    </div>
-                    <button
-                        class="relative bg-white px-8 py-4 rounded-full text-xl font-bold 
-                        bg-gradient-to-r from-pink-600 to-purple-600 text-white transform transition duration-300 
-                        hover:scale-105 active:scale-95">
-                        DAFTAR SEKARANG
-                    </button>
+        <!-- 3 Box Bawah -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Box 3 -->
+            <div
+                class="flex items-start bg-white p-6 rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-orange-200 cursor-pointer group">
+                <div
+                    class="bg-orange-500 p-3 rounded-full mr-4 shadow-md group-hover:scale-110 transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-white" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5V4H2v16h5m10 0V4m-6 4h.01M12 16h.01M8 12h.01M16 12h.01" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2 text-orange-600 group-hover:text-orange-700">Relasi Guru
+                        Indonesia</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Ribuan guru tergabung dengan kami, dapatkan relasi dari seluruh Indonesia.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Box 4 -->
+            <div
+                class="flex items-start bg-white p-6 rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-yellow-200 cursor-pointer group">
+                <div
+                    class="bg-yellow-500 p-3 rounded-full mr-4 shadow-md group-hover:scale-110 transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-white" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 13l4 4L19 7M12 4v16m8-8H4" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2 text-yellow-600 group-hover:text-yellow-700">KTA Member TLC
+                        Program</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Anggota mendapatkan identitas berupa Kartu Digital.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Box 5 -->
+            <div
+                class="flex items-start bg-white p-6 rounded-2xl hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-green-200 cursor-pointer group">
+                <div
+                    class="bg-green-500 p-3 rounded-full mr-4 shadow-md group-hover:scale-110 transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-white" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8c-1.657 0-3 1.343-3 3 0 .795.312 1.519.818 2.049L12 18l2.182-4.951A2.993 2.993 0 0015 11c0-1.657-1.343-3-3-3z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2 text-green-600 group-hover:text-green-700">Sertifikasi Resmi
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Diakui oleh lembaga pendidikan terpercaya.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-    {{-- End Diskon --}}
+    {{-- End guru dapatkan --}}
 
-    {{-- Langkah Mudah --}}
-    <section id="start" class="py-16 px-4">
-        <div class="max-w-7xl mx-auto">
+    {{-- Alur Pendaftaraan --}}
+    <section class="relative w-full px-5 py-16 overflow-hidden">
+        <div class="max-w-6xl mx-auto relative">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 relative inline-block">
-                    Langkah Mudah Belajar di Teaching & Learning Certification
-                    <div
-                        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-blue-500 rounded-full mt-2">
-                    </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-black mb-4 animate__animated animate__fadeInDown">
+                    Segera Daftarkan Diri Anda Di TLC
                 </h2>
+                <p class="text-gray-600 text-md max-w-2xl mx-auto animate__animated animate__fadeIn">
+                    Berikut Ini Langkah Mudah Pendaftaran Teaching & Learning Certification
+                </p>
             </div>
 
-            <!-- Tab Navigation -->
-            <div class="flex flex-wrap justify-center mb-12 gap-3">
-                <button
-                    class="px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 hover-up">
-                    <i class="fas fa-unlock-alt mr-2"></i> Sesi Terbuka
-                </button>
-                <button
-                    class="px-8 py-3 bg-gray-200 text-gray-700 font-semibold rounded-full shadow-md border transition-all duration-300 hover:shadow-lg focus:outline-none hover-up">
-                    <i class="fas fa-lock mr-2"></i> Sesi Terkunci
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Image with Overlay -->
-                <div class="relative group overflow-hidden rounded-3xl shadow-2xl hover-up">
-                    <img src="images/konten_satu.jpg" alt="Student Learning"
-                        class="w-full h-auto rounded-3xl transition-transform duration-700 ease-in-out group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-70"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-xl font-bold mb-2">Belajar Lebih Efektif</h3>
-                        <p class="text-blue-100">Dapatkan pengalaman belajar yang personal dengan metode yang tepat</p>
-                    </div>
+            <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#4DB5D9]/10 to-[#4DB5D9]/20 rounded-3xl blur-2xl">
                 </div>
 
-                <!-- Steps Container -->
-                <div class="relative">
-                    <div
-                        class="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 to-blue-400 rounded-full hidden sm:block">
-                    </div>
-
+                <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Step 1 -->
-                    <div class="relative flex items-start mb-8 group">
-                        <div
-                            class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white font-bold rounded-full shadow-lg z-10 transition-all duration-300 group-hover:scale-110 pulse-effect">
-                            1
+                    <div class="group">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-2 bg-[#4DB5D9]/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out blur-lg">
+                            </div>
+                            <div
+                                class="relative z-10 w-28 h-28 md:w-36 md:h-36 mx-auto bg-white shadow-2xl border-4 border-[#4DB5D9] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                                <span
+                                    class="text-5xl md:text-6xl font-bold text-[#4DB5D9] transition-all duration-300 group-hover:text-7xl">1</span>
+                            </div>
                         </div>
-                        <div
-                            class="ml-6 bg-white p-5 rounded-xl shadow-lg w-full transition-all duration-300 step-transition border-l-4 border-blue-600">
-                            <h3 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <i class="fas fa-shopping-cart text-blue-600 mr-2"></i>
-                                Pilih paket sesuai kebutuhan kamu
-                            </h3>
-                            <p class="text-gray-600 mt-2">Lakukan pembayaran untuk paket mata pelajaran yang kamu pilih
-                                dengan berbagai metode pembayaran</p>
+                        <div class="text-center mt-6">
+                            <h3
+                                class="text-lg md:text-xl font-bold text-[#4DB5D9] mb-3 group-hover:text-[#4DB5D9]/80 transition-colors">
+                                Daftar Akun</h3>
+                            <p
+                                class="text-gray-600 px-4 group-hover:text-gray-800 transition-colors text-sm md:text-base">
+                                Lakukan registrasi akun lalu lengkapi profil dan lakukan pemesanan Paket.
+                            </p>
                         </div>
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="relative flex items-start mb-8 group">
-                        <div
-                            class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white font-bold rounded-full shadow-lg z-10 transition-all duration-300 group-hover:scale-110">
-                            2
+                    <div class="group">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-2 bg-[#4DB5D9]/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out blur-lg">
+                            </div>
+                            <div
+                                class="relative z-10 w-28 h-28 md:w-36 md:h-36 mx-auto bg-white shadow-2xl border-4 border-[#4DB5D9] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                                <span
+                                    class="text-5xl md:text-6xl font-bold text-[#4DB5D9] transition-all duration-300 group-hover:text-7xl">2</span>
+                            </div>
                         </div>
-                        <div
-                            class="ml-6 bg-white p-5 rounded-xl shadow-lg w-full transition-all duration-300 step-transition border-l-4 border-blue-600">
-                            <h3 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <i class="fas fa-calendar-alt text-blue-600 mr-2"></i>
-                                Pesan sesi di Teaching & Learning Certification
-                            </h3>
-                            <p class="text-gray-600 mt-2">
-                                Kamu bisa bebas pilih pengajar dan waktu belajar kamu. Pastikan kamu pesan sesi H-3
-                                sebelum mulai belajar ya!
+                        <div class="text-center mt-6">
+                            <h3
+                                class="text-lg md:text-xl font-bold text-[#4DB5D9] mb-3 group-hover:text-[#4DB5D9]/80 transition-colors">
+                                Konfirmasi</h3>
+                            <p
+                                class="text-gray-600 px-4 group-hover:text-gray-800 transition-colors text-sm md:text-base">
+                                Admin TLC akan menghubungi kamu dan proses pemesanan kamu.
                             </p>
                         </div>
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="relative flex items-start mb-8 group">
-                        <div
-                            class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white font-bold rounded-full shadow-lg z-10 transition-all duration-300 group-hover:scale-110">
-                            3
+                    <div class="group">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-2 bg-[#4DB5D9]/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out blur-lg">
+                            </div>
+                            <div
+                                class="relative z-10 w-28 h-28 md:w-36 md:h-36 mx-auto bg-white shadow-2xl border-4 border-[#4DB5D9] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                                <span
+                                    class="text-5xl md:text-6xl font-bold text-[#4DB5D9] transition-all duration-300 group-hover:text-7xl">3</span>
+                            </div>
                         </div>
-                        <div
-                            class="ml-6 bg-white p-5 rounded-xl shadow-lg w-full transition-all duration-300 step-transition border-l-4 border-blue-600">
-                            <h3 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <i class="fas fa-check-circle text-blue-600 mr-2"></i>
-                                Konfirmasi pengajar pilihanmu
-                            </h3>
-                            <p class="text-gray-600 mt-2">
-                                Konfirmasi akan kamu terima melalui email maksimal 2×24 jam setelah sesi dipesan
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="relative flex items-start group">
-                        <div
-                            class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white font-bold rounded-full shadow-lg z-10 transition-all duration-300 group-hover:scale-110">
-                            4
-                        </div>
-                        <div
-                            class="ml-6 bg-white p-5 rounded-xl shadow-lg w-full transition-all duration-300 step-transition border-l-4 border-blue-600">
-                            <h3 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
-                                Mulai sesi belajar dengan Pengajar
-                            </h3>
-                            <p class="text-gray-600 mt-2">
-                                Kamu bisa mulai sesi belajar sesuai waktu sesi yang kamu pesan
+                        <div class="text-center mt-6">
+                            <h3
+                                class="text-lg md:text-xl font-bold text-[#4DB5D9] mb-3 group-hover:text-[#4DB5D9]/80 transition-colors">
+                                Pilih Paket</h3>
+                            <p
+                                class="text-gray-600 px-4 group-hover:text-gray-800 transition-colors text-sm md:text-base">
+                                Admin TLC akan menginformasikan ke kamu jika sudah ada pilih yang dapat.
                             </p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Garis lengkung -->
+                <svg class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full z-0"
+                    viewBox="0 0 1200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 100C100 100 300 50 600 100C900 150 1100 100 1100 100" stroke="#4DB5D9"
+                        stroke-width="4" stroke-linecap="round" class="animate__animated animate__fadeIn">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="text-center mt-16">
+                <button
+                    class="px-8 py-3 bg-[#4DB5D9] text-white text-lg font-semibold rounded-full transform transition-all duration-300 hover:scale-105 hover:bg-[#4DB5D9]/90 active:scale-95 shadow-xl hover:shadow-2xl">
+                    Pesan Sekarang
+                </button>
+            </div>
+
+            <div class="text-center mt-8 text-sm text-gray-500 italic animate__animated animate__fadeIn">
+                Pendaftaran terbuka setiap saat paling lambat 2 hari sebelum program dimulai
             </div>
         </div>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-            * {
-                font-family: 'Poppins', sans-serif;
-            }
-
-            .bg-gradient-blue {
-                background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
-            }
-
-            .bg-gradient-orange {
-                background: linear-gradient(135deg, #FF8000 0%, #FF9E2A 100%);
-            }
-
-            .pulse-effect {
-                animation: pulse 2s infinite;
-            }
-
-            @keyframes pulse {
-                0% {
-                    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
-                }
-
-                70% {
-                    box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
-                }
-
-                100% {
-                    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
-                }
-            }
-
-            .hover-up {
-                transition: transform 0.3s ease;
-            }
-
-            .hover-up:hover {
-                transform: translateY(-5px);
-            }
-
-            .step-transition {
-                transition: all 0.3s ease;
-            }
-
-            .step-transition:hover {
-                transform: translateX(5px);
-            }
-        </style>
+        <script>
+            document.querySelectorAll('.group').forEach(group => {
+                group.addEventListener('mouseenter', () => {
+                    const number = group.querySelector('span');
+                    number.classList.add('animate__animated', 'animate__pulse');
+                    setTimeout(() => {
+                        number.classList.remove('animate__animated', 'animate__pulse');
+                    }, 1000);
+                });
+            });
+        </script>
     </section>
-    {{-- End Langkah Mudah --}}
+    {{-- End Pendaftaraan --}}
 
     {{-- Paket TLC --}}
-    <section class="relative bg-white min-h-screen flex items-center py-8 md:py-16 overflow-hidden">
-        <!-- Subtle Decorative Background Elements - Responsive sizing -->
-        <div
-            class="absolute -top-20 -left-20 w-64 h-64 md:w-96 md:h-96 bg-gray-100 rounded-full opacity-50 blur-3xl animate-pulse">
-        </div>
-        <div
-            class="absolute -bottom-20 -right-20 w-64 h-64 md:w-96 md:h-96 bg-gray-100 rounded-full opacity-50 blur-3xl animate-pulse animation-delay-4000">
-        </div>
+    <section class="w-full py-16 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Animated Header -->
+            <div class="relative mb-12">
+                <div
+                    class="absolute -inset-0.5 bg-gradient-to-r from-sky-200 to-cyan-200 rounded-xl blur-lg opacity-75 animate-pulse">
+                </div>
+                <div class="relative bg-white/90 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-2xl">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <h2
+                            class="text-2xl sm:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-cyan-600 tracking-tight">
+                            Teaching & Learning Certification
+                        </h2>
+                        <a href="#"
+                            class="group flex items-center text-blue-600 hover:text-blue-800 transition-all duration-300 transform hover:scale-105">
+                            <span class="text-base sm:text-xl font-bold mr-2 sm:mr-3 tracking-wide">Explore All</span>
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-all">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-        <div class="container mx-auto px-4 sm:px-6 relative z-10">
-            <div class="text-center mb-8 md:mb-16 px-2">
-                <div class="inline-block relative mb-2 md:mb-4">
+            <!-- Category Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12">
+                <button
+                    class="px-6 sm:px-8 py-2 sm:py-3 bg-white text-blue-800 rounded-full shadow-xl border-2 border-blue-200 hover:border-blue-400 transition-all duration-300 transform hover:scale-105 relative overflow-hidden text-sm sm:text-base">
+                    <span class="relative z-10">PAKET A</span>
                     <span
-                        class="absolute -inset-1 bg-gray-200 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></span>
-                    <h1
-                        class="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 mb-2 md:mb-4 transform transition duration-300 hover:scale-105">
-                        Paket Sertifikasi
-                    </h1>
-                </div>
-                <p
-                    class="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto opacity-90 hover:opacity-100 transition font-medium px-2">
-                    Tingkatkan potensi mengajar Anda dengan jalur sertifikasi yang dirancang oleh para ahli
-                </p>
+                        class="absolute inset-0 bg-blue-100 opacity-0 hover:opacity-20 transition-all duration-300"></span>
+                </button>
+                <button
+                    class="px-6 sm:px-8 py-2 sm:py-3 bg-white text-cyan-800 rounded-full shadow-xl border-2 border-cyan-200 hover:border-cyan-400 transition-all duration-300 transform hover:scale-105 relative overflow-hidden text-sm sm:text-base">
+                    <span class="relative z-10">PAKET B</span>
+                    <span
+                        class="absolute inset-0 bg-cyan-100 opacity-0 hover:opacity-20 transition-all duration-300"></span>
+                </button>
+                <button
+                    class="px-6 sm:px-8 py-2 sm:py-3 bg-white text-sky-800 rounded-full shadow-xl border-2 border-sky-200 hover:border-sky-400 transition-all duration-300 transform hover:scale-105 relative overflow-hidden text-sm sm:text-base">
+                    <span class="relative z-10">PAKET C</span>
+                    <span
+                        class="absolute inset-0 bg-sky-100 opacity-0 hover:opacity-20 transition-all duration-300"></span>
+                </button>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 perspective-1000">
-                <!-- Paket A -->
-                <div class="card-3d-container mb-4 sm:mb-0">
-                    <div
-                        class="relative bg-white border-2 border-gray-100 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl p-5 md:p-8 transform transition duration-500 hover:scale-105 hover:rotate-1 hover:shadow-gray-400/30 group overflow-hidden">
-                        <!-- Subtle Gradient Border -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-2xl md:rounded-3xl">
-                        </div>
-
-                        <!-- Subtle Glow Effect -->
-                        <div
-                            class="absolute -inset-1 bg-gradient-to-r from-gray-200 to-gray-300 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-50 blur-lg transition-opacity duration-500 group-hover:animate-pulse">
-                        </div>
-
-                        <div class="relative z-10">
-                            <div
-                                class="absolute top-0 right-0 -mt-2 -mr-2 md:-mt-4 md:-mr-4 w-12 h-12 md:w-20 md:h-20 bg-gray-200 rotate-12 opacity-40 rounded-lg group-hover:rotate-45 transition-transform duration-500">
+            <!-- Course Cards -->
+            <div
+                class="flex space-x-6 sm:space-x-8 overflow-x-auto pb-6 sm:pb-10 px-2 sm:px-4 course-scroll snap-x snap-mandatory">
+                <!-- CARD TEMPLATE (Repeat for each card) -->
+                <div
+                    class="min-w-[85%] sm:min-w-[22rem] md:min-w-[24rem] bg-white rounded-3xl overflow-hidden shadow-2xl border-4 border-blue-100 hover:border-blue-300 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 relative snap-start">
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="bg-sky-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                            Popular
+                        </span>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 opacity-75"></div>
+                        <img src="images/buku1.png" class="w-full h-48 sm:h-64 object-cover" alt="Course Image">
+                    </div>
+                    <div class="p-4 sm:p-6 -mt-12 sm:-mt-16 relative z-20">
+                        <h3
+                            class="text-lg sm:text-2xl font-bold text-[#1D2659] mb-2 sm:mb-3 drop-shadow-sm bg-white/70 px-2 py-1 rounded-lg inline-block">
+                            Mengajar efektif menggunakan PCK
+                        </h3>
+                        <div class="flex items-center mb-3 sm:mb-4">
+                            <img src="images/hamas.png"
+                                class="w-10 h-10 sm:w-14 sm:h-14 rounded-full mr-3 sm:mr-4 border-3 border-white shadow-lg"
+                                alt="Instructor">
+                            <div>
+                                <p
+                                    class="font-semibold text-[#1D2659] text-sm sm:text-lg drop-shadow-sm bg-white/70 px-2 py-0.5 rounded-lg inline-block">
+                                    Meutia Azzura</p>
+                                <p
+                                    class="text-gray-700 text-xs sm:text-sm drop-shadow-sm bg-white/70 px-2 py-0.5 rounded-lg inline-block mt-1">
+                                    Content Writer</p>
                             </div>
-
-                            <div class="flex justify-between items-center mb-3 md:mb-6">
-                                <h2
-                                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 transition transform group-hover:translate-x-2">
-                                    Paket A
-                                </h2>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-500">
+                                <span class="text-xl sm:text-3xl">★★★★★</span>
                                 <span
-                                    class="bg-gray-100 text-gray-700 px-2 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-md">Dasar</span>
+                                    class="ml-2 sm:ml-3 text-[#1D2659] font-bold text-sm sm:text-lg bg-white/70 px-2 py-0.5 rounded-lg">4.9</span>
                             </div>
-
-                            <h3
-                                class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-700 mb-3 md:mb-6 opacity-90 group-hover:opacity-100 transition">
-                                Sertifikasi Pengetahuan Mengajar
-                            </h3>
-
-                            <div class="space-y-2 md:space-y-4 mb-4 md:mb-8">
-                                <div
-                                    class="flex items-center transform transition group-hover:-translate-x-2 p-1 md:p-2 rounded-lg group-hover:bg-gray-50">
-                                    <span class="text-gray-700 mr-2 md:mr-3 text-base md:text-xl">✓</span>
-                                    <span class="text-base md:text-lg lg:text-xl font-medium text-gray-700">Dasar-Dasar
-                                        Mengajar Modern</span>
-                                </div>
-                                <div
-                                    class="flex items-center transform transition group-hover:-translate-x-2 p-1 md:p-2 rounded-lg group-hover:bg-gray-50">
-                                    <span class="text-gray-700 mr-2 md:mr-3 text-base md:text-xl">✓</span>
-                                    <span class="text-base md:text-lg lg:text-xl font-medium text-gray-700">Strategi
-                                        Keterlibatan Siswa</span>
-                                </div>
-                                <div
-                                    class="flex items-center transform transition group-hover:-translate-x-2 p-1 md:p-2 rounded-lg group-hover:bg-gray-50">
-                                    <span class="text-gray-700 mr-2 md:mr-3 text-base md:text-xl">✓</span>
-                                    <span class="text-base md:text-lg lg:text-xl font-medium text-gray-700">Teknik
-                                        Penilaian</span>
-                                </div>
-                            </div>
-
-                            <button
-                                class="w-full bg-gray-800 text-white py-2 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-gray-900 transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-400/50 active:scale-95 group-hover:bg-opacity-90">
-                                Pilih Paket
-                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Paket B -->
-                <div class="card-3d-container mb-4 sm:mb-0">
-                    <div
-                        class="relative bg-white border-2 border-gray-100 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl p-5 md:p-8 transform transition duration-500 hover:scale-105 hover:-rotate-1 hover:shadow-gray-400/30 group overflow-hidden">
-                        <!-- Subtle Gradient Border -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-2xl md:rounded-3xl">
-                        </div>
-
-                        <!-- Subtle Glow Effect -->
-                        <div
-                            class="absolute -inset-1 bg-gradient-to-r from-gray-200 to-gray-300 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-50 blur-lg transition-opacity duration-500 group-hover:animate-pulse">
-                        </div>
-
-                        <div
-                            class="absolute top-0 left-0 -mt-3 -ml-3 md:-mt-6 md:-ml-6 w-16 h-16 md:w-24 md:h-24 bg-gray-200 rounded-full opacity-40 group-hover:scale-150 transition-transform duration-700">
-                        </div>
-
-                        <div class="relative z-10">
-                            <div
-                                class="absolute top-0 right-0 -mt-2 -mr-2 md:-mt-4 md:-mr-4 w-12 h-12 md:w-20 md:h-20 bg-gray-200 rotate-12 opacity-40 rounded-lg group-hover:rotate-45 transition-transform duration-500">
+                <!-- CARD 2 -->
+                <div
+                    class="min-w-[85%] sm:min-w-[22rem] md:min-w-[24rem] bg-white rounded-3xl overflow-hidden shadow-2xl border-4 border-cyan-100 hover:border-cyan-300 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 relative snap-start">
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="bg-cyan-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                            Best Seller
+                        </span>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 opacity-75"></div>
+                        <img src="images/buku2.png" class="w-full h-48 sm:h-64 object-cover" alt="Course Image">
+                    </div>
+                    <div class="p-4 sm:p-6 -mt-12 sm:-mt-16 relative z-20">
+                        <h3
+                            class="text-lg sm:text-2xl font-bold text-[#1D2659] mb-2 sm:mb-3 drop-shadow-sm bg-white/70 px-2 py-1 rounded-lg inline-block">
+                            Merancang kemampuan berpikir kritis dalam pengajaran
+                        </h3>
+                        <div class="flex items-center mb-3 sm:mb-4">
+                            <img src="images/hamas.png"
+                                class="w-10 h-10 sm:w-14 sm:h-14 rounded-full mr-3 sm:mr-4 border-3 border-white shadow-lg"
+                                alt="Instructor">
+                            <div>
+                                <p
+                                    class="font-semibold text-[#1D2659] text-sm sm:text-lg drop-shadow-sm bg-white/70 px-2 py-0.5 rounded-lg inline-block">
+                                    Carissa Mashinta</p>
+                                <p
+                                    class="text-gray-700 text-xs sm:text-sm drop-shadow-sm bg-white/70 px-2 py-0.5 rounded-lg inline-block mt-1">
+                                    E-Commerce Manager</p>
                             </div>
-
-                            <div class="flex justify-between items-center mb-3 md:mb-6">
-                                <h2
-                                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 transition transform group-hover:translate-x-2">
-                                    Paket B
-                                </h2>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-500">
+                                <span class="text-xl sm:text-3xl">★★★★★</span>
                                 <span
-                                    class="bg-gray-100 text-gray-700 px-2 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-md">Menengah</span>
+                                    class="ml-2 sm:ml-3 text-[#1D2659] font-bold text-sm sm:text-lg bg-white/70 px-2 py-0.5 rounded-lg">5.0</span>
                             </div>
-
-                            <h3
-                                class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-700 mb-3 md:mb-6 opacity-90 group-hover:opacity-100 transition">
-                                Sertifikasi Aktivasi Mengajar
-                            </h3>
-
-                            <div class="space-y-2 md:space-y-4 mb-4 md:mb-8">
-                                <div
-                                    class="flex items-center transform transition group-hover:-translate-x-2 p-1 md:p-2 rounded-lg group-hover:bg-gray-50">
-                                    <span class="text-gray-700 mr-2 md:mr-3 text-base md:text-xl">✓</span>
-                                    <span class="text-base md:text-lg lg:text-xl font-medium text-gray-700">Pendekatan
-                                        Pedagogi Lanjutan</span>
-                                </div>
-                                <div
-                                    class="flex items-center transform transition group-hover:-translate-x-2 p-1 md:p-2 rounded-lg group-hover:bg-gray-50">
-                                    <span class="text-gray-700 mr-2 md:mr-3 text-base md:text-xl">✓</span>
-                                    <span class="text-base md:text-lg lg:text-xl font-medium text-gray-700">Integrasi
-                                        Teknologi</span>
-                                </div>
-                                <div
-                                    class="flex items-center transform transition group-hover:-translate-x-2 p-1 md:p-2 rounded-lg group-hover:bg-gray-50">
-                                    <span class="text-gray-700 mr-2 md:mr-3 text-base md:text-xl">✓</span>
-                                    <span class="text-base md:text-lg lg:text-xl font-medium text-gray-700">Praktik
-                                        Kelas Inklusif</span>
-                                </div>
-                            </div>
-
-                            <button
-                                class="w-full bg-gray-800 text-white py-2 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-gray-900 transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-400/50 active:scale-95 group-hover:bg-opacity-90">
-                                Pilih Paket
-                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Paket C -->
-                <div class="card-3d-container">
-                    <div
-                        class="relative bg-white border-2 border-gray-100 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl p-5 md:p-8 transform transition duration-500 hover:scale-105 hover:rotate-1 hover:shadow-gray-400/30 group overflow-hidden">
-                        <!-- Subtle Gradient Border -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-2xl md:rounded-3xl">
-                        </div>
-
-                        <!-- Subtle Glow Effect -->
-                        <div
-                            class="absolute -inset-1 bg-gradient-to-r from-gray-200 to-gray-300 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-50 blur-lg transition-opacity duration-500 group-hover:animate-pulse">
-                        </div>
-
-                        <div
-                            class="absolute bottom-0 right-0 -mb-3 -mr-3 md:-mb-6 md:-mr-6 w-16 h-16 md:w-24 md:h-24 bg-gray-200 rounded-full opacity-40 group-hover:scale-150 transition-transform duration-700">
-                        </div>
-
-                        <div class="relative z-10">
-                            <div
-                                class="absolute top-0 right-0 -mt-2 -mr-2 md:-mt-4 md:-mr-4 w-12 h-12 md:w-20 md:h-20 bg-gray-200 rotate-12 opacity-40 rounded-lg group-hover:rotate-45 transition-transform duration-500">
+                <!-- CARD 3 -->
+                <div
+                    class="min-w-[85%] sm:min-w-[22rem] md:min-w-[24rem] bg-white rounded-3xl overflow-hidden shadow-2xl border-4 border-sky-100 hover:border-sky-300 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 relative snap-start">
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="bg-sky-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                            Trending
+                        </span>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 opacity-75"></div>
+                        <img src="images/buku3.png" class="w-full h-48 sm:h-64 object-cover" alt="Course Image">
+                    </div>
+                    <div class="p-4 sm:p-6 -mt-12 sm:-mt-16 relative z-20">
+                        <h3
+                            class="text-lg sm:text-2xl font-bold text-[#1D2659] mb-2 sm:mb-3 drop-shadow-sm bg-white/70 px-2 py-1 rounded-lg inline-block">
+                            Pengetahuan pembuatan modul ajar
+                        </h3>
+                        <div class="flex items-center mb-3 sm:mb-4">
+                            <img src="images/hamas.png"
+                                class="w-10 h-10 sm:w-14 sm:h-14 rounded-full mr-3 sm:mr-4 border-3 border-white shadow-lg"
+                                alt="Instructor">
+                            <div>
+                                <p
+                                    class="font-semibold text-[#1D2659] text-sm sm:text-lg drop-shadow-sm bg-white/70 px-2 py-0.5 rounded-lg inline-block">
+                                    Rizky Pratama</p>
+                                <p
+                                    class="text-gray-700 text-xs sm:text-sm drop-shadow-sm bg-white/70 px-2 py-0.5 rounded-lg inline-block mt-1">
+                                    Marketing Strategist</p>
                             </div>
-
-                            <div class="flex justify-between items-center mb-3 md:mb-6">
-                                <h2
-                                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 transition transform group-hover:translate-x-2">
-                                    Paket C
-                                </h2>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-500">
+                                <span class="text-xl sm:text-3xl">★★★★★</span>
                                 <span
-                                    class="bg-gray-100 text-gray-700 px-2 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-md">Lanjutan</span>
+                                    class="ml-2 sm:ml-3 text-[#1D2659] font-bold text-sm sm:text-lg bg-white/70 px-2 py-0.5 rounded-lg">4.7</span>
                             </div>
-
-                            <h3
-                                class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-700 mb-3 md:mb-6 opacity-90 group-hover:opacity-100 transition">
-                                Sertifikasi Penguasaan Mengajar
-                            </h3>
-
-                            <div class="space-y-2 md:space-y-4 mb-4 md:mb-8">
-                                <div
-                                    class="flex items-center transform transition group-hover:-translate-x-2 p-1 md:p-2 rounded-lg group-hover:bg-gray-50">
-                                    <span class="text-gray-700 mr-2 md:mr-3 text-base md:text-xl">✓</span>
-                                    <span
-                                        class="text-base md:text-lg lg:text-xl font-medium text-gray-700">Kepemimpinan
-                                        Pendidikan</span>
-                                </div>
-                                <div
-                                    class="flex items-center transform transition group-hover:-translate-x-2 p-1 md:p-2 rounded-lg group-hover:bg-gray-50">
-                                    <span class="text-gray-700 mr-2 md:mr-3 text-base md:text-xl">✓</span>
-                                    <span class="text-base md:text-lg lg:text-xl font-medium text-gray-700">Pengajaran
-                                        Berbasis Riset</span>
-                                </div>
-                                <div
-                                    class="flex items-center transform transition group-hover:-translate-x-2 p-1 md:p-2 rounded-lg group-hover:bg-gray-50">
-                                    <span class="text-gray-700 mr-2 md:mr-3 text-base md:text-xl">✓</span>
-                                    <span
-                                        class="text-base md:text-lg lg:text-xl font-medium text-gray-700">Pengembangan
-                                        Kurikulum</span>
-                                </div>
-                            </div>
-
-                            <button
-                                class="w-full bg-gray-800 text-white py-2 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-gray-900 transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-400/50 active:scale-95 group-hover:bg-opacity-90">
-                                Pilih Paket
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Custom Scrollbar -->
         <style>
-            @keyframes float {
-                0% {
-                    transform: translateY(0px);
-                }
-
-                50% {
-                    transform: translateY(-10px);
-                }
-
-                100% {
-                    transform: translateY(0px);
-                }
+            .course-scroll::-webkit-scrollbar {
+                height: 8px;
             }
 
-            .animate-pulse {
-                animation: pulse 6s ease-in-out infinite;
+            .course-scroll::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
             }
 
-            @keyframes pulse {
-
-                0%,
-                100% {
-                    opacity: 0.3;
-                }
-
-                50% {
-                    opacity: 0.5;
-                }
+            .course-scroll::-webkit-scrollbar-thumb {
+                background: linear-gradient(to right, #38B2AC, #4FD1C5);
+                border-radius: 10px;
             }
 
-            .animation-delay-1000 {
-                animation-delay: 1s;
-            }
-
-            .animation-delay-2000 {
-                animation-delay: 2s;
-            }
-
-            .animation-delay-3000 {
-                animation-delay: 3s;
-            }
-
-            .animation-delay-4000 {
-                animation-delay: 4s;
-            }
-
-            .perspective-1000 {
-                perspective: 1000px;
-            }
-
-            .card-3d-container {
-                transform-style: preserve-3d;
-            }
-
-            /* Responsive hover adjustments for touch devices */
-            @media (hover: none) {
-                .group:hover {
-                    transform: none !important;
-                    rotate: none !important;
-                }
-
-                .group-hover\:translate-x-2:hover,
-                .group-hover\:-translate-x-2:hover {
-                    transform: none !important;
-                }
-
-                .group-hover\:scale-150:hover {
-                    transform: none !important;
-                }
-
-                .group-hover\:rotate-45:hover {
-                    transform: none !important;
-                }
-
-                /* Instead, make touch active states for mobile */
-                .group:active {
-                    transform: scale(0.98) !important;
-                }
+            .course-scroll {
+                scroll-behavior: smooth;
+                scrollbar-width: thin;
             }
         </style>
     </section>
     {{-- End Paket TLC --}}
 
-    {{-- Skema Pendafatraan --}}
-    <section class="w-full bg-white text-gray-800 py-16 px-4 min-h-screen">
-        <div class="max-w-5xl mx-auto">
-            <h1
-                class="text-5xl md:text-6xl font-extrabold text-center mb-20 tracking-wider text-blue-800 animate-title">
-                SKEMA SERTIFIKASI
-            </h1>
-
-            <div class="relative flex flex-col items-center justify-center space-y-10 pt-10">
-                <!-- Level A Section -->
-                <div
-                    class="level-box bg-blue-800 text-white font-bold text-2xl md:text-3xl px-8 py-2 rounded-full shadow-lg z-10 transition-all duration-300 hover:scale-110 hover:bg-blue-600 cursor-pointer">
-                    LEVEL A
-                </div>
-
-                <!-- First Test -->
-                <div
-                    class="test-box bg-yellow-400 text-gray-800 font-bold text-2xl md:text-3xl px-10 py-3 rounded-full shadow-lg z-10 mt-16 transition-all duration-300 hover:scale-110 hover:bg-yellow-300 hover:shadow-xl cursor-pointer">
-                    TES KOMPETENSI
-                </div>
-
-                <!-- Results for Level A -->
-                <div class="absolute top-[12%] right-[60%] md:right-[65%] lg:right-[70%] text-right">
-                    <p
-                        class="text-xl md:text-2xl font-bold text-red-600 result-item hover:scale-110 transition-all duration-300 cursor-pointer">
-                        Tidak Lulus</p>
-                </div>
-
-                <div class="absolute top-[12%] left-[60%] md:left-[65%] lg:left-[70%] text-left">
-                    <p
-                        class="text-xl md:text-2xl font-bold text-green-600 result-item hover:scale-110 transition-all duration-300 cursor-pointer">
-                        Lulus</p>
-                    <div class="mt-1">
-                        <p
-                            class="text-lg md:text-xl font-semibold leading-tight text-gray-800 cert-item hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                            Teaching</p>
-                        <p
-                            class="text-lg md:text-xl font-semibold leading-tight text-gray-800 cert-item hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                            Knowledge</p>
-                        <p
-                            class="text-lg md:text-xl font-semibold leading-tight text-gray-800 cert-item hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                            Certification</p>
-                    </div>
-                </div>
-
-                <!-- Custom Arrows -->
-                <div class="relative w-full h-16 -mt-6">
-                    <!-- Right Arrow (To Level A) -->
-                    <div class="curved-arrow-left animate-pulse" style="top: -160px; left: 45%;"></div>
-
-                    <!-- Left Arrow (From Level A) -->
-                    <div class="curved-arrow-right animate-pulse" style="top: -160px; right: 45%;"></div>
-
-                    <!-- Down Arrow (From Test to Level B) -->
-                    <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-bounce"
-                        style="top: 50%;">
-                        <svg width="50" height="80" viewBox="0 0 50 80" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 0 L25 60 M5 40 L25 60 L45 40" stroke="#1a4971" stroke-width="8"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Level B Section -->
-                <div
-                    class="level-box bg-blue-800 text-white font-bold text-2xl md:text-3xl px-8 py-2 rounded-full shadow-lg z-10 transition-all duration-300 hover:scale-110 hover:bg-blue-600 cursor-pointer">
-                    LEVEL B
-                </div>
-
-                <!-- Second Test -->
-                <div
-                    class="test-box bg-yellow-400 text-gray-800 font-bold text-2xl md:text-3xl px-10 py-3 rounded-full shadow-lg z-10 mt-16 transition-all duration-300 hover:scale-110 hover:bg-yellow-300 hover:shadow-xl cursor-pointer">
-                    TES KOMPETENSI
-                </div>
-
-                <!-- Results for Level B -->
-                <div class="absolute top-[48%] right-[60%] md:right-[65%] lg:right-[70%] text-right">
-                    <p
-                        class="text-xl md:text-2xl font-bold text-red-600 result-item hover:scale-110 transition-all duration-300 cursor-pointer">
-                        Tidak Lulus</p>
-                </div>
-
-                <div class="absolute top-[48%] left-[60%] md:left-[65%] lg:left-[70%] text-left">
-                    <p
-                        class="text-xl md:text-2xl font-bold text-green-600 result-item hover:scale-110 transition-all duration-300 cursor-pointer">
-                        Lulus</p>
-                    <div class="mt-1">
-                        <p
-                            class="text-lg md:text-xl font-semibold leading-tight text-gray-800 cert-item hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                            Teaching</p>
-                        <p
-                            class="text-lg md:text-xl font-semibold leading-tight text-gray-800 cert-item hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                            Activation</p>
-                        <p
-                            class="text-lg md:text-xl font-semibold leading-tight text-gray-800 cert-item hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                            Certification</p>
-                    </div>
-                </div>
-
-                <!-- Custom Arrows -->
-                <div class="relative w-full h-16 -mt-6">
-                    <!-- Right Arrow (To Level B) -->
-                    <div class="curved-arrow-left animate-pulse" style="top: -160px; left: 45%;"></div>
-
-                    <!-- Left Arrow (From Level B) -->
-                    <div class="curved-arrow-right animate-pulse" style="top: -160px; right: 45%;"></div>
-
-                    <!-- Down Arrow (From Test to Level C) -->
-                    <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-bounce"
-                        style="top: 50%;">
-                        <svg width="50" height="80" viewBox="0 0 50 80" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 0 L25 60 M5 40 L25 60 L45 40" stroke="#1a4971" stroke-width="8"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Level C Section -->
-                <div
-                    class="level-box bg-blue-800 text-white font-bold text-2xl md:text-3xl px-8 py-2 rounded-full shadow-lg z-10 transition-all duration-300 hover:scale-110 hover:bg-blue-600 cursor-pointer">
-                    LEVEL C
-                </div>
-
-                <!-- Third Test -->
-                <div
-                    class="test-box bg-yellow-400 text-gray-800 font-bold text-2xl md:text-3xl px-10 py-3 rounded-full shadow-lg z-10 mt-16 transition-all duration-300 hover:scale-110 hover:bg-yellow-300 hover:shadow-xl cursor-pointer">
-                    TES KOMPETENSI
-                </div>
-
-                <!-- Results for Level C -->
-                <div class="absolute top-[84%] right-[60%] md:right-[65%] lg:right-[70%] text-right">
-                    <p
-                        class="text-xl md:text-2xl font-bold text-red-600 result-item hover:scale-110 transition-all duration-300 cursor-pointer">
-                        Tidak Lulus</p>
-                </div>
-
-                <div class="absolute top-[84%] left-[60%] md:left-[65%] lg:left-[70%] text-left">
-                    <p
-                        class="text-xl md:text-2xl font-bold text-green-600 result-item hover:scale-110 transition-all duration-300 cursor-pointer">
-                        Lulus</p>
-                    <div class="mt-1">
-                        <p
-                            class="text-lg md:text-xl font-semibold leading-tight text-gray-800 cert-item hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                            Mastery</p>
-                        <p
-                            class="text-lg md:text-xl font-semibold leading-tight text-gray-800 cert-item hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                            Activation</p>
-                        <p
-                            class="text-lg md:text-xl font-semibold leading-tight text-gray-800 cert-item hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                            Certification</p>
-                    </div>
-                </div>
-
-                <!-- Custom Arrows -->
-                <div class="relative w-full h-16 -mt-6">
-                    <!-- Right Arrow (To Level C) -->
-                    <div class="curved-arrow-left animate-pulse" style="top: -160px; left: 45%;"></div>
-
-                    <!-- Left Arrow (From Level C) -->
-                    <div class="curved-arrow-right animate-pulse" style="top: -160px; right: 45%;"></div>
-                </div>
+    <!-- Webiner -->
+    <section class="relative bg-white overflow-hidden">
+        <!-- Background Texture -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div
+                class="absolute top-0 right-0 w-72 h-72 md:w-96 md:h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-72 h-72 md:w-96 md:h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl">
             </div>
         </div>
-        <style>
-            @keyframes title-animation {
-                0% {
-                    transform: scale(1);
-                }
 
-                50% {
-                    transform: scale(1.05);
-                }
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <!-- Left Section -->
+                <div class="text-blue-900 space-y-6 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">
+                        Perluas Wawasan
+                        <span class="block text-blue-700">Bersama TLC di Bidangnya</span>
+                    </h2>
+                    <p class="text-blue-800 text-base md:text-lg">
+                        Dapatkan insight dan pengetahuan terbaru dari para ahli profesional melalui webinar eksklusif
+                        kami.
+                    </p>
+                    <img src="https://cdn-web-2.ruangguru.com/file-uploader/lp/84af667f-a64d-45bb-97e9-48b3686737ca.png"
+                        alt="Webinar Illustration"
+                        class="w-full max-w-xs md:max-w-md mx-auto md:mx-0 transform hover:scale-105 transition duration-300 rounded-lg">
+                </div>
 
-                100% {
-                    transform: scale(1);
-                }
-            }
+                <!-- Right Section: Slider -->
+                <div>
+                    <div id="webinar-slider" class="slider-container relative overflow-hidden">
+                        <div
+                            class="slider-wrapper flex transition-transform duration-500 ease-in-out w-[300%] md:w-auto">
+                            <!-- Slides -->
+                            <div class="slide flex-shrink-0 w-full md:w-96 px-4">
+                                <div
+                                    class="bg-white rounded-2xl shadow-lg border border-blue-100 transition hover:scale-105 hover:shadow-xl">
+                                    <img src="https://cdn-web-2.ruangguru.com/landing-pages/assets/a4199388-54ae-4637-a6b5-b6499829ed57.png"
+                                        alt="Webinar 1" class="w-full h-48 md:h-64 object-cover rounded-t-2xl">
+                                    <div class="p-6">
+                                        <h3 class="text-lg md:text-xl font-bold text-blue-900 mb-3">Building
+                                            Psychological Safety</h3>
+                                        <div class="space-y-2 text-blue-800 mb-4 text-sm md:text-base">
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                                    </path>
+                                                </svg>
+                                                Selasa, 27 Juni 2023
+                                            </div>
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                                19.00 - 20.00 WIB
+                                            </div>
+                                        </div>
+                                        <button
+                                            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition transform hover:scale-[1.02] active:scale-[0.98]">Lihat
+                                            Detail</button>
+                                    </div>
+                                </div>
+                            </div>
 
-            .animate-title {
-                animation: title-animation 3s infinite;
-            }
+                            <!-- Slide 2 -->
+                            <div class="slide flex-shrink-0 w-full md:w-96 px-4">
+                                <div
+                                    class="bg-white rounded-2xl shadow-lg border border-blue-100 transition hover:scale-105 hover:shadow-xl">
+                                    <img src="https://cdn-web-2.ruangguru.com/landing-pages/assets/hs/05%20-%20RGFB/Webinar/Banner/banner-webinar-11-talent-assessment-development.jpeg"
+                                        alt="Webinar 2" class="w-full h-48 md:h-64 object-cover rounded-t-2xl">
+                                    <div class="p-6">
+                                        <h3 class="text-lg md:text-xl font-bold text-blue-900 mb-3">Developing Talents
+                                            through Assessment</h3>
+                                        <div class="space-y-2 text-blue-800 mb-4 text-sm md:text-base">
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                                    </path>
+                                                </svg>
+                                                Rabu, 21 Desember 2022
+                                            </div>
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                                10.00 - 11.00 WIB
+                                            </div>
+                                        </div>
+                                        <button
+                                            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition transform hover:scale-[1.02] active:scale-[0.98]">Lihat
+                                            Detail</button>
+                                    </div>
+                                </div>
+                            </div>
 
-            .animate-pulse {
-                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            }
+                            <!-- Slide 3 -->
+                            <div class="slide flex-shrink-0 w-full md:w-96 px-4">
+                                <div
+                                    class="bg-white rounded-2xl shadow-lg border border-blue-100 transition hover:scale-105 hover:shadow-xl">
+                                    <img src="https://cdn-web-2.ruangguru.com/landing-pages/assets/hs/Webinar-Ayung-Prasetyo-Landing-Page-1000x524.png"
+                                        alt="Webinar 3" class="w-full h-48 md:h-64 object-cover rounded-t-2xl">
+                                    <div class="p-6">
+                                        <h3 class="text-lg md:text-xl font-bold text-blue-900 mb-3">Increasing Talent
+                                            Capability</h3>
+                                        <div class="space-y-2 text-blue-800 mb-4 text-sm md:text-base">
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                                    </path>
+                                                </svg>
+                                                Rabu, 8 Februari 2023
+                                            </div>
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                                15.00 - 16.00 WIB
+                                            </div>
+                                        </div>
+                                        <button
+                                            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition transform hover:scale-[1.02] active:scale-[0.98]">Lihat
+                                            Detail</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            @keyframes pulse {
+                    <!-- Indicators -->
+                    <div class="flex justify-center space-x-2 mt-6">
+                        <div data-slide="0"
+                            class="slide-indicator w-6 h-2 bg-blue-600 rounded-full transition-all duration-300 cursor-pointer">
+                        </div>
+                        <div data-slide="1"
+                            class="slide-indicator w-2 h-2 bg-blue-300 rounded-full transition-all duration-300 cursor-pointer">
+                        </div>
+                        <div data-slide="2"
+                            class="slide-indicator w-2 h-2 bg-blue-300 rounded-full transition-all duration-300 cursor-pointer">
+                        </div>
+                    </div>
 
-                0%,
-                100% {
-                    opacity: 1;
-                }
+                    <!-- Navigation -->
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <button id="prev-slide"
+                            class="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <button id="next-slide"
+                            class="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-                50% {
-                    opacity: 0.5;
-                }
-            }
+            <!-- Lihat Semua -->
+            <div class="mt-12 text-center">
+                <a href="https://www.ruangkerja.id/office-hour"
+                    class="inline-flex items-center space-x-3 text-blue-700 font-semibold text-lg hover:text-blue-900 transition">
+                    <span>Lihat Semua Event</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
 
-            .animate-bounce {
-                animation: bounce 1.5s infinite;
-            }
-
-            @keyframes bounce {
-
-                0%,
-                100% {
-                    transform: translateY(-25%) translateX(-50%);
-                }
-
-                50% {
-                    transform: translateY(0) translateX(-50%);
-                }
-            }
-
-            .curved-arrow-right {
-                position: absolute;
-                width: 80px;
-                height: 80px;
-                border: 8px solid #1a4971;
-                border-top: none;
-                border-right: none;
-                border-radius: 0 0 0 20px;
-                transform: rotate(45deg);
-                z-index: 0;
-                transition: all 0.3s ease;
-            }
-
-            .curved-arrow-right:hover {
-                border-color: #3182ce;
-                transform: rotate(45deg) scale(1.1);
-                cursor: pointer;
-            }
-
-            .curved-arrow-left {
-                position: absolute;
-                width: 80px;
-                height: 80px;
-                border: 8px solid #1a4971;
-                border-top: none;
-                border-left: none;
-                border-radius: 0 0 20px 0;
-                transform: rotate(-45deg);
-                z-index: 0;
-                transition: all 0.3s ease;
-            }
-
-            .curved-arrow-left:hover {
-                border-color: #3182ce;
-                transform: rotate(-45deg) scale(1.1);
-                cursor: pointer;
-            }
-
-            .level-box:hover {
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            }
-
-            .test-box:hover {
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            }
-
-            .result-item:hover {
-                text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            }
-
-            .cert-item {
-                position: relative;
-                display: inline-block;
-            }
-
-            .cert-item:hover {
-                transform: translateX(5px);
-            }
-
-            .cert-item:before {
-                content: "";
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: 0;
-                left: 0;
-                background-color: #3182ce;
-                visibility: hidden;
-                transition: all 0.3s ease-in-out;
-            }
-
-            .cert-item:hover:before {
-                visibility: visible;
-                width: 100%;
-            }
-
-            /* Touch animations for mobile */
-            @media (hover: none) {
-
-                .level-box:active,
-                .test-box:active {
-                    transform: scale(1.1);
-                    transition: transform 0.3s;
-                }
-
-                .result-item:active,
-                .cert-item:active {
-                    transform: scale(1.1);
-                    transition: transform 0.3s;
-                }
-            }
-        </style>
-
+        <!-- Script -->
         <script>
-            // Add touch animations for interactive elements
             document.addEventListener('DOMContentLoaded', function() {
-                const interactiveElements = document.querySelectorAll(
-                    '.level-box, .test-box, .result-item, .cert-item, .curved-arrow-left, .curved-arrow-right');
+                const slider = document.getElementById('webinar-slider');
+                const sliderWrapper = slider.querySelector('.slider-wrapper');
+                const slides = slider.querySelectorAll('.slide');
+                const indicators = document.querySelectorAll('.slide-indicator');
+                const prevButton = document.getElementById('prev-slide');
+                const nextButton = document.getElementById('next-slide');
 
-                interactiveElements.forEach(elem => {
-                    elem.addEventListener('touchstart', function() {
-                        this.classList.add('active');
-                    });
+                let currentSlide = 0;
+                const totalSlides = slides.length;
 
-                    elem.addEventListener('touchend', function() {
-                        this.classList.remove('active');
+                function updateSlider() {
+                    const slideWidth = slides[0].offsetWidth;
+                    sliderWrapper.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                    indicators.forEach((indicator, index) => {
+                        if (index === currentSlide) {
+                            indicator.classList.remove('bg-blue-300', 'w-2');
+                            indicator.classList.add('bg-blue-600', 'w-6');
+                        } else {
+                            indicator.classList.remove('bg-blue-600', 'w-6');
+                            indicator.classList.add('bg-blue-300', 'w-2');
+                        }
                     });
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateSlider();
+                }
+
+                function prevSlide() {
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateSlider();
+                }
+
+                indicators.forEach((indicator) => {
+                    indicator.addEventListener('click', () => {
+                        currentSlide = parseInt(indicator.dataset.slide);
+                        updateSlider();
+                    });
+                });
+
+                nextButton.addEventListener('click', nextSlide);
+                prevButton.addEventListener('click', prevSlide);
+
+                // Auto slide
+                setInterval(nextSlide, 5000);
+                updateSlider();
+
+                window.addEventListener('resize', updateSlider);
+
+                // Swipe for mobile
+                let startX = 0;
+                slider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                slider.addEventListener('touchend', (e) => {
+                    let endX = e.changedTouches[0].clientX;
+                    if (startX - endX > 50) nextSlide();
+                    if (endX - startX > 50) prevSlide();
                 });
             });
         </script>
     </section>
-    {{-- End Skema Pendaftraan --}}
+    <!-- End Webiner -->
 
-    {{-- A --}}
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 shadow-xl rounded-3xl border border-blue-100 p-8 mb-10">
-        <div class="flex flex-col sm:flex-row justify-between items-center mb-8 space-y-4 sm:space-y-0">
-            <div class="flex items-center space-x-3">
-                <div class="bg-blue-600 text-white p-3 rounded-xl shadow-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+    {{-- Testimoni --}}
+    <section class="container mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h2
+                class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r to-sky-600 animate-pulse">
+                Testimoni Mereka
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                Dengarkan pengalaman inspiratif dari para peserta kami
+            </p>
+        </div>
+
+        <div id="testimonialCarousel" class="relative overflow-hidden">
+            <div id="testimonialTrack" class="flex gap-4 md:gap-8 transition-transform duration-500 ease-in-out">
+
+                <!-- Maharani -->
+                <div class="testimonial-slide w-64 md:w-72 flex-shrink-0 text-center mx-auto">
+                    <div class="flex justify-center mb-4">
+                        <img src="images/konten_satu.jpg" alt="Maharani"
+                            class="rounded-full w-24 md:w-32 h-24 md:h-32 object-cover border-4 border-pink-200">
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-pink-100 to-pink-200 rounded-3xl p-4 md:p-6 mb-4 relative shadow-lg group hover:shadow-2xl transition-all">
+                        <span class="absolute top-0 left-4 text-5xl md:text-6xl text-pink-300 opacity-50">"</span>
+                        <p class="text-gray-800 text-sm md:text-base italic z-10 relative px-2 md:px-4">
+                            "Setelah mengikuti program TLC, saya memiliki lebih banyak teknik dan strategi untuk membuat
+                            kelas saya
+                            lebih interaktif. Saya juga mendapatkan jaringan profesional yang luas dari sesama pendidik
+                            di seluruh
+                            Indonesia."
+                        </p>
+                        <span class="absolute bottom-0 right-4 text-5xl md:text-6xl text-pink-300 opacity-50">"</span>
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl text-pink-700 animate-float">Maharani</h3>
+                    <p class="text-sm text-gray-600">Ranger (15-18 tahun)</p>
                 </div>
-                <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">LEVEL A</h2>
-            </div>
-            <div class="flex items-center space-x-4">
-                <span class="px-4 py-2 bg-purple-100 text-purple-700 font-medium rounded-full border border-purple-200 shadow-sm flex items-center">
-                    <span class="inline-block w-2 h-2 bg-purple-500 rounded-full mr-2 animate-pulse"></span>
-                    Dalam Progres
-                </span>
-                <button class="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 focus:ring-4 focus:ring-blue-200">
-                    Nilai
-                </button>
+
+                <!-- Meilinda -->
+                <div class="testimonial-slide w-64 md:w-72 flex-shrink-0 text-center mx-auto">
+                    <div class="flex justify-center mb-4">
+                        <img src="images/konten_satu.jpg" alt="Meilinda"
+                            class="rounded-full w-24 md:w-32 h-24 md:h-32 object-cover border-4 border-blue-200">
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-3xl p-4 md:p-6 mb-4 relative shadow-lg group hover:shadow-2xl transition-all">
+                        <span class="absolute top-0 left-4 text-5xl md:text-6xl text-blue-300 opacity-50">"</span>
+                        <p class="text-gray-800 text-sm md:text-base italic z-10 relative px-2 md:px-4">
+                            "Setelah mengikuti program TLC, saya memiliki lebih banyak teknik dan strategi untuk membuat
+                            kelas saya
+                            lebih interaktif. Saya juga mendapatkan jaringan profesional yang luas dari sesama pendidik
+                            di seluruh
+                            Indonesia."
+                        </p>
+                        <span class="absolute bottom-0 right-4 text-5xl md:text-6xl text-blue-300 opacity-50">"</span>
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl text-blue-700 animate-float">Meilinda</h3>
+                    <p class="text-sm text-gray-600">Explorer (di atas 18 tahun)</p>
+                </div>
+
+                <!-- Keenar -->
+                <div class="testimonial-slide w-64 md:w-72 flex-shrink-0 text-center mx-auto">
+                    <div class="flex justify-center mb-4">
+                        <img src="images/konten_satu.jpg" alt="Keenar"
+                            class="rounded-full w-24 md:w-32 h-24 md:h-32 object-cover border-4 border-green-200">
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-green-100 to-green-200 rounded-3xl p-4 md:p-6 mb-4 relative shadow-lg group hover:shadow-2xl transition-all">
+                        <span class="absolute top-0 left-4 text-5xl md:text-6xl text-green-300 opacity-50">"</span>
+                        <p class="text-gray-800 text-sm md:text-base italic z-10 relative px-2 md:px-4">
+                            "Setelah mengikuti program TLC, saya memiliki lebih banyak teknik dan strategi untuk membuat
+                            kelas saya
+                            lebih interaktif. Saya juga mendapatkan jaringan profesional yang luas dari sesama pendidik
+                            di seluruh
+                            Indonesia."
+                        </p>
+                        <span class="absolute bottom-0 right-4 text-5xl md:text-6xl text-green-300 opacity-50">"</span>
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl text-green-700 animate-float">Keenar</h3>
+                    <p class="text-sm text-gray-600">Runner (7-10 tahun)</p>
+                </div>
+
+                <!-- Nandini -->
+                <div class="testimonial-slide w-64 md:w-72 flex-shrink-0 text-center mx-auto">
+                    <div class="flex justify-center mb-4">
+                        <img src="images/konten_satu.jpg" alt="Nandini"
+                            class="rounded-full w-24 md:w-32 h-24 md:h-32 object-cover border-4 border-purple-200">
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-purple-100 to-purple-200 rounded-3xl p-4 md:p-6 mb-4 relative shadow-lg group hover:shadow-2xl transition-all">
+                        <span class="absolute top-0 left-4 text-5xl md:text-6xl text-purple-300 opacity-50">"</span>
+                        <p class="text-gray-800 text-sm md:text-base italic z-10 relative px-2 md:px-4">
+                            "Setelah mengikuti program TLC, saya memiliki lebih banyak teknik dan strategi untuk membuat
+                            kelas saya
+                            lebih interaktif. Saya juga mendapatkan jaringan profesional yang luas dari sesama pendidik
+                            di seluruh
+                            Indonesia."
+                        </p>
+                        <span
+                            class="absolute bottom-0 right-4 text-5xl md:text-6xl text-purple-300 opacity-50">"</span>
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl text-purple-700 animate-float">Nandini</h3>
+                    <p class="text-sm text-gray-600">Explorer (di atas 18 tahun)</p>
+                </div>
+
             </div>
         </div>
-        
-        <p class="text-gray-600 text-base mb-10 text-center sm:text-left max-w-2xl">
-            Daftar kategori kuis yang akan anda kerjakan. Selesaikan setiap kategori untuk membuka level berikutnya!
-        </p>
-    
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center sm:justify-start gap-3 mb-10">
-            <button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                Semua
-            </button>
-            <button class="px-6 py-3 bg-white text-gray-700 rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
-                </svg>
-                Terbuka
-            </button>
-            <button class="px-6 py-3 bg-white text-gray-700 rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                Terkunci
-            </button>
-        </div>
-    
-        <!-- Categories -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Literasi -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="images/levela.png" alt="Literasi" class="w-full h-48 object-cover group-hover:opacity-90 transition">
-                    <div class="absolute top-4 right-4 bg-green-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Tersedia
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const track = document.getElementById('testimonialTrack');
+                const slides = document.querySelectorAll('.testimonial-slide');
+                let currentIndex = 0;
+
+                function getSlideWidth() {
+                    return slides[0].offsetWidth + 16; // width + gap
+                }
+
+                function goToSlide(index) {
+                    track.style.transform = `translateX(-${index * getSlideWidth()}px)`;
+                }
+
+                function autoScroll() {
+                    currentIndex++;
+                    if (currentIndex >= slides.length) {
+                        currentIndex = 0;
+                    }
+                    goToSlide(currentIndex);
+                }
+
+                let interval = setInterval(autoScroll, 5000);
+
+                // Swipe
+                let startX = 0;
+                let isDragging = false;
+
+                track.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    isDragging = true;
+                    clearInterval(interval);
+                });
+
+                track.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    const currentX = e.touches[0].clientX;
+                    const diff = startX - currentX;
+                    if (diff > 50) {
+                        currentIndex++;
+                        if (currentIndex >= slides.length) currentIndex = 0;
+                        goToSlide(currentIndex);
+                        isDragging = false;
+                    } else if (diff < -50) {
+                        currentIndex--;
+                        if (currentIndex < 0) currentIndex = slides.length - 1;
+                        goToSlide(currentIndex);
+                        isDragging = false;
+                    }
+                });
+
+                track.addEventListener('touchend', () => {
+                    isDragging = false;
+                    interval = setInterval(autoScroll, 5000);
+                });
+
+                window.addEventListener('resize', () => {
+                    goToSlide(currentIndex);
+                });
+            });
+        </script>
+
+        <style>
+            @keyframes float {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            .animate-float {
+                animation: float 3s ease-in-out infinite;
+            }
+        </style>
+    </section>
+    {{-- End Testimoni --}}
+
+    {{-- Logo Universitas --}}
+    <section class="w-full px-6 md:px-10 py-16 md:py-20 bg-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16">
+            <!-- Left Side -->
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2
+                    class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                    Pengajar <span class="text-cyan-500">TLC</span><br>dari <span
+                        class="font-bold">Perguruan
+                        Tinggi terbaik</span>
+                </h2>
+                <p class="text-gray-600 mt-4 text-base md:text-lg leading-relaxed">
+                    Pengajar telah lulus seleksi akademik dan berpengalaman, berasal dari berbagai lulusan Universitas
+                    terbaik di
+                    Indonesia maupun di Luar Negeri seperti:
+                </p>
+
+                <!-- School Logos Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+                    <!-- Looped logos -->
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-red-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/umbjm.jpg" alt="Universitas Airlangga" class="h-16 md:h-20">
                     </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-blue-600 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-indigo-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/ulm.jpg" alt="Universitas Indonesia" class="h-16 md:h-20">
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: Literasi</h3>
-                    <div class="flex items-center text-yellow-500 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">25 soal</span>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/poliban.jpg" alt="UGM" class="h-16 md:h-20">
                     </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-1"></span>
-                            10 menit
-                        </div>
-                        <button class="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-xl hover:-translate-y-1 flex items-center">
-                            Mulai
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </button>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/uniska.jpg" alt="UGM" class="h-16 md:h-20">
                     </div>
-                </div>
-            </div>
-    
-            <!-- Numerasi -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="images/levelb.png" alt="Numerasi" class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Terkunci
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/ui.jpg" alt="UGM" class="h-16 md:h-20">
                     </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-gray-500 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                        </svg>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/airlangga.jpg" alt="UGM" class="h-16 md:h-20">
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: Numerasi</h3>
-                    <div class="flex items-center text-gray-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">30 soal</span>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/unesa.jpg" alt="UGM" class="h-16 md:h-20">
                     </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-gray-500 rounded-full mr-1"></span>
-                            15 menit
-                        </div>
-                        <div class="relative group">
-                            <button class="px-5 py-2 bg-gray-400 text-gray-700 rounded-xl text-sm font-medium shadow-sm flex items-center cursor-not-allowed">
-                                Terkunci
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </button>
-                            <div class="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                Selesaikan kategori Literasi terlebih dahulu
-                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-800"></div>
-                            </div>
-                        </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/uny.jpg" alt="UGM" class="h-16 md:h-20">
                     </div>
-                </div>
-            </div>
-    
-            <!-- PCK -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="images/levelc.png" alt="PCK" class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Terkunci
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/ponogoro.jpg" alt="UGM" class="h-16 md:h-20">
                     </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-gray-500 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                        </svg>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/hasnur.jpg" alt="UGM" class="h-16 md:h-20">
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: PCK</h3>
-                    <div class="flex items-center text-gray-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">20 soal</span>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/itb.jpg" alt="UGM" class="h-16 md:h-20">
                     </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-gray-500 rounded-full mr-1"></span>
-                            20 menit
-                        </div>
-                        <div class="relative group">
-                            <button class="px-5 py-2 bg-gray-400 text-gray-700 rounded-xl text-sm font-medium shadow-sm flex items-center cursor-not-allowed">
-                                Terkunci
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </button>
-                            <div class="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                Selesaikan kategori sebelumnya terlebih dahulu
-                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-800"></div>
-                            </div>
-                        </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/brawijaya.jpg" alt="UGM" class="h-16 md:h-20">
                     </div>
                 </div>
             </div>
-    
-            <!-- HOTS -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="images/buku1.png" alt="HOTS" class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Terkunci
+
+            <!-- Right Side -->
+            <div class="md:w-1/2 text-center md:text-left flex flex-col justify-between gap-10">
+                <!-- University Logos Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-red-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/ui.jpg" alt="Universitas Airlangga" class="h-16 md:h-20">
                     </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-indigo-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/ugm.jpg" alt="Universitas Indonesia" class="h-16 md:h-20">
+                    </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/brawijaya.jpg" alt="UGM" class="h-16 md:h-20">
+                    </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/airlangga.jpg" alt="UGM" class="h-16 md:h-20">
+                    </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/umbjm.jpg" alt="UGM" class="h-16 md:h-20">
+                    </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/hasnur.jpg" alt="UGM" class="h-16 md:h-20">
+                    </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/itb.jpg" alt="UGM" class="h-16 md:h-20">
+                    </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-pink-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/poliban.jpg" alt="UGM" class="h-16 md:h-20">
+                    </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-indigo-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/ponogoro.jpg" alt="Universitas Indonesia" class="h-16 md:h-20">
+                    </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-indigo-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/ulm.jpg" alt="Universitas Indonesia" class="h-16 md:h-20">
+                    </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-indigo-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/uin.jpg" alt="Universitas Indonesia" class="h-16 md:h-20">
+                    </div>
+                    <div
+                        class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-indigo-100 p-3 rounded-lg shadow-md hover:shadow-xl">
+                        <img src="images/uny.jpg" alt="Universitas Indonesia" class="h-16 md:h-20">
+                    </div>
                 </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-gray-500 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: HOTS</h3>
-                    <div class="flex items-center text-gray-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">15 soal</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-gray-500 rounded-full mr-1"></span>
-                            25 menit
-                        </div>
-                        <div class="relative group">
-                            <button class="px-5 py-2 bg-gray-400 text-gray-700 rounded-xl text-sm font-medium shadow-sm flex items-center cursor-not-allowed">
-                                Terkunci
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </button>
-                            <div class="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                Selesaikan kategori sebelumnya terlebih dahulu
-                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-800"></div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div>
+                    <h2
+                        class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mt-8 md:mt-10">
+                        Sekolah dari Siswa<br>Terdaftar di <span class="text-cyan-500">TLC</span>
+                    </h2>
+                    <p class="text-gray-600 mt-4 text-base md:text-lg leading-relaxed">
+                        Fun Teacher Private sudah mengajar siswa dari berbagai sekolah seperti:
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-    {{-- End A --}}
+    {{-- End Logo Universitas --}}
 
-    {{-- B --}}
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-gradient-to-br from-white to-blue-50 shadow-xl rounded-3xl border border-blue-100 p-8 mb-10">
-        <div class="flex flex-col sm:flex-row justify-between items-center mb-8 space-y-4 sm:space-y-0">
-            <div class="flex items-center space-x-3">
-                <div class="bg-blue-600 text-white p-3 rounded-xl shadow-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">LEVEL B</h2>
-            </div>
-            <div class="flex items-center space-x-4">
-                <span class="px-4 py-2 bg-purple-100 text-purple-700 font-medium rounded-full border border-purple-200 shadow-sm flex items-center">
-                    <span class="inline-block w-2 h-2 bg-purple-500 rounded-full mr-2 animate-pulse"></span>
-                    Dalam Progres
+    {{-- Vidio Keseruan TLC --}}
+    <section class="max-w-7xl mx-auto px-4 md:px-8 py-20 bg-white relative overflow-hidden">
+        <!-- Heading -->
+        <div class="max-w-4xl mx-auto text-center mb-14 relative z-10">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-6">
+                Tonton Keseruan di
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-500">
+                    TLC Program
                 </span>
-                <button class="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 focus:ring-4 focus:ring-blue-200">
-                    Nilai
+            </h2>
+            <p class="text-lg md:text-xl text-gray-700 font-medium max-w-2xl mx-auto">
+                Saksikan pengalaman luar biasa dan momen tak terlupakan!
+            </p>
+        </div>
+
+        <!-- Carousel -->
+        <div class="relative group">
+            <div id="testimonialContainer"
+                class="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 md:pb-8 no-scrollbar items-center px-2 md:px-4">
+                <!-- Video 1 -->
+                <div
+                    class="flex-shrink-0 w-[85%] sm:w-[350px] md:w-[450px] h-[200px] sm:h-[280px] md:h-[350px] snap-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-purple-400 hover:ring-opacity-50 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl">
+                    <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/Jn7vuXLozJI"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <!-- Video 2 -->
+                <div
+                    class="flex-shrink-0 w-[85%] sm:w-[350px] md:w-[450px] h-[200px] sm:h-[280px] md:h-[350px] snap-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-purple-400 hover:ring-opacity-50 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl">
+                    <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/Jn7vuXLozJI"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <!-- Video 3 -->
+                <div
+                    class="flex-shrink-0 w-[85%] sm:w-[350px] md:w-[450px] h-[200px] sm:h-[280px] md:h-[350px] snap-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-purple-400 hover:ring-opacity-50 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl">
+                    <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/Jn7vuXLozJI"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Navigasi Button -->
+            <div class="hidden md:flex absolute inset-y-0 w-full justify-between items-center px-4">
+                <button id="prevBtn"
+                    class="bg-white/70 hover:bg-white/90 rounded-full p-3 shadow-lg transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-gray-800"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button id="nextBtn"
+                    class="bg-white/70 hover:bg-white/90 rounded-full p-3 shadow-lg transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-gray-800"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
                 </button>
             </div>
         </div>
-        
-        <p class="text-gray-600 text-base mb-10 text-center sm:text-left max-w-2xl">
-            Daftar kategori kuis yang akan anda kerjakan. Selesaikan setiap kategori untuk membuka level berikutnya!
-        </p>
-    
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center sm:justify-start gap-3 mb-10">
-            <button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                Semua
-            </button>
-            <button class="px-6 py-3 bg-white text-gray-700 rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
-                </svg>
-                Terbuka
-            </button>
-            <button class="px-6 py-3 bg-white text-gray-700 rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                Terkunci
-            </button>
+
+        <!-- Auto Scroll Script -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const container = document.getElementById("testimonialContainer");
+                const prevBtn = document.getElementById("prevBtn");
+                const nextBtn = document.getElementById("nextBtn");
+                let autoScroll;
+
+                function startAutoScroll() {
+                    autoScroll = setInterval(() => {
+                        container.scrollBy({
+                            left: container.offsetWidth * 0.9,
+                            behavior: "smooth"
+                        });
+                        if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 5) {
+                            container.scrollTo({
+                                left: 0,
+                                behavior: "smooth"
+                            });
+                        }
+                    }, 3500);
+                }
+
+                function stopAutoScroll() {
+                    clearInterval(autoScroll);
+                }
+
+                nextBtn.addEventListener("click", () => {
+                    stopAutoScroll();
+                    container.scrollBy({
+                        left: container.offsetWidth * 0.9,
+                        behavior: "smooth"
+                    });
+                    startAutoScroll();
+                });
+
+                prevBtn.addEventListener("click", () => {
+                    stopAutoScroll();
+                    container.scrollBy({
+                        left: -container.offsetWidth * 0.9,
+                        behavior: "smooth"
+                    });
+                    startAutoScroll();
+                });
+
+                container.addEventListener("mouseenter", stopAutoScroll);
+                container.addEventListener("mouseleave", startAutoScroll);
+
+                startAutoScroll();
+            });
+        </script>
+    </section>
+    {{-- End Video --}}
+
+    {{-- Informasi --}}
+    <section class="max-w-7xl mx-auto px-4 md:px-8 py-10">
+        <!-- Title -->
+        <div class="flex flex-col md:flex-row items-center md:space-x-4 mb-8">
+            <h2 class="text-white bg-black px-4 py-2 text-xs md:text-sm font-bold tracking-widest mb-4 md:mb-0">PUSAT
+                INFORMASI</h2>
+            <div class="flex-grow border-t border-black w-full md:w-auto"></div>
         </div>
-    
-        <!-- Categories -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Literasi -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="/api/placeholder/400/320" alt="Literasi" class="w-full h-48 object-cover group-hover:opacity-90 transition">
-                    <div class="absolute top-4 right-4 bg-green-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Tersedia
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-blue-600 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: Literasi</h3>
-                    <div class="flex items-center text-yellow-500 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">25 soal</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-1"></span>
-                            10 menit
-                        </div>
-                        <button class="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-xl hover:-translate-y-1 flex items-center">
-                            Mulai
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </button>
-                    </div>
+
+        <!-- Card Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card -->
+            <div
+                class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                <img src="images/levela.png" alt="Level A"
+                    class="w-full h-52 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-opacity-50 flex flex-col justify-end p-4 transition-all duration-500 group-hover:bg-opacity-70">
+                    <h3
+                        class="text-white text-lg md:text-2xl font-bold mb-2 leading-tight translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                        Sertifikasi Level A</h3>
+                    <p
+                        class="text-white text-xs md:text-sm mb-3 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
+                        Informasi Sertifikasi Dasar Pengajaran Efektif</p>
+                    <button
+                        class="bg-white text-black px-4 md:px-6 py-2 text-xs md:text-sm rounded translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">Baca
+                        selengkapnya</button>
                 </div>
             </div>
-    
-            <!-- Numerasi -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="/api/placeholder/400/320" alt="Numerasi" class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Terkunci
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-gray-500 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: Numerasi</h3>
-                    <div class="flex items-center text-gray-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">30 soal</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-gray-500 rounded-full mr-1"></span>
-                            15 menit
-                        </div>
-                        <div class="relative group">
-                            <button class="px-5 py-2 bg-gray-400 text-gray-700 rounded-xl text-sm font-medium shadow-sm flex items-center cursor-not-allowed">
-                                Terkunci
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </button>
-                            <div class="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                Selesaikan kategori Literasi terlebih dahulu
-                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-800"></div>
-                            </div>
-                        </div>
-                    </div>
+
+            <!-- Card -->
+            <div
+                class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                <img src="images/levelb.png" alt="Level B"
+                    class="w-full h-52 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-opacity-50 flex flex-col justify-end p-4 transition-all duration-500 group-hover:bg-opacity-70">
+                    <h3
+                        class="text-white text-lg md:text-2xl font-bold mb-2 leading-tight translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                        Sertifikasi Level B</h3>
+                    <p
+                        class="text-white text-xs md:text-sm mb-3 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
+                        Informasi Sertifikasi Strategi Pembelajaran Lanjut</p>
+                    <button
+                        class="bg-white text-black px-4 md:px-6 py-2 text-xs md:text-sm rounded translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">Baca
+                        selengkapnya</button>
                 </div>
             </div>
-    
-            <!-- PCK -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="/api/placeholder/400/320" alt="PCK" class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Terkunci
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-gray-500 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: PCK</h3>
-                    <div class="flex items-center text-gray-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">20 soal</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-gray-500 rounded-full mr-1"></span>
-                            20 menit
-                        </div>
-                        <div class="relative group">
-                            <button class="px-5 py-2 bg-gray-400 text-gray-700 rounded-xl text-sm font-medium shadow-sm flex items-center cursor-not-allowed">
-                                Terkunci
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </button>
-                            <div class="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                Selesaikan kategori sebelumnya terlebih dahulu
-                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-800"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- HOTS -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="/api/placeholder/400/320" alt="HOTS" class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Terkunci
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-gray-500 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: HOTS</h3>
-                    <div class="flex items-center text-gray-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">15 soal</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-gray-500 rounded-full mr-1"></span>
-                            25 menit
-                        </div>
-                        <div class="relative group">
-                            <button class="px-5 py-2 bg-gray-400 text-gray-700 rounded-xl text-sm font-medium shadow-sm flex items-center cursor-not-allowed">
-                                Terkunci
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </button>
-                            <div class="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                Selesaikan kategori sebelumnya terlebih dahulu
-                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-800"></div>
-                            </div>
-                        </div>
-                    </div>
+
+            <!-- Card -->
+            <div
+                class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                <img src="images/levelc.png" alt="Level C"
+                    class="w-full h-52 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-opacity-50 flex flex-col justify-end p-4 transition-all duration-500 group-hover:bg-opacity-70">
+                    <h3
+                        class="text-white text-lg md:text-2xl font-bold mb-2 leading-tight translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                        Sertifikasi Level C</h3>
+                    <p
+                        class="text-white text-xs md:text-sm mb-3 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
+                        Informasi Sertifikasi Mastery Pengajaran Kreatif</p>
+                    <button
+                        class="bg-white text-black px-4 md:px-6 py-2 text-xs md:text-sm rounded translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">Baca
+                        selengkapnya</button>
                 </div>
             </div>
         </div>
     </section>
-    {{-- End B --}}
+    {{-- End Informasi --}}
 
-    {{-- C --}}
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-gradient-to-br from-white to-blue-50 shadow-xl rounded-3xl border border-blue-100 p-8 mb-10">
-        <div class="flex flex-col sm:flex-row justify-between items-center mb-8 space-y-4 sm:space-y-0">
-            <div class="flex items-center space-x-3">
-                <div class="bg-blue-600 text-white p-3 rounded-xl shadow-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+    {{-- <section class="max-w-7xl mx-auto px-4 md:px-8 py-10">
+        <!-- Title -->
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">Artikel Terbaru</h2>
+    
+        <!-- Articles Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Article 1 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="images/karakter.jpg" alt="Elastisitas Permintaan dan Penawaran" 
+                        class="w-full h-64 object-cover">
+                    <div class="absolute bottom-4 right-4">
+                        <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                    </div>
                 </div>
-                <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">LEVEL C</h2>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Elastisitas Permintaan dan Penawaran | Hafecs</h3>
+                    <p class="text-gray-600">March 26, 2025 • 5 minutes read</p>
+                </div>
             </div>
-            <div class="flex items-center space-x-4">
-                <span class="px-4 py-2 bg-purple-100 text-purple-700 font-medium rounded-full border border-purple-200 shadow-sm flex items-center">
-                    <span class="inline-block w-2 h-2 bg-purple-500 rounded-full mr-2 animate-pulse"></span>
-                    Dalam Progres
-                </span>
-                <button class="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 focus:ring-4 focus:ring-blue-200">
-                    Nilai
-                </button>
+    
+            <!-- Article 2 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="images/konten_satu.jpg" alt="Piagam PBB" 
+                        class="w-full h-64 object-cover">
+                    <div class="absolute bottom-4 right-4">
+                        <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full">Hafecs  | TLC</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Upaya Menciptakan Pembelajaran Yang Harmoni | TLC</h3>
+                    <p class="text-gray-600">• 8 minutes read</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Pagination Dots -->
+        <div class="flex justify-center items-center mt-8 space-x-2">
+            <span class="w-3 h-3 bg-teal-500 rounded-full"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full"></span>
+        </div>
+    
+        <!-- Navigation Arrows -->
+        <div class="flex justify-between items-center mt-4">
+            <button class="p-2 rounded-full bg-gray-100 shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button class="p-2 rounded-full bg-white shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </section> --}}
+
+    {{-- <section class="max-w-7xl mx-auto px-4 md:px-8 py-10">
+        <!-- Title -->
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">Artikel Terbaru</h2>
+        
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <!-- Slide 1 -->
+                <div class="carousel-slide">
+                    <!-- Article 1 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative">
+                            <div class="img-placeholder w-full h-64 object-cover">Image: Elastisitas Permintaan dan Penawaran</div>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Elastisitas Permintaan dan Penawaran | Hafecs</h3>
+                            <p class="text-gray-600">March 26, 2025 • 5 minutes read</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 2 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative">
+                            <div class="img-placeholder w-full h-64 object-cover">Image: Piagam PBB</div>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Upaya Menciptakan Pembelajaran Yang Harmoni | TLC</h3>
+                            <p class="text-gray-600">• 8 minutes read</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="carousel-slide">
+                    <!-- Article 3 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative">
+                            <div class="img-placeholder w-full h-64 object-cover">Image: Manajemen Keuangan</div>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Prinsip Dasar Manajemen Keuangan | Hafecs</h3>
+                            <p class="text-gray-600">March 20, 2025 • 6 minutes read</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 4 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative">
+                            <div class="img-placeholder w-full h-64 object-cover">Image: Metode Pengajaran</div>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Metode Pengajaran Inovatif Era Digital | TLC</h3>
+                            <p class="text-gray-600">March 15, 2025 • 7 minutes read</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
+                    <!-- Article 5 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative">
+                            <div class="img-placeholder w-full h-64 object-cover">Image: Ekonomi Mikro</div>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Pengenalan Ekonomi Mikro | Hafecs</h3>
+                            <p class="text-gray-600">March 10, 2025 • 4 minutes read</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 6 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative">
+                            <div class="img-placeholder w-full h-64 object-cover">Image: Pembelajaran Aktif</div>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Strategi Pembelajaran Aktif di Kelas | TLC</h3>
+                            <p class="text-gray-600">March 5, 2025 • 6 minutes read</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="carousel-slide">
+                    <!-- Article 7 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative">
+                            <div class="img-placeholder w-full h-64 object-cover">Image: Investasi</div>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Dasar-dasar Investasi yang Perlu Diketahui | Hafecs</h3>
+                            <p class="text-gray-600">March 1, 2025 • 9 minutes read</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative">
+                            <div class="img-placeholder w-full h-64 object-cover">Image: Teknologi Pendidikan</div>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Teknologi Pendidikan Terkini | TLC</h3>
+                            <p class="text-gray-600">February 25, 2025 • 5 minutes read</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 5 -->
+                <div class="carousel-slide">
+                    <!-- Article 9 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative">
+                            <div class="img-placeholder w-full h-64 object-cover">Image: Kebijakan Ekonomi</div>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Kebijakan Ekonomi Global 2025 | Hafecs</h3>
+                            <p class="text-gray-600">February 20, 2025 • 7 minutes read</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 10 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative">
+                            <div class="img-placeholder w-full h-64 object-cover">Image: Evaluasi Pembelajaran</div>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Metode Evaluasi Pembelajaran Efektif | TLC</h3>
+                            <p class="text-gray-600">February 15, 2025 • 6 minutes read</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
-        <p class="text-gray-600 text-base mb-10 text-center sm:text-left max-w-2xl">
-            Daftar kategori kuis yang akan anda kerjakan. Selesaikan setiap kategori untuk membuka level berikutnya!
-        </p>
-    
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center sm:justify-start gap-3 mb-10">
-            <button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <!-- Pagination Dots -->
+        <div class="flex justify-center items-center mt-8 space-x-2">
+            <span class="w-3 h-3 bg-teal-500 rounded-full" data-index="0"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full" data-index="1"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full" data-index="2"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full" data-index="3"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full" data-index="4"></span>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <div class="flex justify-between items-center mt-4">
+            <button class="prev-button p-2 rounded-full bg-gray-100 shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
-                Semua
             </button>
-            <button class="px-6 py-3 bg-white text-gray-700 rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+            <button class="next-button p-2 rounded-full bg-white shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
-                Terbuka
-            </button>
-            <button class="px-6 py-3 bg-white text-gray-700 rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                Terkunci
             </button>
         </div>
-    
-        <!-- Categories -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Literasi -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="/api/placeholder/400/320" alt="Literasi" class="w-full h-48 object-cover group-hover:opacity-90 transition">
-                    <div class="absolute top-4 right-4 bg-green-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Tersedia
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-blue-600 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: Literasi</h3>
-                    <div class="flex items-center text-yellow-500 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">25 soal</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-1"></span>
-                            10 menit
-                        </div>
-                        <button class="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-xl hover:-translate-y-1 flex items-center">
-                            Mulai
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Numerasi -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="/api/placeholder/400/320" alt="Numerasi" class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Terkunci
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-gray-500 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: Numerasi</h3>
-                    <div class="flex items-center text-gray-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">30 soal</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-gray-500 rounded-full mr-1"></span>
-                            15 menit
-                        </div>
-                        <div class="relative group">
-                            <button class="px-5 py-2 bg-gray-400 text-gray-700 rounded-xl text-sm font-medium shadow-sm flex items-center cursor-not-allowed">
-                                Terkunci
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </button>
-                            <div class="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                Selesaikan kategori Literasi terlebih dahulu
-                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-800"></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const track = document.querySelector('.carousel-track');
+                const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+                const dots = Array.from(document.querySelectorAll('[data-index]'));
+                const prevButton = document.querySelector('.prev-button');
+                const nextButton = document.querySelector('.next-button');
+                
+                let currentIndex = 0;
+                const slideWidth = 100; // 100%
+                
+                // Initialize the carousel
+                function updateCarousel() {
+                    // Update track position
+                    track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+                    
+                    // Update dots
+                    dots.forEach((dot, index) => {
+                        if (index === currentIndex) {
+                            dot.classList.remove('bg-gray-300');
+                            dot.classList.add('bg-teal-500');
+                        } else {
+                            dot.classList.remove('bg-teal-500');
+                            dot.classList.add('bg-gray-300');
+                        }
+                    });
+                    
+                    // Update button states
+                    prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                    nextButton.style.opacity = currentIndex === slides.length - 1 ? '0.5' : '1';
+                }
+                
+                // Handle prev button click
+                prevButton.addEventListener('click', function() {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+                
+                // Handle next button click
+                nextButton.addEventListener('click', function() {
+                    if (currentIndex < slides.length - 1) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+                
+                // Handle dot clicks
+                dots.forEach((dot) => {
+                    dot.addEventListener('click', function() {
+                        currentIndex = parseInt(this.getAttribute('data-index'));
+                        updateCarousel();
+                    });
+                });
+                
+                // Initialize
+                updateCarousel();
+            });
+        </script>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .max-w-7xl {
+                max-width: 80rem;
+            }
+            
+            .mx-auto {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .px-4 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .py-10 {
+                padding-top: 2.5rem;
+                padding-bottom: 2.5rem;
+            }
+            
+            .text-3xl {
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+            }
+            
+            .font-bold {
+                font-weight: 700;
+            }
+            
+            .text-gray-800 {
+                color: #1f2937;
+            }
+            
+            .mb-8 {
+                margin-bottom: 2rem;
+            }
+            
+            .carousel-container {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .carousel-track {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+            
+            .carousel-slide {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            @media (min-width: 768px) {
+                .md\:px-8 {
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                }
+                
+                .carousel-slide {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1.5rem;
+                }
+            }
+            
+            .bg-white {
+                background-color: white;
+            }
+            
+            .rounded-lg {
+                border-radius: 0.5rem;
+            }
+            
+            .overflow-hidden {
+                overflow: hidden;
+            }
+            
+            .shadow-md {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+            
+            .relative {
+                position: relative;
+            }
+            
+            .w-full {
+                width: 100%;
+            }
+            
+            .h-64 {
+                height: 16rem;
+            }
+            
+            .object-cover {
+                object-fit: cover;
+            }
+            
+            .absolute {
+                position: absolute;
+            }
+            
+            .bottom-4 {
+                bottom: 1rem;
+            }
+            
+            .right-4 {
+                right: 1rem;
+            }
+            
+            .bg-yellow-400 {
+                background-color: #facc15;
+            }
+            
+            .bg-gray-400 {
+                background-color: #9ca3af;
+            }
+            
+            .text-black {
+                color: #000;
+            }
+            
+            .text-white {
+                color: #fff;
+            }
+            
+            .px-6 {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            
+            .py-2 {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+            
+            .rounded-full {
+                border-radius: 9999px;
+            }
+            
+            .p-4 {
+                padding: 1rem;
+            }
+            
+            .text-xl {
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+            }
+            
+            .mb-2 {
+                margin-bottom: 0.5rem;
+            }
+            
+            .text-gray-600 {
+                color: #4b5563;
+            }
+            
+            .flex {
+                display: flex;
+            }
+            
+            .justify-center {
+                justify-content: center;
+            }
+            
+            .justify-between {
+                justify-content: space-between;
+            }
+            
+            .items-center {
+                align-items: center;
+            }
+            
+            .mt-8 {
+                margin-top: 2rem;
+            }
+            
+            .mt-4 {
+                margin-top: 1rem;
+            }
+            
+            .space-x-2 > * + * {
+                margin-left: 0.5rem;
+            }
+            
+            .w-3 {
+                width: 0.75rem;
+            }
+            
+            .h-3 {
+                height: 0.75rem;
+            }
+            
+            .bg-teal-500 {
+                background-color: #14b8a6;
+            }
+            
+            .bg-gray-300 {
+                background-color: #d1d5db;
+            }
+            
+            .p-2 {
+                padding: 0.5rem;
+            }
+            
+            .bg-gray-100 {
+                background-color: #f3f4f6;
+            }
+            
+            .h-6 {
+                height: 1.5rem;
+            }
+            
+            .w-6 {
+                width: 1.5rem;
+            }
+            
+            .text-gray-400 {
+                color: #9ca3af;
+            }
+            
+            button {
+                cursor: pointer;
+                border: none;
+                outline: none;
+            }
+            
+            /* Placeholder for images */
+            .img-placeholder {
+                background-color: #e5e7eb;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #6b7280;
+                font-weight: bold;
+            }
+        </style>
+    </section> --}}
+
+    {{-- Artikel --}}
+    <section class="max-w-7xl mx-auto px-4 md:px-8 py-10">
+        <!-- Title -->
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">Artikel Terbaru</h2>
+        
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <!-- Slide 1 -->
+                <div class="carousel-slide">
+                    <!-- Article 1 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
+                        <div class="relative">
+                            <img src="images/karakter.jpg" alt="Elastisitas Permintaan dan Penawaran" class="article-image"/>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full article-badge">Hafecs | TLC</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- PCK -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="/api/placeholder/400/320" alt="PCK" class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Terkunci
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-gray-500 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: PCK</h3>
-                    <div class="flex items-center text-gray-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">20 soal</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-gray-500 rounded-full mr-1"></span>
-                            20 menit
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 article-title">Elastisitas Permintaan dan Penawaran | Hafecs</h3>
+                            <p class="text-gray-600">March 26, 2025 • 5 minutes read</p>
                         </div>
-                        <div class="relative group">
-                            <button class="px-5 py-2 bg-gray-400 text-gray-700 rounded-xl text-sm font-medium shadow-sm flex items-center cursor-not-allowed">
-                                Terkunci
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </button>
-                            <div class="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                Selesaikan kategori sebelumnya terlebih dahulu
-                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-800"></div>
+                    </div>
+                    
+                    <!-- Article 2 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
+                        <div class="relative">
+                            <img src="images/konten_satu.jpg" alt="Piagam PBB" class="article-image"/>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full article-badge">Hafecs | TLC</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- HOTS -->
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
-                <div class="relative">
-                    <img src="/api/placeholder/400/320" alt="HOTS" class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
-                        Terkunci
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                </div>
-                <div class="p-6 relative">
-                    <div class="absolute -top-10 left-6 bg-gray-500 text-white p-3 rounded-xl shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Kategori: HOTS</h3>
-                    <div class="flex items-center text-gray-400 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                        <span class="ml-2 text-sm text-gray-600">15 soal</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="text-sm text-gray-500">
-                            <span class="inline-block w-2 h-2 bg-gray-500 rounded-full mr-1"></span>
-                            25 menit
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 article-title">Upaya Menciptakan Pembelajaran Yang Harmoni | TLC</h3>
+                            <p class="text-gray-600">• 8 minutes read</p>
                         </div>
-                        <div class="relative group">
-                            <button class="px-5 py-2 bg-gray-400 text-gray-700 rounded-xl text-sm font-medium shadow-sm flex items-center cursor-not-allowed">
-                                Terkunci
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </button>
-                            <div class="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                Selesaikan kategori sebelumnya terlebih dahulu
-                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-800"></div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="carousel-slide">
+                    <!-- Article 3 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
+                        <div class="relative">
+                            <img src="images/konten_dua.jpeg" alt="Manajemen Keuangan" class="article-image"/>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full article-badge">Hafecs | TLC</span>
                             </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 article-title">Prinsip Dasar Manajemen Keuangan | Hafecs</h3>
+                            <p class="text-gray-600">March 20, 2025 • 6 minutes read</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 4 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
+                        <div class="relative">
+                            <img src="images/karakter.jpg" alt="Metode Pengajaran" class="article-image"/>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full article-badge">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 article-title">Metode Pengajaran Inovatif Era Digital | TLC</h3>
+                            <p class="text-gray-600">March 15, 2025 • 7 minutes read</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
+                    <!-- Article 5 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
+                        <div class="relative">
+                            <img src="images/karakter.jpg" alt="Ekonomi Mikro" class="article-image"/>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full article-badge">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 article-title">Pengenalan Ekonomi Mikro | Hafecs</h3>
+                            <p class="text-gray-600">March 10, 2025 • 4 minutes read</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 6 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
+                        <div class="relative">
+                            <img src="images/karakter.jpg" alt="Pembelajaran Aktif" class="article-image"/>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full article-badge">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 article-title">Strategi Pembelajaran Aktif di Kelas | TLC</h3>
+                            <p class="text-gray-600">March 5, 2025 • 6 minutes read</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="carousel-slide">
+                    <!-- Article 7 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
+                        <div class="relative">
+                            <img src="images/karakter.jpg" alt="Investasi" class="article-image"/>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full article-badge">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 article-title">Dasar-dasar Investasi yang Perlu Diketahui | Hafecs</h3>
+                            <p class="text-gray-600">March 1, 2025 • 9 minutes read</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
+                        <div class="relative">
+                            <img src="images/karakter.jpg" alt="Teknologi Pendidikan" class="article-image"/>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full article-badge">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 article-title">Teknologi Pendidikan Terkini | TLC</h3>
+                            <p class="text-gray-600">February 25, 2025 • 5 minutes read</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 5 -->
+                <div class="carousel-slide">
+                    <!-- Article 9 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
+                        <div class="relative">
+                            <img src="images/karakter.jpg" alt="Kebijakan Ekonomi" class="article-image"/>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full article-badge">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 article-title">Kebijakan Ekonomi Global 2025 | Hafecs</h3>
+                            <p class="text-gray-600">February 20, 2025 • 7 minutes read</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 10 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
+                        <div class="relative">
+                            <img src="images/karakter.jpg" alt="Evaluasi Pembelajaran" class="article-image"/>
+                            <div class="absolute bottom-4 right-4">
+                                <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full article-badge">Hafecs | TLC</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 article-title">Metode Evaluasi Pembelajaran Efektif | TLC</h3>
+                            <p class="text-gray-600">February 15, 2025 • 6 minutes read</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Pagination Dots -->
+        <div class="flex justify-center items-center mt-8 space-x-2">
+            <span class="w-3 h-3 bg-teal-500 rounded-full dot" data-index="0"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full dot" data-index="1"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full dot" data-index="2"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full dot" data-index="3"></span>
+            <span class="w-3 h-3 bg-gray-300 rounded-full dot" data-index="4"></span>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <div class="flex justify-between items-center mt-4">
+            <button class="prev-button p-2 rounded-full bg-gray-100 shadow-md nav-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button class="next-button p-2 rounded-full bg-white shadow-md nav-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const track = document.querySelector('.carousel-track');
+                const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+                const dots = Array.from(document.querySelectorAll('.dot'));
+                const prevButton = document.querySelector('.prev-button');
+                const nextButton = document.querySelector('.next-button');
+                
+                let currentIndex = 0;
+                const slideWidth = 100; // 100%
+                
+                // Initialize the carousel
+                function updateCarousel() {
+                    // Update track position with smooth animation
+                    track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+                    
+                    // Update dots
+                    dots.forEach((dot, index) => {
+                        if (index === currentIndex) {
+                            dot.classList.remove('bg-gray-300');
+                            dot.classList.add('bg-teal-500');
+                        } else {
+                            dot.classList.remove('bg-teal-500');
+                            dot.classList.add('bg-gray-300');
+                        }
+                    });
+                    
+                    // Update button states
+                    prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                    nextButton.style.opacity = currentIndex === slides.length - 1 ? '0.5' : '1';
+                }
+                
+                // Handle prev button click
+                prevButton.addEventListener('click', function() {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+                
+                // Handle next button click
+                nextButton.addEventListener('click', function() {
+                    if (currentIndex < slides.length - 1) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+                
+                // Handle dot clicks
+                dots.forEach((dot) => {
+                    dot.addEventListener('click', function() {
+                        currentIndex = parseInt(this.getAttribute('data-index'));
+                        updateCarousel();
+                    });
+                });
+                
+                // Auto slide every 5 seconds
+                let autoSlideInterval = setInterval(autoSlide, 5000);
+                
+                function autoSlide() {
+                    if (currentIndex < slides.length - 1) {
+                        currentIndex++;
+                    } else {
+                        currentIndex = 0;
+                    }
+                    updateCarousel();
+                }
+                
+                // Pause auto slide on hover
+                const carouselContainer = document.querySelector('.carousel-container');
+                carouselContainer.addEventListener('mouseenter', function() {
+                    clearInterval(autoSlideInterval);
+                });
+                
+                carouselContainer.addEventListener('mouseleave', function() {
+                    autoSlideInterval = setInterval(autoSlide, 5000);
+                });
+                
+                // Touch events for mobile
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                carouselContainer.addEventListener('touchstart', function(e) {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                carouselContainer.addEventListener('touchend', function(e) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    if (touchEndX < touchStartX - swipeThreshold) {
+                        // Swipe left
+                        if (currentIndex < slides.length - 1) {
+                            currentIndex++;
+                            updateCarousel();
+                        }
+                    } else if (touchEndX > touchStartX + swipeThreshold) {
+                        // Swipe right
+                        if (currentIndex > 0) {
+                            currentIndex--;
+                            updateCarousel();
+                        }
+                    }
+                }
+                
+                // Initialize
+                updateCarousel();
+            });
+        </script>
+        <style>
+            .carousel-container {
+                position: relative;
+                overflow: hidden;
+                border-radius: 0.75rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            }
+            
+            .carousel-track {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+            
+            .carousel-slide {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            @media (min-width: 768px) {
+                .md\:px-8 {
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                }
+                
+                .carousel-slide {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1.5rem;
+                }
+            }
+            
+            button {
+                cursor: pointer;
+                border: none;
+                outline: none;
+                transition: all 0.3s ease;
+            }
+            
+            button:hover {
+                transform: scale(1.05);
+            }
+            
+            .article-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            .article-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            }
+            
+            .article-image {
+                width: 100%;
+                height: 16rem;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+            
+            .article-card:hover .article-image {
+                transform: scale(1.05);
+            }
+            
+            .article-badge {
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+            
+            .article-card:hover .article-badge {
+                transform: scale(1.05);
+            }
+            
+            .article-title {
+                transition: color 0.3s ease;
+            }
+            
+            .article-card:hover .article-title {
+                color: #0891b2;
+            }
+            
+            /* Custom dot navigation */
+            .dot {
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+            
+            .dot:hover {
+                transform: scale(1.2);
+            }
+            
+            /* Navigation arrows */
+            .nav-arrow {
+                transition: all 0.3s ease;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .nav-arrow:hover {
+                background-color: #14b8a6;
+            }
+            
+            .nav-arrow:hover svg {
+                color: white;
+            }
+        </style>
     </section>
-    {{-- End C --}}
+    {{-- End Artikel --}}
+
+    <!-- Sponsor Section -->
+    <section class="w-full px-8 py-16 bg-white text-gray-900 shadow-lg">
+        <h2 class="text-2xl font-bold text-black text-center">Didukung Oleh</h2>
+        <div class="w-16 h-1 bg-[#E76F51] mx-auto mt-2 mb-8"></div>
+
+        <!-- Swiper Container -->
+        <div class="swiper mySwiper max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide flex items-center justify-center">
+                    <img src="images/guru.png" alt="Sponsor 1" class="w-96 h-96 object-contain">
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                    <img src="images/guru.png" alt="Sponsor 2" class="w-96 h-96 object-contain">
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                    <img src="images/guru.png" alt="Sponsor 3" class="w-96 h-96 object-contain">
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                    <img src="images/guru.png" alt="Sponsor 4" class="w-96 h-96 object-contain">
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                    <img src="images/guru.png" alt="Sponsor 5" class="w-96 h-96 object-contain">
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                    <img src="images/guru.png" alt="Sponsor 6" class="w-96 h-96 object-contain">
+                </div>
+            </div>
+
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Swiper Navigation Buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- Swiper.js CDN -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+        <!-- Swiper.js Initialization -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 15,
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1
+                    },
+                    640: {
+                        slidesPerView: 2
+                    },
+                    1024: {
+                        slidesPerView: 3
+                    },
+                }
+            });
+        </script>
+    </section>
+    <!-- End Sponsor Section -->
 
     {{-- </main> --}}
     <footer class="bg-[#0D3B66] text-white py-10">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- TLC Program -->
             <div>
                 <h2 class="text-lg font-semibold">TLC Program</h2>
@@ -2068,10 +2465,10 @@
                     efektif.
                 </p>
                 <div class="flex space-x-4 mt-4">
-                    <a href="#" class="hover:text-gray-300 text-xl"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="hover:text-gray-300 text-xl"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-gray-300 text-xl"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-gray-300 text-xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
 
@@ -2089,28 +2486,22 @@
             </div>
 
             <!-- Kontak -->
-            <div class="sm:col-span-2 lg:col-span-1">
+            <div>
                 <h2 class="text-lg font-semibold">Kontak</h2>
-                <ul class="mt-2 space-y-3 text-sm">
-                    <li class="flex items-start gap-2">
-                        <i class="fas fa-map-marker-alt text-yellow-400 mt-1"></i>
-                        <span>Jl. Pendidikan No. 123, Jakarta Pusat, Indonesia</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fas fa-phone-alt text-yellow-400"></i>
-                        <span>+62 21 1234 5678</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fas fa-envelope text-yellow-400"></i>
-                        <span>info@tlcprogram.id</span>
-                    </li>
+                <ul class="mt-2 space-y-2 text-sm">
+                    <li><i class="fas fa-map-marker-alt text-yellow-400"></i> Jl. Pendidikan No. 123, Jakarta Pusat,
+                        Indonesia</li>
+                    <li><i class="fas fa-phone-alt text-yellow-400"></i> +62 21 1234 5678</li>
+                    <li><i class="fas fa-envelope text-yellow-400"></i> info@tlcprogram.id</li>
                 </ul>
             </div>
+
+
         </div>
 
-        <hr class="border-gray-500 my-6 mx-4 sm:mx-6 lg:mx-8">
+        <hr class="border-gray-500 my-6">
 
-        <div class="text-center text-xs sm:text-sm px-4">
+        <div class="text-center text-sm">
             © 2025 Teaching and Learning Certification Program. All rights reserved.
         </div>
 
@@ -2120,5 +2511,101 @@
     {{-- end footer --}}
 
 </body>
+
+<script>
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll("#navbar-sticky a");
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", function() {
+                navLinks.forEach(navLink => navLink.classList.remove("text-blue-700",
+                    "dark:text-blue-500", "font-bold")); // Hapus kelas dari semua tautan
+                this.classList.add("text-blue-700", "dark:text-blue-500",
+                    "font-bold"); // Tambahkan kelas ke tautan yang diklik
+            });
+        });
+    });
+    // Autoslide logic
+    const carouselContent = document.getElementById('carousel-content');
+    const items = carouselContent.children;
+    let index = 0;
+
+    setInterval(() => {
+        index = (index + 1) % items.length;
+        carouselContent.style.transform = `translateX(-${index * 100}%)`;
+    }, 5000); // Change slide every 5 seconds
+
+
+    // ScrollReveal().reveal('.view');
+    ScrollReveal().reveal('.view', {
+        origin: 'right',
+        distance: '50px',
+        duration: 800,
+        delay: 200,
+        easing: 'ease-in-out',
+        reset: true
+    });
+    ScrollReveal().reveal('.view2', {
+        origin: 'left',
+        distance: '50px',
+        duration: 800,
+        delay: 200,
+        easing: 'ease-in-out',
+        reset: true
+    });
+    ScrollReveal().reveal('.view3', {
+        origin: 'right',
+        distance: '50px',
+        duration: 800,
+        delay: 200,
+        easing: 'ease-in-out',
+        reset: true
+    });
+    ScrollReveal().reveal('.view4', {
+        origin: 'left',
+        distance: '50px',
+        duration: 800,
+        delay: 200,
+        easing: 'ease-in-out',
+        reset: true
+    });
+    ScrollReveal().reveal('.view5', {
+        origin: 'right',
+        distance: '50px',
+        duration: 800,
+        delay: 200,
+        easing: 'ease-in-out',
+        reset: true
+    });
+    ScrollReveal().reveal('.view6', {
+        origin: 'left',
+        distance: '50px',
+        duration: 800,
+        delay: 200,
+        easing: 'ease-in-out',
+        reset: true
+    });
+    ScrollReveal().reveal('.view7', {
+        origin: 'right',
+        distance: '50px',
+        duration: 800,
+        delay: 200,
+        easing: 'ease-in-out',
+        reset: true
+    });
+    ScrollReveal().reveal('.view8', {
+        origin: 'left',
+        distance: '50px',
+        duration: 800,
+        delay: 200,
+        easing: 'ease-in-out',
+        reset: true
+    });
+</script>
 
 </html>

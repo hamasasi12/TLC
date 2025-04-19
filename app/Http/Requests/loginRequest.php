@@ -33,7 +33,6 @@ class LoginRequest extends FormRequest
                 'string',
                 'min:8',
                 'max:64',
-                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&^_-])[A-Za-z\d@$!%*#?&^_-]{8,}$/'
             ],
         ];
     }

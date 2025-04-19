@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -28,16 +29,10 @@ class AuthController extends Controller
         if (auth()->attempt($credentials)) {
             $request->session()->regenerate();
 
-            switch (auth()->user()->hasRole->role) {
-                case 'admin':
-                    // return redirect()->intended('dashboard'); //ADMIN DASHBOARD
-                case 'asesi':
-                    return redirect()->route('asesi.dashboard'); //ASESI DASHBOARD
-                case 'asesor':
-                    // return redirect()->intended('dashboard'); //ASESOR DASHBOARD
-                default:
-                    Alert::error('Login Gagal!', 'Role tidak dikenali')->autoClose(3000);
+            if (auth()->user()->hasRole('asesi')) {
+                return redirect()->route('asesi.dashboard')->with('success', 'Berhasil login');
             }
+            
         }
 
         // JIKA GAGAL
@@ -46,7 +41,8 @@ class AuthController extends Controller
         return back()->withInput($request->only('email'))->with('error', 'Email atau Password salah');
     }
 
-    public function registerProcess(RegisterRequest $request) {
+    public function registerProcess(RegisterRequest $request) 
+    {
         $validated = $request->validated();
         $validated['password'] = Hash::make($validated['password']);
         $validated['status'] = 'active';
@@ -67,6 +63,13 @@ class AuthController extends Controller
             Alert::error('Gagal!', 'Akun gagal dibuat')->autoClose(3000);
             return back()->withInput($request->only('email'))->with('error', 'Akun gagal dibuat');
         }
+    }
+
+    public function logout() {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/')->with('success', 'Berhasil logout');
     }
 
 }

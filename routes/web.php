@@ -12,6 +12,7 @@ use App\Http\Controllers\Asesor\AsesorDashboardController;
 // GUEST
 Route::middleware('guest')->group(function () {
     Route::get('/', fn() => view('welcome'));
+
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
 
@@ -19,9 +20,10 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.post');
 });
 
-// GOOGLE SSO
-Route::get('/auth/google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
-Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+// GOOGLE SSO LOGIN/REGISTER
+Route::get('/auth/google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect'); //ROUTE LOGIN SSO
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']); //ROUTE CALLBACK SSO
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth'); //ROUTE LOGOUT 
 
 
 // AUTH ASESI

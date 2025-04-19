@@ -21,11 +21,12 @@ class RegisterRequest extends FormRequest
      */
     public function rules(): array
     {
+        dd($this->all());
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8|confirmed',
-            'password_confirmation' => 'required|string|min:8',
+            // 'name' => 'required|string|max:30',
+            'email' => 'required',
+            'password' => 'required',
+            'password_confirmation' => 'required',
         ];
     }
 }

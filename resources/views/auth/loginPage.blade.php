@@ -1,5 +1,7 @@
  @extends('layouts.login')
+
  @section('title', 'Login')
+
  @section('content')
      <div class="bg-white min-h-screen w-full flex items-center justify-center p-4">
          <div class="bg-gray-50 shadow-xl rounded-3xl overflow-hidden w-full max-w-4xl flex flex-col md:flex-row">
@@ -38,7 +40,9 @@
                      </div>
                  </div>
 
-                 <form>
+                 <form action="{{ route('login.post') }}" method="POST">
+                     @csrf
+                     @method('POST')
                      <div class="mb-6 group">
                          <label class="text-sm font-medium text-gray-700 block mb-2">Email Address</label>
                          <div class="relative">
@@ -51,7 +55,13 @@
                                  </svg>
                              </div>
                              <input type="email" placeholder="your.email@example.com"
-                                 class="w-full pl-10 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                                 class="w-full pl-10 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                                 required accept="email" name="email" value="{{ old('email') }}">
+                             @error('email')
+                                 <div class="text-red-500 text-sm mt-1">
+                                     {{ $message }}
+                                 </div>
+                             @enderror
                          </div>
                      </div>
 
@@ -67,7 +77,13 @@
                                  </svg>
                              </div>
                              <input type="password" placeholder="Your Password"
-                                 class="w-full pl-10 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                                 class="w-full pl-10 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition "
+                                 name="password" required>
+                             @error('password')
+                                 <div class="text-red-500 text-sm mt-1">
+                                     {{ $message }}
+                                 </div>
+                             @enderror
                          </div>
                      </div>
 
@@ -98,7 +114,7 @@
                  </div>
 
                  <div class="flex justify-center mb-6">
-                     <a href="#"
+                     <a href="{{ route('google.redirect') }}"
                          class="flex items-center justify-center bg-red-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-red-600 transition transform hover:translate-y-0.5">
                          <i class="fa-brands fa-google text-lg mr-2"></i>
                          <span>Sign in with Google</span>
