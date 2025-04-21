@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Rules\Password;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class RegisterRequest extends FormRequest
 {
@@ -11,7 +14,7 @@ class RegisterRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return auth()->guest();
     }
 
     /**
@@ -22,10 +25,15 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8|confirmed',
-            'password_confirmation' => 'required|string|min:8',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed'],
+            'password_confirmation' => 'required',
         ];
+    }
+
+    protected function failedAuthorization()
+    {
+        throw new AuthorizationException('Hanya bisa diakses oleh guest.');
     }
 }
