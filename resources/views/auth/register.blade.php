@@ -62,8 +62,7 @@
             <form class="space-y-6" action="{{ route('register.post') }}" method="post">
                 @csrf
 
-                {{-- NAMA LENGKAP DIMATIKAN SAJA --}}
-                {{-- <div class="relative">
+                <div class="relative">
                     <label class="text-sm font-medium text-gray-700 block mb-1">Nama Lengkap</label>
                     <div class="relative">
                         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">
@@ -73,9 +72,13 @@
                             </svg>
                         </span>
                         <input type="text" placeholder="Masukkan nama lengkap"
-                            class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-400">
+                            class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-400"
+                            name="name" required>
                     </div>
-                </div> --}}
+                    @error('name')
+                        <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
 
                 <div class="relative">
                     <label class="text-sm font-medium text-gray-700 block mb-1">Email</label>
@@ -145,19 +148,10 @@
                         <path fill-rule="evenodd"
                             d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
                             clip-rule="evenodd" />
-                </svg>
+                    </svg>
                     DAFTAR SEKARANG
                 </button>
             </form>
-            @if ($errors->any())
-                <div class="bg-red-100 p-4 mb-4 rounded">
-                    <ul class="list-disc list-inside text-red-600">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
             <div class="relative my-6">
                 <div class="absolute inset-0 flex items-center">

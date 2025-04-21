@@ -55,7 +55,8 @@ class AuthController extends Controller
 
             Alert::success('Berhasil!', 'Akun berhasil dibuat')->autoClose(3000);
             DB::commit();
-            return redirect()->route('login'); //ARAHKAN KEARAH DASHBORD
+            Auth::login($user); 
+            return redirect()->route('asesi.dashboard'); //ARAHKAN KEARAH DASHBORD
 
         } catch (\Exception $e) {
             DB::rollBack();
@@ -71,5 +72,4 @@ class AuthController extends Controller
         request()->session()->regenerateToken();
         return redirect('/')->with('success', 'Berhasil logout');
     }
-
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class RegisterRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class RegisterRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return auth()->guest();
     }
 
     /**
@@ -21,12 +22,16 @@ class RegisterRequest extends FormRequest
      */
     public function rules(): array
     {
-        dd($this->all());
         return [
-            // 'name' => 'required|string|max:30',
-            'email' => 'required',
-            'password' => 'required',
+            'name' => 'required|string|max:30',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed',
             'password_confirmation' => 'required',
         ];
+    }
+
+    protected function failedAuthorization()
+    {
+        throw new AuthorizationException('Hanya bisa diakses oleh guest.');
     }
 }
