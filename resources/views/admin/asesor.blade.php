@@ -1,5 +1,5 @@
 {{-- Navigation awal --}}
-\<!-- Navigasi -->
+<!-- Navigasi -->
 <div class="mt-6">
     <div class="flex gap-2 mb-4">
         <button class="bg-blue-600 text-white py-2 px-4 rounded-md flex items-center gap-2">

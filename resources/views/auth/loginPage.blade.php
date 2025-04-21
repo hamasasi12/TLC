@@ -77,7 +77,7 @@
                                  </svg>
                              </div>
                              <input type="password" placeholder="Your Password"
-                                 class="w-full pl-10 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition "
+                                 class="w-full pl-10 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                                  name="password" required>
                              @error('password')
                                  <div class="text-red-500 text-sm mt-1">

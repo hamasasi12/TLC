@@ -31,6 +31,14 @@ class AuthController extends Controller
 
             if (auth()->user()->hasRole('asesi')) {
                 return redirect()->route('asesi.dashboard')->with('success', 'Berhasil login');
+            } else if (auth()->user()->hasRole('admin')) {
+                return redirect()->route('admin.dashboard')->with('success', 'Berhasil login');
+            } else if (auth()->user()->hasRole('asesor')) {
+                return redirect()->route('asesor.dashboard')->with('success', 'Berhasil login');
+            } else {
+                Auth::logout();
+                Alert::error('Login Gagal!', 'Akun tidak terdaftar')->autoClose(3000);
+                return back()->withInput($request->only('email'))->with('error', 'Akun tidak terdaftar');
             }
             
         }
