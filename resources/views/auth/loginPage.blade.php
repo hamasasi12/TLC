@@ -17,7 +17,8 @@
                  <p class="text-blue-100 text-center mb-8">Welcome to our platform</p>
                  <div
                      class="mt-6 w-40 h-40 bg-white bg-opacity-20 flex items-center justify-center rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300">
-                     <span class="text-gray-500"><img src="images/logoTlcPng.png" alt="Logo" class="max-w-full"></span>
+                     <span class="text-gray-500"><img src="{{ asset('images/logoTlcPng.png') }}" alt="Logo"
+                             class="max-w-full" loading="lazy"></span>
                  </div>
              </div>
 

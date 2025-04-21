@@ -18,7 +18,8 @@
 
             <div
                 class="mt-6 w-40 h-40 bg-white/20 backdrop-blur-sm flex items-center justify-center rounded-full shadow-xl border-4 border-white/30 p-2 hover:rotate-3 transition-all duration-300">
-                <img src="images/logoTlcPng.png" alt="TLC Care Logo" class="max-w-full max-h-full object-contain">
+                <img src="{{ asset('images/logoTlcPng.png') }}" alt="TLC Care Logo"
+                    class="max-w-full max-h-full object-contain" loading="lazy">
             </div>
 
             <div class="mt-10 text-white/90 flex flex-col gap-3">
