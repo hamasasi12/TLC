@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Asesi\SertifikasiController;
+use App\Http\Controllers\Asesi\TransactionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\GoogleController;
@@ -29,6 +31,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 // AUTH ASESI
 Route::middleware(['auth', 'role:asesi'])->prefix('asesi')->group(function () {
     Route::get('/dashboard', [AsesiDashboardController::class, 'index'])->name('asesi.dashboard');
+    Route::get('/sertifikasi', [SertifikasiController::class, 'index'])->name('asesi.sertifikasi');
+    Route::get('/transaksi', [TransactionController::class, 'index'])->name('asesi.transaksi');
 });
 
 // AUTH ADMIN
