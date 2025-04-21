@@ -90,11 +90,11 @@
         <aside class="w-72 bg-primary text-white flex flex-col p-6 shadow-xl">
             <div class="flex items-center space-x-3 mb-8">
                 <div
-                    class="bg-secondary rounded-xl w-12 h-12 flex items-center justify-center text-primary-dark font-bold text-xl shadow-lg">
-                    TLC
+                    class="bg-white rounded-md flex items-center justify-center">
+                    <img src="{{ asset('assets/img/tlc.png') }}" class="w-16" alt="logo-tlc">
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-wide">TLC Admin</h1>
+                    {{-- <h1 class="text-xl font-bold tracking-wide">TLC Admin</h1> --}}
                     <p class="text-sm opacity-80 font-medium">Teaching & Learning Certification</p>
                 </div>
             </div>
