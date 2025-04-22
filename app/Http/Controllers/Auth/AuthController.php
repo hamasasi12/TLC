@@ -25,8 +25,9 @@ class AuthController extends Controller
 
     public function loginProcess(LoginRequest $request) {
         $credentials = $request->only('email', 'password');
+        $remember = $request->has('remember');
 
-        if (auth()->attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
             if (auth()->user()->hasRole('asesi')) {

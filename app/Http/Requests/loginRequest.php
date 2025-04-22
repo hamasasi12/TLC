@@ -11,7 +11,7 @@ class LoginRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return auth()->guest();
+        return true;
     }
 
     /**
@@ -25,10 +25,17 @@ class LoginRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
+                'max:255',
             ],
             'password' => [
                 'required',
                 'string',
+                'min:8',
+                'max:64',
+            ],
+            'remember' => [
+                'boolean',
+                'nullable'
             ],
         ];
     }
