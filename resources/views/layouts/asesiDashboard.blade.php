@@ -21,7 +21,7 @@
 
                 <!-- Brand Section -->
                 <div class="flex items-center space-x-4">
-                    <img src="images/logo.svg" class="h-10 w-10 md:h-14 md:w-14" alt="TLC Logo">
+                    <img src="{{ asset('assets/img/tlc.png') }}" class="h-10 w-10 md:h-14 md:w-14" alt="TLC Logo">
                     <div>
                         <h1 class="text-lg md:text-2xl font-bold text-gray-800 tracking-wide capitalize">TLC Program
                         </h1>
