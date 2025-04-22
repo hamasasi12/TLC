@@ -205,12 +205,18 @@
 
                     <div class="flex justify-between items-center mb-8">
                         <div class="flex items-center">
-                            <input type="checkbox" id="remember"
+                            <input type="checkbox" id="remember" name="remember"
                                 class="w-4 h-4 text-[#0C548C] border-gray-300 rounded focus:ring-[#0C548C]">
                             <label for="remember" class="ml-2 text-sm text-[#2E4D69]">Remember me</label>
                         </div>
                         <a href="#" class="text-sm text-[#0C548C] hover:text-[#2E4D69] hover:underline transition">Lupa password?</a>
                     </div>
+                    @if (session('error'))
+                        <div class="text-red-500 text-sm">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
 
                     <button class="w-full bg-gradient-to-r from-[#0C548C] to-[#2E4D69] text-white py-4 rounded-xl hover:from-[#063B67] hover:to-[#1C3A58] transition shadow-lg transform hover:translate-y-0.5 hover:shadow-xl">
                         Sign In

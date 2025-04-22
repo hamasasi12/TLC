@@ -1,4 +1,5 @@
 @extends('layouts.asesiDashboard')
+@section('title', 'Teaching & Learning Certification')
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('assets/css/asesiDashboard.css') }}" />
@@ -1976,6 +1977,7 @@
         </section>
 
         <form action="{{ route('logout') }}" method="post">
+            @csrf
             <button type="submit">Logout</button>
         </form>
     </section>
