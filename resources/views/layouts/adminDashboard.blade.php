@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="icon" href="{{ asset('assets/img/tlc.png') }}" type="image/png">
     <title>@yield('title', 'TLC')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -31,8 +32,9 @@
                                 </path>
                             </svg>
                         </button>
-                        <a href="#" class="flex ms-2 md:me-24">
-                            <img src="{{ asset('images/logoTlcPng.png') }}" class="h-8 me-3" alt="FlowBite Logo" />
+                        <a href="#"
+                            class="flex items-center justify-center bg-white w-8 h-8 rounded-md shadow-lg ms-2 md:me-24">
+                            <img src="{{ asset('images/logoTlcPng.png') }}" class="h-8" alt="FlowBite Logo" />
                             <span
                                 class="self-center hidden text-xl font-bold text-white md:block whitespace-nowrap"></span>
                         </a>
@@ -146,7 +148,7 @@
 
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                         <li>
-                            <a href="#"
+                            <a href="{{ route('admin.asesi.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-user"></i>
                                 <p>Asesi</p>
