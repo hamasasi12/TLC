@@ -26,6 +26,7 @@ class User extends Authenticatable
         'last_login_at',
         'remember_token',
         'email_verified_at',
+        'remember'
     ];
 
     /**
@@ -49,5 +50,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function userProfile()
+    {
+        return $this->hasOne(UserProfile::class);
     }
 }
