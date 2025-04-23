@@ -23,7 +23,6 @@ class AsesiStoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        dd($this->all());
         return [
             // 'user_id' => 'required|exists:users,id',
             'name' => 'required|string|max:255',

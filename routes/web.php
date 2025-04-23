@@ -46,10 +46,13 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard/asesi', [AdminDashboardController::class, 'asesiIndex'])->name('admin.asesi.index');
     Route::get('/dashboard/asesi/create', [AdminDashboardController::class, 'asesiCreate'])->name('admin.asesi.create');
     Route::post('/dashboard/asesi/store', [AdminDashboardController::class, 'asesiStore'])->name('admin.asesi.store');
+    Route::delete('/dashboard/asesi/delete/{id}', [AdminDashboardController::class, 'asesiDestroy'])->name('admin.asesi.destroy');
+
 
     Route::get('/profile', [AdminSettingsController::class, 'edit'])->name('admin.settings.edit');
     Route::patch('/profile', [AdminSettingsController::class, 'update'])->name('admin.settings.update');
     Route::delete('/profile', [AdminSettingsController::class, 'destroy'])->name('admin.settings.destroy');
+
     Route::put('profile', [AdminSettingsController::class, 'updatePassword'])->name('admin.password.update');
 });
 
