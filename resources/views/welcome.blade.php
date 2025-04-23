@@ -1762,11 +1762,5 @@
         </footer>
 
     </div>
-
-    <form action="{{ route('register.post') }}" method="post">
-        @csrf
-        <input type="text" name="name" id="name" placeholder="Nama Lengkap"
-            class="w-full mt-4 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-400">
-            <button type="submit">submit</button>
-    </form>
+    
 @endsection
