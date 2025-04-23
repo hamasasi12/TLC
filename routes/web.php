@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Asesi\SertifikasiController;
 use App\Http\Controllers\Asesi\TransactionController;
+use App\Http\Controllers\IndoRegionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\GoogleController;
@@ -41,6 +42,10 @@ Route::middleware(['auth', 'role:asesi'])->prefix('asesi')->group(function () {
 // AUTH ADMIN
 Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard/asesi', [AdminDashboardController::class, 'asesiIndex'])->name('admin.asesi.index');
+    Route::get('/dashboard/asesi/create', [AdminDashboardController::class, 'asesiCreate'])->name('admin.asesi.create');
+    Route::post('/dashboard/asesi/store', [AdminDashboardController::class, 'asesiStore'])->name('admin.asesi.store');
+
 });
 
 // AUTH ASESOR
@@ -48,13 +53,17 @@ Route::middleware(['auth','role:asesor'])->prefix('asesor')->group(function () {
     Route::get('/dashboard', [AsesorDashboardController::class, 'index'])->name('asesor.dashboard');
 });
 
+// INDOREGION
+Route::get('/regencies/{provinceId}', [IndoRegionController::class, 'getRegencies']);
+Route::get('/districts/{regencyId}', [IndoRegionController::class, 'getDistricts']);
+Route::get('/villages/{districtId}', [IndoRegionController::class, 'getVillages']);
+
 // Auth
 Route::get('/login', function () {
     return view('auth.loginPage');
 })->name('login');
 
-Route::get('/user-dashboard', function () {
-    return view('user.userDashboard.index');
+Route::get('/user-dashboard', function () {    return view('user.userDashboard.index');
 })->name('userDashboard');
 
 Route::get('/sertifikasi', function () {
