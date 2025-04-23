@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Welcome Page')
+@section('title', 'Teaching and Learning Certification')
 
 @section('content')
     <div class="bg-abu">

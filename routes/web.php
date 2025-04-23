@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Asesi\SertifikasiController;
 use App\Http\Controllers\Asesi\TransactionController;
+use App\Http\Controllers\IndoRegionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\GoogleController;
@@ -9,6 +10,9 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Asesi\AsesiDashboardController;
 use App\Http\Controllers\Asesor\AsesorDashboardController;
 
+Route::get('register2', function () {
+    return view('register2');
+})->name('register2');
 
 
 // GUEST
@@ -25,7 +29,7 @@ Route::middleware('guest')->group(function () {
 // GOOGLE SSO LOGIN/REGISTER
 Route::get('/auth/google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect'); //ROUTE LOGIN SSO
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']); //ROUTE CALLBACK SSO
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth'); //ROUTE LOGOUT 
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth'); //ROUTE LOGOUT
 
 
 // AUTH ASESI
@@ -38,6 +42,10 @@ Route::middleware(['auth', 'role:asesi'])->prefix('asesi')->group(function () {
 // AUTH ADMIN
 Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard/asesi', [AdminDashboardController::class, 'asesiIndex'])->name('admin.asesi.index');
+    Route::get('/dashboard/asesi/create', [AdminDashboardController::class, 'asesiCreate'])->name('admin.asesi.create');
+    Route::post('/dashboard/asesi/store', [AdminDashboardController::class, 'asesiStore'])->name('admin.asesi.store');
+
 });
 
 // AUTH ASESOR
@@ -45,13 +53,17 @@ Route::middleware(['auth','role:asesor'])->prefix('asesor')->group(function () {
     Route::get('/dashboard', [AsesorDashboardController::class, 'index'])->name('asesor.dashboard');
 });
 
+// INDOREGION
+Route::get('/regencies/{provinceId}', [IndoRegionController::class, 'getRegencies']);
+Route::get('/districts/{regencyId}', [IndoRegionController::class, 'getDistricts']);
+Route::get('/villages/{districtId}', [IndoRegionController::class, 'getVillages']);
+
 // Auth
 Route::get('/login', function () {
     return view('auth.loginPage');
 })->name('login');
 
-Route::get('/user-dashboard', function () {
-    return view('user.userDashboard.index');
+Route::get('/user-dashboard', function () {    return view('user.userDashboard.index');
 })->name('userDashboard');
 
 Route::get('/sertifikasi', function () {
@@ -74,7 +86,7 @@ Route::get('/transaksi', function () {
 // admin dan asesor
 Route::get('/admin', function () {
     return view('admin.admin');
-})->name('admin');  
+})->name('admin');
 
 Route::get('/asesor', function () {
     return view('admin.asesor');

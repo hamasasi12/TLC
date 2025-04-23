@@ -14,9 +14,9 @@ class RolePermissionSeeders extends Seeder
      */
     public function run(): void
     {
-        $admin = Role::create(['name' => 'admin']);
-        $asesi = Role::create(['name' => 'asesi']);
-        $asesor = Role::create(['name' => 'asesor']);
+        $admin = Role::firstOrCreate(['name' => 'admin']);
+        $asesi = Role::firstOrCreate(['name' => 'asesi']);
+        $asesor = Role::firstOrCreate(['name' => 'asesor']);
 
         // BELUM FIX PERMISSIONNYA
         $permission_levels = [

@@ -156,7 +156,7 @@
                 </div>
 
                 <div class="flex justify-between items-center mb-8">
-                    <h2 class="text-2xl font-bold text-[#2E4D69]">MASUK</h2>
+                    <h2 class="text-2xl font-bold text-[#2E4D69]">Masuk</h2>
                 </div>
 
                 <form action="{{ route('login.post') }}" method="POST">
@@ -217,8 +217,8 @@
                     @endif
 
 
-                    <button class="w-full bg-gradient-to-r from-[#0C548C] to-[#2E4D69] text-white py-4 rounded-xl hover:from-[#063B67] hover:to-[#1C3A58] transition shadow-lg transform hover:translate-y-0.5 hover:shadow-xl">
-                        Sign In
+                    <button class="w-full bg-gradient-to-r from-[#0C548C] to-[#2E4D69] text-white py-4 rounded-xl hover:from-[#063B67] hover:to-[#1C3A58] transition shadow-lg transform hover:translate-y-0.5 hover:shadow-xl font-bold">
+                        MASUK
                     </button>
                 </form>
 
