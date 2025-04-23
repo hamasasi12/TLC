@@ -12,6 +12,14 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                primarys: "#FBCB04",
+                accent: "#F4CC7C",
+                darkblue: "#0C548C",
+                softblue: "#5F809C",
+                lightblue: "#A6BFCF",
+                navy: "#2E4D69",
+                white: "#FFFFFF",
+                black: "#000000",
                 abu: "#F6F8FD",
                 biru: "#0C548C",
                 tombol: "#34364A",

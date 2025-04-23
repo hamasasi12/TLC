@@ -54,7 +54,7 @@
         <!-- kanan Section - Enhanced Form -->
         <div class="w-full md:w-1/2 p-10 flex flex-col justify-center bg-white">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-3xl font-bold text">
+                <h2 class="text-3xl font-bold text-[#2E4D69]">
                     Daftar Akun TLC</h2>
             </div>
 
@@ -176,7 +176,7 @@
                     </svg>
                     Google
                 </a>
-                
+
             <p class="text-center mt-8 text-sm text-gray-600">
                 Sudah memiliki akun? <a href="{{ route('login') }}"
                     class="text-blue-600 font-semibold hover:underline transition-colors">Masuk sekarang</a>

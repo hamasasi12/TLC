@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Asesi\AsesiDashboardController;
 use App\Http\Controllers\Asesor\AsesorDashboardController;
 
+Route::get('register2', function () {
+    return view('register2');
+})->name('register2');
 
 
 // GUEST
@@ -25,7 +28,7 @@ Route::middleware('guest')->group(function () {
 // GOOGLE SSO LOGIN/REGISTER
 Route::get('/auth/google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect'); //ROUTE LOGIN SSO
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']); //ROUTE CALLBACK SSO
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth'); //ROUTE LOGOUT 
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth'); //ROUTE LOGOUT
 
 
 // AUTH ASESI
@@ -74,7 +77,7 @@ Route::get('/transaksi', function () {
 // admin dan asesor
 Route::get('/admin', function () {
     return view('admin.admin');
-})->name('admin');  
+})->name('admin');
 
 Route::get('/asesor', function () {
     return view('admin.asesor');
