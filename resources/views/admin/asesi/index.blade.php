@@ -185,7 +185,7 @@
                                     </a>
 
                                     <!-- Edit -->
-                                    <a href="#"
+                                    <a href="{{ route('admin.asesi.edit', $user->id) }}"
                                         class="p-2 text-indigo-600 bg-indigo-50 rounded-md hover:bg-indigo-100 transition-colors"
                                         title="Edit User">
                                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"

@@ -132,9 +132,16 @@ class AdminDashboardController extends Controller
         }
     }
 
-    public function asesiEdit() 
+    public function asesiEdit(string $id) 
     {
-        
+        $provinces = Province::all();
+        $user = UserProfile::with('user')->find($id);
+        return view('admin.asesi.edit', [
+            'title' =>  'Edit User',
+            'navTitle' => 'Edit User',
+            'user' =>  $user,
+            'provinces' => $provinces,
+        ]);
     }
 
     public function asesiUpdate() 
