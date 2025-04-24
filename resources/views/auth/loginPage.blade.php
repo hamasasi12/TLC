@@ -129,7 +129,7 @@
 
 @extends('layouts.login')
 
-@section('title', 'Login')
+@section('title', 'Teaching and Learning Certification')
 
 @section('content')
     <div class="bg-white min-h-screen w-full flex items-center justify-center p-4">

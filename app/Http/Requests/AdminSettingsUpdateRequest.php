@@ -2,16 +2,18 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class AdminSettingsUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
@@ -22,21 +24,17 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'name' => ['required', 'string', 'max:255'],
             'email' => [
                 'required',
+                'string',
+                'lowercase',
                 'email',
                 'max:255',
-            ],
-            'password' => [
-                'required',
-                'string',
-                'min:8',
-                'max:64',
-            ],
-            'remember' => [
-                'boolean',
-                'nullable'
+                Rule::unique(User::class)->ignore($this->user()->id),
             ],
         ];
+
+
     }
 }

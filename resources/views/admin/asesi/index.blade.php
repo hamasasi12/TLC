@@ -3,8 +3,8 @@
 @section('title', 'Admin Dashboard')
 
 @section('content')
-    <div class="p-4 bg-white border border-gray-200 rounded-lg mb-4">
-    <nav class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 text-base">
+    <div class="p-4 bg-white rounded-lg mb-2">
+    <nav class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-4 text-base">
         <!-- Breadcrumb -->
         <ol class="flex items-center space-x-1 text-gray-600">
             <li><a href="#" class="hover:underline text-indigo-600">Asesi</a></li>
@@ -41,12 +41,12 @@
 
             <!-- Actions -->
             <div class="flex items-center gap-2">
-                <a href="{{ route('admin.asesi.create') }}">
+                <a href="{{ route('admin.asesi.create') }}" data-popover-target="popover-addUser" data-popover-trigger="hover">
                     <button class="px-3 py-1.5 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700">
                         + Tambah Asesi
                     </button>
                 </a>
-                <button class="px-3 py-1.5 border text-gray-600 text-sm rounded hover:bg-gray-50">
+                <button class="px-3 py-1.5 border text-gray-600 text-sm rounded hover:bg-gray-50" data-popover-target="popover-export" data-popover-trigger="hover">
                     Export
                 </button>
                 <button class="p-2 border rounded text-gray-500 hover:bg-gray-100">
@@ -55,7 +55,7 @@
                             d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                     </svg>
                 </button>
-                <button class="p-2 border rounded text-red-500 hover:bg-red-50" data-modal-toggle="popup-modal">
+                <button class="p-2 border rounded text-red-500 hover:bg-red-50" data-modal-toggle="popup-modal" data-popover-target="popover-delete" data-popover-trigger="hover">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
                             d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
@@ -66,11 +66,6 @@
         </div>
     </nav>
 </div>
-
-
-
-
-
     <!-- User Table -->
     <div class="bg-white rounded-lg shadow-md overflow-hidden">
         <div class="overflow-x-auto">
@@ -202,16 +197,20 @@
                                     </a>
 
                                     <!-- Delete -->
-                                    <a href="#"
-                                        class="p-2 text-red-600 bg-red-50 rounded-md hover:bg-red-100 transition-colors"
-                                        title="Delete User" onclick="return confirm('Yakin ingin menghapus data ini?');">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </a>
+                                    <form action="{{ route('admin.asesi.destroy', $user->user->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="p-2 text-red-600 bg-red-50 rounded-md hover:bg-red-100 transition-colors"
+                                            title="Delete User">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
@@ -346,19 +345,74 @@
         </div>
         <div data-popper-arrow></div>
     </div>
-    {{-- popOver Delete --}}
-    {{-- <x-popover title="Delete All Users" id="popover-delete">
-        <strong class="text-red-500">Warning!!</strong>
-        <p>Tindakan Ini akan menghapus semua pengguna dari sistem.</p>
-    </x-popover> --}}
 
-    {{-- popOver addUser --}}
-    {{-- <x-popover title="Add Users" id="popover-addUser">
-        <p>Tindakan Ini akan menambahkan users baru kedalam database.</p>
-    </x-popover> --}}
-
-    {{-- popOver Export --}}
-    {{-- <x-popover title="Export Asesi" id="popover-export">
-        <p>Tindakan Ini akan membuat file excel dari data asesi.</p>
-    </x-popover> --}}
+    @push('scripts')
+    <script>
+        // Initialize Flowbite components (which handles popovers)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if Flowbite is loaded
+            if (typeof initFlowbite === 'function') {
+                initFlowbite();
+            } else {
+                // If Flowbite's initFlowbite function is not available, manually initialize popovers
+                const popoverTriggers = document.querySelectorAll('[data-popover-target]');
+                
+                popoverTriggers.forEach(trigger => {
+                    const targetId = trigger.getAttribute('data-popover-target');
+                    const target = document.getElementById(targetId);
+                    const triggerType = trigger.getAttribute('data-popover-trigger') || 'click';
+                    
+                    if (target) {
+                        if (triggerType === 'hover') {
+                            trigger.addEventListener('mouseenter', () => {
+                                target.classList.remove('invisible', 'opacity-0');
+                                target.classList.add('visible', 'opacity-100');
+                                
+                                // Position the popover
+                                const triggerRect = trigger.getBoundingClientRect();
+                                target.style.top = `${triggerRect.bottom + window.scrollY + 10}px`;
+                                target.style.left = `${triggerRect.left + window.scrollX}px`;
+                            });
+                            
+                            trigger.addEventListener('mouseleave', () => {
+                                // Add small delay before hiding
+                                setTimeout(() => {
+                                    if (!target.matches(':hover')) {
+                                        target.classList.add('invisible', 'opacity-0');
+                                        target.classList.remove('visible', 'opacity-100');
+                                    }
+                                }, 100);
+                            });
+                            
+                            target.addEventListener('mouseleave', () => {
+                                target.classList.add('invisible', 'opacity-0');
+                                target.classList.remove('visible', 'opacity-100');
+                            });
+                        } else {
+                            // Click behavior
+                            trigger.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                target.classList.toggle('invisible');
+                                target.classList.toggle('opacity-0');
+                                
+                                // Position the popover
+                                const triggerRect = trigger.getBoundingClientRect();
+                                target.style.top = `${triggerRect.bottom + window.scrollY + 10}px`;
+                                target.style.left = `${triggerRect.left + window.scrollX}px`;
+                            });
+                            
+                            // Close on click outside
+                            document.addEventListener('click', (e) => {
+                                if (!target.contains(e.target) && e.target !== trigger) {
+                                    target.classList.add('invisible', 'opacity-0');
+                                    target.classList.remove('visible', 'opacity-100');
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    @endpush
 @endsection

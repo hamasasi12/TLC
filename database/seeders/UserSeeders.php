@@ -30,7 +30,7 @@ class UserSeeders extends Seeder
             UserProfile::create([
                 'user_id' => $user->id,
                 'nik' => $faker->unique()->numerify('################'),
-                'nama_depan' => $faker->name,
+                'nama_depan' => $user->name,
                 'instansi' => $faker->company,
                 'tempat_lahir' => $faker->city,
                 'tanggal_lahir' => $faker->date('Y-m-d', '2005-12-31'), 
