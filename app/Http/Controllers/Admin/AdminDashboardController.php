@@ -149,9 +149,10 @@ class AdminDashboardController extends Controller
             $user = User::find($id);
             $userProfile = UserProfile::where('user_id', $id)->first();
     
-            if ($userProfile->profile_image) {
+            if ($userProfile->profile_image && $userProfile->profile_image !== 'blankProfile.png') {
                 Storage::delete($userProfile->profile_image);
             }
+            
             $userProfile->delete();
             $user->removeRole('asesi');
             $user->delete();
