@@ -151,11 +151,11 @@
                         <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start mt-6 gap-4">
                             <div class="flex -space-x-2 overflow-hidden">
                                 <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white hover:scale-110 transition-transform duration-300"
-                                    src="images/hamas.png" alt="User 1">
+                                    src="{{ asset('images/hamas.png') }}" alt="User 1">
                                 <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white hover:scale-110 transition-transform duration-300"
-                                    src="images/aliando.jpg" alt="User 2">
+                                    src="{{ asset('images/aliando.jpg') }} " alt="User 2">
                                 <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white hover:scale-110 transition-transform duration-300"
-                                    src="images/guru.png" alt="User 3">
+                                    src="{{ asset('images/guru.png') }}" alt="User 3">
                             </div>
                             <div class="text-center sm:text-left">
                                 <p class="text-lg font-bold text-gray-800">4.9</p>
@@ -173,8 +173,7 @@
                     <div
                         class="lg:col-span-5 w-full rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-500">
                         <iframe class="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px] rounded-xl"
-                            src="https://www.youtube.com/embed/Jn7vuXLozJI?autoplay=1&mute=1" frameborder="0"
-                            allowfullscreen></iframe>
+                            src="https://www.youtube.com/embed/Jn7vuXLozJI?mute=1" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -475,7 +474,8 @@
                         </div>
                         <div class="relative">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 opacity-75"></div>
-                            <img src="images/buku1.png" class="w-full h-48 sm:h-64 object-cover" alt="Course Image">
+                            <img src="{{ asset('images/buku1.png') }}" class="w-full h-48 sm:h-64 object-cover"
+                                alt="Course Image">
                         </div>
                         <div class="p-4 sm:p-6 -mt-12 sm:-mt-16 relative z-20">
                             <h3
@@ -483,7 +483,7 @@
                                 Mengajar efektif menggunakan PCK
                             </h3>
                             <div class="flex items-center mb-3 sm:mb-4">
-                                <img src="images/hamas.png"
+                                <img src="{{ asset('images/hamas.png') }}"
                                     class="w-10 h-10 sm:w-14 sm:h-14 rounded-full mr-3 sm:mr-4 border-3 border-white shadow-lg"
                                     alt="Instructor">
                                 <div>
@@ -515,7 +515,8 @@
                         </div>
                         <div class="relative">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 opacity-75"></div>
-                            <img src="images/buku2.png" class="w-full h-48 sm:h-64 object-cover" alt="Course Image">
+                            <img src="{{ asset('images/buku2.png') }}" class="w-full h-48 sm:h-64 object-cover"
+                                alt="Course Image">
                         </div>
                         <div class="p-4 sm:p-6 -mt-12 sm:-mt-16 relative z-20">
                             <h3
@@ -523,7 +524,7 @@
                                 Merancang kemampuan berpikir kritis dalam pengajaran
                             </h3>
                             <div class="flex items-center mb-3 sm:mb-4">
-                                <img src="images/hamas.png"
+                                <img src="{{ asset('images/hamas.png') }}"
                                     class="w-10 h-10 sm:w-14 sm:h-14 rounded-full mr-3 sm:mr-4 border-3 border-white shadow-lg"
                                     alt="Instructor">
                                 <div>
@@ -555,7 +556,8 @@
                         </div>
                         <div class="relative">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 opacity-75"></div>
-                            <img src="images/buku3.png" class="w-full h-48 sm:h-64 object-cover" alt="Course Image">
+                            <img src="{{ asset('images/buku3.png') }}" class="w-full h-48 sm:h-64 object-cover"
+                                alt="Course Image">
                         </div>
                         <div class="p-4 sm:p-6 -mt-12 sm:-mt-16 relative z-20">
                             <h3
@@ -563,7 +565,7 @@
                                 Pengetahuan pembuatan modul ajar
                             </h3>
                             <div class="flex items-center mb-3 sm:mb-4">
-                                <img src="images/hamas.png"
+                                <img src="{{ asset('images/hamas.png') }}"
                                     class="w-10 h-10 sm:w-14 sm:h-14 rounded-full mr-3 sm:mr-4 border-3 border-white shadow-lg"
                                     alt="Instructor">
                                 <div>
@@ -804,7 +806,7 @@
                     <!-- Maharani -->
                     <div class="testimonial-slide w-64 md:w-72 flex-shrink-0 text-center mx-auto">
                         <div class="flex justify-center mb-4">
-                            <img src="images/konten_satu.jpg" alt="Maharani"
+                            <img src="{{ asset('images/konten_satu.jpg') }}" alt="Maharani"
                                 class="rounded-full w-24 md:w-32 h-24 md:h-32 object-cover border-4 border-pink-200">
                         </div>
                         <div
@@ -826,7 +828,7 @@
                     <!-- Meilinda -->
                     <div class="testimonial-slide w-64 md:w-72 flex-shrink-0 text-center mx-auto">
                         <div class="flex justify-center mb-4">
-                            <img src="images/konten_satu.jpg" alt="Meilinda"
+                            <img src="{{ asset('images/konten_satu.jpg') }}" alt="Meilinda"
                                 class="rounded-full w-24 md:w-32 h-24 md:h-32 object-cover border-4 border-blue-200">
                         </div>
                         <div
@@ -848,7 +850,7 @@
                     <!-- Keenar -->
                     <div class="testimonial-slide w-64 md:w-72 flex-shrink-0 text-center mx-auto">
                         <div class="flex justify-center mb-4">
-                            <img src="images/konten_satu.jpg" alt="Keenar"
+                            <img src="{{ asset('images/konten_satu.jpg') }}" alt="Keenar"
                                 class="rounded-full w-24 md:w-32 h-24 md:h-32 object-cover border-4 border-green-200">
                         </div>
                         <div
@@ -870,7 +872,7 @@
                     <!-- Nandini -->
                     <div class="testimonial-slide w-64 md:w-72 flex-shrink-0 text-center mx-auto">
                         <div class="flex justify-center mb-4">
-                            <img src="images/konten_satu.jpg" alt="Nandini"
+                            <img src="{{ asset('images/konten_satu.jpg') }}" alt="Nandini"
                                 class="rounded-full w-24 md:w-32 h-24 md:h-32 object-cover border-4 border-purple-200">
                         </div>
                         <div
@@ -915,7 +917,7 @@
                         <!-- Looped logos -->
                         <div
                             class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-red-100 p-3 rounded-lg shadow-md hover:shadow-xl">
-                            <img src="images/umbjm.jpg" alt="Universitas Airlangga" class="h-16 md:h-20">
+                            <img src="{{ asset('images/umbjm.jpg') }}" alt="Universitas Airlangga" class="h-16 md:h-20">
                         </div>
                         <div
                             class="flex justify-center items-center transition duration-300 hover:scale-105 active:scale-95 hover:bg-indigo-100 p-3 rounded-lg shadow-md hover:shadow-xl">
@@ -1108,7 +1110,7 @@
                 <!-- Card -->
                 <div
                     class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                    <img src="images/levela.png" alt="Level A"
+                    <img src="{{ asset('images/levela.png') }}" alt="Level A"
                         class="w-full h-52 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div
                         class="absolute inset-0 bg-opacity-50 flex flex-col justify-end p-4 transition-all duration-500 group-hover:bg-opacity-70">
@@ -1127,7 +1129,7 @@
                 <!-- Card -->
                 <div
                     class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                    <img src="images/levelb.png" alt="Level B"
+                    <img src="{{ asset('images/levelb.png') }}" alt="Level B"
                         class="w-full h-52 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div
                         class="absolute inset-0 bg-opacity-50 flex flex-col justify-end p-4 transition-all duration-500 group-hover:bg-opacity-70">
@@ -1146,7 +1148,7 @@
                 <!-- Card -->
                 <div
                     class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                    <img src="images/levelc.png" alt="Level C"
+                    <img src="{{ asset('images/levelc.png') }}" alt="Level C"
                         class="w-full h-52 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div
                         class="absolute inset-0 bg-opacity-50 flex flex-col justify-end p-4 transition-all duration-500 group-hover:bg-opacity-70">
@@ -1729,7 +1731,7 @@
                         <!-- Article 1 -->
                         <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                             <div class="relative">
-                                <img src="images/karakter.jpg" alt="Elastisitas Permintaan dan Penawaran"
+                                <img src="{{ asset('images/karakter.jpg') }}" alt="Elastisitas Permintaan dan Penawaran"
                                     class="article-image" />
                                 <div class="absolute bottom-4 right-4">
                                     <span
@@ -1747,7 +1749,8 @@
                         <!-- Article 2 -->
                         <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                             <div class="relative">
-                                <img src="images/konten_satu.jpg" alt="Piagam PBB" class="article-image" />
+                                <img src="{{ asset('images/konten_satu.jpg') }}" alt="Piagam PBB"
+                                    class="article-image" />
                                 <div class="absolute bottom-4 right-4">
                                     <span
                                         class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full article-badge">Hafecs
@@ -1767,7 +1770,8 @@
                         <!-- Article 3 -->
                         <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                             <div class="relative">
-                                <img src="images/konten_dua.jpeg" alt="Manajemen Keuangan" class="article-image" />
+                                <img src="{{ asset('images/konten_dua.jpeg') }}" alt="Manajemen Keuangan"
+                                    class="article-image" />
                                 <div class="absolute bottom-4 right-4">
                                     <span
                                         class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full article-badge">Hafecs
@@ -1784,7 +1788,8 @@
                         <!-- Article 4 -->
                         <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                             <div class="relative">
-                                <img src="images/karakter.jpg" alt="Metode Pengajaran" class="article-image" />
+                                <img src="{{ asset('images/karakter.jpg') }}" alt="Metode Pengajaran"
+                                    class="article-image" />
                                 <div class="absolute bottom-4 right-4">
                                     <span
                                         class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full article-badge">Hafecs
@@ -1804,7 +1809,8 @@
                         <!-- Article 5 -->
                         <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                             <div class="relative">
-                                <img src="images/karakter.jpg" alt="Ekonomi Mikro" class="article-image" />
+                                <img src="{{ asset('images/karakter.jpg') }}" alt="Ekonomi Mikro"
+                                    class="article-image" />
                                 <div class="absolute bottom-4 right-4">
                                     <span
                                         class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full article-badge">Hafecs
@@ -1821,7 +1827,8 @@
                         <!-- Article 6 -->
                         <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                             <div class="relative">
-                                <img src="images/karakter.jpg" alt="Pembelajaran Aktif" class="article-image" />
+                                <img src="{{ asset('images/karakter.jpg') }}" alt="Pembelajaran Aktif"
+                                    class="article-image" />
                                 <div class="absolute bottom-4 right-4">
                                     <span
                                         class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full article-badge">Hafecs
@@ -1841,7 +1848,7 @@
                         <!-- Article 7 -->
                         <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                             <div class="relative">
-                                <img src="images/karakter.jpg" alt="Investasi" class="article-image" />
+                                <img src="{{ asset('images/karakter.jpg') }}" alt="Investasi" class="article-image" />
                                 <div class="absolute bottom-4 right-4">
                                     <span
                                         class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full article-badge">Hafecs
@@ -1858,7 +1865,8 @@
                         <!-- Article 8 -->
                         <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                             <div class="relative">
-                                <img src="images/karakter.jpg" alt="Teknologi Pendidikan" class="article-image" />
+                                <img src="{{ asset('images/karakter.jpg') }}" alt="Teknologi Pendidikan"
+                                    class="article-image" />
                                 <div class="absolute bottom-4 right-4">
                                     <span
                                         class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full article-badge">Hafecs
@@ -1878,7 +1886,8 @@
                         <!-- Article 9 -->
                         <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                             <div class="relative">
-                                <img src="images/karakter.jpg" alt="Kebijakan Ekonomi" class="article-image" />
+                                <img src="{{ asset('images/karakter.jpg') }}" alt="Kebijakan Ekonomi"
+                                    class="article-image" />
                                 <div class="absolute bottom-4 right-4">
                                     <span
                                         class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full article-badge">Hafecs
@@ -1895,7 +1904,8 @@
                         <!-- Article 10 -->
                         <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                             <div class="relative">
-                                <img src="images/karakter.jpg" alt="Evaluasi Pembelajaran" class="article-image" />
+                                <img src="{{ asset('images/karakter.jpg') }}" alt="Evaluasi Pembelajaran"
+                                    class="article-image" />
                                 <div class="absolute bottom-4 right-4">
                                     <span
                                         class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full article-badge">Hafecs
@@ -1948,22 +1958,22 @@
             <div class="swiper mySwiper max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-lg">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide flex items-center justify-center">
-                        <img src="images/guru.png" alt="Sponsor 1" class="w-96 h-96 object-contain">
+                        <img src="{{ asset('images/guru.png') }}" alt="Sponsor 1" class="w-96 h-96 object-contain">
                     </div>
                     <div class="swiper-slide flex items-center justify-center">
-                        <img src="images/guru.png" alt="Sponsor 2" class="w-96 h-96 object-contain">
+                        <img src="{{ asset('images/guru.png') }}" alt="Sponsor 2" class="w-96 h-96 object-contain">
                     </div>
                     <div class="swiper-slide flex items-center justify-center">
-                        <img src="images/guru.png" alt="Sponsor 3" class="w-96 h-96 object-contain">
+                        <img src="{{ asset('images/guru.png') }}" alt="Sponsor 3" class="w-96 h-96 object-contain">
                     </div>
                     <div class="swiper-slide flex items-center justify-center">
-                        <img src="images/guru.png" alt="Sponsor 4" class="w-96 h-96 object-contain">
+                        <img src="{{ asset('images/guru.png') }}" alt="Sponsor 4" class="w-96 h-96 object-contain">
                     </div>
                     <div class="swiper-slide flex items-center justify-center">
-                        <img src="images/guru.png" alt="Sponsor 5" class="w-96 h-96 object-contain">
+                        <img src="{{ asset('images/guru.png') }}" alt="Sponsor 5" class="w-96 h-96 object-contain">
                     </div>
                     <div class="swiper-slide flex items-center justify-center">
-                        <img src="images/guru.png" alt="Sponsor 6" class="w-96 h-96 object-contain">
+                        <img src="{{ asset('images/guru.png') }}" alt="Sponsor 6" class="w-96 h-96 object-contain">
                     </div>
                 </div>
 

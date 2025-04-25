@@ -83,9 +83,8 @@
                     <!-- Profile -->
                     <div class="relative">
                         <button id="profile-button" class="flex items-center space-x-2">
-                            <img src="images/aliando.jpg"
-                                class="h-10 w-10 rounded-full object-cover border-2 border-gray-300 shadow-md"
-                                alt="Profile">
+                            <img src="{{ asset('storage/' . (Auth::user()->userProfile->profile_image ?? 'img/blank_profile.png')) }}"
+                                alt="Profile Image" class="w-12 h-12 rounded-full object-cover">
                             <svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -137,6 +136,22 @@
                 document.addEventListener("click", function(event) {
                     if (!profileMenu.contains(event.target) && !profileButton.contains(event.target)) {
                         profileMenu.classList.add("hidden");
+                    }
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const profileButton = document.getElementById('profile-button');
+                const profileMenu = document.getElementById('profile-menu');
+
+                profileButton.addEventListener('click', function() {
+                    profileMenu.classList.toggle('hidden');
+                });
+
+                // Optional: klik di luar dropdown untuk nutup menu
+                document.addEventListener('click', function(e) {
+                    if (!profileButton.contains(e.target) && !profileMenu.contains(e.target)) {
+                        profileMenu.classList.add('hidden');
                     }
                 });
             });
