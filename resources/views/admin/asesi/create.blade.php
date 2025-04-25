@@ -7,9 +7,9 @@
             class="flex items-center justify-between p-4 mb-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg">
             <a href="{{ route('admin.asesi.index') }}"
                 class="inline-flex items-center px-4 py-2 rounded-lg bg-white text-blue-800 hover:bg-blue-50 transition-colors duration-200 shadow">
-                <i class="mr-2 fa-solid fa-arrow-left-long"></i> Back
+                <i class="mr-2 fa-solid fa-arrow-left-long"></i> Kembali
             </a>
-            <h1 class="text-xl font-bold text-white sm:text-2xl">CREATE USER</h1>
+            <h1 class="text-xl font-bold text-white sm:text-2xl">Buat Pengguna</h1>
         </div>
 
         <!-- Main form card -->
@@ -22,10 +22,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
-                    User Information
+                    Informasi Pengguna
                 </h3>
-                <p class="mt-1 text-sm text-gray-500">Please fill all required fields to create a new
-                    user account.</p>
+                <p class="mt-1 text-sm text-gray-500">Isikan semua kolom yang wajib diisi untuk membuat akun pengguna baru</p>
             </div>
 
             <!-- Form body -->
@@ -58,9 +57,9 @@
                             onchange="previewImage(event)" class="hidden">
                         <label for="profilInput"
                             class="text-sm font-medium text-blue-600 hover:text-blue-800 cursor-pointer">
-                            Upload Profile Photo <span class="text-xs text-gray-500">(optional)</span>
+                            Unggah Foto Profil <span class="text-xs text-gray-500">(optional)</span>
                         </label>
-                        <p class="mt-1 text-xs text-gray-500">Formats: JPG, JPEG, PNG. Max 2MB.</p>
+                        <p class="mt-1 text-xs text-gray-500">Format foto: JPG, JPEG, PNG. Max 2MB.</p>
                         {{-- <x-input-error :messages="$errors->get('profile_image')" class="mt-1 text-xs" /> --}}
                     </div>
 
@@ -75,7 +74,7 @@
                                 <!-- Name -->
                                 <div>
                                     <label for="name" class="block mb-2 text-sm font-medium text-gray-700">
-                                        Full Name <span class="text-red-500">*</span>
+                                        Nama Lengkap <span class="text-red-500">*</span>
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -95,7 +94,7 @@
                                 <!-- Academic Title -->
                                 <div>
                                     <label for="nama_depan" class="block mb-2 text-sm font-medium text-gray-700">
-                                        Academic Title <span class="text-gray-400 text-xs">(optional)</span>
+                                        Gelar <span class="text-gray-400 text-xs">(optional)</span>
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -118,7 +117,7 @@
                                 <!-- NIK -->
                                 <div>
                                     <label for="nik" class="block mb-2 text-sm font-medium text-gray-700">
-                                        NIK (National ID Number)
+                                        NIK (Nomor Induk Kependudukan)
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -129,7 +128,7 @@
                                             </svg>
                                         </div>
                                         <input type="number" name="nik" id="nik"
-                                            placeholder="Enter 16-digit NIK" value="{{ old('nik') }}"
+                                            placeholder="Masukkan 16 angka NIK" value="{{ old('nik') }}"
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                     </div>
                                     <x-input-error :messages="$errors->get('nik')" class="mt-1 text-xs" />
@@ -138,7 +137,7 @@
                                 <!-- WhatsApp Number -->
                                 <div>
                                     <label for="number" class="block mb-2 text-sm font-medium text-gray-700">
-                                        WhatsApp Number
+                                        Nomor WhatsApp
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -158,7 +157,7 @@
                                 <!-- Gender -->
                                 <div>
                                     <label for="jenis_kelamin" class="block mb-2 text-sm font-medium text-gray-700">
-                                        Gender
+                                        Jenis Kelamin
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -171,9 +170,9 @@
                                         <select id="jenis_kelamin" name="jenis_kelamin"
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                             <option value="{{ old('jenis_kelamin') }}" selected>
-                                                {{ old('jenis_kelamin') ? old('jenis_kelamin') : 'Select Gender' }}</option>
-                                            <option value="L">Male (Laki-Laki)</option>
-                                            <option value="P">Female (Perempuan)</option>
+                                                {{ old('jenis_kelamin') ? old('jenis_kelamin') : 'Pilih Jenis Kelamin' }}</option>
+                                            <option value="L">Laki-Laki</option>
+                                            <option value="P">Perempuan</option>
                                         </select>
                                     </div>
                                     <x-input-error :messages="$errors->get('jenis_kelamin')" class="mt-1 text-xs" />
@@ -182,7 +181,7 @@
                                 <!-- Birth Place -->
                                 <div>
                                     <label for="tempat_lahir" class="block mb-2 text-sm font-medium text-gray-700">
-                                        Birth Place
+                                        Tempat Lahir
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -195,7 +194,7 @@
                                             </svg>
                                         </div>
                                         <input type="text" name="tempat_lahir" id="tempat_lahir"
-                                            placeholder="Enter birth place" value="{{ old('tempat_lahir') }}"
+                                            placeholder="Masukkan Tempat Lahir" value="{{ old('tempat_lahir') }}"
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                     </div>
                                     <x-input-error :messages="$errors->get('tempat_lahir')" class="mt-1 text-xs" />
@@ -204,7 +203,7 @@
                                 <!-- Birth Date -->
                                 <div>
                                     <label for="tanggal_lahir" class="block mb-2 text-sm font-medium text-gray-700">
-                                        Birth Date
+                                        Tanggal Lahir
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -224,7 +223,7 @@
                                 <!-- Institution -->
                                 <div>
                                     <label for="instansi" class="block mb-2 text-sm font-medium text-gray-700">
-                                        Institution
+                                        Institusi
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -237,21 +236,21 @@
                                         <select id="instansi" name="instansi" onchange="showCustomInput()"
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                             <option value="{{ old('instansi') }}" selected>
-                                                {{ old('instansi') ? old('instansi') : 'Select Institution Type' }}
+                                                {{ old('instansi') ? old('instansi') : 'Pilih Asal Institusi ' }}
                                             </option>
-                                            <option value="Perguruan Tinggi">Higher Education (Perguruan Tinggi)</option>
-                                            <option value="Pemerintah">Government (Pemerintah)</option>
-                                            <option value="Sekolah Menengah Atas">High School (SMA)</option>
-                                            <option value="Sekolah Menengah Kejuruan">Vocational School (SMK)</option>
-                                            <option value="Sekolah Menengah Pertama">Junior High School (SMP)</option>
-                                            <option value="Sekolah Dasar">Elementary School (SD)</option>
-                                            <option value="Lembaga Kursus">Course Institution</option>
-                                            <option value="Lainnya">Other</option>
+                                            <option value="Perguruan Tinggi">Perguruan Tinggi</option>
+                                            <option value="Pemerintah">Pemerintah</option>
+                                            <option value="Sekolah Menengah Atas">Sekolah Menengah Atas(SMA)</option>
+                                            <option value="Sekolah Menengah Kejuruan">Sekolah Menengah Kejuruan (SMK)</option>
+                                            <option value="Sekolah Menengah Pertama">Sekolah Menengah Pertama (SMP)</option>
+                                            <option value="Sekolah Dasar">Sekolah Dasar (SD)</option>
+                                            <option value="Lembaga Kursus">Lembaga Kursus</option>
+                                            <option value="Lainnya">Lainnya</option>
                                         </select>
                                     </div>
                                     <div id="custom-instansi" class="mt-2 hidden">
                                         <input type="text" name="custom_instansi"
-                                            placeholder="Enter custom institution"
+                                            placeholder="Masukkan Institusi"
                                             class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                     </div>
                                     <x-input-error :messages="$errors->get('instansi')" class="mt-1 text-xs" />
@@ -262,13 +261,13 @@
                         <!-- Address Section -->
                         <div class="bg-gray-50 p-4 rounded-lg">
                             <h4 class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-4 border-b pb-2">
-                                Domicile Address</h4>
+                                Domisili</h4>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <!-- Province -->
                                 <div>
                                     <label for="province" class="block mb-2 text-sm font-medium text-gray-700">
-                                        Province
+                                        Provinsi
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -281,7 +280,7 @@
                                         <select id="province" name="provinsi"
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                             <option value="{{ old('provinsi') }}" selected>
-                                                {{ old('provinsi') ? old('provinsi') : 'Select Province' }}</option>
+                                                {{ old('provinsi') ? old('provinsi') : 'Pilih Provinsi' }}</option>
                                             @foreach ($provinces as $province)
                                                 <option value="{{ $province->name }}">{{ $province->name }}</option>
                                             @endforeach
@@ -292,7 +291,7 @@
                                 <!-- Regency/City -->
                                 <div>
                                     <label for="regency" class="block mb-2 text-sm font-medium text-gray-700">
-                                        Regency/City
+                                        Kabupaten
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -304,7 +303,7 @@
                                         </div>
                                         <select id="regency" name="kabupaten" disabled
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                            <option value="" selected disabled>Select Regency/City</option>
+                                            <option value="" selected disabled>Pilih Kabupaten</option>
                                         </select>
                                     </div>
                                     <x-input-error :messages="$errors->get('kabupaten')" class="mt-1 text-xs" />
@@ -313,7 +312,7 @@
                                 <!-- District -->
                                 <div>
                                     <label for="district" class="block mb-2 text-sm font-medium text-gray-700">
-                                        District
+                                        Kecamatan
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -327,7 +326,7 @@
                                         </div>
                                         <select id="district" name="kecamatan" disabled
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                            <option value="" selected disabled>Select District</option>
+                                            <option value="" selected disabled>Pilih Kecamatan</option>
                                         </select>
                                     </div>
                                     <x-input-error :messages="$errors->get('kecamatan')" class="mt-1 text-xs" />
@@ -336,7 +335,7 @@
                                 <!-- Village -->
                                 <div>
                                     <label for="village" class="block mb-2 text-sm font-medium text-gray-700">
-                                        Village
+                                        Kelurahan
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -348,7 +347,7 @@
                                         </div>
                                         <select id="village" name="kelurahan" disabled
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                            <option value="" selected disabled>Select Village</option>
+                                            <option value="" selected disabled>Pilih Kelurahan</option>
                                         </select>
                                     </div>
                                     <x-input-error :messages="$errors->get('kelurahan')" class="mt-1 text-xs" />
@@ -360,7 +359,7 @@
                         <div class="bg-gray-50 p-4 rounded-lg">
                             <h4
                                 class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-4 border-b pb-2 dark:text-gray-300">
-                                Account Information</h4>
+                                Informasi Akun</h4>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <!-- Email -->
@@ -399,7 +398,7 @@
                                             </svg>
                                         </div>
                                         <input type="password" name="password" id="password" required
-                                            placeholder="Create a secure password"
+                                            placeholder="Buat password yang aman"
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
                                         <button type="button" onclick="togglePasswordVisibility()"
                                             class="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -420,7 +419,7 @@
                                         </button>
                                     </div>
                                     <div class="mt-1 text-xs text-gray-500">
-                                        Password should include at least 8 characters
+                                        Password minimal berisi 8 karakter
                                     </div>
                                     <x-input-error :messages="$errors->get('password')" class="mt-1 text-xs" />
                                 </div>
@@ -431,13 +430,13 @@
                     <!-- Submit Button -->
                     <div class="flex items-center justify-center mt-8">
                         <button type="submit"
-                            class="px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 flex items-center">
+                            class="px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-[#0C548C] to-[#2E4D69] rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
-                            Create User
+                            Buat Pengguna
                         </button>
                     </div>
                 </form>

@@ -16,10 +16,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $this->call([
             RolePermissionSeeders::class,
-            UserSeeders::class,
             IndoRegionSeeder::class
-
-            
         ]);
         
         $user = User::factory()->create([
@@ -48,6 +45,10 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
         $asesor->assignRole('asesor');
+
+        $this->call([
+            UserSeeders::class,
+        ]);
 
 
 
