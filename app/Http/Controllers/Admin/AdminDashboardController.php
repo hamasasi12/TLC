@@ -138,8 +138,8 @@ class AdminDashboardController extends Controller
         $provinces = Province::all();
         $user = UserProfile::with('user')->find($id);
         return view('admin.asesi.edit', [
-            'title' => 'Edit User',
-            'navTitle' => 'Edit User',
+            'title' => 'Edit Asesi',
+            'navTitle' => 'Edit Asesi',
             'user' => $user,
             'provinces' => $provinces,
         ]);
@@ -148,10 +148,10 @@ class AdminDashboardController extends Controller
     public function asesiUpdate(Request $request, string $id)
     {
         $validated = $request->validate([
-            'name' => ['nullable', 'string'],
-            'email' => ['nullable', 'string', 'lowercase', 'email', 'max:255'],
-            'password' => ['nullable', Password::defaults()],
-            'fullname' => 'nullable|string|max:255',
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string', 'lowercase', 'max:255'],
+            'password' => ['nullable', 'string'],
+            'nama_depan' => 'nullable|string|max:255',
             'no_wa' => ['numeric', 'nullable', 'digits_between:1,15'],
             'nik' => ['nullable', 'string'],
             'instansi' => ['nullable', 'string'],
@@ -173,12 +173,11 @@ class AdminDashboardController extends Controller
             DB::beginTransaction();
             $userProfile->update([
                 'nik' => $validated['nik'] ?? $userProfile->nik,
-                'fullname' => $validated['fullname'] ?? $userProfile->fullname,
+                'nama_depan' => $validated['nama_depan'] ?? $userProfile->fullname,
                 'instansi' => $validated['instansi'] ?? $userProfile->instansi,
                 'tempat_lahir' => $validated['tempat_lahir'] ?? $userProfile->tempat_lahir,
                 'tanggal_lahir' => $validated['tanggal_lahir'] ?? $userProfile->tanggal_lahir,
                 'jenis_kelamin' => $validated['jenis_kelamin'] ?? $userProfile->jenis_kelamin,
-                'alamat_jalan' => $validated['alamat_jalan'] ?? $userProfile->alamat_jalan,
                 'no_wa' => $validated['no_wa'] ?? $userProfile->no_wa,
                 'profile_image' => $validated['profile_image'] ?? $userProfile->profile_image,
                 'provinsi' => $validated['provinsi'] ?? $userProfile->provinsi,
@@ -187,11 +186,33 @@ class AdminDashboardController extends Controller
                 'kelurahan' => $validated['kelurahan'] ?? $userProfile->kelurahan,
             ]);
 
-            if ($request->filled('update_password')) {
-                $userProfile->user->update([
-                    'password' => Hash::make($request->input('update_password'))
+            $userUpdateData = [];
+
+            if ($request->filled('password')) {
+                $userUpdateData['password'] = Hash::make($request->input('password'));
+            }
+            
+            if ($request->filled('email')) {
+                $userUpdateData['email'] = $request->input('email');
+            }
+
+            if ($request->filled('name')) {
+                $userUpdateData['name'] = $request->input('name');
+            }
+            
+            if (!empty($userUpdateData)) {
+                $userProfile->user->update($userUpdateData);
+            }
+
+            if ($request->hasFile('profile_image')) {
+                if ($userProfile->profile_image && $userProfile->profile_image !== 'blankProfile.png') {
+                    Storage::delete($userProfile->profile_image);
+                }
+                $userProfile->update([
+                    'profile_image' => $request->file('profile_image')->store('asesi_images', 'public')
                 ]);
             }
+
             DB::commit();
             Alert::success('success', 'Data User Berhasil Diperbarui!');
             return redirect()->route('admin.asesi.index')->with('success', 'Data berhasil diperbarui');

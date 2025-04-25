@@ -1,5 +1,7 @@
 @extends('layouts.adminDashboard')
 
+@section('title', $title)
+
 @section('content')
     <div class="max-w-5xl mx-auto px-4 pt-6 mt-4">
         <!-- Header with breadcrumb -->
