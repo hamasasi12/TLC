@@ -7,17 +7,17 @@
     <nav class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-4 text-base">
         <!-- Breadcrumb -->
         <ol class="flex items-center space-x-1 text-gray-600">
-            <li><a href="#" class="hover:underline text-indigo-600">Asesi</a></li>
+            <li><a href="#" class="hover:underline font-semibold text-indigo-600">Asesi</a></li>
             <li>/</li>
-            <li><a href="#" class="hover:underline">Asesor</a></li>
+            <li><a href="#" class="hover:underline font-semibold text-gray-800">Asesor</a></li>
             <li>/</li>
-            <li class="font-semibold text-gray-800">Admin</li>
+            <li class="hover:underline font-semibold text-gray-800">Admin</li>
         </ol>
 
         <!-- Search & Info -->
         <div class="flex flex-wrap items-center gap-3">
             <!-- Search -->
-            <form action="#" method="GET" class="relative">
+            <form action="{{ route('admin.asesi.index') }}" method="GET" class="relative">
                 <input
                     type="text"
                     name="search"

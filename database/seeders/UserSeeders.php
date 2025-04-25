@@ -35,7 +35,7 @@ class UserSeeders extends Seeder
                 'tempat_lahir' => $faker->city,
                 'tanggal_lahir' => $faker->date('Y-m-d', '2005-12-31'), 
                 'jenis_kelamin' => $faker->randomElement(['L', 'P']),
-                'no_wa' => $faker->phoneNumber,
+                'no_wa' =>  '62' . $faker->unique()->numerify('8##########'),
                 'profile_image' => 'images/blankProfile.png', 
                 'provinsi' =>  $faker->city,
                 'kabupaten' => $faker->city,

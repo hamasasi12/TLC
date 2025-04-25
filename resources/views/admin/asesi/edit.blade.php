@@ -172,7 +172,7 @@
                                         <select id="jenis_kelamin" name="jenis_kelamin"
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                             <option value="{{ old('jenis_kelamin') }}" selected>
-                                                {{ $user->jenis_kelamin ? $user->jenis_kelamin : 'Pilih Jenis Kelamin' }}</option>
+                                                {{ $user->jenis_kelamin === 'L' ? 'Laki-Laki' : 'Perempuan' }}</option>
                                             <option value="L">Laki-Laki</option>
                                             <option value="P">Perempuan</option>
                                         </select>
