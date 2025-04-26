@@ -24,7 +24,7 @@ class UserSeeders extends Seeder
                 'email' => $faker->unique()->safeEmail,
                 'password' => bcrypt('password'),
                 'status' => 'active', 
-                'last_login_at' => now(),
+                'last_seen_at' => now(),
             ])->assignRole('asesi');
 
             UserProfile::create([
@@ -36,7 +36,7 @@ class UserSeeders extends Seeder
                 'tanggal_lahir' => $faker->date('Y-m-d', '2005-12-31'), 
                 'jenis_kelamin' => $faker->randomElement(['L', 'P']),
                 'no_wa' =>  '62' . $faker->unique()->numerify('8##########'),
-                'profile_image' => 'images/blankProfile.png', 
+                'profile_image' => 'blankProfile.png', 
                 'provinsi' =>  $faker->city,
                 'kabupaten' => $faker->city,
                 'kelurahan' => $faker->city,

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('status')->nullable(); //status akun, active, pending, suspended
             $table->rememberToken();
-            $table->timestamp('last_login_at')->nullable(); // waktu terakhir login
+            $table->timestamp('last_seen_at')->nullable(); // waktu terakhir login
             $table->timestamps();
 
         });

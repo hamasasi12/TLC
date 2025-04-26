@@ -34,7 +34,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 
 // AUTH ASESI
-Route::middleware(['auth', 'role:asesi'])->prefix('asesi')->group(function () {
+Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(function () {
     Route::get('/dashboard', [AsesiDashboardController::class, 'index'])->name('asesi.dashboard');
     Route::get('/sertifikasi', [SertifikasiController::class, 'index'])->name('asesi.sertifikasi');
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('asesi.transaksi');

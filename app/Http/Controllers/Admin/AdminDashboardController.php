@@ -76,7 +76,7 @@ class AdminDashboardController extends Controller
     {
         $provinces = Province::all();
         return view('admin.asesi.create', [
-            'title' => 'Create User', //BELUM FIX
+            'title' => 'Create Asesi', //BELUM FIX
             'navTitle' => 'Table Asesi', // BELUM FIX
             'provinces' => $provinces, // BELUM DIBUAT
         ]);

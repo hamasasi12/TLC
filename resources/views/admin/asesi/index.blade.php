@@ -157,7 +157,7 @@
 
                             <!-- Last Seen -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{ $user->user->last_seen ? $user->user->last_seen->diffForHumans() : 'Never logged in' }}
+                                {{ $user->user->last_seen_at ? \Carbon\Carbon::parse($user->user->last_seen_at)->diffForHumans() : 'Never logged in' }}
                             </td>
 
                             <!-- Status -->
