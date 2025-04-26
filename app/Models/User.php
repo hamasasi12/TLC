@@ -56,4 +56,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserProfile::class);
     }
+
+    // In App\Models\User
+
+public function asesor()
+{
+    return $this->hasOne(UserAsesor::class);
+}
 }
