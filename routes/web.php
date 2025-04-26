@@ -15,7 +15,6 @@ Route::get('register2', function () {
     return view('register2');
 })->name('register2');
 
-
 // GUEST
 Route::middleware('guest')->group(function () {
     Route::get('/', fn() => view('welcome'));
@@ -38,6 +37,7 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::get('/dashboard', [AsesiDashboardController::class, 'index'])->name('asesi.dashboard');
     Route::get('/sertifikasi', [SertifikasiController::class, 'index'])->name('asesi.sertifikasi');
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('asesi.transaksi');
+    Route::get('/register/2', [AuthController::class, 'registerStepTwo'])->name('asesi.registerStepTwo');
     Route::get('/registeraddtional', [AuthController::class, 'registeraddtional'])->name('registeraddtional');
     Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
 });
@@ -60,12 +60,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard/asesor/{id}/edit', [AdminDashboardController::class, 'asesorEdit'])->name('admin.asesor.edit');
     Route::put('/dashboard/asesor/{id}', [AdminDashboardController::class, 'asesorUpdate'])->name('admin.asesor.update');
 
-
-
     Route::get('/profile', [AdminSettingsController::class, 'edit'])->name('admin.settings.edit');
     Route::patch('/profile', [AdminSettingsController::class, 'update'])->name('admin.settings.update');
     Route::delete('/profile', [AdminSettingsController::class, 'destroy'])->name('admin.settings.destroy');
-
     Route::put('profile', [AdminSettingsController::class, 'updatePassword'])->name('admin.password.update');
 });
 
@@ -113,10 +110,6 @@ Route::get('/admin', function () {
 Route::get('/asesor', function () {
     return view('admin.asesor');
 })->name('asesor');
-
-
-
-
 
 Route::get('/real', function () {
     return view('real');

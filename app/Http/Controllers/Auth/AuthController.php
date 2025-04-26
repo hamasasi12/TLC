@@ -72,7 +72,7 @@ class AuthController extends Controller
             Auth::login($user);
             return redirect()->route('asesi.dashboard'); //ARAHKAN KEARAH DASHBORD
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
             Log::error('User registration failed', ['error' => $e->getMessage()]);
             Alert::error('Gagal!', 'Akun gagal dibuat')->autoClose(3000);
@@ -88,7 +88,7 @@ class AuthController extends Controller
         return redirect('/')->with('success', 'Berhasil logout');
     }
 
-    public function registeraddtional()
+    public function registerStepTwo()
     {
         $provinces = Province::all();
         return view('register2', compact('provinces'));
