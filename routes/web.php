@@ -38,10 +38,12 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::get('/dashboard', [AsesiDashboardController::class, 'index'])->name('asesi.dashboard');
     Route::get('/sertifikasi', [SertifikasiController::class, 'index'])->name('asesi.sertifikasi');
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('asesi.transaksi');
+    Route::get('/registeraddtional', [AuthController::class, 'registeraddtional'])->name('registeraddtional');
+    Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
 });
 
 // AUTH ADMIN
-Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/dashboard/asesi', [AdminDashboardController::class, 'asesiIndex'])->name('admin.asesi.index');
     Route::get('/dashboard/asesi/create', [AdminDashboardController::class, 'asesiCreate'])->name('admin.asesi.create');
@@ -68,7 +70,7 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
 });
 
 // AUTH ASESOR
-Route::middleware(['auth','role:asesor'])->prefix('asesor')->group(function () {
+Route::middleware(['auth', 'role:asesor'])->prefix('asesor')->group(function () {
     Route::get('/dashboard', [AsesorDashboardController::class, 'index'])->name('asesor.dashboard');
 });
 
@@ -82,7 +84,8 @@ Route::get('/login', function () {
     return view('auth.loginPage');
 })->name('login');
 
-Route::get('/user-dashboard', function () {    return view('user.userDashboard.index');
+Route::get('/user-dashboard', function () {
+    return view('user.userDashboard.index');
 })->name('userDashboard');
 
 Route::get('/sertifikasi', function () {
@@ -100,7 +103,7 @@ Route::get('/sertifikasi', function () {
 
 Route::get('/transaksi', function () {
     return view('userDashboard.transaksi');
-})->name('transaksi'    );
+})->name('transaksi');
 
 // admin dan asesor
 Route::get('/admin', function () {
