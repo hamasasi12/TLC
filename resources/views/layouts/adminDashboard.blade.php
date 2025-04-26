@@ -155,7 +155,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="{{ route('admin.asesor.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-user"></i>
                                 <p>Asesor</p>
@@ -191,7 +191,7 @@
                     <ul id="dropdown-level" class="hidden py-2 space-y-2">
                         {{-- Level A --}}
                         <li>
-                            <a href=""
+                            <a href="#"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-layer-group"></i>
                                 <p>A</p>
@@ -199,7 +199,7 @@
                         </li>
                         {{-- Level B --}}
                         <li>
-                            <a href=""
+                            <a href="#"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-layer-group"></i>
                                 <p>B</p>
