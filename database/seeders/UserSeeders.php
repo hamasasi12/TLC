@@ -24,7 +24,6 @@ class UserSeeders extends Seeder
                 'email' => $faker->unique()->safeEmail,
                 'password' => bcrypt('password'),
                 'status' => 'active', 
-                'last_seen_at' => now(),
             ])->assignRole('asesi');
 
             UserProfile::create([

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Models\Province;
-use App\Models\UserAsesor;
+use App\Models\AsesorProfile;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -90,6 +90,7 @@ class AdminDashboardController extends Controller
         $request->validated();
 
         try {
+            DB::beginTransaction();
             // Create User
             $user = User::create([
                 'name' => $request->name,
@@ -101,7 +102,7 @@ class AdminDashboardController extends Controller
 
 
             // validasi role ketika create user
-                $user->assignRole('asesi');
+            $user->assignRole('asesi');
 
             $user->assignRole('asesi');
 
@@ -132,12 +133,17 @@ class AdminDashboardController extends Controller
 
 
             $userProfile->save();
+            DB::commit();
             Alert::success('success', 'Data User Baru Berhasil Ditambahkan!');
             return redirect()->route('admin.asesi.index')->with('success', 'Data berhasil disimpan');
 
 
         } catch (\Exception $e) {
-            Log::error('User registration failed: ' . $e->getMessage());
+            DB::rollBack();
+            Log::error('User registration failed: ' . $e->getMessage(), [
+                'name' => $request->name,
+                'email' => $request->email,
+            ]);
             return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat mendaftar: ' . $e->getMessage()])->withInput();
         }
     }
@@ -201,7 +207,7 @@ class AdminDashboardController extends Controller
             if ($request->filled('password')) {
                 $userUpdateData['password'] = Hash::make($request->input('password'));
             }
-            
+
             if ($request->filled('email')) {
                 $userUpdateData['email'] = $request->input('email');
             }
@@ -209,7 +215,7 @@ class AdminDashboardController extends Controller
             if ($request->filled('name')) {
                 $userUpdateData['name'] = $request->input('name');
             }
-            
+
             if (!empty($userUpdateData)) {
                 $userProfile->user->update($userUpdateData);
             }
@@ -229,7 +235,10 @@ class AdminDashboardController extends Controller
 
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Gagal mengupdate data asesi: ' . $e->getMessage());
+            Log::error('Gagal mengupdate data asesi: ' . $e->getMessage(), [
+            'name' => $request->name,
+            'email' => $request->email,
+            ]);
             return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage()])->withInput();
         }
     }
@@ -268,8 +277,7 @@ class AdminDashboardController extends Controller
 
         $userCountAll = User::role('asesor')->count();
         $userCount = ['user' => $userCountAll];
-
-        $asesors = UserAsesor::with('user')->latest()->get();
+        $asesors = AsesorProfile::with('user')->latest()->get();
 
         return view('admin.asesor.index', compact('userCount', 'asesors'));
     }
@@ -292,39 +300,49 @@ class AdminDashboardController extends Controller
             'berkas_cv' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
         ]);
 
-        // Simpan user baru
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'status' => 'active',
-            'email_verified_at' => now(),
-        ]);
-        $user->assignRole('asesor');
+        try {
+            DB::beginTransaction();
 
-        // Upload berkas
-        $cvPath = $request->file('berkas_cv')?->store('cv', 'public');
-        $profileImagePath = $request->file('profile_image')?->store('profile_images', 'public');
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'status' => 'active',
+                'email_verified_at' => now(),
+            ]);
+            $user->assignRole('asesor');
 
-        // Simpan ke tabel user_asesor
-        UserAsesor::create([
-            'user_id' => $user->id,
-            'berkas_cv' => $cvPath,
-            'profile_image' => $profileImagePath,
-        ]);
+            $cvPath = $request->file('berkas_cv')?->store('asesor/cv', 'public');
+            $profileImagePath = $request->file('profile_image')?->store('asesor/profile_images', 'public');
 
-        return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil ditambahkan!');
+            // Simpan ke tabel user_asesor
+            AsesorProfile::create([
+                'user_id' => $user->id,
+                'berkas_cv' => $cvPath,
+                'profile_image' => $profileImagePath ?? 'blankProfile.png',
+            ]);
+            DB::commit();
+            return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil ditambahkan!');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Gagal menambahkan asesor: ' . $e->getMessage(), [
+                'name' => $request->name,
+                'email' => $request->email,
+            ]);
+            return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat menambahkan asesor: ' . $e->getMessage()])->withInput();
+        }
     }
-
 
     public function asesorDestroy($id)
     {
         try {
-            $userAsesor = UserAsesor::findOrFail($id);
+            DB::beginTransaction();
+            $userAsesor = AsesorProfile::findOrFail($id);
             $user = $userAsesor->user;
 
             // Hapus file foto profil
-            if ($userAsesor->profile_image && Storage::disk('public')->exists($userAsesor->profile_image)) {
+            if ($userAsesor->profile_image && Storage::disk('public')->exists($userAsesor->profile_image) && $userAsesor->profile_image !== 'blankProfile.png') {
                 Storage::disk('public')->delete($userAsesor->profile_image);
             }
 
@@ -335,32 +353,38 @@ class AdminDashboardController extends Controller
 
             // Hapus data dari database
             $userAsesor->delete();
+            $user->removeRole('asesor');
             $user->delete();
+            DB::commit();
 
             return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil dihapus!');
+
         } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Gagal menghapus asesor: ' . $e->getMessage(), [
+                'user_id' => $id ?? null,
+            ]);
             return redirect()->route('admin.asesor.index')->with('error', 'Gagal menghapus asesor: ' . $e->getMessage());
         }
     }
 
-
     public function asesorShow($id)
     {
-        $userAsesor = UserAsesor::with('user')->findOrFail($id);
+        $userAsesor = AsesorProfile::with('user')->findOrFail($id);
         return view('admin.asesor.show', compact('userAsesor'));
     }
 
 
     public function asesorEdit($id)
     {
-        $userAsesor = UserAsesor::with('user')->findOrFail($id);
+        $userAsesor = AsesorProfile::with('user')->findOrFail($id);
         return view('admin.asesor.edit', compact('userAsesor'));
     }
 
 
     public function asesorUpdate(Request $request, $id)
     {
-        $userAsesor = UserAsesor::findOrFail($id);
+        $userAsesor = AsesorProfile::findOrFail($id);
         $user = $userAsesor->user;
 
         $request->validate([
@@ -371,26 +395,37 @@ class AdminDashboardController extends Controller
             'berkas_cv' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
         ]);
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        if ($request->filled('password')) {
-            $user->password = bcrypt($request->password);
+        try {
+            DB::beginTransaction();
+
+            $user->name = $request->name;
+            $user->email = $request->email;
+            if ($request->filled('password')) {
+                $user->password = bcrypt($request->password);
+            }
+            $user->save();
+
+            // Handle file upload
+            if ($request->hasFile('berkas_cv')) {
+                $userAsesor->berkas_cv = $request->file('berkas_cv')->store('cv', 'public');
+            }
+
+            if ($request->hasFile('profile_image')) {
+                $userAsesor->profile_image = $request->file('profile_image')->store('profile_images', 'public');
+            }
+
+            $userAsesor->save();
+            DB::commit();
+
+            return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil diperbarui!');
+
+        } catch (\Exception $e) {
+            Log::error('Gagal memperbarui asesor: ' . $e->getMessage(), [
+                'user_id' => $id,
+                'name' => $request->name,
+                'email' => $request->email,
+            ]);
+            return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat memperbarui asesor: ' . $e->getMessage()])->withInput();
         }
-        $user->save();
-
-        // Handle file upload
-        if ($request->hasFile('berkas_cv')) {
-            $userAsesor->berkas_cv = $request->file('berkas_cv')->store('cv', 'public');
-        }
-
-        if ($request->hasFile('profile_image')) {
-            $userAsesor->profile_image = $request->file('profile_image')->store('profile_images', 'public');
-        }
-
-        $userAsesor->save();
-
-        return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil diperbarui!');
     }
-
-
 }
