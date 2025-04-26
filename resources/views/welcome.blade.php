@@ -10,7 +10,7 @@
                 class="fixed w-full z-20 top-0 start-0 bg-gradient-to-r from-[#3A6EA5] to-[#90BE6D] shadow-lg border-b border-gray-300">
                 <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-6">
                     <a href="#" class="flex items-center space-x-3">
-                        <img src="images/logo.svg" class="h-12" alt="TLC Logo">
+                        <img src="{{ asset('images/logo.svg') }}" class="h-12" alt="TLC Logo" loading="lazy">
                         <div class="flex flex-col">
                             <span class="text-lg font-bold text-[#1D4E89] tracking-wide">TLC Program</span>
                             <span class="text-sm text-[#f1e686] font-medium">Teaching & Learning Certification</span>
@@ -112,19 +112,20 @@
                         </a>
                     </div>
                     <div class="flex flex-wrap gap-4 items-center justify-start">
-                        <img src="images/smpit-an-nur.png" alt="SMPIT An-Nur"
-                            class="h-20 hover:scale-110 transition-transform duration-300">
-                        <img src="images/smp-sma-gibs.png" alt="Global Islamic Boarding School"
-                            class="h-20 hover:scale-110 transition-transform duration-300">
-                        <img src="images/hafecs.png" alt="HAFECS"
-                            class="h-16 hover:scale-110 transition-transform duration-300">
-                        <img src="images/hrp.png" alt="HAFECS Research & Publication"
-                            class="h-20 hover:scale-110 transition-transform duration-300">
+                        <img src="{{ asset('images/smpit-an-nur.png') }}" alt="SMPIT An-Nur"
+                            class="h-20 hover:scale-110 transition-transform duration-300" loading="lazy">
+                        <img src="{{ asset('images/smp-sma-gibs.png') }}" alt="Global Islamic Boarding School"
+                            class="h-20 hover:scale-110 transition-transform duration-300" loading="lazy">
+                        <img src="{{ asset('images/hafecs.png') }}" alt="HAFECS"
+                            class="h-16 hover:scale-110 transition-transform duration-300" loading="lazy">
+                        <img src="{{ asset('images/hrp.png') }}" alt="HAFECS Research & Publication"
+                            class="h-20 hover:scale-110 transition-transform duration-300" loading="lazy">
                     </div>
                 </div>
                 <div class="hidden lg:block col-span-12 lg:col-span-5 rounded-2xl mx-3 overflow-hidden shadow-xl">
-                    <img src="images/konten_satu.jpg"
-                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" alt="">
+                    <img src="{{ asset('images/konten_satu.jpg') }}"
+                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" alt=""
+                        loading="lazy">
                 </div>
             </div>
 
@@ -160,8 +161,8 @@
                 <!-- Gambar dengan label -->
                 <div
                     class="relative bg-gray-200 rounded-xl h-96 flex items-center justify-center overflow-hidden shadow-xl transition-transform duration-300 hover:scale-105 active:scale-95">
-                    <img src="images/konten_tiga.jpg" alt="Teaching Mastery Framework"
-                        class="object-cover w-full h-full">
+                    <img src="{{ asset('images/konten_tiga.jpg') }}" alt="Teaching Mastery Framework"
+                        class="object-cover w-full h-full" loading="lazy">
                     <div
                         class="absolute bottom-4 left-4 bg-[#E76F51] text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-md">
                         Teaching Mastery Framework
@@ -474,8 +475,9 @@
                 <!-- Testimonial 1 -->
                 <div
                     class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <img src="images/hamas.png" alt="Hamas, M.Pd"
-                        class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -top-10 left-6">
+                    <img src="{{ asset('images/hamas.png') }}" alt="Hamas, M.Pd"
+                        class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -top-10 left-6"
+                        loading="lazy">
                     <div class="mt-12">
                         <strong class="block text-xl text-gray-900">Hamas, M.Pd</strong>
                         <span class="text-gray-500 text-sm">High School Teacher</span>
@@ -490,8 +492,9 @@
                 <!-- Testimonial 2 -->
                 <div
                     class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <img src="images/aliando.jpg" alt="Candra, M.Pd"
-                        class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -top-10 left-6">
+                    <img src="{{ asset('images/aliando.jpg') }}" alt="Candra, M.Pd"
+                        class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -top-10 left-6"
+                        loading="lazy">
                     <div class="mt-12">
                         <strong class="block text-xl text-gray-900">Candra, M.Pd</strong>
                         <span class="text-gray-500 text-sm">University Professor</span>
@@ -506,8 +509,9 @@
                 <!-- Testimonial 3 -->
                 <div
                     class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <img src="images/guru.png" alt="Yudha, M.Pd"
-                        class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -top-10 left-6">
+                    <img src="{{ asset('images/guru.png') }}" alt="Yudha, M.Pd"
+                        class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -topy10 left-6"
+                        loading="lazy">
                     <div class="mt-12">
                         <strong class="block text-xl text-gray-900">Yudha, M.Pd</strong>
                         <span class="text-gray-500 text-sm">Elementary School Teacher</span>
@@ -1092,8 +1096,8 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto">
                 <!-- Image 1 -->
                 <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="images/siswa.png" alt="Workshop Metode Pengajaran Inovatif"
-                        class="w-full h-full object-cover">
+                    <img src="{{ asset('images/siswa.png') }}" alt="Workshop Metode Pengajaran Inovatif"
+                        class="w-full h-full object-cover" loading="lazy">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
                     </div>
@@ -1110,7 +1114,8 @@
 
                 <!-- Image 2 -->
                 <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="images/guru.png" alt="Image 2" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/guru.png') }}" alt="Image 2" class="w-full h-full object-cover"
+                        loading="lazy">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
                     </div>
@@ -1126,7 +1131,8 @@
 
                 <!-- Image 3 -->
                 <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="images/guru.png" alt="Image 3" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/guru.png') }}" alt="Image 3" class="w-full h-full object-cover"
+                        loading="lazy">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
                     </div>
@@ -1142,7 +1148,7 @@
 
                 <!-- Image 4 -->
                 <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="images/guru.png" alt="Image 4" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/guru.png') }}" alt="Image 4" class="w-full h-full object-cover">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
                     </div>
@@ -1158,7 +1164,8 @@
 
                 <!-- Image 5 -->
                 <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="images/guru.png" alt="Image 5" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/guru.png') }}" alt="Image 5" class="w-full h-full object-cover"
+                        loading="lazy">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
                     </div>
@@ -1174,7 +1181,8 @@
 
                 <!-- Image 6 -->
                 <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="images/guru.png" alt="Image 6" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/guru.png') }}" alt="Image 6" class="w-full h-full object-cover"
+                        loading="lazy">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
                     </div>
@@ -1212,8 +1220,8 @@
                 <div
                     class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
                     <div class="relative w-full h-full">
-                        <img src="images/buku1.png" alt="Buku 1"
-                            class="w-full h-full object-cover rounded-lg shadow-md">
+                        <img src="{{ asset('images/buku1.png') }}" alt="Buku 1"
+                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
                         </div>
                     </div>
@@ -1231,8 +1239,8 @@
                 <div
                     class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
                     <div class="relative w-full h-full">
-                        <img src="images/buku2.png" alt="Buku 2"
-                            class="w-full h-full object-cover rounded-lg shadow-md">
+                        <img src="{{ asset('images/buku2.png') }}" alt="Buku 2"
+                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
                         </div>
                     </div>
@@ -1250,8 +1258,8 @@
                 <div
                     class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
                     <div class="relative w-full h-full">
-                        <img src="images/buku3.png" alt="Buku 3"
-                            class="w-full h-full object-cover rounded-lg shadow-md">
+                        <img src="{{ asset('images/buku3.png') }}" alt="Buku 3"
+                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
                         </div>
                     </div>
@@ -1269,8 +1277,8 @@
                 <div
                     class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
                     <div class="relative w-full h-full">
-                        <img src="images/buku4.png" alt="Buku 4"
-                            class="w-full h-full object-cover rounded-lg shadow-md">
+                        <img src="{{ asset('images/buku4.png') }}" alt="Buku 4"
+                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
                         </div>
                     </div>
@@ -1288,8 +1296,8 @@
                 <div
                     class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
                     <div class="relative w-full h-full">
-                        <img src="images/buku5.png" alt="Buku 5"
-                            class="w-full h-full object-cover rounded-lg shadow-md">
+                        <img src="{{ asset('images/buku5.png') }}" alt="Buku 5"
+                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
                         </div>
                     </div>
@@ -1307,8 +1315,8 @@
                 <div
                     class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
                     <div class="relative w-full h-full">
-                        <img src="images/buku6.png" alt="Buku 6"
-                            class="w-full h-full object-cover rounded-lg shadow-md">
+                        <img src="{{ asset('images/buku6.png') }}" alt="Buku 6"
+                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
                         </div>
                     </div>
