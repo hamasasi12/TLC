@@ -5,13 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RolePermissionSeeders extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $admin = Role::firstOrCreate(['name' => 'admin']);
@@ -34,9 +30,12 @@ class RolePermissionSeeders extends Seeder
         ];
 
         foreach($permission_levels as $permission) {
-            Permission::create(['name' => $permission]);
-        };
-        
+            Permission::firstOrCreate([
+                'name' => $permission,
+                'guard_name' => 'web'
+            ]);
+        }
+
         // KATEGORI LEVEL A, BELUM FIX JUGA
         $permission_kategories = [
             'HOTS',
@@ -47,11 +46,12 @@ class RolePermissionSeeders extends Seeder
         ];
 
         foreach($permission_kategories as $permission_k) {
-            Permission::create(['name' => $permission_k]);
-        };
+            Permission::firstOrCreate([
+                'name' => $permission_k,
+                'guard_name' => 'web'
+            ]);
+        }
 
-        $asesi->givePermissionTo('access_level_A_unpaid','bundling');
-
-
+        $asesi->givePermissionTo('access_level_A_unpaid', 'bundling');
     }
 }
