@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Models\Province;
+use App\Models\UserAsesor;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -82,6 +84,7 @@ class AdminDashboardController extends Controller
         ]);
     }
 
+
     public function asesiStore(AsesiStoreRequest $request)
     {
         $request->validated();
@@ -96,13 +99,17 @@ class AdminDashboardController extends Controller
                 'email_verified_at' => now(),
             ]);
 
+
             // validasi role ketika create user
+                $user->assignRole('asesi');
+
             $user->assignRole('asesi');
 
             // validasi akses level A ketika create user BELUM FIX
             // if($user->hasPermissionTo('acces_level_A')) {
             //     $user->givePermissionTo('acces_level_A');
             // }
+
 
             // Create User Profile
             $userProfile = new UserProfile([
@@ -123,9 +130,11 @@ class AdminDashboardController extends Controller
                     : 'blankProfile.png'
             ]);
 
+
             $userProfile->save();
             Alert::success('success', 'Data User Baru Berhasil Ditambahkan!');
             return redirect()->route('admin.asesi.index')->with('success', 'Data berhasil disimpan');
+
 
         } catch (\Exception $e) {
             Log::error('User registration failed: ' . $e->getMessage());
@@ -135,6 +144,7 @@ class AdminDashboardController extends Controller
 
     public function asesiEdit(string $id)
     {
+
         $provinces = Province::all();
         $user = UserProfile::with('user')->find($id);
         return view('admin.asesi.edit', [
@@ -203,6 +213,7 @@ class AdminDashboardController extends Controller
         }
     }
 
+
     public function asesiDestroy(string $id)
     {
         try {
@@ -210,9 +221,11 @@ class AdminDashboardController extends Controller
             $user = User::find($id);
             $userProfile = UserProfile::where('user_id', $id)->first();
 
+
             if ($userProfile->profile_image && $userProfile->profile_image !== 'blankProfile.png') {
                 Storage::delete($userProfile->profile_image);
             }
+
 
             $userProfile->delete();
             $user->removeRole('asesi');
@@ -228,4 +241,135 @@ class AdminDashboardController extends Controller
             return redirect()->route('admin.asesi.index')->with('error', 'Error deleting user: ' . $e->getMessage());
         }
     }
+
+    public function asesorIndex() // MENAMPILKAN DATA ASESOR KE DASHBOARD ADMIN
+    {
+
+        $userCountAll = User::role('asesor')->count();
+        $userCount = ['user' => $userCountAll];
+
+        $asesors = UserAsesor::with('user')->latest()->get();
+
+        return view('admin.asesor.index', compact('userCount', 'asesors'));
+    }
+
+    public function asesorCreate()
+    {
+        return view('admin.asesor.create', [
+            'title' => 'Create Asesor',
+            'navTitle' => 'Create Asesor'
+        ]);
+    }
+
+    public function asesorStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8',
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'berkas_cv' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+        ]);
+
+        // Simpan user baru
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'status' => 'active',
+            'email_verified_at' => now(),
+        ]);
+        $user->assignRole('asesor');
+
+        // Upload berkas
+        $cvPath = $request->file('berkas_cv')?->store('cv', 'public');
+        $profileImagePath = $request->file('profile_image')?->store('profile_images', 'public');
+
+        // Simpan ke tabel user_asesor
+        UserAsesor::create([
+            'user_id' => $user->id,
+            'berkas_cv' => $cvPath,
+            'profile_image' => $profileImagePath,
+        ]);
+
+        return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil ditambahkan!');
+    }
+
+
+    public function asesorDestroy($id)
+    {
+        try {
+            $userAsesor = UserAsesor::findOrFail($id);
+            $user = $userAsesor->user;
+
+            // Hapus file foto profil
+            if ($userAsesor->profile_image && Storage::disk('public')->exists($userAsesor->profile_image)) {
+                Storage::disk('public')->delete($userAsesor->profile_image);
+            }
+
+            // Hapus file CV
+            if ($userAsesor->berkas_cv && Storage::disk('public')->exists($userAsesor->berkas_cv)) {
+                Storage::disk('public')->delete($userAsesor->berkas_cv);
+            }
+
+            // Hapus data dari database
+            $userAsesor->delete();
+            $user->delete();
+
+            return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil dihapus!');
+        } catch (\Exception $e) {
+            return redirect()->route('admin.asesor.index')->with('error', 'Gagal menghapus asesor: ' . $e->getMessage());
+        }
+    }
+
+
+    public function asesorShow($id)
+    {
+        $userAsesor = UserAsesor::with('user')->findOrFail($id);
+        return view('admin.asesor.show', compact('userAsesor'));
+    }
+
+
+    public function asesorEdit($id)
+    {
+        $userAsesor = UserAsesor::with('user')->findOrFail($id);
+        return view('admin.asesor.edit', compact('userAsesor'));
+    }
+
+
+    public function asesorUpdate(Request $request, $id)
+    {
+        $userAsesor = UserAsesor::findOrFail($id);
+        $user = $userAsesor->user;
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:8',
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'berkas_cv' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->password);
+        }
+        $user->save();
+
+        // Handle file upload
+        if ($request->hasFile('berkas_cv')) {
+            $userAsesor->berkas_cv = $request->file('berkas_cv')->store('cv', 'public');
+        }
+
+        if ($request->hasFile('profile_image')) {
+            $userAsesor->profile_image = $request->file('profile_image')->store('profile_images', 'public');
+        }
+
+        $userAsesor->save();
+
+        return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil diperbarui!');
+    }
+
+
 }

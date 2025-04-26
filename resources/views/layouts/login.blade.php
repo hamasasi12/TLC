@@ -7,8 +7,8 @@
     <title>@yield('title', 'TLC')</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="icon" href="{{ asset('assets/img/tlc.png') }}" type="image/png">
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
 </head>
 
