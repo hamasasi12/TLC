@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminSettingsController;
 use App\Http\Controllers\Asesi\SertifikasiController;
 use App\Http\Controllers\Asesi\TransactionController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\IndoRegionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
@@ -24,6 +25,12 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.post');
+
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'create'])->name('forgot.password.request');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('forgot.password.store');
+    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'view'])->name('forgot.password.reset');
+    Route::post('/reset-password', [ForgotPasswordController::class, 'view'])->name('forgot.password.reset');
+
 });
 
 // GOOGLE SSO LOGIN/REGISTER

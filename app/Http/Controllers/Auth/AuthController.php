@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\AsesiRegisterTwoRequest;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -94,24 +95,10 @@ class AuthController extends Controller
         return view('register2', compact('provinces'));
     }
 
-    public function registeraddtionalpost(Request $request)
+    public function registeraddtionalpost(AsesiRegisterTwoRequest $request)
     {
-        $request->validate([
-            'nama' => ['required', 'string', 'max:30'],
-            'nik' => ['required', 'numeric'],
-            'instansi' => ['required', 'string'],
-            'tempat_lahir' => ['required',  'string'],
-            'tanggal_lahir' => ['required', 'date'],
-            'jenis_kelamin' => 'required',
-            'no_wa' => ['required', 'numeric'],
-            'provinsi' => 'required',
-            'kabupaten' => 'required',
-            'kecamatan' => 'required',
-            'kelurahan' => 'required',
-            'custom_instansi' => ['nullable', 'string'],
-            'profile_image' => 'nullable',
-        ]);
-
+        $validated = $request->validated();
+        
         try {
 
             $userProfile = new UserProfile();
