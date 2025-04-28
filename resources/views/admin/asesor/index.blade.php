@@ -7,17 +7,23 @@
         <nav class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-4 text-base">
             <!-- Breadcrumb -->
             <ol class="flex items-center space-x-1 text-gray-600">
-                <li><a href="#" class="hover:underline ">Asesi</a></li>
+                <li><a href="{{ route('admin.asesi.index') }}"
+                        class="hover:underline {{ request()->routeIs('admin.asesi.*') ? 'text-indigo-600' : '' }}">Asesi</a>
+                </li>
                 <li>/</li>
-                <li><a href="#" class="hover:underline text-indigo-600">Asesor</a></li>
+                <li><a href="{{ route('admin.asesor.index') }}"
+                        class="hover:underline {{ request()->routeIs('admin.asesor.*') ? 'text-indigo-600' : '' }}">Asesor</a>
+                </li>
                 <li>/</li>
-                <li class="font-semibold text-gray-800">Admin</li>
+                <li><a href="{{ route('admin.admins.index') }}"
+                        class="hover:underline {{ request()->routeIs('admin.admins.*') ? 'text-indigo-600' : '' }}">Admin</a>
+                </li>
             </ol>
 
             <!-- Search & Info -->
             <div class="flex flex-wrap items-center gap-3">
                 <!-- Search -->
-                <form action="#" method="GET" class="relative">
+                <form action="{{ route('admin.asesor.index') }}" method="GET" class="relative">
                     <input type="text" name="search"
                         class="pl-9 pr-3 py-2 rounded-md border border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500"
                         placeholder="Cari asesor..." value="{{ request('search') }}">
@@ -28,6 +34,7 @@
                         </svg>
                     </div>
                 </form>
+
 
                 <!-- Total Users -->
                 <div class="text-gray-600 text-sm">
