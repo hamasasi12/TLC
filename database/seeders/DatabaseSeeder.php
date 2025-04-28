@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\AsesorProfile;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\UserAsesor;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\AdminsProfile;
+use App\Models\AsesorProfile;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -44,6 +45,12 @@ class DatabaseSeeder extends Seeder
         ]);
         $admin->assignRole('admin');
 
+        AdminsProfile::create([
+            'user_id' => $admin->id,
+            'profile_image' => 'blankProfile.png',
+        ]);
+
+
         $asesor = User::factory()->create([
             'name' => 'asesor',
             'email' => 'asesor@gmail.com',
@@ -63,6 +70,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeders::class,
             AsesorSeeders::class,
+
         ]);
     }
 }
