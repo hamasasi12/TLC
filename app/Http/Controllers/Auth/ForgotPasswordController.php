@@ -13,7 +13,7 @@ use Illuminate\Auth\Events\PasswordReset;
 class ForgotPasswordController extends Controller
 {
     public function create() {
-        return view('auth.forgot-password');
+        return view('auth.forgetPassword');
     }
 
     public function store(Request $request) {
