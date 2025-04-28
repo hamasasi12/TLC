@@ -23,7 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'status',
-        'last_login_at',
+        'last_seen_at',
         'remember_token',
         'email_verified_at',
         'remember'
@@ -59,8 +59,15 @@ class User extends Authenticatable
 
     // In App\Models\User
 
-public function asesor()
+public function asesorProfile()
 {
-    return $this->hasOne(UserAsesor::class);
+    return $this->hasOne(AsesorProfile::class);
 }
+
+public function adminsProfile()
+{
+    return $this->hasOne(\App\Models\AdminsProfile::class, 'user_id', 'id');
+}
+
+
 }

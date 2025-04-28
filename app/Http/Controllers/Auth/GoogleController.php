@@ -27,13 +27,13 @@ class GoogleController extends Controller
                     'name' => $googleUser->getName(),
                     'password' => bcrypt(Str::random(20)), 
                     'status' => 'active',
-                    'last_login_at' => now(),
+                    'last_seen_at' => now(),
                     'remember_token' => Str::random(60),
                 ],
             );
             
             if (!$user->wasRecentlyCreated) {
-                $user->update(['last_login_at' => now()]);
+                $user->update(['last_seen_at' => now()]);
             }
             if(!$user->hasRole('asesi')){
                 $user->assignRole('asesi');
@@ -49,4 +49,4 @@ class GoogleController extends Controller
             return redirect()->route('login')->withErrors(['msg' => 'Gagal login dengan Google']);
         }
     }
-}
+} 

@@ -26,7 +26,8 @@
                         class="slide w-full flex-shrink-0 bg-blue-900 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg overflow-hidden">
                         <div class="flex flex-col md:flex-row items-center">
                             <div class="w-full md:w-2/5 p-4">
-                                <img src="images/karakter.jpg" alt="Kedinasan Characters" class="w-full h-64 object-cover">
+                                <img src="{{ asset('images/karakter.jpg') }}" alt="Kedinasan Characters"
+                                    class="w-full h-64 object-cover">
                             </div>
                             <div class="w-full md:w-3/5 p-6 text-white text-center md:text-left">
                                 <h2 class="text-xl md:text-3xl font-bold mb-2">Jadi #KebanggaanKeluarga dengan</h2>
@@ -46,7 +47,8 @@
                         class="slide w-full flex-shrink-0 bg-green-900 bg-gradient-to-r from-green-900 to-green-800 rounded-lg overflow-hidden">
                         <div class="flex flex-col md:flex-row items-center">
                             <div class="w-full md:w-2/5 p-4">
-                                <img src="images/konten_satu.jpg" alt="Alumni Sukses" class="w-full h-64 object-cover">
+                                <img src="{{ asset('images/konten_satu.jpg') }}" alt="Alumni Sukses"
+                                    class="w-full h-64 object-cover">
                             </div>
                             <div class="w-full md:w-3/5 p-6 text-white text-center md:text-left">
                                 <h2 class="text-xl md:text-3xl font-bold mb-2">Ikuti Jejak Alumni Kami</h2>
@@ -66,7 +68,8 @@
                         class="slide w-full flex-shrink-0 bg-purple-900 bg-gradient-to-r from-purple-900 to-purple-800 rounded-lg overflow-hidden">
                         <div class="flex flex-col md:flex-row items-center">
                             <div class="w-full md:w-2/5 p-4">
-                                <img src="images/konten_dua.jpeg" alt="Tim Pengajar" class="w-full h-64 object-cover">
+                                <img src="{{ asset('images/konten_dua.jpeg') }}" alt="Tim Pengajar"
+                                    class="w-full h-64 object-cover">
                             </div>
                             <div class="w-full md:w-3/5 p-6 text-white text-center md:text-left">
                                 <h2 class="text-xl md:text-3xl font-bold mb-2">Diajar Oleh Tim Terbaik</h2>
@@ -127,7 +130,7 @@
                             </div>
                             <div class="p-6 pt-10 text-center flex flex-col h-full">
                                 <div class="relative mb-6 overflow-hidden rounded-xl shadow-lg">
-                                    <img src="images/ss.png" alt="Paket 1 Tahun"
+                                    <img src="{{ asset('images/ss.png') }}" alt="Paket 1 Tahun"
                                         class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                                 </div>
@@ -172,7 +175,7 @@
                             </div>
                             <div class="p-6 pt-10 text-center flex flex-col h-full">
                                 <div class="relative mb-6 overflow-hidden rounded-xl shadow-lg">
-                                    <img src="images/ss3.png" alt="Siswa Berprestasi"
+                                    <img src="{{ asset('images/ss3.png') }}" alt="Siswa Berprestasi"
                                         class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                                 </div>
@@ -217,7 +220,7 @@
                             </div>
                             <div class="p-6 pt-10 text-center flex flex-col h-full">
                                 <div class="relative mb-6 overflow-hidden rounded-xl shadow-lg">
-                                    <img src="images/ss2.png" alt="Diskon Anak Guru"
+                                    <img src="{{ asset('images/ss2.png') }}" alt="Diskon Anak Guru"
                                         class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                                 </div>
@@ -295,7 +298,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <!-- Image with Overlay -->
                     <div class="relative group overflow-hidden rounded-3xl shadow-2xl hover-up">
-                        <img src="images/konten_satu.jpg" alt="Student Learning"
+                        <img src="{{ asset('images/konten_satu.jpg') }}" alt="Student Learning"
                             class="w-full h-auto rounded-3xl transition-transform duration-700 ease-in-out group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-70"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -1126,7 +1129,7 @@
                 <div
                     class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                     <div class="relative">
-                        <img src="images/levela.png" alt="Literasi"
+                        <img src="{{ asset('images/levela.png') }}" alt="Literasi"
                             class="w-full h-48 object-cover group-hover:opacity-90 transition">
                         <div
                             class="absolute top-4 right-4 bg-green-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
@@ -1193,7 +1196,7 @@
                 <div
                     class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                     <div class="relative">
-                        <img src="images/levelb.png" alt="Numerasi"
+                        <img src="{{ asset('images/levelb.png') }}" alt="Numerasi"
                             class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
                         <div
                             class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
@@ -1269,7 +1272,7 @@
                 <div
                     class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                     <div class="relative">
-                        <img src="images/levelc.png" alt="PCK"
+                        <img src="{{ asset('images/levelc.png') }}" alt="PCK"
                             class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
                         <div
                             class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
@@ -1345,7 +1348,7 @@
                 <div
                     class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                     <div class="relative">
-                        <img src="images/buku1.png" alt="HOTS"
+                        <img src="{{ asset('images/buku1.png') }}" alt="HOTS"
                             class="w-full h-48 object-cover group-hover:opacity-90 transition filter grayscale">
                         <div
                             class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-3 py-1 text-xs font-medium shadow">
@@ -2029,17 +2032,17 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor"
                                 viewBox="0 0 24 24">
                                 <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                             </svg>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor"
                                 viewBox="0 0 24 24">
                                 <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                             </svg>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor"
                                 viewBox="0 0 24 24">
                                 <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                             </svg>
                             <span class="ml-2 text-sm text-gray-600">20 soal</span>
                         </div>
@@ -2151,7 +2154,7 @@
         {{-- End C --}}
 
         {{-- </main> --}}
-       
+
         {{-- end footer --}}
 
     </section>

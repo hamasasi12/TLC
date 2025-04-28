@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminSettingsController;
 use App\Http\Controllers\Asesi\SertifikasiController;
 use App\Http\Controllers\Asesi\TransactionController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\IndoRegionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
@@ -15,7 +16,6 @@ Route::get('register2', function () {
     return view('register2');
 })->name('register2');
 
-
 // GUEST
 Route::middleware('guest')->group(function () {
     Route::get('/', fn() => view('welcome'));
@@ -25,6 +25,12 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.post');
+
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'create'])->name('forgot.password.request');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('forgot.password.store');
+    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'view'])->name('forgot.password.reset');
+    Route::post('/reset-password', [ForgotPasswordController::class, 'view'])->name('forgot.password.reset');
+
 });
 
 // GOOGLE SSO LOGIN/REGISTER
@@ -34,19 +40,24 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 
 // AUTH ASESI
-Route::middleware(['auth', 'role:asesi'])->prefix('asesi')->group(function () {
+Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(function () {
     Route::get('/dashboard', [AsesiDashboardController::class, 'index'])->name('asesi.dashboard');
     Route::get('/sertifikasi', [SertifikasiController::class, 'index'])->name('asesi.sertifikasi');
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('asesi.transaksi');
+    Route::get('/register/2', [AuthController::class, 'registerStepTwo'])->name('asesi.registerStepTwo');
+    Route::get('/registeraddtional', [AuthController::class, 'registeraddtional'])->name('registeraddtional');
+    Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
 });
 
 // AUTH ADMIN
-Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/dashboard/asesi', [AdminDashboardController::class, 'asesiIndex'])->name('admin.asesi.index');
     Route::get('/dashboard/asesi/create', [AdminDashboardController::class, 'asesiCreate'])->name('admin.asesi.create');
     Route::get('/dashboard/asesi/edit/{id}', [AdminDashboardController::class, 'asesiEdit'])->name('admin.asesi.edit');
     Route::post('/dashboard/asesi/store', [AdminDashboardController::class, 'asesiStore'])->name('admin.asesi.store');
+    Route::get('/dashboard/asesi/{id}', [AdminDashboardController::class, 'asesiShow'])->name('admin.asesi.show');
+    Route::put('/dashboard/asesi/update/{id}', [AdminDashboardController::class, 'asesiUpdate'])->name('admin.asesi.update');
     Route::delete('/dashboard/asesi/delete/{id}', [AdminDashboardController::class, 'asesiDestroy'])->name('admin.asesi.destroy');
 
     Route::get('/dashboard/asesor', [AdminDashboardController::class, 'asesorIndex'])->name('admin.asesor.index');
@@ -57,17 +68,22 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard/asesor/{id}/edit', [AdminDashboardController::class, 'asesorEdit'])->name('admin.asesor.edit');
     Route::put('/dashboard/asesor/{id}', [AdminDashboardController::class, 'asesorUpdate'])->name('admin.asesor.update');
 
-
+    Route::get('/dashboard/admins', [AdminDashboardController::class, 'adminsIndex'])->name('admin.admins.index');
+    Route::get('/dashboard/admins/create', [AdminDashboardController::class, 'adminsCreate'])->name('admin.admins.create');
+    Route::post('/dashboard/admins/store', [AdminDashboardController::class, 'adminsStore'])->name('admin.admins.store');
+    Route::delete('/dashboard/admins/delete/{id}', [AdminDashboardController::class, 'adminsDestroy'])->name('admin.admins.destroy');
+    Route::get('/dashboard/admins/{id}', [AdminDashboardController::class, 'adminsShow'])->name('admin.admins.show');
+    Route::get('/dashboard/admins/{id}/edit', [AdminDashboardController::class, 'adminsEdit'])->name('admin.admins.edit');
+    Route::put('/dashboard/admins/{id}', [AdminDashboardController::class, 'adminsUpdate'])->name('admin.admins.update');
 
     Route::get('/profile', [AdminSettingsController::class, 'edit'])->name('admin.settings.edit');
     Route::patch('/profile', [AdminSettingsController::class, 'update'])->name('admin.settings.update');
     Route::delete('/profile', [AdminSettingsController::class, 'destroy'])->name('admin.settings.destroy');
-
     Route::put('profile', [AdminSettingsController::class, 'updatePassword'])->name('admin.password.update');
 });
 
 // AUTH ASESOR
-Route::middleware(['auth','role:asesor'])->prefix('asesor')->group(function () {
+Route::middleware(['auth', 'role:asesor'])->prefix('asesor')->group(function () {
     Route::get('/dashboard', [AsesorDashboardController::class, 'index'])->name('asesor.dashboard');
 });
 
@@ -81,7 +97,8 @@ Route::get('/login', function () {
     return view('auth.loginPage');
 })->name('login');
 
-Route::get('/user-dashboard', function () {    return view('user.userDashboard.index');
+Route::get('/user-dashboard', function () {
+    return view('user.userDashboard.index');
 })->name('userDashboard');
 
 Route::get('/sertifikasi', function () {
@@ -99,7 +116,7 @@ Route::get('/sertifikasi', function () {
 
 Route::get('/transaksi', function () {
     return view('userDashboard.transaksi');
-})->name('transaksi'    );
+})->name('transaksi');
 
 // admin dan asesor
 Route::get('/admin', function () {
@@ -109,10 +126,6 @@ Route::get('/admin', function () {
 Route::get('/asesor', function () {
     return view('admin.asesor');
 })->name('asesor');
-
-
-
-
 
 Route::get('/real', function () {
     return view('real');
