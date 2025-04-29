@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\AsesiStoreRequest;
+use App\Models\Categories;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Validation\Rules\Password;
 
@@ -138,8 +139,6 @@ class AdminDashboardController extends Controller
             DB::commit();
             Alert::success('success', 'Data User Baru Berhasil Ditambahkan!');
             return redirect()->route('admin.asesi.index')->with('success', 'Data berhasil disimpan');
-
-
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('User registration failed: ' . $e->getMessage(), [
@@ -152,12 +151,12 @@ class AdminDashboardController extends Controller
 
     public function asesiShow($id)
     {
-    $asesi = UserProfile::findOrFail($id); // cari data berdasarkan ID
+        $asesi = UserProfile::findOrFail($id); // cari data berdasarkan ID
 
-    return view('admin.asesi.show', [
-        'title' => 'Detail Asesi',
-        'asesi' => $asesi,
-    ]);
+        return view('admin.asesi.show', [
+            'title' => 'Detail Asesi',
+            'asesi' => $asesi,
+        ]);
     }
 
     public function asesiEdit(string $id)
@@ -244,12 +243,11 @@ class AdminDashboardController extends Controller
             DB::commit();
             Alert::success('success', 'Data User Berhasil Diperbarui!');
             return redirect()->route('admin.asesi.index')->with('success', 'Data berhasil diperbarui');
-
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Gagal mengupdate data asesi: ' . $e->getMessage(), [
-            'name' => $request->name,
-            'email' => $request->email,
+                'name' => $request->name,
+                'email' => $request->email,
             ]);
             return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage()])->withInput();
         }
@@ -275,7 +273,6 @@ class AdminDashboardController extends Controller
             DB::commit();
             Alert::success('Berhasil', 'Data Berhasil Dihapus!');
             return redirect()->route('admin.asesi.index');
-
         } catch (\Exception $e) {
             DB::rollBack();
             Alert::success('Gagal', 'Terjadi Error!');
@@ -293,7 +290,7 @@ class AdminDashboardController extends Controller
         if ($search) {
             $query->whereHas('user', function ($q) use ($search) {
                 $q->where('name', 'like', '%' . $search . '%')
-                ->orWhere('email', 'like', '%' . $search . '%');
+                    ->orWhere('email', 'like', '%' . $search . '%');
             });
         }
 
@@ -347,7 +344,6 @@ class AdminDashboardController extends Controller
             ]);
             DB::commit();
             return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil ditambahkan!');
-
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Gagal menambahkan asesor: ' . $e->getMessage(), [
@@ -382,7 +378,6 @@ class AdminDashboardController extends Controller
             DB::commit();
 
             return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil dihapus!');
-
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Gagal menghapus asesor: ' . $e->getMessage(), [
@@ -442,7 +437,6 @@ class AdminDashboardController extends Controller
             DB::commit();
 
             return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil diperbarui!');
-
         } catch (\Exception $e) {
             Log::error('Gagal memperbarui asesor: ' . $e->getMessage(), [
                 'user_id' => $id,
@@ -481,96 +475,96 @@ class AdminDashboardController extends Controller
         ]);
     }
 
-public function adminsStore(Request $request)
-{
-    try {
-        DB::beginTransaction();
+    public function adminsStore(Request $request)
+    {
+        try {
+            DB::beginTransaction();
 
-        $request->validate([
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
-            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+            $request->validate([
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|min:8',
+                'profile_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            ]);
 
-        $user = User::create([
-            'name' => 'Admin ' . $request->email, // karena table kamu butuh name
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+            $user = User::create([
+                'name' => 'Admin ' . $request->email, // karena table kamu butuh name
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
-        $user->assignRole('admin');
+            $user->assignRole('admin');
 
-        // $profileImagePath = null;
-        // if ($request->hasFile('profile_image')) {
-        //     $profileImagePath = $request->file('profile_image')->store('profile_images', 'public');
-        // }
-        $profileImagePath = $request->file('profile_image')?->store('profile_images', 'public');
+            // $profileImagePath = null;
+            // if ($request->hasFile('profile_image')) {
+            //     $profileImagePath = $request->file('profile_image')->store('profile_images', 'public');
+            // }
+            $profileImagePath = $request->file('profile_image')?->store('profile_images', 'public');
 
 
-        // Cek kalau AdminsProfile berhasil buat
-        AdminsProfile::create([
-            'user_id' => $user->id,
-            'profile_image' => $profileImagePath ?? 'blankProfile.png',
-        ]);
+            // Cek kalau AdminsProfile berhasil buat
+            AdminsProfile::create([
+                'user_id' => $user->id,
+                'profile_image' => $profileImagePath ?? 'blankProfile.png',
+            ]);
 
-        DB::commit();
+            DB::commit();
 
-        return redirect()->route('admin.admins.index')->with('success', 'Admin berhasil ditambahkan.');
-    } catch (Exception $e) {
-        DB::rollBack();
-        return back()->with('error', 'Gagal menambahkan admin: ' . $e->getMessage())->withInput();
-    }
-}
-
-public function adminsDestroy($id)
-{
-    try {
-        DB::beginTransaction();
-
-        $admin = User::with('adminsProfile')->findOrFail($id);
-
-        // Hapus foto kalau ada
-        if ($admin->adminsProfile->profile_image && $admin->adminsProfile->profile_imagen !== 'blankProfile.png') {
-            Storage::disk('public')->delete($admin->adminsProfile->profile_image);
+            return redirect()->route('admin.admins.index')->with('success', 'Admin berhasil ditambahkan.');
+        } catch (Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'Gagal menambahkan admin: ' . $e->getMessage())->withInput();
         }
-
-        $admin->adminsProfile()->delete(); // hapus admin profile nya
-        $admin->delete(); // hapus user nya
-
-        DB::commit();
-
-        return redirect()->route('admin.admins.index')->with('success', 'Admin berhasil dihapus.');
-    } catch (Exception $e) {
-        DB::rollBack();
-        return back()->with('error', 'Gagal menghapus admin: ' . $e->getMessage());
     }
-}
 
-public function adminsShow($id)
-{
-    try {
-        $admin = User::with('adminsProfile')->findOrFail($id);
+    public function adminsDestroy($id)
+    {
+        try {
+            DB::beginTransaction();
 
-        return view('admin.admins.show', compact('admin'));
-    } catch (Exception $e) {
-        return back()->with('error', 'Data admin tidak ditemukan.');
+            $admin = User::with('adminsProfile')->findOrFail($id);
+
+            // Hapus foto kalau ada
+            if ($admin->adminsProfile->profile_image && $admin->adminsProfile->profile_imagen !== 'blankProfile.png') {
+                Storage::disk('public')->delete($admin->adminsProfile->profile_image);
+            }
+
+            $admin->adminsProfile()->delete(); // hapus admin profile nya
+            $admin->delete(); // hapus user nya
+
+            DB::commit();
+
+            return redirect()->route('admin.admins.index')->with('success', 'Admin berhasil dihapus.');
+        } catch (Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'Gagal menghapus admin: ' . $e->getMessage());
+        }
     }
-}
 
-public function adminsEdit($id)
-{
-    try {
-        $admin = User::with('adminsProfile')->findOrFail($id);
+    public function adminsShow($id)
+    {
+        try {
+            $admin = User::with('adminsProfile')->findOrFail($id);
 
-        return view('admin.admins.edit', compact('admin'));
-    } catch (Exception $e) {
-        return back()->with('error', 'Data admin tidak ditemukan.');
+            return view('admin.admins.show', compact('admin'));
+        } catch (Exception $e) {
+            return back()->with('error', 'Data admin tidak ditemukan.');
+        }
     }
-}
 
-public function adminsUpdate(Request $request, $id)
-{
-    try {
+    public function adminsEdit($id)
+    {
+        try {
+            $admin = User::with('adminsProfile')->findOrFail($id);
+
+            return view('admin.admins.edit', compact('admin'));
+        } catch (Exception $e) {
+            return back()->with('error', 'Data admin tidak ditemukan.');
+        }
+    }
+
+    public function adminsUpdate(Request $request, $id)
+    {
+        try {
             DB::beginTransaction();
 
             $admin = AdminsProfile::with('user')->findOrFail($id);
@@ -587,13 +581,13 @@ public function adminsUpdate(Request $request, $id)
             ]);
 
             if ($request->hasFile('profile_image')) {
-            // Cek dan hapus file lama kalau ada
-            if ($admin->profile_image && $admin->profile_image !== 'blankProfile.png') {
-                Storage::disk('public')->delete($admin->profile_image);
-            }
+                // Cek dan hapus file lama kalau ada
+                if ($admin->profile_image && $admin->profile_image !== 'blankProfile.png') {
+                    Storage::disk('public')->delete($admin->profile_image);
+                }
 
-            $profileImagePath = $request->file('profile_image')->store('profile_images', 'public');
-            $admin->update(['profile_image' => $profileImagePath]);
+                $profileImagePath = $request->file('profile_image')->store('profile_images', 'public');
+                $admin->update(['profile_image' => $profileImagePath]);
             }
 
 
@@ -604,7 +598,116 @@ public function adminsUpdate(Request $request, $id)
             DB::rollBack();
             return back()->with('error', 'Gagal memperbarui admin: ' . $e->getMessage())->withInput();
         }
+    }
 
-}
+    public function levela()
+    {
+        $search = request('search');
+        $kategori = Categories::query();
 
+        if ($search) {
+            $kategori->where('name', 'like', '%' . $search . '%');
+        }
+
+        $kategori = $kategori->get();
+        return view('admin.level-a.index', [
+            'title' => 'Create Admin',
+            'navTitle' => 'Create Admin',
+            'kategori' => $kategori
+        ]);
+    }
+
+    public function levelaCreate()
+    {
+        return view('admin.level-a.create', [
+            'title' => 'Create Kategori',
+            'navTitle' => 'Create Kategori'
+        ]);
+    }
+
+    public function levelaStore(Request $request)
+    {
+        $validation = $request->validate([
+            'name' => 'required|string|max:255',
+            'image_categori' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'is_locked' => 'required',
+        ]);
+
+        $validation['image_categori'] = $request->file('image_categori')->store('categori', 'public');
+        try {
+            Categories::create($validation);
+
+            alert('success', 'Category created successfully!');
+            return redirect()->route('admin.level-a')->with('success', 'Category created successfully!');
+        } catch (\Throwable $th) {
+            alert('error', 'Category created failed!');
+            return redirect()->back()->with('error', 'Category created failed!');
+        }
+    }
+
+    public function levelaDestroy($id)
+    {
+        try {
+            DB::beginTransaction();
+
+            $kategori = Categories::findOrFail($id);
+
+            if ($kategori->image_categori && Storage::disk('public')->exists($kategori->image_categori)) {
+                Storage::disk('public')->delete($kategori->image_categori);
+            }
+
+            $kategori->delete();
+
+            DB::commit();
+
+            return redirect()->route('admin.level-a')->with('success', 'Kategori berhasil dihapus.');
+        } catch (Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'Gagal menghapus kategori: ' . $e->getMessage());
+        }
+    }
+
+    public function levelaEdit($id)
+    {
+        try {
+            $kategori = Categories::findOrFail($id);
+
+            return view('admin.level-a.edit', [
+                'kategori' => $kategori,
+                'title' => 'Edit Kategori',
+            ]);
+        } catch (Exception $e) {
+            return back()->with('error', 'Data kategori tidak ditemukan.');
+        }
+    }
+
+    public function levelaUpdate(Request $request, string $id)
+    {
+        $kategori = Categories::findOrfail($id);
+        $validation = $request->validate([
+            'name' => 'required|string|max:255',
+            'image_categori' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'is_locked' => 'required',
+        ]);
+
+        try {
+            if ($request->hasFile('image_categori')) {
+                if ($kategori->image_categori) {
+                    Storage::disk('public')->delete($kategori->image_categori);
+                }
+
+                $validation['image_categori'] = $request->file('image_categori')->store('categori', 'public');
+            } else {
+                $validation['image_categori'] = $kategori->image_categori;
+            }
+
+            $kategori->update($validation);
+
+            alert('success', 'Category updated successfully!');
+            return redirect()->route('admin.level-a')->with('success', 'Category updated successfully!');
+        } catch (\Throwable $th) {
+            alert('error', 'Category update failed!');
+            return redirect()->back()->with('error', 'Category update failed!');
+        }
+    }
 }

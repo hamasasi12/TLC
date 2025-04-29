@@ -30,7 +30,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('forgot.password.store');
     Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'view'])->name('forgot.password.reset');
     Route::post('/reset-password', [ForgotPasswordController::class, 'view'])->name('forgot.password.reset');
-
 });
 
 // GOOGLE SSO LOGIN/REGISTER
@@ -75,6 +74,18 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard/admins/{id}', [AdminDashboardController::class, 'adminsShow'])->name('admin.admins.show');
     Route::get('/dashboard/admins/{id}/edit', [AdminDashboardController::class, 'adminsEdit'])->name('admin.admins.edit');
     Route::put('/dashboard/admins/{id}', [AdminDashboardController::class, 'adminsUpdate'])->name('admin.admins.update');
+
+    Route::get('/dashboard/level-a', [AdminDashboardController::class, 'levela'])->name('admin.level-a.index');
+    Route::get('/dashboard/level-a/create', [AdminDashboardController::class, 'levelaCreate'])->name('admin.level-a.create');
+    Route::post('/dashboard/level-a/store', [AdminDashboardController::class, 'levelaStore'])->name('admin.level-a.store');
+    Route::delete('/dashboard/level-a/delete/{id}', [AdminDashboardController::class, 'levelaDestroy'])->name('admin.level-a.destroy');
+    Route::get('/dashboard/level-a/{id}/edit', [AdminDashboardController::class, 'levelaEdit'])->name('admin.level-a.edit');
+    Route::put('/dashboard/level-a/{id}', [AdminDashboardController::class, 'levelaUpdate'])->name('admin.level-a.update');
+
+
+
+
+
 
     Route::get('/profile', [AdminSettingsController::class, 'edit'])->name('admin.settings.edit');
     Route::patch('/profile', [AdminSettingsController::class, 'update'])->name('admin.settings.update');
