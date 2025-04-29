@@ -30,7 +30,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('forgot.password.store');
     Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'view'])->name('password.reset');
     Route::post('/reset-password', [ForgotPasswordController::class, 'update'])->name('forgot.password.reset.update');
-
 });
 
 // GOOGLE SSO LOGIN/REGISTER
