@@ -15,7 +15,7 @@
 <body>
     <header>
         <nav
-            class="fixed top-0 z-50 w-full bg-gradient-to-r from-biru to-blue-500 dark:bg-gray-800 dark:border-gray-700">
+            class="fixed top-0 z-50 w-full bg-gradient-to-r from-blue-700 to-indigo-800 dark:bg-gray-800 dark:border-gray-700">
             <div class="px-3 py-3 lg:px-5 lg:pl-3">
                 <div class="flex items-center justify-between">
 
@@ -71,33 +71,35 @@
 
                             {{-- toggle user menu start --}}
                             <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-                                id="dropdown-user">
-                                <div class="px-4 py-3" role="none">
-                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
-                                        role="none">
-                                        {{ auth()->user()->email }}
-                                    </p>
-                                </div>
-                                <ul class="py-1" role="none">
-                                    <li>
-                                        <a href="{{ route('admin.settings.edit') }}"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                            role="menuitem">
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <button type="submit"
-                                                class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                role="menuitem">
-                                                Log Out
-                                            </button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
+    id="dropdown-user">
+    <div class="px-4 py-3" role="none">
+        <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
+            role="none">
+            {{ auth()->user()->email }}
+        </p>
+    </div>
+    <ul class="py-1" role="none">
+        <li>
+            <a href="{{ route('admin.settings.edit') }}"
+                class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                role="menuitem">
+                <i class="fa-solid fa-gear mr-2 text-gray-500"></i>
+                Settings
+            </a>
+        </li>
+        <li>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit"
+                    class="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                    role="menuitem">
+                    <i class="fa-solid fa-right-from-bracket mr-2 text-gray-500"></i>
+                    Log Out
+                </button>
+            </form>
+        </li>
+    </ul>
+</div>
                             {{-- toggle user menu end --}}
                         </div>
                     </div>
@@ -145,25 +147,26 @@
                         <li>
                             <a href="{{ route('admin.asesi.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
-                                <i class="mr-2 fa-solid fa-user"></i>
+                                <i class="mr-2 fa-solid fa-user-graduate"></i>
                                 <p>Asesi</p>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('admin.asesor.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
-                                <i class="mr-2 fa-solid fa-user"></i>
+                                <i class="mr-2 fa-solid fa-chalkboard-teacher"></i>
                                 <p>Asesor</p>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('admin.admins.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
-                                <i class="mr-2 fa-solid fa-user"></i>
+                                <i class="mr-2 fa-solid fa-user-shield"></i>
                                 <p>Admin</p>
                             </a>
                         </li>
                     </ul>
+
                 </li>
 
                 <li>

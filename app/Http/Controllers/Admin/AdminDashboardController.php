@@ -28,6 +28,7 @@ class AdminDashboardController extends Controller
             'title' => 'Dashboard Admin',
             'asesi' => User::role('asesi')->count(),
             'asesor' => User::role('asesor')->count(),
+            'admins' => User::role('admin')->count(),
         ]);
     }
 
