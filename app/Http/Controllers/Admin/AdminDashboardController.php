@@ -142,7 +142,7 @@ class AdminDashboardController extends Controller
             DB::commit();
             Alert::success('success', 'Data User Baru Berhasil Ditambahkan!');
             return redirect()->route('admin.asesi.index')->with('success', 'Data berhasil disimpan');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
             Log::error('User registration failed: ' . $e->getMessage(), [
                 'name' => $request->name,
@@ -250,7 +250,7 @@ class AdminDashboardController extends Controller
             DB::commit();
             Alert::success('success', 'Data User Berhasil Diperbarui!');
             return redirect()->route('admin.asesi.index')->with('success', 'Data berhasil diperbarui');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
             Log::error('Gagal mengupdate data asesi: ' . $e->getMessage(), [
                 'name' => $request->name,
@@ -280,7 +280,7 @@ class AdminDashboardController extends Controller
             DB::commit();
             Alert::success('Berhasil', 'Data Berhasil Dihapus!');
             return redirect()->route('admin.asesi.index');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
             Alert::success('Gagal', 'Terjadi Error!');
             Log::error('gagal delete akun asesi di admin dashboard: ' . $e->getMessage());
@@ -351,7 +351,7 @@ class AdminDashboardController extends Controller
             ]);
             DB::commit();
             return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil ditambahkan!');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
             Log::error('Gagal menambahkan asesor: ' . $e->getMessage(), [
                 'name' => $request->name,
@@ -385,7 +385,7 @@ class AdminDashboardController extends Controller
             DB::commit();
 
             return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil dihapus!');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
             Log::error('Gagal menghapus asesor: ' . $e->getMessage(), [
                 'user_id' => $id ?? null,
@@ -444,7 +444,7 @@ class AdminDashboardController extends Controller
             DB::commit();
 
             return redirect()->route('admin.asesor.index')->with('success', 'Asesor berhasil diperbarui!');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error('Gagal memperbarui asesor: ' . $e->getMessage(), [
                 'user_id' => $id,
                 'name' => $request->name,
