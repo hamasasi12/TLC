@@ -6,9 +6,9 @@
     <div class="p-4 bg-white rounded-lg mb-2">
         <nav class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-4 text-base">
             <!-- Breadcrumb -->
-            <ol class="flex items-center space-x-1 text-gray-600">
-                <li><a href="{{ route('admin.level-a.index') }}"
-                        class="hover:underline {{ request()->routeIs('admin.level-a.*') ? 'text-indigo-600' : '' }}">Level
+            {{-- <ol class="flex items-center space-x-1 text-gray-600">
+                <li><a href="{{ route('admin.level.index') }}"
+                        class="hover:underline {{ request()->routeIs('admin.level.*') ? 'text-indigo-600' : '' }}">Level
                         A</a>
                 </li>
                 <li>/</li>
@@ -21,15 +21,15 @@
                         class="hover:underline {{ request()->routeIs('admin.admins.*') ? 'text-indigo-600' : '' }}">Level
                         C</a>
                 </li>
-            </ol>
+            </ol> --}}
 
             <!-- Search & Info -->
             <div class="flex flex-wrap items-center gap-3">
                 <!-- Search -->
-                <form action="{{ route('admin.level-a.index') }}" method="GET" class="relative">
+                <form action="{{ route('admin.categories.index') }}" method="GET" class="relative">
                     <input type="text" name="search"
                         class="pl-9 pr-3 py-2 rounded-md border border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500"
-                        placeholder="Cari Kategori..." value="{{ request('search') }}">
+                        placeholder="Cari Categories..." value="{{ request('search') }}">
                     <div class="absolute left-2.5 top-2 text-gray-400">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -41,10 +41,10 @@
 
                 <!-- Actions -->
                 <div class="flex items-center gap-2">
-                    <a href="{{ route('admin.level-a.create') }}" data-popover-target="popover-addUser"
+                    <a href="{{ route('admin.categories.create') }}" data-popover-target="popover-addUser"
                         data-popover-trigger="hover">
                         <button class="px-3 py-1.5 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700">
-                            + Tambah Kategori
+                            + Tambah Categories
                         </button>
                     </a>
                     <button class="px-3 py-1.5 border text-gray-600 text-sm rounded hover:bg-gray-50"
@@ -81,19 +81,19 @@
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Image Categori
+                            Image Categories
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Name
+                            Nama Categories
+                        </th>
+                        <th scope="col"
+                            class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
+                            Level
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
                             Created At
-                        </th>
-                        <th scope="col"
-                            class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Is Locked
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
@@ -104,20 +104,24 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     @foreach ($kategori as $k)
                         <tr class="hover:bg-gray-50 transition-colors">
-                            <!-- Row Number -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
                                 {{ $loop->iteration }}
                             </td>
 
-                            <!-- Phone -->
-                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                <img class="h-10 w-10 rounded-full object-cover border-2 border-indigo-100"
-                                    src="{{ asset('/storage/' . $k->image_categori) }}" alt="Profile image">
-                            </td>
 
-                            <!-- Institution -->
+                            <td class="px-4 py-3 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10">
+                                        <img class=" rounded-full object-cover border-2 border-indigo-100"
+                                            src="{{ asset('/storage/' . $k->image_categori) }}" alt="Profile image">
+                                    </div>
+                                </div>
+                            </td>
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 max-w-xs truncate">
                                 {{ $k->name }}
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 max-w-xs truncate">
+                                {{ $k->level->nama_sertifikat }}
                             </td>
 
 
@@ -127,20 +131,12 @@
                             </td>
 
 
-                            <!-- Status -->
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                    {{ $k->is_locked }}
-                                </span>
-                            </td>
-
                             <!-- Actions -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
                                 <div class="flex space-x-2">
 
                                     <!-- Edit -->
-                                    <a href="{{ route('admin.level-a.edit', $k->id) }}"
+                                    <a href="{{ route('admin.categories.edit', $k->id) }}"
                                         class="p-2 text-indigo-600 bg-indigo-50 rounded-md hover:bg-indigo-100 transition-colors"
                                         title="Edit User">
                                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
@@ -152,7 +148,7 @@
                                     </a>
 
                                     <!-- Delete -->
-                                    <form action="{{ route('admin.level-a.destroy', $k->id) }}" method="POST"
+                                    <form action="{{ route('admin.categories.destroy', $k->id) }}" method="POST"
                                         onsubmit="return confirm('Yakin ingin menghapus data ini?');">
                                         @csrf
                                         @method('DELETE')
@@ -272,10 +268,11 @@
     <div data-popover id="popover-delete" role="tooltip"
         class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
         <div class="px-3 py-2 bg-red-50 border-b border-gray-200 rounded-t-lg">
-            <h3 class="font-semibold text-red-600">Delete All Kategori</h3>
+            <h3 class="font-semibold text-red-600">Delete All Level</h3>
         </div>
         <div class="px-3 py-2">
-            <p><strong class="text-red-500">Warning!!</strong> Tindakan ini akan menghapus semua kategori dari sistem.</p>
+            <p><strong class="text-red-500">Warning!!</strong> Tindakan ini akan menghapus semua categories dari sistem.
+            </p>
         </div>
         <div data-popper-arrow></div>
     </div>
@@ -283,10 +280,10 @@
     <div data-popover id="popover-addUser" role="tooltip"
         class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
         <div class="px-3 py-2 bg-indigo-50 border-b border-gray-200 rounded-t-lg">
-            <h3 class="font-semibold text-indigo-600">Add Kategori</h3>
+            <h3 class="font-semibold text-indigo-600">Add Level</h3>
         </div>
         <div class="px-3 py-2">
-            <p>Tindakan ini akan menambahkan kategori baru kedalam database.</p>
+            <p>Tindakan ini akan menambahkan categories baru kedalam database.</p>
         </div>
         <div data-popper-arrow></div>
     </div>
@@ -294,10 +291,10 @@
     <div data-popover id="popover-export" role="tooltip"
         class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
         <div class="px-3 py-2 bg-blue-50 border-b border-gray-200 rounded-t-lg">
-            <h3 class="font-semibold text-blue-600">Export Kategori</h3>
+            <h3 class="font-semibold text-blue-600">Export level</h3>
         </div>
         <div class="px-3 py-2">
-            <p>Tindakan ini akan membuat file excel dari data kategori.</p>
+            <p>Tindakan ini akan membuat file excel dari data categories.</p>
         </div>
         <div data-popper-arrow></div>
     </div>

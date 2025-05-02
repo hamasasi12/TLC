@@ -75,12 +75,36 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard/admins/{id}/edit', [AdminDashboardController::class, 'adminsEdit'])->name('admin.admins.edit');
     Route::put('/dashboard/admins/{id}', [AdminDashboardController::class, 'adminsUpdate'])->name('admin.admins.update');
 
-    Route::get('/dashboard/level-a', [AdminDashboardController::class, 'levela'])->name('admin.level-a.index');
-    Route::get('/dashboard/level-a/create', [AdminDashboardController::class, 'levelaCreate'])->name('admin.level-a.create');
-    Route::post('/dashboard/level-a/store', [AdminDashboardController::class, 'levelaStore'])->name('admin.level-a.store');
-    Route::delete('/dashboard/level-a/delete/{id}', [AdminDashboardController::class, 'levelaDestroy'])->name('admin.level-a.destroy');
-    Route::get('/dashboard/level-a/{id}/edit', [AdminDashboardController::class, 'levelaEdit'])->name('admin.level-a.edit');
-    Route::put('/dashboard/level-a/{id}', [AdminDashboardController::class, 'levelaUpdate'])->name('admin.level-a.update');
+    Route::get('/dashboard/level', [AdminDashboardController::class, 'level'])->name('admin.level.index');
+    Route::get('/dashboard/level/create', [AdminDashboardController::class, 'levelCreate'])->name('admin.level.create');
+    Route::post('/dashboard/level/store', [AdminDashboardController::class, 'levelStore'])->name('admin.level.store');
+    Route::delete('/dashboard/level/delete/{id}', [AdminDashboardController::class, 'levelDestroy'])->name('admin.level.destroy');
+    Route::get('/dashboard/level/{id}/edit', [AdminDashboardController::class, 'levelEdit'])->name('admin.level.edit');
+    Route::put('/dashboard/level/{id}', [AdminDashboardController::class, 'levelUpdate'])->name('admin.level.update');
+
+    Route::get('/dashboard/categories', [AdminDashboardController::class, 'categories'])->name('admin.categories.index');
+    Route::get('/dashboard/categories/create', [AdminDashboardController::class, 'categoriesCreate'])->name('admin.categories.create');
+    Route::post('/dashboard/categories/store', [AdminDashboardController::class, 'categoriesStore'])->name('admin.categories.store');
+    Route::delete('/dashboard/categories/delete/{id}', [AdminDashboardController::class, 'categoriesDestroy'])->name('admin.categories.destroy');
+    Route::get('/dashboard/categories/{id}/edit', [AdminDashboardController::class, 'categoriesEdit'])->name('admin.categories.edit');
+    Route::put('/dashboard/categories/{id}', [AdminDashboardController::class, 'categoriesUpdate'])->name('admin.categories.update');
+
+    Route::get('/dashboard/questions', [AdminDashboardController::class, 'questions'])->name('admin.questions.index');
+    Route::get('/dashboard/questions/create', [AdminDashboardController::class, 'questionsCreate'])->name('admin.questions.create');
+    Route::post('/dashboard/questions/store', [AdminDashboardController::class, 'questionsStore'])->name('admin.questions.store');
+    Route::delete('/dashboard/questions/delete/{id}', [AdminDashboardController::class, 'questionsDestroy'])->name('admin.questions.destroy');
+    Route::get('/dashboard/questions/{id}/edit', [AdminDashboardController::class, 'questionsEdit'])->name('admin.questions.edit');
+    Route::put('/dashboard/questions/{id}', [AdminDashboardController::class, 'questionsUpdate'])->name('admin.questions.update');
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,56 +1,35 @@
 @extends('layouts.adminDashboard')
-@section('title', $title)
 
+@section('title', $title)
 
 @section('content')
     <div class="max-w-5xl mx-auto px-4 pt-6 mt-4">
         <!-- Header with breadcrumb -->
         <div
             class="flex items-center justify-between p-4 mb-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg">
-            <a href="{{ route('admin.level-a.index') }}"
+            <a href="{{ route('admin.categories.index') }}"
                 class="inline-flex items-center px-4 py-2 rounded-lg bg-white text-blue-800 hover:bg-blue-50 transition-colors duration-200 shadow">
                 <i class="mr-2 fa-solid fa-arrow-left-long"></i> Kembali
             </a>
-            <h1 class="text-xl font-bold text-white sm:text-2xl">Buat Kategori</h1>
+            <h1 class="text-xl font-bold text-white sm:text-2xl">Edit Kategori</h1>
         </div>
 
         <!-- Main form card -->
         <div class="bg-white border border-gray-100 rounded-xl shadow-md overflow-hidden">
-            <!-- Form header -->
-            <div class="bg-gradient-to-r from-gray-50 to-white p-6 border-b border-gray-100">
-                {{-- <h3 class="text-xl font-bold text-gray-800 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-600" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                    Informasi Pengguna
-                </h3> --}}
-                <p class="mt-1 text-sm text-gray-500">Isikan semua kolom yang wajib diisi untuk membuat kategori baru</p>
-            </div>
 
             <!-- Form body -->
             <div class="p-6">
-                @if (session('success'))
-                    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
-                @if (session('error'))
-                    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
-                        {{ session('error') }}
-                    </div>
-                @endif
-                <form action="{{ route('admin.level-a.store') }}" enctype="multipart/form-data" method="POST"
-                    class="space-y-6">
+                <form action="{{ route('admin.categories.update', $categories->id) }}" enctype="multipart/form-data"
+                    method="POST" class="space-y-6">
                     @csrf
+                    @method('put')
 
                     <!-- Profile photo upload section -->
                     <div
                         class="flex flex-col items-center mb-8 p-4 border border-dashed border-gray-300 rounded-lg bg-gray-50">
                         <div class="mb-4 relative group">
-                            <img id="profilePreview" src="{{ asset('assets/img/blank_profile.png') }}" alt="Profile Picture"
+                            <img id="profilePreview" src="{{ asset('/storage/' . $categories->image_categori) }}"
+                                alt="Profile Picture"
                                 class="w-32 h-32 object-cover rounded-full border-4 border-white shadow-lg group-hover:opacity-75 transition-all duration-200">
                             <div
                                 class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
@@ -76,83 +55,107 @@
                         {{-- <x-input-error :messages="$errors->get('image_categori')" class="mt-1 text-xs" /> --}}
                     </div>
 
-                    <!-- Account Information Section -->
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        {{-- <h4
-                            class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-4 border-b pb-2 dark:text-gray-300">
-                            Informasi Akun</h4> --}}
+                    <!-- Form fields in sections -->
+                    <div class="space-y-8">
+                        <!-- Personal Information Section -->
+                        <div class="bg-gray-50 p-4 rounded-lg">
 
-                        <div class="grid grid-cols-1 gap-6 mb-2">
-                            <!-- Email -->
-                            <div>
-                                <label for="name" class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">
-                                    Nama Kategori <span class="text-red-500">*</span>
-                                </label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                        </svg>
+                            <div class="grid grid-cols-1  gap-6">
+                                <!-- Name -->
+                                <div>
+                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-700">
+                                        Nama Kategori <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                            </svg>
+                                        </div>
+                                        <input type="text" name="name" id="name" required
+                                            placeholder="Nama Kategori" value="{{ $categories->name }}"
+                                            class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                     </div>
-                                    <input type="text" name="name" id="name" required placeholder=""
-                                        value="{{ old('name') }}"
-                                        class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                    <x-input-error :messages="$errors->get('name')" class="mt-1 text-xs" />
                                 </div>
-                                <x-input-error :messages="$errors->get('name')" class="mt-1 text-xs" />
-                            </div>
 
-                            <!-- Password -->
 
-                        </div>
-                        <div class="grid grid-cols-1 gap-6">
-                            <!-- Email -->
-                            <div>
-                                <label for="instansi" class="block mb-2 text-sm font-medium text-gray-700">
-                                    Is Locked <span class="text-red-500">*</span>
-                                </label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                        </svg>
+
+                                <!-- Gender -->
+                                <div>
+                                    <label for="level_id" class="block mb-2 text-sm font-medium text-gray-700">
+                                        Level <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                            </svg>
+                                        </div>
+                                        <select id="level_id" name="level_id"
+                                            class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                            <option value="{{ old('level_id') }}" selected>
+                                                {{ old('level_id') ? old('level_id') : 'Pilih Level' }}
+                                            </option>
+                                            @foreach ($level as $data)
+                                                <option value="{{ $data->id }}"
+                                                    {{ $data->id == $categories->level_id ? 'selected' : '' }}>
+                                                    {{ $data->nama_sertifikat }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                    <select id="is_locked" name="is_locked" onchange="showCustomInput()"
-                                        class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                        <option value="{{ old('is_locked') }}" selected>
-                                            {{ old('is_locked') ? old('is_locked') : 'Pilih ' }}
-                                        </option>
-                                        <option value="1">True</option>
-                                        <option value="0">False</option>
-                                    </select>
+                                    <x-input-error :messages="$errors->get('level_id')" class="mt-1 text-xs" />
                                 </div>
-                                <x-input-error :messages="$errors->get('is_locked')" class="mt-1 text-xs" />
+
+                                <!-- Institution -->
+                                <div>
+                                    <label for="is_locked" class="block mb-2 text-sm font-medium text-gray-700">
+                                        Is Locked <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                            </svg>
+                                        </div>
+                                        <select id="is_locked" name="is_locked" onchange="showCustomInput()"
+                                            class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                            <option value="{{ old('is_locked') }}" selected>
+                                                {{ old('is_locked') ? old('is_locked') : 'Pilih Is Locked ' }}
+                                            </option>
+                                            <option value="1" {{ $categories->is_locked == '1' ? 'selected' : '' }}>
+                                                True</option>
+                                            <option value="0" {{ $categories->is_locked == '0' ? 'selected' : '' }}>
+                                                False</option>
+                                        </select>
+                                    </div>
+                                    <x-input-error :messages="$errors->get('is_locked')" class="mt-1 text-xs" />
+                                </div>
                             </div>
-
-                            <!-- Password -->
-
                         </div>
                     </div>
-            </div>
 
-            <!-- Submit Button -->
-            <div class="flex items-center justify-center mt-8 mb-2">
-                <button type="submit"
-                    class="px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-[#0C548C] to-[#2E4D69] rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                    </svg>
-                    Buat Kategori
-                </button>
+                    <!-- Submit Button -->
+                    <div class="flex items-center justify-center mt-8">
+                        <button type="submit"
+                            class="px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-[#0C548C] to-[#2E4D69] rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            Edit Kategori
+                        </button>
+                    </div>
+                </form>
             </div>
-            </form>
         </div>
-    </div>
     </div>
 
     <style>

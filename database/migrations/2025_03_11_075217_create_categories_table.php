@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image_categori')->nullable();
-            
+            $table->bigInteger('level_id');
+
             $table->timestamps();
         });
     }

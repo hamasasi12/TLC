@@ -12,6 +12,12 @@ class Categories extends Model
     protected $fillable = [
         'name',
         'image_categori',
+        'level_id',
         'is_locked'
     ];
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
 }
