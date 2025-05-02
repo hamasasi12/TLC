@@ -16,14 +16,14 @@
 
 <body>
     <header class="mb-20">
-        <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-lg border-b border-gray-200">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-6">
+        <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-sm border-b border-gray-200">
+            <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-4 px-10">
 
                 <!-- Brand Section -->
                 <div class="flex items-center space-x-4">
                     <img src="{{ asset('assets/img/tlc.png') }}" class="h-10 w-10 md:h-14 md:w-14" alt="TLC Logo">
                     <div>
-                        <h1 class="text-lg md:text-2xl font-bold text-gray-800 tracking-wide capitalize">TLC Program
+                        <h1 class="text-lg md:text-2xl font-extrabold text-[#1D4E89] tracking-wide capitalize">TLC Program
                         </h1>
                         <p class="text-xs md:text-sm text-gray-500 font-medium capitalize">
                             Teaching & Learning Certification
@@ -47,17 +47,17 @@
                     <div
                         class="container mx-auto px-4 lg:px-0 flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6">
                         <a href="{{ route('asesi.dashboard') }}"
-                            class="{{ request()->routeIs('asesi.dashboard') ? 'text-indigo-600 font-bold' : 'text-gray-600' }}">
+                            class="{{ request()->routeIs('asesi.dashboard') ? 'text-[#1D4E89] font-bold' : 'text-gray-600' }}">
                             Dashboard
                         </a>
 
                         <a href="{{ route('asesi.sertifikasi') }}"
-                            class="{{ request()->routeIs('asesi.sertifikasi') ? 'text-indigo-600 font-bold' : 'text-gray-600' }}">
+                            class="{{ request()->routeIs('asesi.sertifikasi') ? 'text-[#1D4E89] font-bold' : 'text-gray-600' }}">
                             Sertifikasi
                         </a>
 
                         <a href="{{ route('asesi.transaksi') }}"
-                            class="{{ request()->routeIs('asesi.transaksi') ? 'text-indigo-600 font-bold' : 'text-gray-600' }}">
+                            class="{{ request()->routeIs('asesi.transaksi') ? 'text-[#1D4E89] font-bold' : 'text-gray-600' }}">
                             Transaksi
                         </a>
 
@@ -68,7 +68,7 @@
                 <div class="hidden lg:flex items-center space-x-4">
 
                     <!-- Search -->
-                    <div class="relative">
+                    {{-- <div class="relative">
                         <input type="text" placeholder="Cari Data"
                             class="pl-8 pr-2 py-2 w-40 rounded-full bg-gray-100 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm">
                         <svg class="absolute left-2 top-3 h-4 w-4 text-gray-500" fill="none" stroke="currentColor"
@@ -76,6 +76,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.15 12.65z"></path>
                         </svg>
+                    </div> --}}
+                    <div class="relative">
+                        <div class="flex items-center space-x-2">
+                            <svg class="h-5 w-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                            <span class="font-medium text-gray-700">Selamat datang, <span class="text-indigo-600 font-semibold">{{ Auth::user()->name }}</span></span>
+                        </div>
                     </div>
 
                     <!-- Notification -->
@@ -92,7 +101,7 @@
                     <!-- Profile -->
                     <div class="relative">
                         <button id="profile-button" class="flex items-center space-x-2">
-                            <img src="{{ asset('storage/' . (Auth::user()->userProfile->profile_image ?? 'img/blank_profile.png')) }}"
+                            <img src="{{ asset('storage/' . (Auth::user()->userProfile->profile_image ?? 'blankProfile.png')) }}"
                                 alt="Profile Image" class="w-12 h-12 rounded-full object-cover">
                             <svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -114,15 +123,22 @@
                                     </svg>
                                     <span class="text-gray-700">Lihat Profil</span>
                                 </div>
-                                <div class="px-4 py-2 hover:bg-gray-100 flex items-center space-x-3 text-red-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                        <polyline points="16 17 21 12 16 7"></polyline>
-                                        <line x1="21" y1="12" x2="9" y2="12"></line>
-                                    </svg>
-                                    <span>Logout</span>
+                                <div>
+                                    <form method="POST" action="{{ route('logout') }}" class="w-full">
+                                        @csrf
+                                        <button type="submit"
+                                            class="w-full px-4 py-2 hover:bg-gray-100 flex items-center space-x-3 text-red-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                                <polyline points="16 17 21 12 16 7"></polyline>
+                                                <line x1="21" y1="12" x2="9" y2="12">
+                                                </line>
+                                            </svg>
+                                            <span>Logout</span>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

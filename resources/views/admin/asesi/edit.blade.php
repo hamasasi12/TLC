@@ -429,6 +429,28 @@
                                     </div>
                                     <x-input-error :messages="$errors->get('password')" class="mt-1 text-xs" />
                                 </div>
+                                
+                                {{-- STATUS --}}
+                                <div>
+                                    <label for="status" class="block mb-2 text-sm font-medium text-gray-700">
+                                        Status Akun <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </div>
+                                        <select name="status" id="status" 
+                                            class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                            <option value="active" {{ $user->user->status == 'active' ? 'selected' : '' }}>Active</option>
+                                            <option value="suspended" {{ $user->user->status == 'suspended' ? 'selected' : '' }}>Suspended</option>
+                                        </select>
+                                    </div>
+                                    <x-input-error :messages="$errors->get('status')" class="mt-1 text-xs" />
+                                </div>
                             </div>
                         </div>
                     </div>

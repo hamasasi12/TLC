@@ -26,7 +26,7 @@
             </div>
             <div class="mt-4 md:mt-0">
                 <span class="bg-blue-900 bg-opacity-50 text-white px-4 py-2 rounded-lg">
-                    <i class="fas fa-calendar-alt mr-2"></i>{{ date('l, d F Y') }}
+                    <i class="fas fa-calendar-alt mr-2"></i>{{ \Carbon\Carbon::now()->isoFormat('dddd, D MMMM Y') }}
                 </span>
             </div>
         </div>
@@ -211,87 +211,7 @@
         </div>
 
         <!-- Tabel Pengguna Terbaru -->
-        <div class="bg-white rounded-xl shadow-md p-6 lg:col-span-2">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-bold text-gray-800">Pengguna Terbaru</h3>
-                <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Lihat Semua</a>
-            </div>
-
-            <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
-                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Terdaftar</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-8 w-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">BS</div>
-                                    <div class="ml-3">
-                                        <div class="text-sm font-medium text-gray-900">Budi Santoso</div>
-                                        <div class="text-xs text-gray-500">budi@example.com</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span class="px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full">Asesi</span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Aktif</span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-xs text-gray-500">
-                                2 jam yang lalu
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-8 w-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">SW</div>
-                                    <div class="ml-3">
-                                        <div class="text-sm font-medium text-gray-900">Siti Wulandari</div>
-                                        <div class="text-xs text-gray-500">siti@example.com</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span class="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">Asesor</span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Aktif</span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-xs text-gray-500">
-                                5 jam yang lalu
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-8 w-8 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold">DP</div>
-                                    <div class="ml-3">
-                                        <div class="text-sm font-medium text-gray-900">Dian Pratama</div>
-                                        <div class="text-xs text-gray-500">dian@example.com</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span class="px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full">Asesi</span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">Pending</span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-xs text-gray-500">
-                                1 hari yang lalu
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        @livewire('asesi-table')
     </div>
 
 

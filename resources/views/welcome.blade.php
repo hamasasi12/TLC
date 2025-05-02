@@ -7,8 +7,8 @@
         <!-- Navbar -->
         <header class="mb-20">
             <nav
-                class="fixed w-full z-20 top-0 start-0 bg-gradient-to-r from-[#3A6EA5] to-[#90BE6D] shadow-lg border-b border-gray-300">
-                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-6">
+                class="fixed w-full z-20 top-0 start-0 bg-gradient-to-r from-[#3A6EA5] to-[#90BE6D] shadow-sm border-b border-gray-300">
+                <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-4 px-12">
                     <a href="#" class="flex items-center space-x-3">
                         <img src="{{ asset('images/logo.svg') }}" class="h-12" alt="TLC Logo" loading="lazy">
                         <div class="flex flex-col">

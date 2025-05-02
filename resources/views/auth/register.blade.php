@@ -55,8 +55,8 @@
         <!-- kanan Section - Enhanced Form -->
         <div class="w-full md:w-1/2 p-10 flex flex-col justify-center bg-white">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-3xl font-bold text-[#2E4D69]">
-                    Daftar Akun TLC</h2>
+                <h2 class="text-3xl font-extrabold text-[#2E4D69]">
+                    Daftar Akun</h2>
             </div>
 
             <form class="space-y-6" action="{{ route('register.post') }}" method="post">
@@ -75,6 +75,7 @@
                             class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-400"
                             name="name" required>
                     </div>
+                    <p class="text-gray-500 text-xs mt-1">Masukkan nama asli anda, nama akan digunakan pada data sertifikat</p>
                     @error('name')
                         <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                     @enderror
@@ -92,12 +93,13 @@
                         <input type="email" placeholder="email@example.com" name="email" required
                             class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-400">
                     </div>
+                    <p class="text-gray-500 text-xs mt-1">Gunakan alamat email aktif Anda</p>
                     @error('email')
                         <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <div class="relative">
+                <div class="relative" x-data="{ show: false }">
                     <label class="text-sm font-medium text-gray-700 block mb-1">Kata Sandi</label>
                     <div class="relative">
                         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">
@@ -107,15 +109,33 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </span>
-                        <input type="password" placeholder="Minimal 8 karakter" name="password" required
-                            class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-400">
+                        <input :type="show ? 'text' : 'password'" placeholder="Minimal 8 karakter" name="password" required
+                            class="w-full pl-10 pr-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-400">
+                        <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500"
+                            @click="show = !show" tabindex="-1">
+                            <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                            <svg x-show="show" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.973 9.973 0 012.282-3.419M6.018 6.018A9.955 9.955 0 0112 5c4.477 0 8.268 2.943 9.542 7a9.973 9.973 0 01-1.357 2.572M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 3l18 18" />
+                            </svg>
+                        </button>
                     </div>
+                    <p class="text-gray-500 text-xs mt-1">Gunakan minimal 8 karakter dengan kombinasi huruf dan angka</p>
                     @error('password')
                         <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <div class="relative">
+                {{-- <div class="relative">
                     <label class="text-sm font-medium text-gray-700 block mb-1">Konfirmasi Kata Sandi</label>
                     <div class="relative">
                         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">
@@ -128,10 +148,11 @@
                         <input type="password" placeholder="Ulangi kata sandi" name="password_confirmation" required
                             class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-400">
                     </div>
+                    <p class="text-gray-500 text-xs mt-1">Ulangi kata sandi anda</p>
                     @error('password_confirmation')
                         <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                     @enderror
-                </div>
+                </div> --}}
 
                 <div class="flex items-center">
                     <input type="checkbox" id="terms" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">

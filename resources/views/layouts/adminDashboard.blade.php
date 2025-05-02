@@ -7,9 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-...your-integrity-hash..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="{{ asset('assets/img/tlc.png') }}" type="image/png">
     <title>@yield('title', 'TLC')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles()
 </head>
 
 <body>
@@ -71,35 +74,35 @@
 
                             {{-- toggle user menu start --}}
                             <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-    id="dropdown-user">
-    <div class="px-4 py-3" role="none">
-        <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
-            role="none">
-            {{ auth()->user()->email }}
-        </p>
-    </div>
-    <ul class="py-1" role="none">
-        <li>
-            <a href="{{ route('admin.settings.edit') }}"
-                class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                role="menuitem">
-                <i class="fa-solid fa-gear mr-2 text-gray-500"></i>
-                Settings
-            </a>
-        </li>
-        <li>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit"
-                    class="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                    role="menuitem">
-                    <i class="fa-solid fa-right-from-bracket mr-2 text-gray-500"></i>
-                    Log Out
-                </button>
-            </form>
-        </li>
-    </ul>
-</div>
+                                id="dropdown-user">
+                                <div class="px-4 py-3" role="none">
+                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
+                                        role="none">
+                                        {{ auth()->user()->email }}
+                                    </p>
+                                </div>
+                                <ul class="py-1" role="none">
+                                    <li>
+                                        <a href="{{ route('admin.settings.edit') }}"
+                                            class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                            role="menuitem">
+                                            <i class="fa-solid fa-gear mr-2 text-gray-500"></i>
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button type="submit"
+                                                class="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                role="menuitem">
+                                                <i class="fa-solid fa-right-from-bracket mr-2 text-gray-500"></i>
+                                                Log Out
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
                             {{-- toggle user menu end --}}
                         </div>
                     </div>
@@ -115,7 +118,7 @@
         <div class="h-full px-3 pb-4 overflow-y-auto bg-gray-800 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a href="#"
+                    <a href="{{ route('admin.dashboard') }}"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
                         <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04" viewBox="0 0 22 21">
@@ -331,6 +334,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert')
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    @livewireScripts()
 </body>
 
 </html>

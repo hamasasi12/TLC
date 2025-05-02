@@ -36,6 +36,12 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
+            
+            if(Auth::user()->status === 'suspended') {
+                Auth::logout();
+                Alert::error('Login Gagal!', 'Akun sedang diblokir')->autoClose(3000);
+                return back()->withInput($request->only('email'))->with('error', 'Akun sedang diblokir');
+            }
 
             if (auth()->user()->hasRole('asesi')) {
                 return redirect()->route('asesi.dashboard')->with('success', 'Berhasil login');

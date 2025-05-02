@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Rules\Password;
 use App\Models\User;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Auth\Access\AuthorizationException;
 
@@ -27,8 +27,7 @@ class RegisterRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed'],
-            'password_confirmation' => 'required',
+            'password' => ['required', Password::defaults()],
         ];
     }
 

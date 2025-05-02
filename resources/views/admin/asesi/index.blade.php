@@ -166,10 +166,17 @@
 
                             <!-- Status -->
                             <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                    Active
-                                </span>
+                                @if ($user->user->status === 'active')
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Active
+                                    </span>
+                                @else
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                        Suspended
+                                    </span>
+                                @endif
                             </td>
 
                             <!-- Actions -->
