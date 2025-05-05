@@ -98,7 +98,7 @@ class AuthController extends Controller
     public function registeraddtionalpost(AsesiRegisterTwoRequest $request)
     {
         $validated = $request->validated();
-        
+
         try {
 
             $userProfile = new UserProfile();
