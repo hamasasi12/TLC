@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,7 +14,7 @@ use Illuminate\Auth\Events\PasswordReset;
 class ForgotPasswordController extends Controller
 {
     public function create() {
-        return view('auth.forgot-password');
+        return view('auth.forgetPassword');
     }
 
     public function store(Request $request) {
@@ -57,7 +58,10 @@ class ForgotPasswordController extends Controller
                 event(new PasswordReset($user));
             }
         );
-    
+        if ($status === Password::PASSWORD_RESET) {
+            Alert::success('success', 'Password berhasil diubah');
+            return redirect()->route('login')->with('status', __($status));
+        }
         return $status === Password::PASSWORD_RESET
             ? redirect()->route('login')->with('status', __($status))
             : back()->withErrors(['email' => [__($status)]]);

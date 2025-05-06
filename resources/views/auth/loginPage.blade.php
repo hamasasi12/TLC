@@ -209,7 +209,7 @@
                                 class="w-4 h-4 text-[#0C548C] border-gray-300 rounded focus:ring-[#0C548C]">
                             <label for="remember" class="ml-2 text-sm text-[#2E4D69]">Remember me</label>
                         </div>
-                        <a href="#" class="text-sm text-[#0C548C] hover:text-[#2E4D69] hover:underline transition">Lupa password?</a>
+                        <a href="{{ route('forgot.password.request') }}" class="text-sm text-[#0C548C] hover:text-[#2E4D69] hover:underline transition">Lupa password?</a>
                     </div>
                     @if (session('error'))
                         <div class="text-red-500 text-sm">
