@@ -607,312 +607,313 @@ class AdminDashboardController extends Controller
         }
     }
 
-    public function level()
-    {
-        $search = request('search');
-        $level = Level::query();
+    // public function level()
+    // {
+    //     $search = request('search');
+    //     $level = Level::query();
 
-        if ($search) {
-            $level->where('nama_sertifikat', 'like', '%' . $search . '%');
-        }
+    //     if ($search) {
+    //         $level->where('level_name', 'like', '%' . $search . '%');
+    //     }
 
-        $level = $level->get();
-        return view('admin.level.index', [
-            'title' => 'Create Admin',
-            'navTitle' => 'Create Admin',
-            'level' => $level
-        ]);
-    }
+    //     $level = $level->get();
+    //     return view('admin.level.index', [
+    //         'title' => 'Create Admin',
+    //         'navTitle' => 'Create Admin',
+    //         'level' => $level
+    //     ]);
+    // }
 
-    public function categories()
-    {
-        $search = request('search');
-        $kategori = Categories::query();
+    // public function categories()
+    // {
+    //     $search = request('search');
+    //     $kategori = Categories::query();
 
-        if ($search) {
-            $kategori->where('name', 'like', '%' . $search . '%');
-        }
+    //     if ($search) {
+    //         $kategori->where('name', 'like', '%' . $search . '%');
+    //     }
 
-        $kategori = $kategori->get();
-        return view('admin.categories.index', [
-            'title' => 'Create Categories',
-            'navTitle' => 'Create Categories',
-            'kategori' => $kategori
-        ]);
-    }
+    //     $kategori = $kategori->get();
+    //     return view('admin.categories.index', [
+    //         'title' => 'Create Categories',
+    //         'navTitle' => 'Create Categories',
+    //         'kategori' => $kategori
+    //     ]);
+    // }
 
-    public function levelCreate()
-    {
+    // public function levelCreate()
+    // {
 
-        return view('admin.level.create', [
-            'title' => 'Create Level',
-            'navTitle' => 'Create Level',
+    //     return view('admin.level.create', [
+    //         'title' => 'Create Level',
+    //         'navTitle' => 'Create Level',
 
-        ]);
-    }
+    //     ]);
+    // }
 
-    public function categoriesCreate()
-    {
-        $level = Level::all();
-        return view('admin.categories.create', [
-            'title' => 'Create Kategori',
-            'navTitle' => 'Create Kategori',
-            'level' => $level
-        ]);
-    }
+    // public function categoriesCreate()
+    // {
+    //     $level = Level::all();
+    //     return view('admin.categories.create', [
+    //         'title' => 'Create Kategori',
+    //         'navTitle' => 'Create Kategori',
+    //         'level' => $level
+    //     ]);
+    // }
 
-    public function levelStore(Request $request)
-    {
-        $validation = $request->validate([
-            'nama_sertifikat' => 'required'
-        ]);
+    // public function levelStore(Request $request)
+    // {
+    //     dd($request->all());
+    //     $validation = $request->validate([
+    //         'level_name' => 'required'
+    //     ]);
 
-        try {
-            Level::create($validation);
+    //     try {
+    //         Level::create($validation);
 
-            alert('success', 'Level created successfully!');
-            return redirect()->route('admin.level.index')->with('success', 'Level created successfully!');
-        } catch (\Throwable $th) {
-            alert('error', 'Level created failed!');
-            return redirect()->back()->with('error', 'Level created failed!');
-        }
-    }
-    public function categoriesStore(Request $request)
-    {
-        $validation = $request->validate([
-            'name' => 'required|string|max:255',
-            'image_categori' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'level_id' => 'required',
-            'is_locked' => 'required',
-        ]);
+    //         alert('success', 'Level created successfully!');
+    //         return redirect()->route('admin.level.index')->with('success', 'Level created successfully!');
+    //     } catch (\Throwable $th) {
+    //         alert('error', 'Level created failed!');
+    //         return redirect()->back()->with('error', 'Level created failed!');
+    //     }
+    // }
+    // public function categoriesStore(Request $request)
+    // {
+    //     $validation = $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         'image_categori' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+    //         'level_id' => 'required',
+    //         'is_locked' => 'required',
+    //     ]);
 
-        $validation['image_categori'] = $request->file('image_categori')->store('categori', 'public');
-        try {
-            Categories::create($validation);
+    //     $validation['image_categori'] = $request->file('image_categori')->store('categori', 'public');
+    //     try {
+    //         Categories::create($validation);
 
-            alert('success', 'Category created successfully!');
-            return redirect()->route('admin.categories.index')->with('success', 'Category created successfully!');
-        } catch (\Throwable $th) {
-            alert('error', 'Category created failed!');
-            return redirect()->back()->with('error', 'Category created failed!');
-        }
-    }
+    //         alert('success', 'Category created successfully!');
+    //         return redirect()->route('admin.categories.index')->with('success', 'Category created successfully!');
+    //     } catch (\Throwable $th) {
+    //         alert('error', 'Category created failed!');
+    //         return redirect()->back()->with('error', 'Category created failed!');
+    //     }
+    // }
 
-    public function levelDestroy($id)
-    {
-        try {
-            DB::beginTransaction();
+    // public function levelDestroy($id)
+    // {
+    //     try {
+    //         DB::beginTransaction();
 
-            $level = Level::findOrFail($id);
+    //         $level = Level::findOrFail($id);
 
-            $level->delete();
+    //         $level->delete();
 
-            DB::commit();
+    //         DB::commit();
 
-            return redirect()->route('admin.level.index')->with('success', 'Level berhasil dihapus.');
-        } catch (Exception $e) {
-            DB::rollBack();
-            return back()->with('error', 'Gagal menghapus Level: ' . $e->getMessage());
-        }
-    }
-    public function categoriesDestroy($id)
-    {
-        try {
-            DB::beginTransaction();
+    //         return redirect()->route('admin.level.index')->with('success', 'Level berhasil dihapus.');
+    //     } catch (Exception $e) {
+    //         DB::rollBack();
+    //         return back()->with('error', 'Gagal menghapus Level: ' . $e->getMessage());
+    //     }
+    // }
+    // public function categoriesDestroy($id)
+    // {
+    //     try {
+    //         DB::beginTransaction();
 
-            $kategori = Categories::findOrFail($id);
+    //         $kategori = Categories::findOrFail($id);
 
-            if ($kategori->image_categori && Storage::disk('public')->exists($kategori->image_categori)) {
-                Storage::disk('public')->delete($kategori->image_categori);
-            }
+    //         if ($kategori->image_categori && Storage::disk('public')->exists($kategori->image_categori)) {
+    //             Storage::disk('public')->delete($kategori->image_categori);
+    //         }
 
-            $kategori->delete();
+    //         $kategori->delete();
 
-            DB::commit();
+    //         DB::commit();
 
-            return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil dihapus.');
-        } catch (Exception $e) {
-            DB::rollBack();
-            return back()->with('error', 'Gagal menghapus kategori: ' . $e->getMessage());
-        }
-    }
+    //         return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil dihapus.');
+    //     } catch (Exception $e) {
+    //         DB::rollBack();
+    //         return back()->with('error', 'Gagal menghapus kategori: ' . $e->getMessage());
+    //     }
+    // }
 
-    public function levelEdit($id)
-    {
-        try {
-            $level = Level::findOrFail($id);
+    // public function levelEdit($id)
+    // {
+    //     try {
+    //         $level = Level::findOrFail($id);
 
-            return view('admin.level.edit', [
-                'level' => $level,
-                'title' => 'Edit Level',
-            ]);
-        } catch (Exception $e) {
-            return back()->with('error', 'Data level tidak ditemukan.');
-        }
-    }
+    //         return view('admin.level.edit', [
+    //             'level' => $level,
+    //             'title' => 'Edit Level',
+    //         ]);
+    //     } catch (Exception $e) {
+    //         return back()->with('error', 'Data level tidak ditemukan.');
+    //     }
+    // }
 
-    public function categoriesEdit($id)
-    {
-        try {
-            $kategori = Categories::findOrFail($id);
-            $level = Level::all();
+    // public function categoriesEdit($id)
+    // {
+    //     try {
+    //         $kategori = Categories::findOrFail($id);
+    //         $level = Level::all();
 
-            return view('admin.categories.edit', [
-                'categories' => $kategori,
-                'level' => $level,
-                'title' => 'Edit Categories',
-            ]);
-        } catch (Exception $e) {
-            return back()->with('error', 'Data categories tidak ditemukan.');
-        }
-    }
+    //         return view('admin.categories.edit', [
+    //             'categories' => $kategori,
+    //             'level' => $level,
+    //             'title' => 'Edit Categories',
+    //         ]);
+    //     } catch (Exception $e) {
+    //         return back()->with('error', 'Data categories tidak ditemukan.');
+    //     }
+    // }
 
-    public function levelUpdate(Request $request, string $id)
-    {
-        $level = Level::findOrfail($id);
-        $validation = $request->validate([
-            'nama_sertifikat' => 'required'
-        ]);
+    // public function levelUpdate(Request $request, string $id)
+    // {
+    //     $level = Level::findOrfail($id);
+    //     $validation = $request->validate([
+    //         'level_name' => 'required'
+    //     ]);
 
-        try {
+    //     try {
 
-            $level->update($validation);
+    //         $level->update($validation);
 
-            alert('success', 'Level updated successfully!');
-            return redirect()->route('admin.level.index')->with('success', 'Level updated successfully!');
-        } catch (\Throwable $th) {
-            alert('error', 'Level update failed!');
-            return redirect()->back()->with('error', 'Level update failed!');
-        }
-    }
-    public function categoriesUpdate(Request $request, string $id)
-    {
-        $kategori = Categories::findOrfail($id);
-        $validation = $request->validate([
-            'name' => 'required|string|max:255',
-            'image_categori' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'level_id' => 'required',
-            'is_locked' => 'required',
-        ]);
+    //         alert('success', 'Level updated successfully!');
+    //         return redirect()->route('admin.level.index')->with('success', 'Level updated successfully!');
+    //     } catch (\Throwable $th) {
+    //         alert('error', 'Level update failed!');
+    //         return redirect()->back()->with('error', 'Level update failed!');
+    //     }
+    // }
+    // public function categoriesUpdate(Request $request, string $id)
+    // {
+    //     $kategori = Categories::findOrfail($id);
+    //     $validation = $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         'image_categori' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+    //         'level_id' => 'required',
+    //         'is_locked' => 'required',
+    //     ]);
 
-        try {
-            if ($request->hasFile('image_categori')) {
-                if ($kategori->image_categori) {
-                    Storage::disk('public')->delete($kategori->image_categori);
-                }
+    //     try {
+    //         if ($request->hasFile('image_categori')) {
+    //             if ($kategori->image_categori) {
+    //                 Storage::disk('public')->delete($kategori->image_categori);
+    //             }
 
-                $validation['image_categori'] = $request->file('image_categori')->store('categori', 'public');
-            } else {
-                $validation['image_categori'] = $kategori->image_categori;
-            }
+    //             $validation['image_categori'] = $request->file('image_categori')->store('categori', 'public');
+    //         } else {
+    //             $validation['image_categori'] = $kategori->image_categori;
+    //         }
 
-            $kategori->update($validation);
+    //         $kategori->update($validation);
 
-            alert('success', 'Category updated successfully!');
-            return redirect()->route('admin.categories.index')->with('success', 'Category updated successfully!');
-        } catch (\Throwable $th) {
-            alert('error', 'Category update failed!');
-            return redirect()->back()->with('error', 'Category update failed!');
-        }
-    }
+    //         alert('success', 'Category updated successfully!');
+    //         return redirect()->route('admin.categories.index')->with('success', 'Category updated successfully!');
+    //     } catch (\Throwable $th) {
+    //         alert('error', 'Category update failed!');
+    //         return redirect()->back()->with('error', 'Category update failed!');
+    //     }
+    // }
 
-    public function questions()
-    {
-        $search = request('search');
-        $questions = Questions::query();
+    // public function questions()
+    // {
+    //     $search = request('search');
+    //     $questions = Questions::query();
 
-        if ($search) {
-            $questions->where('name', 'like', '%' . $search . '%');
-        }
+    //     if ($search) {
+    //         $questions->where('name', 'like', '%' . $search . '%');
+    //     }
 
-        $questions = $questions->get();
+    //     $questions = $questions->get();
 
-        return view('admin.questions.index', [
-            'title' => 'Questions',
-            'navTitle' => 'Questions',
-            'questions' => $questions
-        ]);
-    }
+    //     return view('admin.questions.index', [
+    //         'title' => 'Questions',
+    //         'navTitle' => 'Questions',
+    //         'questions' => $questions
+    //     ]);
+    // }
 
-    public function questionsCreate()
-    {
-        $categories = categories::all();
-        return view('admin.questions.create', [
-            'title' => 'Create Questions',
-            'navTitle' => 'Create Questions',
-            'categories' => $categories
-        ]);
-    }
+    // public function questionsCreate()
+    // {
+    //     $categories = categories::all();
+    //     return view('admin.questions.create', [
+    //         'title' => 'Create Questions',
+    //         'navTitle' => 'Create Questions',
+    //         'categories' => $categories
+    //     ]);
+    // }
 
-    public function questionsStore(Request $request)
-    {
-        $validation = $request->validate([
-            'question' => 'required|string|max:255',
-            'category_id' => 'required',
-        ]);
+    // public function questionsStore(Request $request)
+    // {
+    //     $validation = $request->validate([
+    //         'question' => 'required|string|max:255',
+    //         'category_id' => 'required',
+    //     ]);
 
-        try {
-            Questions::create($validation);
+    //     try {
+    //         Questions::create($validation);
 
-            alert('success', 'Questions created successfully!');
-            return redirect()->route('admin.questions.index')->with('success', 'Questions created successfully!');
-        } catch (\Throwable $th) {
-            alert('error', 'Questions created failed!');
-            return redirect()->back()->with('error', 'Questions created failed!');
-        }
-    }
+    //         alert('success', 'Questions created successfully!');
+    //         return redirect()->route('admin.questions.index')->with('success', 'Questions created successfully!');
+    //     } catch (\Throwable $th) {
+    //         alert('error', 'Questions created failed!');
+    //         return redirect()->back()->with('error', 'Questions created failed!');
+    //     }
+    // }
 
-    public function questionsDestroy($id)
-    {
-        try {
-            DB::beginTransaction();
+    // public function questionsDestroy($id)
+    // {
+    //     try {
+    //         DB::beginTransaction();
 
-            $questions = Questions::findOrFail($id);
+    //         $questions = Questions::findOrFail($id);
 
-            $questions->delete();
+    //         $questions->delete();
 
-            DB::commit();
+    //         DB::commit();
 
-            return redirect()->route('admin.questions.index')->with('success', 'Questions berhasil dihapus.');
-        } catch (Exception $e) {
-            DB::rollBack();
-            return back()->with('error', 'Gagal menghapus Level: ' . $e->getMessage());
-        }
-    }
+    //         return redirect()->route('admin.questions.index')->with('success', 'Questions berhasil dihapus.');
+    //     } catch (Exception $e) {
+    //         DB::rollBack();
+    //         return back()->with('error', 'Gagal menghapus Level: ' . $e->getMessage());
+    //     }
+    // }
 
-    public function questionsEdit($id)
-    {
-        try {
-            $questions = questions::findOrFail($id);
-            $categories = categories::all();
+    // public function questionsEdit($id)
+    // {
+    //     try {
+    //         $questions = questions::findOrFail($id);
+    //         $categories = categories::all();
 
-            return view('admin.questions.edit', [
-                'questions' => $questions,
-                'categories' => $categories,
-                'title' => 'Edit questions',
-            ]);
-        } catch (Exception $e) {
-            return back()->with('error', 'Data questions tidak ditemukan.');
-        }
-    }
+    //         return view('admin.questions.edit', [
+    //             'questions' => $questions,
+    //             'categories' => $categories,
+    //             'title' => 'Edit questions',
+    //         ]);
+    //     } catch (Exception $e) {
+    //         return back()->with('error', 'Data questions tidak ditemukan.');
+    //     }
+    // }
 
-    public function questionsUpdate(Request $request, string $id)
-    {
-        $questions = questions::findOrfail($id);
-        $validation = $request->validate([
-            'question' => 'required|string|max:255',
-            'category_id' => 'required',
-        ]);
+    // public function questionsUpdate(Request $request, string $id)
+    // {
+    //     $questions = questions::findOrfail($id);
+    //     $validation = $request->validate([
+    //         'question' => 'required|string|max:255',
+    //         'category_id' => 'required',
+    //     ]);
 
-        try {
+    //     try {
 
-            $questions->update($validation);
+    //         $questions->update($validation);
 
-            alert('success', 'questions updated successfully!');
-            return redirect()->route('admin.questions.index')->with('success', 'questions updated successfully!');
-        } catch (\Throwable $th) {
-            alert('error', 'questions update failed!');
-            return redirect()->back()->with('error', 'questions update failed!');
-        }
-    }
+    //         alert('success', 'questions updated successfully!');
+    //         return redirect()->route('admin.questions.index')->with('success', 'questions updated successfully!');
+    //     } catch (\Throwable $th) {
+    //         alert('error', 'questions update failed!');
+    //         return redirect()->back()->with('error', 'questions update failed!');
+    //     }
+    // }
 }

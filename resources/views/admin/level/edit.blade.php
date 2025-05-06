@@ -57,7 +57,7 @@
                         <div class="grid grid-cols-1 gap-6">
                             <!-- Email -->
                             <div>
-                                <label for="nama_sertifikat" class="block mb-2 text-sm font-medium text-gray-700">
+                                <label for="level_name" class="block mb-2 text-sm font-medium text-gray-700">
                                     Nama Sertifikat <span class="text-red-500">*</span>
                                 </label>
                                 <div class="relative">
@@ -68,20 +68,20 @@
                                                 d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                         </svg>
                                     </div>
-                                    <select id="nama_sertifikat" name="nama_sertifikat" onchange="showCustomInput()"
+                                    <select id="level_name" name="level_name" onchange="showCustomInput()"
                                         class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                        <option value="{{ old('nama_sertifikat') }}" selected>
-                                            {{ old('nama_sertifikat') ? old('nama_sertifikat') : 'Pilih ' }}
+                                        <option value="{{ old('level_name') }}" selected>
+                                            {{ old('level_name') ? old('level_name') : 'Pilih ' }}
                                         </option>
-                                        <option value="A" {{ $level->nama_sertifikat == 'A' ? 'selected' : '' }}>Level
+                                        <option value="A" {{ $level->level_name == 'A' ? 'selected' : '' }}>Level
                                             A</option>
-                                        <option value="B" {{ $level->nama_sertifikat == 'B' ? 'selected' : '' }}>Level
+                                        <option value="B" {{ $level->level_name == 'B' ? 'selected' : '' }}>Level
                                             B</option>
-                                        <option value="C" {{ $level->nama_sertifikat == 'C' ? 'selected' : '' }}>Level
+                                        <option value="C" {{ $level->level_name == 'C' ? 'selected' : '' }}>Level
                                             C</option>
                                     </select>
                                 </div>
-                                <x-input-error :messages="$errors->get('nama_sertifikat')" class="mt-1 text-xs" />
+                                <x-input-error :messages="$errors->get('level_name')" class="mt-1 text-xs" />
                             </div>
 
                             <!-- Password -->

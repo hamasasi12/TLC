@@ -11,6 +11,9 @@ class Level extends Model
     protected $table = 'levels';
 
     protected $fillable = [
-        'nama_sertifikat'
+        'level_name',
+        'price',
+        'discount',
+        'final_price'
     ];
 }

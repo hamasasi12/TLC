@@ -666,7 +666,7 @@
 
         @foreach (['A', 'B', 'C'] as $level)
             <div id="modal{{ $level }}"
-                class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50 hidden transition-all duration-300">
+                class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center z-50 hidden transition-all duration-300">
                 <div
                     class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 relative transform transition-all duration-500 scale-100">
                     <button onclick="document.getElementById('modal{{ $level }}').classList.add('hidden')"

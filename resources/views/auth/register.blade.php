@@ -61,7 +61,6 @@
 
             <form class="space-y-6" action="{{ route('register.post') }}" method="post">
                 @csrf
-
                 <div class="relative">
                     <label class="text-sm font-medium text-gray-700 block mb-1">Nama Lengkap</label>
                     <div class="relative">

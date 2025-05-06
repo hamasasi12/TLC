@@ -109,7 +109,7 @@
 
                             <!-- Institution -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 max-w-xs truncate">
-                                Level {{ $k->nama_sertifikat }}
+                                Level {{ $k->level_name }}
                             </td>
 
 

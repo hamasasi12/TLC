@@ -121,7 +121,7 @@
                                 {{ $k->name }}
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 max-w-xs truncate">
-                                {{ $k->level->nama_sertifikat }}
+                                {{ $k->level->level_name }}
                             </td>
 
 

@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('levels', function (Blueprint $table) {
             $table->id();
-            $table->enum('nama_sertifikat', ['A', 'B', 'C'])->nullable();
+            $table->enum('level_name', ['A', 'B', 'C', 'BUNDLING'])->nullable();
             // $table->string('name')->nullable()->comment('nama sertifikat');
             // $table->integer('duration')->nullable()->comment('durasi sertifikat format Bulan');
             // $table->string('benefit')->nullable()->comment('benefit mengikuti sertifikat');
             // $table->string('condition')->nullable()->comment('benefit mengikuti sertifikat');
-            // $table->decimal('price', 10)->nullable()->comment('Harga dasar sertifikat');
-            // $table->decimal('discount', 5)->nullable()->comment('Diskon dalam persentase');
-            // $table->decimal('final_price', 10)->nullable()->comment('Harga akhir setelah diskon');
+            $table->decimal('price', 10)->nullable()->comment('Harga dasar sertifikat');
+            $table->decimal('discount', 5)->nullable()->comment('Diskon dalam persentase');
+            $table->decimal('final_price', 10)->nullable()->comment('Harga akhir setelah diskon');
             $table->timestamps();
         });
     }

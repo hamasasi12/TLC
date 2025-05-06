@@ -149,9 +149,13 @@
                             <!-- Gender -->
                             <td class="px-4 py-3 whitespace-nowrap">
                                 <span
-                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $user->jenis_kelamin === 'L' ? 'bg-blue-100 text-blue-800' : 'bg-pink-100 text-pink-800' }}">
-                                    {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }}
-                                </span>
+    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+    {{ $user->jenis_kelamin === 'L' ? 'bg-blue-100 text-blue-800' : 
+       ($user->jenis_kelamin === 'P' ? 'bg-pink-100 text-pink-800' : 'bg-gray-100 text-gray-800') }}">
+    {{ $user->jenis_kelamin === 'L' ? 'Laki-laki' : 
+       ($user->jenis_kelamin === 'P' ? 'Perempuan' : 
+       ($user->jenis_kelamin === null ? '-' : $user->jenis_kelamin)) }}
+</span>
                             </td>
 
                             <!-- Created At -->

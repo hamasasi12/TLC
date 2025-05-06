@@ -104,7 +104,7 @@
                                             @foreach ($level as $data)
                                                 <option value="{{ $data->id }}"
                                                     {{ $data->id == $categories->level_id ? 'selected' : '' }}>
-                                                    {{ $data->nama_sertifikat }}</option>
+                                                    {{ $data->level_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

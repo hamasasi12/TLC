@@ -100,7 +100,7 @@
                                                 {{ old('level_id') ? old('level_id') : 'Pilih Level' }}
                                             </option>
                                             @foreach ($level as $data)
-                                                <option value="{{ $data->id }}">{{ $data->nama_sertifikat }}</option>
+                                                <option value="{{ $data->id }}">{{ $data->level_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

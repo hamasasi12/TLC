@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -31,6 +32,13 @@ class GoogleController extends Controller
                     'remember_token' => Str::random(60),
                 ],
             );
+            
+            if (!UserProfile::where('user_id', $user->id)->exists()) {
+                UserProfile::create([
+                    'user_id' => $user->id,
+                    'profile_image' => 'blankProfile.png',
+                ]);
+            }
             
             if (!$user->wasRecentlyCreated) {
                 $user->update(['last_seen_at' => now()]);

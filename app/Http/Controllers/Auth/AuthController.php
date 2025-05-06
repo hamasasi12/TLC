@@ -74,6 +74,11 @@ class AuthController extends Controller
             $user = User::create($validated);
             $user->assignRole('asesi');
 
+            UserProfile::create([
+                'user_id' => $user->id,
+                'profile_image' => 'blankProfile.png',
+            ]);
+
             Alert::success('Berhasil!', 'Akun berhasil dibuat')->autoClose(3000);
             DB::commit();
             Auth::login($user);

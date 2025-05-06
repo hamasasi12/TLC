@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeders::class,
             AsesorSeeders::class,
-
+            CategoryASeeders::class,
         ]);
     }
 }

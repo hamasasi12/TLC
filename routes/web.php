@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminSettingsController;
+use App\Http\Controllers\Admin\LevelAController;
+use App\Http\Controllers\Admin\LevelBController;
+use App\Http\Controllers\Admin\LevelCController;
 use App\Http\Controllers\Asesi\SertifikasiController;
 use App\Http\Controllers\Asesi\TransactionController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -99,6 +102,20 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::delete('/dashboard/questions/delete/{id}', [AdminDashboardController::class, 'questionsDestroy'])->name('admin.questions.destroy');
     Route::get('/dashboard/questions/{id}/edit', [AdminDashboardController::class, 'questionsEdit'])->name('admin.questions.edit');
     Route::put('/dashboard/questions/{id}', [AdminDashboardController::class, 'questionsUpdate'])->name('admin.questions.update');
+
+    // Route Level A
+    Route::get('/dashboard/level/a', [LevelAController::class, 'index'])->name('admin.level.a.index');
+    Route::get('/dashboard/level/a/category', [LevelAController::class, 'categoriesIndex'])->name('admin.categories.a.index');
+    Route::get('/dashboard/level/a/category/edit/{id}', [LevelAController::class, 'categoriesEdit'])->name('admin.categories.a.edit');
+    Route::get('/dashboard/level/a/category/show/{id}', [LevelAController::class, 'categoriesShow'])->name('admin.categories.a.show');
+    Route::put('/dashboard/level/a/category/update/{id}', [LevelAController::class, 'categoriesUpdate'])->name('admin.categories.a.update');
+    // Route Level B
+    Route::get('/dashboard/level/b', [LevelBController::class, 'index'])->name('admin.level.b.index');
+
+    // Route Level C    
+    Route::get('/dashboard/level/c', [LevelCController::class, 'index'])->name('admin.level.c.index');
+
+
 
 
 

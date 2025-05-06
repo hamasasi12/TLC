@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-...your-integrity-hash..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="{{ asset('assets/img/tlc.png') }}" type="image/png">
@@ -38,9 +38,8 @@
                         <a href="#"
                             class="flex items-center justify-center bg-white w-8 h-8 rounded-md shadow-lg ms-2 md:me-24">
                             <img src="{{ asset('images/logoTlcPng.png') }}" class="h-8" alt="FlowBite Logo" />
-                            <span
-                                class="self-center hidden text-xl font-bold text-white md:block whitespace-nowrap"></span>
                         </a>
+                        {{-- <span class="self-center hidden text-xl font-bold text-white md:block whitespace-nowrap">Testing</span> --}}
                     </div>
                     {{-- logo TLC end --}}
 
@@ -49,23 +48,23 @@
                             {{-- user foto start --}}
                             <div class="pr-2">
                                 <button type="button"
-                                    class="flex items-center text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                                    class="flex items-center space-x-2 py-1 px-2 text-sm bg-gray-800 rounded-md hover:bg-gray-700 focus:ring-4 focus:ring-indigo-500 dark:focus:ring-gray-600 transition-all duration-300 ease-in-out"
                                     aria-expanded="false" data-dropdown-toggle="dropdown-user">
                                     <span class="sr-only">Open user menu</span>
+                                    <!-- Image Profile -->
                                     @if (auth()->user()->hasRole('admin') && auth()->user()->adminsProfile && auth()->user()->adminsProfile->profile_image)
                                         <img src="{{ asset('storage/' . auth()->user()->adminsProfile->profile_image) }}"
-                                            class="w-[40px] h-[40px] rounded-full object-cover">
+                                            class="w-[40px] h-[40px] rounded-full object-cover shadow-md border-2 border-indigo-500 transform transition-all duration-300 ease-in-out hover:scale-105">
                                     @else
                                         <img src="{{ asset('assets/img/blank_profile.png') }}"
-                                            class="w-[40px] h-[40px] rounded-full object-cover">
+                                            class="w-[40px] h-[40px] rounded-full object-cover shadow-md border-2 border-gray-500 transform transition-all duration-300 ease-in-out hover:scale-105">
                                     @endif
 
-
-
-
-                                    <div class="px-3 my-auto text-left">
-                                        <p class="text-base text-white">
-                                            {{ auth()->user()->email }}
+                                    <!-- User Email -->
+                                    <div class="text-left">
+                                        <p class="text-sm text-white">
+                                            <span>Welcome,</span>
+                                            {{ auth()->user()->name }}
                                         </p>
                                     </div>
                                 </button>
@@ -73,18 +72,17 @@
                             {{-- user foto end --}}
 
                             {{-- toggle user menu start --}}
-                            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow"
                                 id="dropdown-user">
                                 <div class="px-4 py-3" role="none">
-                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
-                                        role="none">
+                                    <p class="text-sm font-medium text-gray-900 truncate" role="none">
                                         {{ auth()->user()->email }}
                                     </p>
                                 </div>
                                 <ul class="py-1" role="none">
                                     <li>
                                         <a href="{{ route('admin.settings.edit') }}"
-                                            class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                            class="flex items-center px-4 py-2 text-sm text-gray-700 font-medium hover:bg-gray-100"
                                             role="menuitem">
                                             <i class="fa-solid fa-gear mr-2 text-gray-500"></i>
                                             Settings
@@ -94,9 +92,9 @@
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <button type="submit"
-                                                class="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                class="flex items-center w-full text-left px-4 py-2 text-sm text-red-400 font-medium hover:bg-gray-100"
                                                 role="menuitem">
-                                                <i class="fa-solid fa-right-from-bracket mr-2 text-gray-500"></i>
+                                                <i class="fa-solid fa-right-from-bracket mr-2 text-red-500"></i>
                                                 Log Out
                                             </button>
                                         </form>
@@ -113,9 +111,9 @@
     </header>
 
     <aside id="logo-sidebar"
-        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-gray-800 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-gray-700 border-gray-200"
         aria-label="Sidebar">
-        <div class="h-full px-3 pb-4 overflow-y-auto bg-gray-800 dark:bg-gray-800">
+        <div class="h-full px-3 pb-4 overflow-y-auto bg-gray-700">
             <ul class="space-y-2 font-medium">
                 <li>
                     <a href="{{ route('admin.dashboard') }}"
@@ -192,7 +190,7 @@
                     <ul id="dropdown-level" class="hidden py-2 space-y-2">
                         {{-- Level A --}}
                         <li>
-                            <a href="#"
+                            <a href="{{ route('admin.level.a.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-layer-group"></i>
                                 <p>A</p>
