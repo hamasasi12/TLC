@@ -1,6 +1,6 @@
 @extends('layouts.adminDashboard')
 
-@section('title', 'Admin Dashboard')
+@section('title', $title)
 
 @section('content')
     <div class="p-4 bg-white rounded-lg mb-2">
@@ -37,7 +37,7 @@
 
                 <!-- Total Users -->
                 <div class="text-gray-600 text-sm">
-                    👥 {{ $userCount['user'] }} Asesi
+                    👥 asdasd Asesi
                 </div>
 
                 <!-- Actions -->
@@ -115,11 +115,11 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach ($userProfile as $index => $user)
+                    {{-- @foreach ($userProfile as $index => $user) --}}
                         <tr class="hover:bg-gray-50 transition-colors">
                             <!-- Row Number -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{ $loop->iteration }}
+                                {{-- {{ $loop->iteration }} --}}
                             </td>
 
                             <!-- User Info -->
@@ -127,56 +127,37 @@
                                 <div class="flex items-center space-x-4">
                                     <div class="flex-shrink-0 h-10 w-10">
                                         <img class="h-10 w-10 rounded-full object-cover border-2 border-indigo-100"
-                                            src="{{ asset('/storage/' . $user->profile_image) }}" alt="Profile image">
+                                            src="#" alt="Profile image">
                                     </div>
                                     <div>
-                                        <div class="text-sm font-medium text-gray-900">{{ $user->user->name }}</div>
-                                        <div class="text-xs text-gray-500">{{ $user->user->email }}</div>
+                                        <div class="text-sm font-medium text-gray-900">name</div>
+                                        <div class="text-xs text-gray-500">email</div>
                                     </div>
                                 </div>
                             </td>
 
                             <!-- Phone -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{ $user->no_wa }}
+                                name
                             </td>
 
                             <!-- Institution -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 max-w-xs truncate">
-                                {{ $user->instansi }}
-                            </td>
-
-                            <!-- Gender -->
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-    {{ $user->jenis_kelamin === 'L'
-        ? 'bg-blue-100 text-blue-800'
-        : ($user->jenis_kelamin === 'P'
-            ? 'bg-pink-100 text-pink-800'
-            : 'bg-gray-100 text-gray-800') }}">
-                                    {{ $user->jenis_kelamin === 'L'
-                                        ? 'Laki-laki'
-                                        : ($user->jenis_kelamin === 'P'
-                                            ? 'Perempuan'
-                                            : ($user->jenis_kelamin === null
-                                                ? '-'
-                                                : $user->jenis_kelamin)) }}
-                                </span>
+                                instansi
                             </td>
 
                             <!-- Created At -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{ $user->user->created_at->format('d-m-Y') }}
+                                {{-- {{ $user->user->created_at->format('d-m-Y') }} --}}
                             </td>
 
                             <!-- Last Seen -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{ $user->user->last_seen_at ? \Carbon\Carbon::parse($user->user->last_seen_at)->diffForHumans() : 'Never logged in' }}
+                                {{-- {{ $user->user->last_seen_at ? \Carbon\Carbon::parse($user->user->last_seen_at)->diffForHumans() : 'Never logged in' }} --}}
                             </td>
 
                             <!-- Status -->
-                            <td class="px-4 py-3 whitespace-nowrap">
+                            {{-- <td class="px-4 py-3 whitespace-nowrap">
                                 @if ($user->user->status === 'active')
                                     <span
                                         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -188,13 +169,13 @@
                                         Suspended
                                     </span>
                                 @endif
-                            </td>
+                            </td> --}}
 
                             <!-- Actions -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
                                 <div class="flex space-x-2">
                                     <!-- View -->
-                                    <a href="{{ route('admin.asesi.show', $user->id) }}"
+                                    <a href="#"
                                         class="p-2 text-amber-600 bg-amber-50 rounded-md hover:bg-amber-100 transition-colors"
                                         title="View Details">
                                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
@@ -207,7 +188,7 @@
                                     </a>
 
                                     <!-- Edit -->
-                                    <a href="{{ route('admin.asesi.edit', $user->id) }}"
+                                    <a href=""
                                         class="p-2 text-indigo-600 bg-indigo-50 rounded-md hover:bg-indigo-100 transition-colors"
                                         title="Edit User">
                                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"

@@ -109,6 +109,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard/level/a/category/edit/{id}', [LevelAController::class, 'categoriesEdit'])->name('admin.categories.a.edit');
     Route::get('/dashboard/level/a/category/show/{id}', [LevelAController::class, 'categoriesShow'])->name('admin.categories.a.show');
     Route::put('/dashboard/level/a/category/update/{id}', [LevelAController::class, 'categoriesUpdate'])->name('admin.categories.a.update');
+
+    Route::get('/dashboard/level/a/question', [LevelAController::class, 'bankSoalIndex'])->name('admin.question.a.update');
+    
     // Route Level B
     Route::get('/dashboard/level/b', [LevelBController::class, 'index'])->name('admin.level.b.index');
 

@@ -86,4 +86,10 @@ class LevelAController extends Controller
                 ->with('error', 'Terjadi kesalahan saat mengubah data kategori A. Silakan coba lagi.');
         }
     }
+
+    public function bankSoalIndex() {
+        return view('admin.questions.bankSoalIndex', [
+            'title' => 'Bank Soal Level A'
+        ]);
+    }
 }

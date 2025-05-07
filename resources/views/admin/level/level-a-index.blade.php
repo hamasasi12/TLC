@@ -130,7 +130,7 @@
                             </div>
                         </div>
 
-                        <a href="#"
+                        <a href="{{ route('admin.question.a.update') }}"
                             class="block w-full text-center bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white font-medium py-3 px-4 rounded-lg transition duration-300 transform">
                             <div class="flex items-center justify-center">
                                 <span>Kelola Soal</span>
