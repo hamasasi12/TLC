@@ -12,7 +12,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-abu">
+<body class="bg-abu font-sans">
 
     @yield('content')
 

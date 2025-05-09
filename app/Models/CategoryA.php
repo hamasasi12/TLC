@@ -11,4 +11,8 @@ class CategoryA extends Model
         'name',
         'description',
     ];
+
+    public function questions(){
+        return $this->hasMany(QuestionA::class);
+    }
 }

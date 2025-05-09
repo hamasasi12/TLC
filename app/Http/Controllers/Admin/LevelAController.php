@@ -6,8 +6,12 @@ use Exception;
 use App\Models\CategoryA;
 use App\Models\QuestionA;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QuestionARequest;
+use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Validation\ValidationException;
 
 class LevelAController extends Controller
@@ -76,7 +80,7 @@ class LevelAController extends Controller
 
             return redirect()->route('admin.categories.a.index')
                 ->with('success', 'Data kategori A berhasil diubah.');
-                
+
         } catch (ValidationException $e) {
             Log::error('Category update validation failed: ' . json_encode($e->errors()));
             return redirect()->back()->withErrors($e->errors())->withInput();
@@ -87,9 +91,164 @@ class LevelAController extends Controller
         }
     }
 
-    public function bankSoalIndex() {
+    public function bankSoalIndex()
+    {
+        $questions = QuestionA::with('categoryA')->paginate(10);
+
+        $categories = CategoryA::all();
+
+        $categoriesWithCount = $categories->map(function ($category) {
+            $count = QuestionA::where('category_a_id', $category->id)->count();
+            return [
+                'name' => $category->name,
+                'question_count' => $count ?? 'null, data not found',
+            ];
+        });
+
         return view('admin.questions.bankSoalIndex', [
-            'title' => 'Bank Soal Level A'
+            'title' => 'Bank Soal Level A',
+            'questions' => $questions,
+            'countSoal' => $categoriesWithCount
+
         ]);
+    }
+
+    public function bankSoalCreate()
+    {
+        $categoriesA = CategoryA::all();
+        return view('admin.questions.bankSoalCreate', [
+            'title' => 'Tambah Soal Level A',
+            'categoriesA' => $categoriesA,
+        ]);
+    }
+
+    public function bankSoalShow(string $id)
+    {
+        $categoriesA = QuestionA::with('categoryA')->where('id', $id)->first();
+
+        return view('admin.questions.bankSoalShow', [
+            'title' => 'Show Soal Level A',
+            'questionA' => $categoriesA,
+        ]);
+    }
+
+    public function bankSoalEdit(string $id)
+    {
+        $categoriesA = CategoryA::all();
+        $question = QuestionA::find($id);
+        $categoriesEdit = CategoryA::where('id', $question->category_a_id)->first();
+
+        if (!$question) {
+            return redirect()->route('admin.question.a.index')->with('error', 'Data soal A tidak ditemukan.');
+        }
+
+        return view('admin.questions.bankSoalEdit', [
+            'title' => 'Edit Soal Level A',
+            'categoriesA' => $categoriesA,
+            'question' => $question,
+            'categoriesEdit' => $categoriesEdit,
+        ]);
+    }
+
+    public function bankSoalStore(QuestionARequest $request)
+    {
+        try {
+            DB::beginTransaction();
+            $validated = $request->validated();
+
+            if ($request->hasFile('image')) {
+                $path = $request->file('image')->store('question_a_image', 'public');
+                $validated['image'] = $path; // simpan path ke dalam kolom database
+            }
+
+            QuestionA::create($validated);
+            DB::commit();
+            Alert::success('success', 'Soal berhasil ditambahkan.');
+            return redirect()->route('admin.question.a.index');
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Error adding soal', [
+                'error_message' => $e->getMessage(),
+                'stack_trace' => $e->getTraceAsString(),
+                'request_data' => $request->all()
+            ]);
+
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menambahkan soal.');
+        }
+    }
+
+    public function bankSoalUpdate(QuestionARequest $request, string $id)
+    {
+        $validated = $request->validated();
+
+        DB::beginTransaction();
+
+        try {
+            $question = QuestionA::findOrFail($id);
+
+            $question->update($validated);
+            Log::info('Question updated successfully', [
+                'id' => $id,
+                'user_id' => auth()->id(),
+                'data' => $validated
+            ]);
+
+            DB::commit();
+            Alert::success('success', 'Soal berhasil ditambahkan.');
+            return redirect()->route('admin.question.a.index');
+
+        } catch (Exception $e) {
+
+            DB::rollBack();
+
+            Log::error('Failed to update question', [
+                'id' => $id,
+                'user_id' => auth()->id(),
+                'error' => $e->getMessage()
+            ]);
+
+            return redirect()->back()->with('error', 'Failed to update question');
+        }
+    }
+
+    public function bankSoalDestroy(string $id)
+    {
+        try {
+            DB::beginTransaction();
+
+            $questionA = QuestionA::find($id)->first();
+
+            $questionData = [
+                'id' => $questionA->id,
+                'title' => $questionA->title ?? 'N/A',
+                'had_image' => !empty($questionA->image)
+            ];
+
+            if ($questionA->image && Storage::exists($questionA->image)) {
+                Storage::delete($questionA->image);
+            }
+
+            $questionA->delete();
+
+            DB::commit();
+
+            Alert::success('success', 'Soal berhasil dihapus.');
+            return redirect()->route('admin.question.a.index');
+
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            Log::error('Failed to delete question', [
+                'id' => $id,
+                'user_id' => auth()->id(),
+                'error_message' => $e->getMessage(),
+                'error_trace' => $e->getTraceAsString(),
+                'timestamp' => now()
+            ]);
+
+            Alert::error('error', 'Gagal menghapus soal.');
+            return back()->with('error', 'Gagal menghapus soal: ' . $e->getMessage());
+        }
     }
 }

@@ -1,5 +1,9 @@
 @extends('layouts.adminDashboard')
 
+@push('scripts')
+    <script src="//unpkg.com/alpinejs" defer></script>
+@endpush
+
 @section('title', $title)
 
 @section('content')
@@ -7,17 +11,11 @@
         <nav class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-4 text-base">
             <!-- Breadcrumb -->
             <ol class="flex items-center space-x-1 text-gray-600">
-                <li><a href="{{ route('admin.asesi.index') }}"
-                        class="hover:underline {{ request()->routeIs('admin.asesi.*') ? 'text-indigo-600' : '' }}">Asesi</a>
-                </li>
+                <li><a href="{{ route('admin.level.a.index') }}" class="hover:underline text-indigo-600">Level A</a></li>
                 <li>/</li>
-                <li><a href="{{ route('admin.asesor.index') }}"
-                        class="hover:underline {{ request()->routeIs('admin.asesor.*') ? 'text-indigo-600' : '' }}">Asesor</a>
-                </li>
+                <li><a href="{{ route('admin.level.c.index') }}" class="hover:underline text-indigo-600">Level B</a></li>
                 <li>/</li>
-                <li><a href="{{ route('admin.admins.index') }}"
-                        class="hover:underline {{ request()->routeIs('admin.admins.*') ? 'text-indigo-600' : '' }}">Admin</a>
-                </li>
+                <li><a href="{{ route('admin.level.c.index') }}" class="hover:underline text-indigo-600">Level C</a></li>
             </ol>
 
             <!-- Search & Info -->
@@ -26,38 +24,56 @@
                 <form action="{{ route('admin.asesi.index') }}" method="GET" class="relative">
                     <input type="text" name="search"
                         class="pl-9 pr-3 py-2 rounded-md border border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500"
-                        placeholder="Cari Asesi..." value="{{ request('search') }}">
+                        placeholder="Cari Soal..." value="{{ request('search') }}">
                     <div class="absolute left-2.5 top-2 text-gray-400">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
                         </svg>
                     </div>
+                    <button class="px-3 py-1.5 bg-blue-600 text-white text-sm rounded">
+                        Filter
+                    </button>
                 </form>
 
-                <!-- Total Users -->
-                <div class="text-gray-600 text-sm">
-                    👥 asdasd Asesi
+                <!-- Total Soals -->
+                <div class="text-gray-600 text-sm flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                    Total Soal
                 </div>
 
                 <!-- Actions -->
                 <div class="flex items-center gap-2">
-                    <a href="{{ route('admin.asesi.create') }}" data-popover-target="popover-addUser"
+                    <a href="{{ route('admin.question.a.create') }}" data-popover-target="popover-addUser"
                         data-popover-trigger="hover">
                         <button class="px-3 py-1.5 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700">
-                            + Tambah Asesi
+                            + Tambah Soal
                         </button>
                     </a>
                     <button class="px-3 py-1.5 border text-gray-600 text-sm rounded hover:bg-gray-50"
                         data-popover-target="popover-export" data-popover-trigger="hover">
                         Export
                     </button>
-                    <button class="p-2 border rounded text-gray-500 hover:bg-gray-100">
+                    {{-- <button class="p-2 border rounded text-gray-500 hover:bg-gray-100">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path
                                 d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                         </svg>
+                    </button> --}}
+                    <button
+                        class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                        data-dropdown-toggle="dropdownSoal">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
+                            </path>
+                        </svg>
                     </button>
+
                     <button class="p-2 border rounded text-red-500 hover:bg-red-50" data-modal-toggle="popup-modal"
                         data-popover-target="popover-delete" data-popover-trigger="hover">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -78,35 +94,23 @@
                     <tr>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            No
+                            ID
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Name
+                            Kategori
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            No HP
+                            Soal
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Instansi
+                            Gambar
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Jenis Kelamin
-                        </th>
-                        <th scope="col"
-                            class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Created At
-                        </th>
-                        <th scope="col"
-                            class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Last Seen
-                        </th>
-                        <th scope="col"
-                            class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Status
+                            Jawaban Benar
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
@@ -115,67 +119,40 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    {{-- @foreach ($userProfile as $index => $user) --}}
+                    @foreach ($questions as $index)
                         <tr class="hover:bg-gray-50 transition-colors">
                             <!-- Row Number -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{-- {{ $loop->iteration }} --}}
+                                {{ $loop->iteration }}
                             </td>
 
-                            <!-- User Info -->
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <div class="flex items-center space-x-4">
-                                    <div class="flex-shrink-0 h-10 w-10">
-                                        <img class="h-10 w-10 rounded-full object-cover border-2 border-indigo-100"
-                                            src="#" alt="Profile image">
-                                    </div>
-                                    <div>
-                                        <div class="text-sm font-medium text-gray-900">name</div>
-                                        <div class="text-xs text-gray-500">email</div>
-                                    </div>
-                                </div>
-                            </td>
-
-                            <!-- Phone -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                name
+                                {{ $index->categoryA->name }}
                             </td>
 
-                            <!-- Institution -->
-                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 max-w-xs truncate">
-                                instansi
-                            </td>
-
-                            <!-- Created At -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{-- {{ $user->user->created_at->format('d-m-Y') }} --}}
+                                {!! Str::limit($index->question_text, 100) !!}
                             </td>
 
-                            <!-- Last Seen -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{-- {{ $user->user->last_seen_at ? \Carbon\Carbon::parse($user->user->last_seen_at)->diffForHumans() : 'Never logged in' }} --}}
-                            </td>
-
-                            <!-- Status -->
-                            {{-- <td class="px-4 py-3 whitespace-nowrap">
-                                @if ($user->user->status === 'active')
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        Active
-                                    </span>
+                                @if ($index->image)
+                                    <button class="text-blue-500 hover:underline"
+                                        onclick="showImageModal('{{ asset('storage/' . $index->image) }}')">
+                                        Lihat Gambar
+                                    </button>
                                 @else
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                        Suspended
-                                    </span>
+                                    <p>Tidak Ada</p>
                                 @endif
-                            </td> --}}
+                            </td>
 
+                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                                {{ Str::upper($index->correct_answer) }}
+                            </td>
                             <!-- Actions -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
                                 <div class="flex space-x-2">
                                     <!-- View -->
-                                    <a href="#"
+                                    <a href="{{ route('admin.question.a.show', $index->id) }}"
                                         class="p-2 text-amber-600 bg-amber-50 rounded-md hover:bg-amber-100 transition-colors"
                                         title="View Details">
                                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
@@ -188,7 +165,7 @@
                                     </a>
 
                                     <!-- Edit -->
-                                    <a href=""
+                                    <a href="{{ route('admin.question.a.edit', $index->id) }}"
                                         class="p-2 text-indigo-600 bg-indigo-50 rounded-md hover:bg-indigo-100 transition-colors"
                                         title="Edit User">
                                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
@@ -200,13 +177,13 @@
                                     </a>
 
                                     <!-- Delete -->
-                                    <form action="{{ route('admin.asesi.destroy', $user->user->id) }}" method="POST"
+                                    <form action="{{ route('admin.question.a.destroy', $index->id) }}" method="POST"
                                         onsubmit="return confirm('Yakin ingin menghapus data ini?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
                                             class="p-2 text-red-600 bg-red-50 rounded-md hover:bg-red-100 transition-colors"
-                                            title="Delete User">
+                                            title   ="Delete User">
                                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd"
@@ -226,7 +203,7 @@
 
     <!-- Pagination -->
     <div class="mt-6">
-        {{ $userProfile->links() }}
+        {{ $questions->links() }}
     </div>
 
     <!-- Delete Modal -->
@@ -331,10 +308,10 @@
     <div data-popover id="popover-addUser" role="tooltip"
         class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
         <div class="px-3 py-2 bg-indigo-50 border-b border-gray-200 rounded-t-lg">
-            <h3 class="font-semibold text-indigo-600">Add Users</h3>
+            <h3 class="font-semibold text-indigo-600">Tambah Soal</h3>
         </div>
         <div class="px-3 py-2">
-            <p>Tindakan ini akan menambahkan users baru kedalam database.</p>
+            <p>Tindakan ini akan menambahkan Soal baru berdasarkan kategori soal.</p>
         </div>
         <div data-popper-arrow></div>
     </div>
@@ -342,81 +319,69 @@
     <div data-popover id="popover-export" role="tooltip"
         class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
         <div class="px-3 py-2 bg-blue-50 border-b border-gray-200 rounded-t-lg">
-            <h3 class="font-semibold text-blue-600">Export Asesi</h3>
+            <h3 class="font-semibold text-blue-600">Export Soal </h3>
         </div>
         <div class="px-3 py-2">
-            <p>Tindakan ini akan membuat file excel dari data asesi.</p>
+            <p>Tindakan ini akan membuat file excel dari data soal.</p>
         </div>
         <div data-popper-arrow></div>
     </div>
 
-    @push('scripts')
-        <script>
-            // Initialize Flowbite components (which handles popovers)
-            document.addEventListener('DOMContentLoaded', function() {
-                // Check if Flowbite is loaded
-                if (typeof initFlowbite === 'function') {
-                    initFlowbite();
-                } else {
-                    // If Flowbite's initFlowbite function is not available, manually initialize popovers
-                    const popoverTriggers = document.querySelectorAll('[data-popover-target]');
+    <div id="imageModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-4 rounded shadow relative max-w-md w-full">
+            <button onclick="closeImageModal()" class="absolute top-2 right-2 text-gray-600 hover:text-black">✖</button>
+            <img id="modalImage" src="" class="max-w-full h-auto rounded" alt="Gambar Soal">
+        </div>
+    </div>
 
-                    popoverTriggers.forEach(trigger => {
-                        const targetId = trigger.getAttribute('data-popover-target');
-                        const target = document.getElementById(targetId);
-                        const triggerType = trigger.getAttribute('data-popover-trigger') || 'click';
+    <div id="dropdownSoal"
+        class="z-10 hidden bg-gray-50 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+            @foreach ($countSoal as $index)
+                <li>
+                    <div
+                        class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                        {{ $index['name'] }}
+                        <span class="font-semibold text-red-500">{{ $index['question_count'] }}</span>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
+    </div>
 
-                        if (target) {
-                            if (triggerType === 'hover') {
-                                trigger.addEventListener('mouseenter', () => {
-                                    target.classList.remove('invisible', 'opacity-0');
-                                    target.classList.add('visible', 'opacity-100');
+    <script>
+        function showImageModal(imageUrl) {
+            const modal = document.getElementById('imageModal');
+            const img = document.getElementById('modalImage');
+            img.src = imageUrl;
+            modal.classList.remove('hidden');
+        }
 
-                                    // Position the popover
-                                    const triggerRect = trigger.getBoundingClientRect();
-                                    target.style.top = `${triggerRect.bottom + window.scrollY + 10}px`;
-                                    target.style.left = `${triggerRect.left + window.scrollX}px`;
-                                });
-
-                                trigger.addEventListener('mouseleave', () => {
-                                    // Add small delay before hiding
-                                    setTimeout(() => {
-                                        if (!target.matches(':hover')) {
-                                            target.classList.add('invisible', 'opacity-0');
-                                            target.classList.remove('visible', 'opacity-100');
-                                        }
-                                    }, 100);
-                                });
-
-                                target.addEventListener('mouseleave', () => {
-                                    target.classList.add('invisible', 'opacity-0');
-                                    target.classList.remove('visible', 'opacity-100');
-                                });
-                            } else {
-                                // Click behavior
-                                trigger.addEventListener('click', (e) => {
-                                    e.preventDefault();
-                                    target.classList.toggle('invisible');
-                                    target.classList.toggle('opacity-0');
-
-                                    // Position the popover
-                                    const triggerRect = trigger.getBoundingClientRect();
-                                    target.style.top = `${triggerRect.bottom + window.scrollY + 10}px`;
-                                    target.style.left = `${triggerRect.left + window.scrollX}px`;
-                                });
-
-                                // Close on click outside
-                                document.addEventListener('click', (e) => {
-                                    if (!target.contains(e.target) && e.target !== trigger) {
-                                        target.classList.add('invisible', 'opacity-0');
-                                        target.classList.remove('visible', 'opacity-100');
-                                    }
-                                });
-                            }
-                        }
-                    });
-                }
-            });
-        </script>
-    @endpush
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+        }
+    </script>
 @endsection
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav class="flex justify-center items-cente">
+
+        </nav>
+    </header>
+    <main></main>
+    <footer></footer>
+</body>
+
+</html>

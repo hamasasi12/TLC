@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-...your-integrity-hash..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="{{ asset('assets/img/tlc.png') }}" type="image/png">
+    @stack('ckeditor')
     <title>@yield('title', 'TLC')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles()
@@ -358,6 +359,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert')
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    @stack('scripts')
+    <script src="//unpkg.com/alpinejs" defer></script>
     @livewireScripts()
 </body>
 

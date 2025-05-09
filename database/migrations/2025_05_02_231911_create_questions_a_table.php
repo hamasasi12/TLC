@@ -15,13 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_a_id')->constrained('categories_a')->onDelete('cascade');
             $table->text('question_text');
-            $table->string('image_path')->nullable();
+            $table->string('image')->nullable();
             $table->text('option_a')->nullable();
             $table->text('option_b')->nullable();
             $table->text('option_c')->nullable();
             $table->text('option_d')->nullable();
-            $table->text('option_e')->nullable();
-            $table->enum('correct_answer', ['a', 'b', 'c', 'd', 'e']);
+            $table->enum('correct_answer', ['a', 'b', 'c', 'd']);
             $table->timestamps();
         });
     }

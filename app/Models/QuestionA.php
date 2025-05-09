@@ -11,12 +11,16 @@ class QuestionA extends Model
     protected $fillable = [
         'category_a_id',
         'question_text',
-        'image_path',
+        'image',
         'option_a',
         'option_b',
         'option_c',
         'option_d',
-        'option_e',
         'correct_answer'
     ];
+
+    public function categoryA()
+    {
+        return $this->belongsTo(CategoryA::class);
+    }
 }

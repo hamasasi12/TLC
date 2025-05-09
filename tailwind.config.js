@@ -1,9 +1,5 @@
-import defaultTheme from "tailwindcss/defaultTheme";
-import forms from "@tailwindcss/forms";
-
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-    darkTheme: false,
+export default {
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
@@ -42,9 +38,13 @@ module.exports = {
                 },
             },
             fontFamily: {
-                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+                sans: ["Segoe UI", "ui-sans-serif", "system-ui", "sans-serif"],
             },
         },
     },
-    plugins: [require("flowbite/plugin")],
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("flowbite/plugin")
+    ],
+    darkMode: "class",
 };
