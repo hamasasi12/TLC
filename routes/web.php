@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminSettingsController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\IndoRegionController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Admin\LevelAController;
 use App\Http\Controllers\Admin\LevelBController;
 use App\Http\Controllers\Admin\LevelCController;
+use App\Http\Controllers\Asesi\ProfileController;
 use App\Http\Controllers\Asesi\SertifikasiController;
 use App\Http\Controllers\Asesi\TransactionController;
+use App\Http\Controllers\Admin\AdminSettingsController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\IndoRegionController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Asesi\AsesiDashboardController;
 use App\Http\Controllers\Asesor\AsesorDashboardController;
@@ -50,9 +51,11 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::get('/dashboard', [AsesiDashboardController::class, 'index'])->name('asesi.dashboard');
     Route::get('/sertifikasi', [SertifikasiController::class, 'index'])->name('asesi.sertifikasi');
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('asesi.transaksi');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('asesi.profile');
     Route::get('/register/2', [AuthController::class, 'registerStepTwo'])->name('asesi.registerStepTwo');
     Route::get('/registeraddtional', [AuthController::class, 'registeraddtional'])->name('registeraddtional');
     Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
+
 });
 
 // AUTH ADMIN
@@ -112,7 +115,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     // Route Level B
     Route::get('/dashboard/level/b', [LevelBController::class, 'index'])->name('admin.level.b.index');
 
-    // Route Level C    
+    // Route Level C
     Route::get('/dashboard/level/c', [LevelCController::class, 'index'])->name('admin.level.c.index');
 
 

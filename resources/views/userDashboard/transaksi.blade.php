@@ -4,142 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TLC Program Navbar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
 
-    {{-- Navbar --}}
-    <header class="mb-20">
-        <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-lg border-b border-gray-200">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-6">
-
-                <!-- Brand Section -->
-                <div class="flex items-center space-x-4">
-                    <img src="images/logo.svg" class="h-10 w-10 md:h-14 md:w-14" alt="TLC Logo">
-                    <div>
-                        <h1 class="text-lg md:text-2xl font-bold text-gray-800 tracking-wide capitalize">TLC Program
-                        </h1>
-                        <p class="text-xs md:text-sm text-gray-500 font-medium capitalize">
-                            Teaching & Learning Certification
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Mobile Menu Toggle -->
-                <div class="lg:hidden">
-                    <button id="mobile-menu-toggle" class="text-gray-700 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Navigation Menu -->
-                <div id="mobile-menu"
-                    class="hidden lg:flex fixed lg:static inset-x-0 top-16 lg:top-0 bg-white lg:bg-transparent pb-4 lg:pb-0 border-b lg:border-0">
-                    <div
-                        class="container mx-auto px-4 lg:px-0 flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6">
-                        <a href="#dashboard"
-                            class="text-gray-800 font-semibold hover:text-blue-600 transition transform hover:scale-105 capitalize">Dashboard</a>
-                        <a href="#sertifikasi"
-                            class="text-gray-800 font-semibold hover:text-blue-600 transition transform hover:scale-105 capitalize">Sertifikasi</a>
-                        <a href="#transaksi"
-                            class="text-gray-800 font-semibold hover:text-blue-600 transition transform hover:scale-105 capitalize">Transaksi</a>
-                    </div>
-                </div>
-
-                <!-- User Interaction -->
-                <div class="hidden lg:flex items-center space-x-4">
-
-                    <!-- Search -->
-                    <div class="relative">
-                        <input type="text" placeholder="Cari Data"
-                            class="pl-8 pr-2 py-2 w-40 rounded-full bg-gray-100 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm">
-                        <svg class="absolute left-2 top-3 h-4 w-4 text-gray-500" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.15 12.65z"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Notification -->
-                    <div class="relative">
-                        <svg class="h-7 w-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14V11a6 6 0 10-12 0v3c0 .386-.149.757-.405 1.035L4 17h5m6 0a3 3 0 11-6 0">
-                            </path>
-                        </svg>
-                        <span
-                            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">3</span>
-                    </div>
-
-                    <!-- Profile -->
-                    <div class="relative">
-                        <button id="profile-button" class="flex items-center space-x-2">
-                            <img src="images/aliando.jpg"
-                                class="h-10 w-10 rounded-full object-cover border-2 border-gray-300 shadow-md"
-                                alt="Profile">
-                            <svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-
-                        <!-- Dropdown -->
-                        <div id="profile-menu"
-                            class="absolute right-0 top-16 w-64 bg-white shadow-lg rounded-lg border border-gray-200 hidden">
-                            <div class="py-2">
-                                <div class="px-4 py-2 hover:bg-gray-100 flex items-center space-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                    <span class="text-gray-700">Lihat Profil</span>
-                                </div>
-                                <div class="px-4 py-2 hover:bg-gray-100 flex items-center space-x-3 text-red-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                        <polyline points="16 17 21 12 16 7"></polyline>
-                                        <line x1="21" y1="12" x2="9" y2="12"></line>
-                                    </svg>
-                                    <span>Logout</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-                    document.getElementById('mobile-menu').classList.toggle('hidden');
-                });
-
-                const profileButton = document.getElementById("profile-button");
-                const profileMenu = document.getElementById("profile-menu");
-                profileButton.addEventListener("click", function(event) {
-                    event.stopPropagation();
-                    profileMenu.classList.toggle("hidden");
-                });
-                document.addEventListener("click", function(event) {
-                    if (!profileMenu.contains(event.target) && !profileButton.contains(event.target)) {
-                        profileMenu.classList.add("hidden");
-                    }
-                });
-            });
-        </script>
-    </header>
-    {{-- End Navbar --}}
 
     {{-- Langkah Pembayaran --}}
     {{-- <section class="purchase-guide relative mt-32 max-w-6xl mx-auto px-4 py-12"
@@ -1610,12 +1483,12 @@
                     this.classList.add('scale-105');
                     this.style.transition = 'transform 0.3s ease';
                 });
-    
+
                 item.addEventListener('mouseleave', function() {
                     this.classList.remove('scale-105');
                 });
             });
-    
+
             // Add a simple animation when buttons are clicked
             document.querySelectorAll('button').forEach(button => {
                 button.addEventListener('click', function() {
@@ -1637,7 +1510,7 @@
             </h2>
             <p class="text-gray-500 mt-2 ml-5">Pilih metode pembayaran yang paling nyaman untuk Anda</p>
         </div>
-    
+
         <!-- Featured Payment Methods with Dropdown -->
         <div class="grid grid-cols-1 gap-6 mb-8">
             <!-- Bank Transfer Dropdown -->
@@ -1666,28 +1539,28 @@
                             </div>
                             <p class="text-xs text-gray-600 font-medium">Bank BCA</p>
                         </div>
-    
+
                         <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer flex flex-col items-center">
                             <div class="w-16 h-10 mb-2 overflow-hidden flex items-center justify-center bg-white rounded-lg shadow-sm p-2 border border-gray-100">
                                 <img src="/api/placeholder/64/40" alt="BNI" class="object-contain w-full h-full" />
                             </div>
                             <p class="text-xs text-gray-600 font-medium">Bank BNI</p>
                         </div>
-    
+
                         <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer flex flex-col items-center">
                             <div class="w-16 h-10 mb-2 overflow-hidden flex items-center justify-center bg-white rounded-lg shadow-sm p-2 border border-gray-100">
                                 <img src="/api/placeholder/64/40" alt="BRI" class="object-contain w-full h-full" />
                             </div>
                             <p class="text-xs text-gray-600 font-medium">Bank BRI</p>
                         </div>
-    
+
                         <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer flex flex-col items-center">
                             <div class="w-16 h-10 mb-2 overflow-hidden flex items-center justify-center bg-white rounded-lg shadow-sm p-2 border border-gray-100">
                                 <img src="/api/placeholder/64/40" alt="BSI" class="object-contain w-full h-full" />
                             </div>
                             <p class="text-xs text-gray-600 font-medium">Bank Syariah</p>
                         </div>
-    
+
                         <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer flex flex-col items-center">
                             <div class="w-16 h-10 mb-2 overflow-hidden flex items-center justify-center bg-white rounded-lg shadow-sm p-2 border border-gray-100">
                                 <img src="/api/placeholder/64/40" alt="Mandiri" class="object-contain w-full h-full" />
@@ -1697,7 +1570,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- E-Wallet Dropdown -->
             <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
                 <div class="dropdown-header flex items-center justify-between p-6 cursor-pointer" onclick="toggleDropdown('eWallet')">
@@ -1724,28 +1597,28 @@
                             </div>
                             <p class="text-xs text-gray-600 font-medium">GoPay</p>
                         </div>
-    
+
                         <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer flex flex-col items-center">
                             <div class="w-12 h-12 mb-2 overflow-hidden rounded-full bg-white shadow-sm p-2 flex items-center justify-center border border-gray-100">
                                 <img src="/api/placeholder/48/48" alt="OVO" class="object-cover w-full h-full" />
                             </div>
                             <p class="text-xs text-gray-600 font-medium">OVO</p>
                         </div>
-    
+
                         <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer flex flex-col items-center">
                             <div class="w-12 h-12 mb-2 overflow-hidden rounded-full bg-white shadow-sm p-2 flex items-center justify-center border border-gray-100">
                                 <img src="/api/placeholder/48/48" alt="Dana" class="object-cover w-full h-full" />
                             </div>
                             <p class="text-xs text-gray-600 font-medium">Dana</p>
                         </div>
-    
+
                         <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer flex flex-col items-center">
                             <div class="w-12 h-12 mb-2 overflow-hidden rounded-full bg-white shadow-sm p-2 flex items-center justify-center border border-gray-100">
                                 <img src="/api/placeholder/48/48" alt="LinkAja" class="object-cover w-full h-full" />
                             </div>
                             <p class="text-xs text-gray-600 font-medium">LinkAja</p>
                         </div>
-    
+
                         <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer flex flex-col items-center">
                             <div class="w-12 h-12 mb-2 overflow-hidden rounded-full bg-white shadow-sm p-2 flex items-center justify-center border border-gray-100">
                                 <img src="/api/placeholder/48/48" alt="ShopeePay" class="object-cover w-full h-full" />
@@ -1755,7 +1628,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- QRIS Dropdown -->
             <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
                 <div class="dropdown-header flex items-center justify-between p-6 cursor-pointer" onclick="toggleDropdown('qris')">
@@ -1805,7 +1678,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- Mini Market Dropdown -->
             <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
                 <div class="dropdown-header flex items-center justify-between p-6 cursor-pointer" onclick="toggleDropdown('miniMarket')">
@@ -1835,7 +1708,7 @@
                                 <p class="text-xs text-gray-600 mt-1">Tersedia di 10.000+ gerai di seluruh Indonesia</p>
                             </div>
                         </div>
-    
+
                         <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer flex items-center">
                             <div class="w-16 h-10 mb-0 overflow-hidden flex items-center justify-center bg-white rounded-lg shadow-sm p-2 mr-4 border border-gray-100">
                                 <img src="/api/placeholder/64/40" alt="Indomaret" class="object-contain w-full h-full" />
@@ -1849,7 +1722,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Recently Used Payment Methods -->
         <div class="mt-12">
             <h3 class="text-lg font-bold text-gray-800 mb-6 flex items-center">
@@ -1874,7 +1747,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="bg-white rounded-xl p-6 shadow-md border border-gray-200 transition duration-300 hover:shadow-xl group cursor-pointer">
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-white border border-green-100 rounded-xl shadow-sm flex items-center justify-center mr-4 overflow-hidden group-hover:scale-110 transition-transform">
@@ -1894,7 +1767,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Promotional Banner -->
         <div class="mt-12">
             <h3 class="text-lg font-bold text-gray-800 mb-6 flex items-center">
@@ -1944,13 +1817,13 @@
                 </div>
             </div>
         </div>
-    
+
         <script>
             function toggleDropdown(id) {
                 const content = document.getElementById(id);
                 const header = content.previousElementSibling;
                 const icon = header.querySelector('.dropdown-icon');
-                
+
                 // Close all other dropdowns first
                 document.querySelectorAll('.dropdown-content').forEach(dropdown => {
                     if (dropdown.id !== id && !dropdown.classList.contains('hidden')) {
@@ -1960,42 +1833,42 @@
                         otherIcon.style.transform = 'rotate(0deg)';
                     }
                 });
-                
+
                 // Toggle current dropdown
                 if (content.classList.contains('hidden')) {
                     content.classList.remove('hidden');
                     icon.style.transform = 'rotate(180deg)';
-                    
+
                     // Add active state to header
                     header.classList.add('bg-gray-50');
                 } else {
                     content.classList.add('hidden');
                     icon.style.transform = 'rotate(0deg)';
-                    
+
                     // Remove active state from header
                     header.classList.remove('bg-gray-50');
                 }
             }
-    
+
             // Add a ripple effect to buttons
             document.querySelectorAll('button').forEach(button => {
                 button.addEventListener('click', function(e) {
                     const x = e.clientX - e.target.getBoundingClientRect().left;
                     const y = e.clientY - e.target.getBoundingClientRect().top;
-                    
+
                     const ripple = document.createElement('span');
                     ripple.classList.add('ripple');
                     ripple.style.left = `${x}px`;
                     ripple.style.top = `${y}px`;
-                    
+
                     this.appendChild(ripple);
-                    
+
                     setTimeout(() => {
                         ripple.remove();
                     }, 600);
                 });
             });
-    
+
             // Add hover effect to payment options
             document.querySelectorAll('.cursor-pointer').forEach(item => {
                 if (!item.classList.contains('dropdown-header')) {
@@ -2003,14 +1876,14 @@
                         this.classList.add('transform');
                         this.classList.add('translate-y-1');
                     });
-                    
+
                     item.addEventListener('mouseleave', function() {
                         this.classList.remove('transform');
                         this.classList.remove('translate-y-1');
                     });
                 }
             });
-    
+
             // Auto-open the first dropdown for demo purposes
             window.addEventListener('load', function() {
                 setTimeout(() => {
@@ -2018,7 +1891,7 @@
                 }, 500);
             });
         </script>
-        
+
         <style>
             .ripple {
                 position: absolute;
@@ -2028,25 +1901,25 @@
                 animation: ripple 0.6s linear;
                 pointer-events: none;
             }
-            
+
             @keyframes ripple {
                 to {
                     transform: scale(4);
                     opacity: 0;
                 }
             }
-            
+
             button {
                 position: relative;
                 overflow: hidden;
             }
-            
+
             .dropdown-content {
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease;
             }
-            
+
             .dropdown-content:not(.hidden) {
                 max-height: 1000px;
             }
@@ -2054,62 +1927,7 @@
     </section>
     {{-- End Metode Pembayaran --}}
 
-    {{-- </main> --}}
-    <footer class="bg-[#0D3B66] text-white py-10">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- TLC Program -->
-            <div>
-                <h2 class="text-lg font-semibold">TLC Program</h2>
-                <p class="text-sm mt-2">
-                    Program sertifikasi untuk memberdayakan pendidik dengan pengetahuan dan keterampilan mengajar yang
-                    efektif.
-                </p>
-                <div class="flex space-x-4 mt-4">
-                    <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-gray-300"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-
-            <!-- Tautan Cepat -->
-            <div>
-                <h2 class="text-lg font-semibold">Tautan Cepat</h2>
-                <ul class="mt-2 space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-gray-300">Tentang TLC</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Manfaat</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Kurikulum</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Paket Harga</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Pendaftaran</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Galeri</a></li>
-                </ul>
-            </div>
-
-            <!-- Kontak -->
-            <div>
-                <h2 class="text-lg font-semibold">Kontak</h2>
-                <ul class="mt-2 space-y-2 text-sm">
-                    <li><i class="fas fa-map-marker-alt text-yellow-400"></i> Jl. Pendidikan No. 123, Jakarta Pusat,
-                        Indonesia</li>
-                    <li><i class="fas fa-phone-alt text-yellow-400"></i> +62 21 1234 5678</li>
-                    <li><i class="fas fa-envelope text-yellow-400"></i> info@tlcprogram.id</li>
-                </ul>
-            </div>
-
-
-        </div>
-
-        <hr class="border-gray-500 my-6">
-
-        <div class="text-center text-sm">
-            © 2025 Teaching and Learning Certification Program. All rights reserved.
-        </div>
-
-        <!-- FontAwesome for Icons -->
-        <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
-    </footer>
-    {{-- end footer --}}
-
+   
 
 
 
@@ -2284,7 +2102,7 @@
 
     {{-- <section class="purchase-guide mt-10 max-w-4xl mx-auto">
     <h1 class="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6">Cara beli paket belajar online di website Ruangguru</h1>
-        
+
         <!-- Step Indicator (Row 1) -->
         <div class="flex justify-between items-center px-4 mb-8">
             <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white font-semibold">1</div>
@@ -2295,7 +2113,7 @@
             <div class="flex-1 border-t-2 border-dashed border-teal-400 mx-2"></div>
             <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white font-semibold">4</div>
         </div>
-        
+
         <!-- Row 1 Cards -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
             <!-- Card 1 -->
@@ -2307,7 +2125,7 @@
                     <span class="font-bold">Ketik</span> ruangguru.com di browser handphone kamu
                 </p>
             </div>
-            
+
             <!-- Card 2 -->
             <div class="flex flex-col items-center">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden mb-3 border border-gray-200">
@@ -2317,7 +2135,7 @@
                     <span class="font-bold">Pastikan kategori sesuai sekolah.</span> Kamu juga bisa filter produk bila diperlukan
                 </p>
             </div>
-            
+
             <!-- Card 3 -->
             <div class="flex flex-col items-center">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden mb-3 border border-gray-200">
@@ -2327,7 +2145,7 @@
                     <span class="font-bold">Pilih produk ruangbelajar</span> dengan klik <span class="font-bold">Lihat Paket Belajar</span>
                 </p>
             </div>
-            
+
             <!-- Card 4 -->
             <div class="flex flex-col items-center">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden mb-3 border border-gray-200">
@@ -2338,7 +2156,7 @@
                 </p>
             </div>
         </div>
-        
+
         <!-- Step Indicator (Row 2) -->
         <div class="flex justify-between items-center px-4 mb-8">
             <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white font-semibold">5</div>
@@ -2349,7 +2167,7 @@
             <div class="flex-1 border-t-2 border-dashed border-teal-400 mx-2"></div>
             <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white font-semibold">8</div>
         </div>
-        
+
         <!-- Row 2 Cards -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
             <!-- Card 5 -->
@@ -2361,7 +2179,7 @@
                     <span class="font-bold">Pilih kode diskon</span> yang tersedia (jika ada) kemudian pilih salah satu metode pembayarannya
                 </p>
             </div>
-            
+
             <!-- Card 6 -->
             <div class="flex flex-col items-center">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden mb-3 border border-gray-200">
@@ -2371,7 +2189,7 @@
                     <span class="font-bold">Kamu akan diarahkan ke detail pemesanan paket</span> di halaman <span class="font-bold">Draft Invoice</span>. Selanjutnya, klik <span class="font-bold">Pilih Metode Pembayaran</span>
                 </p>
             </div>
-            
+
             <!-- Card 7 -->
             <div class="flex flex-col items-center">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden mb-3 border border-gray-200">
@@ -2381,7 +2199,7 @@
                     <span class="font-bold">Pilih metode pembayaran</span> yang kamu inginkan
                 </p>
             </div>
-            
+
             <!-- Card 8 -->
             <div class="flex flex-col items-center">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden mb-3 border border-gray-200">

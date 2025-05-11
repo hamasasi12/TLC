@@ -16,14 +16,17 @@
 
 <body>
     <header class="mb-20">
-        <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-sm border-b border-gray-200">
+        {{-- <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-sm border-b border-gray-200"> --}}
+        <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-lg border-b border-gray-200 overflow-visible">
+
             <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-4 px-10">
 
                 <!-- Brand Section -->
                 <div class="flex items-center space-x-4">
                     <img src="{{ asset('assets/img/tlc.png') }}" class="h-10 w-10 md:h-14 md:w-14" alt="TLC Logo">
                     <div>
-                        <h1 class="text-lg md:text-2xl font-extrabold text-[#1D4E89] tracking-wide capitalize">TLC Program
+                        <h1 class="text-lg md:text-2xl font-extrabold text-[#1D4E89] tracking-wide capitalize">TLC
+                            Program
                         </h1>
                         <p class="text-xs md:text-sm text-gray-500 font-medium capitalize">
                             Teaching & Learning Certification
@@ -79,11 +82,14 @@
                     </div> --}}
                     <div class="relative">
                         <div class="flex items-center space-x-2">
-                            <svg class="h-5 w-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            <svg class="h-5 w-5 text-indigo-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                                </path>
                             </svg>
-                            <span class="font-medium text-gray-700">Selamat datang, <span class="text-indigo-600 font-semibold">{{ Auth::user()->name }}</span></span>
+                            <span class="font-medium text-gray-700">Selamat datang, <span
+                                    class="text-indigo-600 font-semibold">{{ Auth::user()->name }}</span></span>
                         </div>
                     </div>
 
@@ -100,7 +106,7 @@
 
                     <!-- Profile -->
                     <div class="relative">
-                        <button id="profile-button" class="flex items-center space-x-2">
+                        <button id="profile-button-asesi" class="flex items-center space-x-2">
                             <img src="{{ asset('storage/' . (Auth::user()->userProfile->profile_image ?? 'blankProfile.png')) }}"
                                 alt="Profile Image" class="w-12 h-12 rounded-full object-cover">
                             <svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -111,10 +117,14 @@
                         </button>
 
                         <!-- Dropdown -->
-                        <div id="profile-menu"
-                            class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg border border-gray-200 hidden z-50">
+                        <div id="profile-menu-asesi"
+                            class="absolute right-0 top-16 mt-2 w-48 bg-white rounded-md shadow-lg z-50 hidden">
+
                             <div class="py-2">
-                                <div class="px-4 py-2 hover:bg-gray-100 flex items-center space-x-3">
+                                <a href="{{ route('asesi.profile') }}"
+                                    class="block px-4 py-2 flex items-center space-x-3
+          {{ request()->routeIs('asesi.profile') ? 'text-[#1D4E89] font-bold' : 'text-gray-700 hover:bg-gray-100' }}">
+
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
@@ -122,7 +132,7 @@
                                         <circle cx="12" cy="7" r="4"></circle>
                                     </svg>
                                     <span class="text-gray-700">Lihat Profil</span>
-                                </div>
+                                </a>
                                 <div>
                                     <form method="POST" action="{{ route('logout') }}" class="w-full">
                                         @csrf
@@ -152,8 +162,8 @@
                     document.getElementById('mobile-menu').classList.toggle('hidden');
                 });
 
-                const profileButton = document.getElementById("profile-button");
-                const profileMenu = document.getElementById("profile-menu");
+                const profileButton = document.getElementById("profile-button-asesi");
+                const profileMenu = document.getElementById("profile-menu-asesi");
                 profileButton.addEventListener("click", function(event) {
                     event.stopPropagation();
                     profileMenu.classList.toggle("hidden");
@@ -248,6 +258,16 @@
         </section>
 
     </footer>
+
+    <style>
+        #profile-menu-asesi {
+            position: absolute;
+            z-index: 999;
+            top: 100%;
+            right: 0;
+            will-change: transform;
+        }
+    </style>
 
 </body>
 
