@@ -21,15 +21,30 @@
             <!-- Search & Info -->
             <div class="flex flex-wrap items-center gap-3">
                 <!-- Search -->
-                <form action="{{ route('admin.asesi.index') }}" method="GET" class="relative">
-                    <input type="text" name="search"
-                        class="pl-9 pr-3 py-2 rounded-md border border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500"
-                        placeholder="Cari Soal..." value="{{ request('search') }}">
-                    <div class="absolute left-2.5 top-2 text-gray-400">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
-                        </svg>
+                <form action="{{ route('admin.question.a.index') }}" method="GET"
+                    class="relative flex items-center space-x-2">
+                    <div>
+                        <input type="text" name="keyword"
+                            class="pl-9 pr-3 py-2 rounded-md border border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500"
+                            placeholder="Cari Soal..." value="{{ request('keyword') }}">
+                        <div class="absolute left-2.5 top-2 text-gray-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <select id="category_id" name="category_id"
+                            class=" py-2 rounded-md border border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="">Semua Kategori</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"
+                                    {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <button class="px-3 py-1.5 bg-blue-600 text-white text-sm rounded">
                         Filter
@@ -37,13 +52,19 @@
                 </form>
 
                 <!-- Total Soals -->
+                @php
+                    $totalSoal = 0;
+                    foreach ($countSoal as $index) {
+                        $totalSoal += $index['question_count'];
+                    }
+                @endphp
                 <div class="text-gray-600 text-sm flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                     </svg>
-                    Total Soal
+                    Total Soal : {{ $totalSoal }}
                 </div>
 
                 <!-- Actions -->
@@ -55,8 +76,8 @@
                         </button>
                     </a>
                     <button class="px-3 py-1.5 border text-gray-600 text-sm rounded hover:bg-gray-50"
-                        data-popover-target="popover-export" data-popover-trigger="hover">
-                        Export
+                        data-popover-target="popover-exportImport" data-popover-trigger="hover">
+                        Export/Import
                     </button>
                     {{-- <button class="p-2 border rounded text-gray-500 hover:bg-gray-100">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -119,7 +140,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach ($questions as $index)
+                    @forelse ($questions as $index)
                         <tr class="hover:bg-gray-50 transition-colors">
                             <!-- Row Number -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
@@ -183,7 +204,7 @@
                                         @method('DELETE')
                                         <button type="submit"
                                             class="p-2 text-red-600 bg-red-50 rounded-md hover:bg-red-100 transition-colors"
-                                            title   ="Delete User">
+                                            title="Delete User">
                                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd"
@@ -195,7 +216,14 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        @livewire('empty-state', [
+                            'title' => 'Tidak Ada Data',
+                            'message' => $emptyStateMessage,
+                            'colspan' => 6,
+                            'showButton' => false,
+                        ])
+                    @endforelse
                 </tbody>
             </table>
         </div>
@@ -316,16 +344,27 @@
         <div data-popper-arrow></div>
     </div>
 
-    <div data-popover id="popover-export" role="tooltip"
-        class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
-        <div class="px-3 py-2 bg-blue-50 border-b border-gray-200 rounded-t-lg">
-            <h3 class="font-semibold text-blue-600">Export Soal </h3>
+    <div data-popover id="popover-exportImport" role="tooltip"
+        class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 transform scale-95 hover:scale-100 focus:scale-100">
+        <div class="px-4 py-2 bg-blue-50 border-b border-gray-200 rounded-t-lg">
+            <h3 class="font-semibold text-blue-600">Export Soal</h3>
         </div>
-        <div class="px-3 py-2">
-            <p>Tindakan ini akan membuat file excel dari data soal.</p>
+        <div class="px-4 py-2">
+            <p class="text-gray-600 mb-4">Tindakan ini akan membuat file excel dari data soal.</p>
+            <div class="flex space-x-2">
+                <button
+                    class="px-4 py-2 w-full bg-blue-600 text-white text-sm font-medium rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    Export
+                </button>
+                <button
+                    class="px-4 py-2 w-full bg-green-600 text-white text-sm font-medium rounded-md shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+                    Import
+                </button>
+            </div>
         </div>
         <div data-popper-arrow></div>
     </div>
+
 
     <div id="imageModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="bg-white p-4 rounded shadow relative max-w-md w-full">
@@ -339,8 +378,7 @@
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
             @foreach ($countSoal as $index)
                 <li>
-                    <div
-                        class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <div class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
                         {{ $index['name'] }}
                         <span class="font-semibold text-red-500">{{ $index['question_count'] }}</span>
                     </div>
@@ -363,25 +401,3 @@
         }
     </script>
 @endsection
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    <header>
-        <nav class="flex justify-center items-cente">
-
-        </nav>
-    </header>
-    <main></main>
-    <footer></footer>
-</body>
-
-</html>

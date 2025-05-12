@@ -113,7 +113,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach ($asesors as $asesor)
+                    @forelse ($asesors as $asesor)
                         <tr class="hover:bg-gray-50 transition-colors">
                             <td class="px-4 py-3 text-sm text-gray-500">{{ $loop->iteration }}</td>
 
@@ -183,7 +183,13 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        @livewire('empty-state', [
+                            'title' => 'Tidak Ada Data',
+                            'colspan' => 9,
+                            'message' => 'Data asesor belum tersedia. Klik tombol "Tambah Asesor" di kanan atas untuk membuat data asesor baru.',
+                        ])
+                    @endforelse
                 </tbody>
 
             </table>

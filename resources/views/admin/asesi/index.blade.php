@@ -115,7 +115,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach ($userProfile as $index => $user)
+                    @forelse ($userProfile as $index => $user)
                         <tr class="hover:bg-gray-50 transition-colors">
                             <!-- Row Number -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
@@ -237,7 +237,16 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                        @empty
+                          @livewire('empty-state', [
+                            'title' => 'Tidak Ada Data',
+                            'colspan' => 9,
+                            'message' => 'Data asesi belum tersedia. Klik tombol "Tambah Asesi" di kanan untuk membuat data asesi baru.',
+                           
+                           
+                            
+                        ])
+                    @endforelse
                 </tbody>
             </table>
         </div>

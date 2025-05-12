@@ -91,9 +91,29 @@ class LevelAController extends Controller
         }
     }
 
-    public function bankSoalIndex()
+    public function bankSoalIndex(Request $request)
     {
-        $questions = QuestionA::with('categoryA')->paginate(10);
+        $query = QuestionA::with('categoryA');
+
+        if ($request->filled('keyword')) {
+            $keyword = $request->keyword;
+            $query->where(function ($q) use ($keyword) {
+                $q->where('question_text', 'like', "%{$keyword}%")
+                    ->orWhere('option_a', 'like', "%{$keyword}%")
+                    ->orWhere('option_b', 'like', "%{$keyword}%")
+                    ->orWhere('option_c', 'like', "%{$keyword}%")
+                    ->orWhere('option_d', 'like', "%{$keyword}%");
+            });
+            $emptyStateMessage = 'Tidak ditemukan soal yang cocok dengan kata kunci: '. $keyword;
+        }
+
+        if ($request->filled('category_id')) {
+            $query->where('category_a_id', $request->category_id);
+            $emptyState = CategoryA::where('id', $request->category_id)->first()->name;
+            $emptyStateMessage = 'Tidak ditemukan soal dengan kategori ' . $emptyState;
+        }
+
+        $questions = $query->paginate(10)->withQueryString();
 
         $categories = CategoryA::all();
 
@@ -108,8 +128,9 @@ class LevelAController extends Controller
         return view('admin.questions.bankSoalIndex', [
             'title' => 'Bank Soal Level A',
             'questions' => $questions,
-            'countSoal' => $categoriesWithCount
-
+            'categories' => $categories, //
+            'countSoal' => $categoriesWithCount,
+            'emptyStateMessage' => $emptyStateMessage ?? 'Belum ada pertanyaan yang tersedia saat ini',
         ]);
     }
 
