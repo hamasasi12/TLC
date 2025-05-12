@@ -13,6 +13,7 @@ use App\Http\Requests\QuestionARequest;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class LevelAController extends Controller
 {
@@ -55,7 +56,33 @@ class LevelAController extends Controller
 
     public function categoriesShow(string $id)
     {
-        return view('admin.categories.categories-a-show');
+        try {
+            // Find the category
+            $category = CategoryA::findOrFail($id);
+
+            // Get questions related to this category
+            $questions = QuestionA::where('category_a_id', $category->id)
+                        ->orderBy('created_at', 'desc')
+                        ->paginate(10); // Adjust pagination as needed
+
+            // Count total questions
+            $questionCount = QuestionA::where('category_a_id', $category->id)->count();
+
+            return view('admin.categories.categories-a-show', [
+                'title' => 'Detail Kategori',
+                'category' => $category,
+                'questions' => $questions,
+                'questionCount' => $questionCount
+            ]);
+        } catch (ModelNotFoundException $e) {
+            Log::warning('Category show failed: Category A with ID ' . $id . ' not found');
+            return redirect()->route('admin.categories.a.index')
+                ->with('error', 'Data kategori A tidak ditemukan.');
+        } catch (Exception $e) {
+            Log::error('Category show failed with exception: ' . $e->getMessage());
+            return redirect()->route('admin.categories.a.index')
+                ->with('error', 'Terjadi kesalahan saat menampilkan data kategori A. Silakan coba lagi.');
+        }
     }
 
     public function categoriesUpdate(Request $request, string $id)
@@ -80,6 +107,7 @@ class LevelAController extends Controller
 
             return redirect()->route('admin.categories.a.index')
                 ->with('success', 'Data kategori A berhasil diubah.');
+
 
         } catch (ValidationException $e) {
             Log::error('Category update validation failed: ' . json_encode($e->errors()));

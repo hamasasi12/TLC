@@ -4,143 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TLC Program Navbar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
-
-    {{-- Navbar --}}
-    <header class="mb-20">
-        <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-lg border-b border-gray-200">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-6">
-
-                <!-- Brand Section -->
-                <div class="flex items-center space-x-4">
-                    <img src="images/logo.svg" class="h-10 w-10 md:h-14 md:w-14" alt="TLC Logo">
-                    <div>
-                        <h1 class="text-lg md:text-2xl font-bold text-gray-800 tracking-wide capitalize">TLC Program
-                        </h1>
-                        <p class="text-xs md:text-sm text-gray-500 font-medium capitalize">
-                            Teaching & Learning Certification
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Mobile Menu Toggle -->
-                <div class="lg:hidden">
-                    <button id="mobile-menu-toggle" class="text-gray-700 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Navigation Menu -->
-                <div id="mobile-menu"
-                    class="hidden lg:flex fixed lg:static inset-x-0 top-16 lg:top-0 bg-white lg:bg-transparent pb-4 lg:pb-0 border-b lg:border-0">
-                    <div
-                        class="container mx-auto px-4 lg:px-0 flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6">
-                        <a href="#dashboard"
-                            class="text-gray-800 font-semibold hover:text-blue-600 transition transform hover:scale-105 capitalize">Dashboard</a>
-                        <a href="#sertifikasi"
-                            class="text-gray-800 font-semibold hover:text-blue-600 transition transform hover:scale-105 capitalize">Sertifikasi</a>
-                        <a href="#transaksi"
-                            class="text-gray-800 font-semibold hover:text-blue-600 transition transform hover:scale-105 capitalize">Transaksi</a>
-                    </div>
-                </div>
-
-                <!-- User Interaction -->
-                <div class="hidden lg:flex items-center space-x-4">
-
-                    <!-- Search -->
-                    <div class="relative">
-                        <input type="text" placeholder="Cari Data"
-                            class="pl-8 pr-2 py-2 w-40 rounded-full bg-gray-100 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm">
-                        <svg class="absolute left-2 top-3 h-4 w-4 text-gray-500" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.15 12.65z"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Notification -->
-                    <div class="relative">
-                        <svg class="h-7 w-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14V11a6 6 0 10-12 0v3c0 .386-.149.757-.405 1.035L4 17h5m6 0a3 3 0 11-6 0">
-                            </path>
-                        </svg>
-                        <span
-                            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">3</span>
-                    </div>
-
-                    <!-- Profile -->
-                    <div class="relative">
-                        <button id="profile-button" class="flex items-center space-x-2">
-                            <img src="images/aliando.jpg"
-                                class="h-10 w-10 rounded-full object-cover border-2 border-gray-300 shadow-md"
-                                alt="Profile">
-                            <svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-
-                        <!-- Dropdown -->
-                        <div id="profile-menu"
-                            class="absolute right-0 top-16 w-64 bg-white shadow-lg rounded-lg border border-gray-200 hidden">
-                            <div class="py-2">
-                                <div class="px-4 py-2 hover:bg-gray-100 flex items-center space-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                    <span class="text-gray-700">Lihat Profil</span>
-                                </div>
-                                <div class="px-4 py-2 hover:bg-gray-100 flex items-center space-x-3 text-red-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                        <polyline points="16 17 21 12 16 7"></polyline>
-                                        <line x1="21" y1="12" x2="9" y2="12"></line>
-                                    </svg>
-                                    <span>Logout</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-                    document.getElementById('mobile-menu').classList.toggle('hidden');
-                });
-
-                const profileButton = document.getElementById("profile-button");
-                const profileMenu = document.getElementById("profile-menu");
-                profileButton.addEventListener("click", function(event) {
-                    event.stopPropagation();
-                    profileMenu.classList.toggle("hidden");
-                });
-                document.addEventListener("click", function(event) {
-                    if (!profileMenu.contains(event.target) && !profileButton.contains(event.target)) {
-                        profileMenu.classList.add("hidden");
-                    }
-                });
-            });
-        </script>
-    </header>
-    {{-- End Navbar --}}
-
     {{-- Banner --}}
     <section class="relative max-w-7xl mx-auto px-4 py-8">
         <!-- Navigation Buttons -->
@@ -280,8 +151,8 @@
             <!-- Enhanced Header with Animation -->
             <div class="text-center mb-12 md:mb-16">
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 animate-pulse"
-                    style="background: linear-gradient(90deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%); 
-                    -webkit-background-clip: text; background-clip: text; color: transparent; 
+                    style="background: linear-gradient(90deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
+                    -webkit-background-clip: text; background-clip: text; color: transparent;
                     text-shadow: 0px 2px 15px rgba(59, 130, 246, 0.3);">
                     PROMO SPESIAL TLC!
                 </h2>
@@ -297,13 +168,13 @@
                 <!-- Enhanced Promo Card 1 -->
                 <div class="relative group transform transition duration-500 hover:scale-105">
                     <div
-                        class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl opacity-75 
+                        class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl opacity-75
                         group-hover:opacity-90 transition duration-300 blur-lg group-hover:blur-xl animate-pulse">
                     </div>
                     <div class="relative bg-white rounded-3xl overflow-hidden shadow-2xl border border-blue-100">
                         <div class="absolute -top-1 -right-1">
                             <div
-                                class="bg-gradient-to-r from-blue-700 to-blue-500 text-white px-8 py-2 
+                                class="bg-gradient-to-r from-blue-700 to-blue-500 text-white px-8 py-2
                                 transform rotate-12 shadow-lg font-bold text-lg">
                                 DISKON 48%</div>
                         </div>
@@ -327,12 +198,12 @@
                                 </p>
                             </div>
                             <button
-                                class="relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white 
-                                px-8 py-4 rounded-full text-lg font-bold transform transition duration-300 
+                                class="relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white
+                                px-8 py-4 rounded-full text-lg font-bold transform transition duration-300
                                 hover:shadow-lg hover:shadow-blue-500/50">
                                 <span class="relative z-10">KLAIM SEKARANG</span>
                                 <span
-                                    class="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 transform scale-x-0 
+                                    class="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 transform scale-x-0
                                     group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
                             </button>
                         </div>
@@ -342,13 +213,13 @@
                 <!-- Enhanced Promo Card 2 -->
                 <div class="relative group transform transition duration-500 hover:scale-105">
                     <div
-                        class="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-3xl opacity-75 
+                        class="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-3xl opacity-75
                         group-hover:opacity-90 transition duration-300 blur-lg group-hover:blur-xl animate-pulse">
                     </div>
                     <div class="relative bg-white rounded-3xl overflow-hidden shadow-2xl border border-green-100">
                         <div class="absolute -top-1 -right-1">
                             <div
-                                class="bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-2 
+                                class="bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-2
                                 transform rotate-12 shadow-lg font-bold text-lg">
                                 KUPON</div>
                         </div>
@@ -372,12 +243,12 @@
                                 </p>
                             </div>
                             <button
-                                class="relative overflow-hidden bg-gradient-to-r from-green-600 to-green-500 text-white 
-                                px-8 py-4 rounded-full text-lg font-bold transform transition duration-300 
+                                class="relative overflow-hidden bg-gradient-to-r from-green-600 to-green-500 text-white
+                                px-8 py-4 rounded-full text-lg font-bold transform transition duration-300
                                 hover:shadow-lg hover:shadow-green-500/50">
                                 <span class="relative z-10">KLAIM SEKARANG</span>
                                 <span
-                                    class="absolute inset-0 bg-gradient-to-r from-green-700 to-green-600 transform scale-x-0 
+                                    class="absolute inset-0 bg-gradient-to-r from-green-700 to-green-600 transform scale-x-0
                                     group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
                             </button>
                         </div>
@@ -387,13 +258,13 @@
                 <!-- Enhanced Promo Card 3 -->
                 <div class="relative group transform transition duration-500 hover:scale-105">
                     <div
-                        class="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-indigo-400 rounded-3xl opacity-75 
+                        class="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-indigo-400 rounded-3xl opacity-75
                         group-hover:opacity-90 transition duration-300 blur-lg group-hover:blur-xl animate-pulse">
                     </div>
                     <div class="relative bg-white rounded-3xl overflow-hidden shadow-2xl border border-indigo-100">
                         <div class="absolute -top-1 -right-1">
                             <div
-                                class="bg-gradient-to-r from-indigo-700 to-indigo-500 text-white px-8 py-2 
+                                class="bg-gradient-to-r from-indigo-700 to-indigo-500 text-white px-8 py-2
                                 transform rotate-12 shadow-lg font-bold text-lg">
                                 DISKON 25%</div>
                         </div>
@@ -417,12 +288,12 @@
                                 </p>
                             </div>
                             <button
-                                class="relative overflow-hidden bg-gradient-to-r from-indigo-600 to-indigo-500 text-white 
-                                px-8 py-4 rounded-full text-lg font-bold transform transition duration-300 
+                                class="relative overflow-hidden bg-gradient-to-r from-indigo-600 to-indigo-500 text-white
+                                px-8 py-4 rounded-full text-lg font-bold transform transition duration-300
                                 hover:shadow-lg hover:shadow-indigo-500/50">
                                 <span class="relative z-10">KLAIM SEKARANG</span>
                                 <span
-                                    class="absolute inset-0 bg-gradient-to-r from-indigo-700 to-indigo-600 transform scale-x-0 
+                                    class="absolute inset-0 bg-gradient-to-r from-indigo-700 to-indigo-600 transform scale-x-0
                                     group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
                             </button>
                         </div>
@@ -435,12 +306,12 @@
                 <p class="text-xl text-gray-700 mb-4">Jangan lewatkan kesempatan terbatas ini!</p>
                 <div class="inline-block relative group">
                     <div
-                        class="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full opacity-70 
+                        class="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full opacity-70
                         group-hover:opacity-100 blur-sm group-hover:blur-md transition duration-300">
                     </div>
                     <button
-                        class="relative bg-white px-8 py-4 rounded-full text-xl font-bold 
-                        bg-gradient-to-r from-pink-600 to-purple-600 text-white transform transition duration-300 
+                        class="relative bg-white px-8 py-4 rounded-full text-xl font-bold
+                        bg-gradient-to-r from-pink-600 to-purple-600 text-white transform transition duration-300
                         hover:scale-105 active:scale-95">
                         DAFTAR SEKARANG
                     </button>
@@ -1277,11 +1148,11 @@
                 </button>
             </div>
         </div>
-        
+
         <p class="text-gray-600 text-base mb-10 text-center sm:text-left max-w-2xl">
             Daftar kategori kuis yang akan anda kerjakan. Selesaikan setiap kategori untuk membuka level berikutnya!
         </p>
-    
+
         <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center sm:justify-start gap-3 mb-10">
             <button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
@@ -1303,7 +1174,7 @@
                 Terkunci
             </button>
         </div>
-    
+
         <!-- Categories -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Literasi -->
@@ -1354,7 +1225,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- Numerasi -->
             <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                 <div class="relative">
@@ -1409,7 +1280,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- PCK -->
             <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                 <div class="relative">
@@ -1464,7 +1335,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- HOTS -->
             <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                 <div class="relative">
@@ -1544,11 +1415,11 @@
                 </button>
             </div>
         </div>
-        
+
         <p class="text-gray-600 text-base mb-10 text-center sm:text-left max-w-2xl">
             Daftar kategori kuis yang akan anda kerjakan. Selesaikan setiap kategori untuk membuka level berikutnya!
         </p>
-    
+
         <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center sm:justify-start gap-3 mb-10">
             <button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
@@ -1570,7 +1441,7 @@
                 Terkunci
             </button>
         </div>
-    
+
         <!-- Categories -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Literasi -->
@@ -1621,7 +1492,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- Numerasi -->
             <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                 <div class="relative">
@@ -1676,7 +1547,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- PCK -->
             <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                 <div class="relative">
@@ -1731,7 +1602,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- HOTS -->
             <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                 <div class="relative">
@@ -1811,11 +1682,11 @@
                 </button>
             </div>
         </div>
-        
+
         <p class="text-gray-600 text-base mb-10 text-center sm:text-left max-w-2xl">
             Daftar kategori kuis yang akan anda kerjakan. Selesaikan setiap kategori untuk membuka level berikutnya!
         </p>
-    
+
         <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center sm:justify-start gap-3 mb-10">
             <button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 flex items-center">
@@ -1837,7 +1708,7 @@
                 Terkunci
             </button>
         </div>
-    
+
         <!-- Categories -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Literasi -->
@@ -1888,7 +1759,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- Numerasi -->
             <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                 <div class="relative">
@@ -1943,7 +1814,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- PCK -->
             <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                 <div class="relative">
@@ -1998,7 +1869,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- HOTS -->
             <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:scale-105 hover:shadow-xl group">
                 <div class="relative">
@@ -2057,68 +1928,7 @@
     </section>
     {{-- End C --}}
 
-    {{-- </main> --}}
-    <footer class="bg-[#0D3B66] text-white py-10">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- TLC Program -->
-            <div>
-                <h2 class="text-lg font-semibold">TLC Program</h2>
-                <p class="text-sm mt-2">
-                    Program sertifikasi untuk memberdayakan pendidik dengan pengetahuan dan keterampilan mengajar yang
-                    efektif.
-                </p>
-                <div class="flex space-x-4 mt-4">
-                    <a href="#" class="hover:text-gray-300 text-xl"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="hover:text-gray-300 text-xl"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-gray-300 text-xl"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-gray-300 text-xl"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-
-            <!-- Tautan Cepat -->
-            <div>
-                <h2 class="text-lg font-semibold">Tautan Cepat</h2>
-                <ul class="mt-2 space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-gray-300">Tentang TLC</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Manfaat</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Kurikulum</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Paket Harga</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Pendaftaran</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Galeri</a></li>
-                </ul>
-            </div>
-
-            <!-- Kontak -->
-            <div class="sm:col-span-2 lg:col-span-1">
-                <h2 class="text-lg font-semibold">Kontak</h2>
-                <ul class="mt-2 space-y-3 text-sm">
-                    <li class="flex items-start gap-2">
-                        <i class="fas fa-map-marker-alt text-yellow-400 mt-1"></i>
-                        <span>Jl. Pendidikan No. 123, Jakarta Pusat, Indonesia</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fas fa-phone-alt text-yellow-400"></i>
-                        <span>+62 21 1234 5678</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fas fa-envelope text-yellow-400"></i>
-                        <span>info@tlcprogram.id</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <hr class="border-gray-500 my-6 mx-4 sm:mx-6 lg:mx-8">
-
-        <div class="text-center text-xs sm:text-sm px-4">
-            © 2025 Teaching and Learning Certification Program. All rights reserved.
-        </div>
-
-        <!-- FontAwesome for Icons -->
-        <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
-    </footer>
-    {{-- end footer --}}
-
+    
 </body>
 
 </html>

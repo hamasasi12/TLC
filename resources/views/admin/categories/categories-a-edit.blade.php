@@ -7,7 +7,7 @@
         <!-- Header with breadcrumb -->
         <div
             class="flex items-center justify-between p-4 mb-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg">
-            <a href="{{ route('admin.asesi.index') }}"
+            <a href="{{ route('admin.categories.a.index') }}"
                 class="inline-flex items-center px-4 py-2 rounded-lg bg-white text-blue-800 hover:bg-blue-50 transition-colors duration-200 shadow">
                 <i class="mr-2 fa-solid fa-arrow-left-long"></i> Kembali
             </a>

@@ -13,135 +13,6 @@
 
 <body class="bg-abu">
 
-    {{-- Navbar --}}
-    <header class="mb-20">
-        <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-lg border-b border-gray-200">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-6">
-
-                <!-- Brand Section -->
-                <div class="flex items-center space-x-4">
-                    <img src="images/logo.svg" class="h-10 w-10 md:h-14 md:w-14" alt="TLC Logo">
-                    <div>
-                        <h1 class="text-lg md:text-2xl font-bold text-gray-800 tracking-wide capitalize">TLC Program
-                        </h1>
-                        <p class="text-xs md:text-sm text-gray-500 font-medium capitalize">
-                            Teaching & Learning Certification
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Mobile Menu Toggle -->
-                <div class="lg:hidden">
-                    <button id="mobile-menu-toggle" class="text-gray-700 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Navigation Menu -->
-                <div id="mobile-menu"
-                    class="hidden lg:flex fixed lg:static inset-x-0 top-16 lg:top-0 bg-white lg:bg-transparent pb-4 lg:pb-0 border-b lg:border-0">
-                    <div
-                        class="container mx-auto px-4 lg:px-0 flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6">
-                        <a href="#dashboard"
-                            class="text-gray-800 font-semibold hover:text-blue-600 transition transform hover:scale-105 capitalize">Dashboard</a>
-                        <a href="#sertifikasi"
-                            class="text-gray-800 font-semibold hover:text-blue-600 transition transform hover:scale-105 capitalize">Sertifikasi</a>
-                        <a href="#transaksi"
-                            class="text-gray-800 font-semibold hover:text-blue-600 transition transform hover:scale-105 capitalize">Transaksi</a>
-                    </div>
-                </div>
-
-                <!-- User Interaction -->
-                <div class="hidden lg:flex items-center space-x-4">
-
-                    <!-- Search -->
-                    <div class="relative">
-                        <input type="text" placeholder="Cari Data"
-                            class="pl-8 pr-2 py-2 w-40 rounded-full bg-gray-100 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm">
-                        <svg class="absolute left-2 top-3 h-4 w-4 text-gray-500" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.15 12.65z"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Notification -->
-                    <div class="relative">
-                        <svg class="h-7 w-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14V11a6 6 0 10-12 0v3c0 .386-.149.757-.405 1.035L4 17h5m6 0a3 3 0 11-6 0">
-                            </path>
-                        </svg>
-                        <span
-                            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">3</span>
-                    </div>
-
-                    <!-- Profile -->
-                    <div class="relative">
-                        <button id="profile-button" class="flex items-center space-x-2">
-                            <img src="images/aliando.jpg"
-                                class="h-10 w-10 rounded-full object-cover border-2 border-gray-300 shadow-md"
-                                alt="Profile">
-                            <svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-
-                        <!-- Dropdown -->
-                        <div id="profile-menu"
-                            class="absolute right-0 top-16 w-64 bg-white shadow-lg rounded-lg border border-gray-200 hidden">
-                            <div class="py-2">
-                                <div class="px-4 py-2 hover:bg-gray-100 flex items-center space-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                    <span class="text-gray-700">Lihat Profil</span>
-                                </div>
-                                <div class="px-4 py-2 hover:bg-gray-100 flex items-center space-x-3 text-red-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                        <polyline points="16 17 21 12 16 7"></polyline>
-                                        <line x1="21" y1="12" x2="9" y2="12"></line>
-                                    </svg>
-                                    <span>Logout</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-                    document.getElementById('mobile-menu').classList.toggle('hidden');
-                });
-
-                const profileButton = document.getElementById("profile-button");
-                const profileMenu = document.getElementById("profile-menu");
-                profileButton.addEventListener("click", function(event) {
-                    event.stopPropagation();
-                    profileMenu.classList.toggle("hidden");
-                });
-                document.addEventListener("click", function(event) {
-                    if (!profileMenu.contains(event.target) && !profileButton.contains(event.target)) {
-                        profileMenu.classList.add("hidden");
-                    }
-                });
-            });
-        </script>
-    </header>
-    {{-- End Navbar --}}
 
     {{-- Tampilan Home --}}
     <main id="home" class="w-full px-5 py-12 bg-white text-gray-900 transition-all duration-500">
@@ -1420,13 +1291,13 @@
     {{-- <section class="max-w-7xl mx-auto px-4 md:px-8 py-10">
         <!-- Title -->
         <h2 class="text-3xl font-bold text-gray-800 mb-8">Artikel Terbaru</h2>
-    
+
         <!-- Articles Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Article 1 -->
             <div class="bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
-                    <img src="images/karakter.jpg" alt="Elastisitas Permintaan dan Penawaran" 
+                    <img src="images/karakter.jpg" alt="Elastisitas Permintaan dan Penawaran"
                         class="w-full h-64 object-cover">
                     <div class="absolute bottom-4 right-4">
                         <span class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full">Hafecs | TLC</span>
@@ -1437,11 +1308,11 @@
                     <p class="text-gray-600">March 26, 2025 • 5 minutes read</p>
                 </div>
             </div>
-    
+
             <!-- Article 2 -->
             <div class="bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
-                    <img src="images/konten_satu.jpg" alt="Piagam PBB" 
+                    <img src="images/konten_satu.jpg" alt="Piagam PBB"
                         class="w-full h-64 object-cover">
                     <div class="absolute bottom-4 right-4">
                         <span class="bg-gray-400 text-white font-bold px-6 py-2 rounded-full">Hafecs  | TLC</span>
@@ -1453,7 +1324,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Pagination Dots -->
         <div class="flex justify-center items-center mt-8 space-x-2">
             <span class="w-3 h-3 bg-teal-500 rounded-full"></span>
@@ -1462,7 +1333,7 @@
             <span class="w-3 h-3 bg-gray-300 rounded-full"></span>
             <span class="w-3 h-3 bg-gray-300 rounded-full"></span>
         </div>
-    
+
         <!-- Navigation Arrows -->
         <div class="flex justify-between items-center mt-4">
             <button class="p-2 rounded-full bg-gray-100 shadow-md">
@@ -1481,7 +1352,7 @@
     {{-- <section class="max-w-7xl mx-auto px-4 md:px-8 py-10">
         <!-- Title -->
         <h2 class="text-3xl font-bold text-gray-800 mb-8">Artikel Terbaru</h2>
-        
+
         <!-- Carousel Container -->
         <div class="carousel-container">
             <div class="carousel-track">
@@ -1500,7 +1371,7 @@
                             <p class="text-gray-600">March 26, 2025 • 5 minutes read</p>
                         </div>
                     </div>
-                    
+
                     <!-- Article 2 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md">
                         <div class="relative">
@@ -1515,7 +1386,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slide 2 -->
                 <div class="carousel-slide">
                     <!-- Article 3 -->
@@ -1531,7 +1402,7 @@
                             <p class="text-gray-600">March 20, 2025 • 6 minutes read</p>
                         </div>
                     </div>
-                    
+
                     <!-- Article 4 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md">
                         <div class="relative">
@@ -1546,7 +1417,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slide 3 -->
                 <div class="carousel-slide">
                     <!-- Article 5 -->
@@ -1562,7 +1433,7 @@
                             <p class="text-gray-600">March 10, 2025 • 4 minutes read</p>
                         </div>
                     </div>
-                    
+
                     <!-- Article 6 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md">
                         <div class="relative">
@@ -1577,7 +1448,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slide 4 -->
                 <div class="carousel-slide">
                     <!-- Article 7 -->
@@ -1593,7 +1464,7 @@
                             <p class="text-gray-600">March 1, 2025 • 9 minutes read</p>
                         </div>
                     </div>
-                    
+
                     <!-- Article 8 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md">
                         <div class="relative">
@@ -1608,7 +1479,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slide 5 -->
                 <div class="carousel-slide">
                     <!-- Article 9 -->
@@ -1624,7 +1495,7 @@
                             <p class="text-gray-600">February 20, 2025 • 7 minutes read</p>
                         </div>
                     </div>
-                    
+
                     <!-- Article 10 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md">
                         <div class="relative">
@@ -1641,7 +1512,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Pagination Dots -->
         <div class="flex justify-center items-center mt-8 space-x-2">
             <span class="w-3 h-3 bg-teal-500 rounded-full" data-index="0"></span>
@@ -1650,7 +1521,7 @@
             <span class="w-3 h-3 bg-gray-300 rounded-full" data-index="3"></span>
             <span class="w-3 h-3 bg-gray-300 rounded-full" data-index="4"></span>
         </div>
-        
+
         <!-- Navigation Arrows -->
         <div class="flex justify-between items-center mt-4">
             <button class="prev-button p-2 rounded-full bg-gray-100 shadow-md">
@@ -1671,15 +1542,15 @@
                 const dots = Array.from(document.querySelectorAll('[data-index]'));
                 const prevButton = document.querySelector('.prev-button');
                 const nextButton = document.querySelector('.next-button');
-                
+
                 let currentIndex = 0;
                 const slideWidth = 100; // 100%
-                
+
                 // Initialize the carousel
                 function updateCarousel() {
                     // Update track position
                     track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
-                    
+
                     // Update dots
                     dots.forEach((dot, index) => {
                         if (index === currentIndex) {
@@ -1690,12 +1561,12 @@
                             dot.classList.add('bg-gray-300');
                         }
                     });
-                    
+
                     // Update button states
                     prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
                     nextButton.style.opacity = currentIndex === slides.length - 1 ? '0.5' : '1';
                 }
-                
+
                 // Handle prev button click
                 prevButton.addEventListener('click', function() {
                     if (currentIndex > 0) {
@@ -1703,7 +1574,7 @@
                         updateCarousel();
                     }
                 });
-                
+
                 // Handle next button click
                 nextButton.addEventListener('click', function() {
                     if (currentIndex < slides.length - 1) {
@@ -1711,7 +1582,7 @@
                         updateCarousel();
                     }
                 });
-                
+
                 // Handle dot clicks
                 dots.forEach((dot) => {
                     dot.addEventListener('click', function() {
@@ -1719,7 +1590,7 @@
                         updateCarousel();
                     });
                 });
-                
+
                 // Initialize
                 updateCarousel();
             });
@@ -1730,232 +1601,232 @@
                 margin: 0;
                 padding: 0;
             }
-            
+
             .max-w-7xl {
                 max-width: 80rem;
             }
-            
+
             .mx-auto {
                 margin-left: auto;
                 margin-right: auto;
             }
-            
+
             .px-4 {
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
-            
+
             .py-10 {
                 padding-top: 2.5rem;
                 padding-bottom: 2.5rem;
             }
-            
+
             .text-3xl {
                 font-size: 1.875rem;
                 line-height: 2.25rem;
             }
-            
+
             .font-bold {
                 font-weight: 700;
             }
-            
+
             .text-gray-800 {
                 color: #1f2937;
             }
-            
+
             .mb-8 {
                 margin-bottom: 2rem;
             }
-            
+
             .carousel-container {
                 position: relative;
                 overflow: hidden;
             }
-            
+
             .carousel-track {
                 display: flex;
                 transition: transform 0.5s ease-in-out;
             }
-            
+
             .carousel-slide {
                 flex: 0 0 100%;
                 max-width: 100%;
             }
-            
+
             @media (min-width: 768px) {
                 .md\:px-8 {
                     padding-left: 2rem;
                     padding-right: 2rem;
                 }
-                
+
                 .carousel-slide {
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
                     gap: 1.5rem;
                 }
             }
-            
+
             .bg-white {
                 background-color: white;
             }
-            
+
             .rounded-lg {
                 border-radius: 0.5rem;
             }
-            
+
             .overflow-hidden {
                 overflow: hidden;
             }
-            
+
             .shadow-md {
                 box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             }
-            
+
             .relative {
                 position: relative;
             }
-            
+
             .w-full {
                 width: 100%;
             }
-            
+
             .h-64 {
                 height: 16rem;
             }
-            
+
             .object-cover {
                 object-fit: cover;
             }
-            
+
             .absolute {
                 position: absolute;
             }
-            
+
             .bottom-4 {
                 bottom: 1rem;
             }
-            
+
             .right-4 {
                 right: 1rem;
             }
-            
+
             .bg-yellow-400 {
                 background-color: #facc15;
             }
-            
+
             .bg-gray-400 {
                 background-color: #9ca3af;
             }
-            
+
             .text-black {
                 color: #000;
             }
-            
+
             .text-white {
                 color: #fff;
             }
-            
+
             .px-6 {
                 padding-left: 1.5rem;
                 padding-right: 1.5rem;
             }
-            
+
             .py-2 {
                 padding-top: 0.5rem;
                 padding-bottom: 0.5rem;
             }
-            
+
             .rounded-full {
                 border-radius: 9999px;
             }
-            
+
             .p-4 {
                 padding: 1rem;
             }
-            
+
             .text-xl {
                 font-size: 1.25rem;
                 line-height: 1.75rem;
             }
-            
+
             .mb-2 {
                 margin-bottom: 0.5rem;
             }
-            
+
             .text-gray-600 {
                 color: #4b5563;
             }
-            
+
             .flex {
                 display: flex;
             }
-            
+
             .justify-center {
                 justify-content: center;
             }
-            
+
             .justify-between {
                 justify-content: space-between;
             }
-            
+
             .items-center {
                 align-items: center;
             }
-            
+
             .mt-8 {
                 margin-top: 2rem;
             }
-            
+
             .mt-4 {
                 margin-top: 1rem;
             }
-            
+
             .space-x-2 > * + * {
                 margin-left: 0.5rem;
             }
-            
+
             .w-3 {
                 width: 0.75rem;
             }
-            
+
             .h-3 {
                 height: 0.75rem;
             }
-            
+
             .bg-teal-500 {
                 background-color: #14b8a6;
             }
-            
+
             .bg-gray-300 {
                 background-color: #d1d5db;
             }
-            
+
             .p-2 {
                 padding: 0.5rem;
             }
-            
+
             .bg-gray-100 {
                 background-color: #f3f4f6;
             }
-            
+
             .h-6 {
                 height: 1.5rem;
             }
-            
+
             .w-6 {
                 width: 1.5rem;
             }
-            
+
             .text-gray-400 {
                 color: #9ca3af;
             }
-            
+
             button {
                 cursor: pointer;
                 border: none;
                 outline: none;
             }
-            
+
             /* Placeholder for images */
             .img-placeholder {
                 background-color: #e5e7eb;
@@ -1972,7 +1843,7 @@
     <section class="max-w-7xl mx-auto px-4 md:px-8 py-10">
         <!-- Title -->
         <h2 class="text-3xl font-bold text-gray-800 mb-8">Artikel Terbaru</h2>
-        
+
         <!-- Carousel Container -->
         <div class="carousel-container">
             <div class="carousel-track">
@@ -1991,7 +1862,7 @@
                             <p class="text-gray-600">March 26, 2025 • 5 minutes read</p>
                         </div>
                     </div>
-                    
+
                     <!-- Article 2 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                         <div class="relative">
@@ -2006,7 +1877,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slide 2 -->
                 <div class="carousel-slide">
                     <!-- Article 3 -->
@@ -2022,7 +1893,7 @@
                             <p class="text-gray-600">March 20, 2025 • 6 minutes read</p>
                         </div>
                     </div>
-                    
+
                     <!-- Article 4 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                         <div class="relative">
@@ -2037,7 +1908,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slide 3 -->
                 <div class="carousel-slide">
                     <!-- Article 5 -->
@@ -2053,7 +1924,7 @@
                             <p class="text-gray-600">March 10, 2025 • 4 minutes read</p>
                         </div>
                     </div>
-                    
+
                     <!-- Article 6 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                         <div class="relative">
@@ -2068,7 +1939,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slide 4 -->
                 <div class="carousel-slide">
                     <!-- Article 7 -->
@@ -2084,7 +1955,7 @@
                             <p class="text-gray-600">March 1, 2025 • 9 minutes read</p>
                         </div>
                     </div>
-                    
+
                     <!-- Article 8 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                         <div class="relative">
@@ -2099,7 +1970,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slide 5 -->
                 <div class="carousel-slide">
                     <!-- Article 9 -->
@@ -2115,7 +1986,7 @@
                             <p class="text-gray-600">February 20, 2025 • 7 minutes read</p>
                         </div>
                     </div>
-                    
+
                     <!-- Article 10 -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md article-card">
                         <div class="relative">
@@ -2132,7 +2003,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Pagination Dots -->
         <div class="flex justify-center items-center mt-8 space-x-2">
             <span class="w-3 h-3 bg-teal-500 rounded-full dot" data-index="0"></span>
@@ -2141,7 +2012,7 @@
             <span class="w-3 h-3 bg-gray-300 rounded-full dot" data-index="3"></span>
             <span class="w-3 h-3 bg-gray-300 rounded-full dot" data-index="4"></span>
         </div>
-        
+
         <!-- Navigation Arrows -->
         <div class="flex justify-between items-center mt-4">
             <button class="prev-button p-2 rounded-full bg-gray-100 shadow-md nav-arrow">
@@ -2162,15 +2033,15 @@
                 const dots = Array.from(document.querySelectorAll('.dot'));
                 const prevButton = document.querySelector('.prev-button');
                 const nextButton = document.querySelector('.next-button');
-                
+
                 let currentIndex = 0;
                 const slideWidth = 100; // 100%
-                
+
                 // Initialize the carousel
                 function updateCarousel() {
                     // Update track position with smooth animation
                     track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
-                    
+
                     // Update dots
                     dots.forEach((dot, index) => {
                         if (index === currentIndex) {
@@ -2181,12 +2052,12 @@
                             dot.classList.add('bg-gray-300');
                         }
                     });
-                    
+
                     // Update button states
                     prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
                     nextButton.style.opacity = currentIndex === slides.length - 1 ? '0.5' : '1';
                 }
-                
+
                 // Handle prev button click
                 prevButton.addEventListener('click', function() {
                     if (currentIndex > 0) {
@@ -2194,7 +2065,7 @@
                         updateCarousel();
                     }
                 });
-                
+
                 // Handle next button click
                 nextButton.addEventListener('click', function() {
                     if (currentIndex < slides.length - 1) {
@@ -2202,7 +2073,7 @@
                         updateCarousel();
                     }
                 });
-                
+
                 // Handle dot clicks
                 dots.forEach((dot) => {
                     dot.addEventListener('click', function() {
@@ -2210,10 +2081,10 @@
                         updateCarousel();
                     });
                 });
-                
+
                 // Auto slide every 5 seconds
                 let autoSlideInterval = setInterval(autoSlide, 5000);
-                
+
                 function autoSlide() {
                     if (currentIndex < slides.length - 1) {
                         currentIndex++;
@@ -2222,30 +2093,30 @@
                     }
                     updateCarousel();
                 }
-                
+
                 // Pause auto slide on hover
                 const carouselContainer = document.querySelector('.carousel-container');
                 carouselContainer.addEventListener('mouseenter', function() {
                     clearInterval(autoSlideInterval);
                 });
-                
+
                 carouselContainer.addEventListener('mouseleave', function() {
                     autoSlideInterval = setInterval(autoSlide, 5000);
                 });
-                
+
                 // Touch events for mobile
                 let touchStartX = 0;
                 let touchEndX = 0;
-                
+
                 carouselContainer.addEventListener('touchstart', function(e) {
                     touchStartX = e.changedTouches[0].screenX;
                 });
-                
+
                 carouselContainer.addEventListener('touchend', function(e) {
                     touchEndX = e.changedTouches[0].screenX;
                     handleSwipe();
                 });
-                
+
                 function handleSwipe() {
                     const swipeThreshold = 50;
                     if (touchEndX < touchStartX - swipeThreshold) {
@@ -2262,7 +2133,7 @@
                         }
                     }
                 }
-                
+
                 // Initialize
                 updateCarousel();
             });
@@ -2274,88 +2145,88 @@
                 border-radius: 0.75rem;
                 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             }
-            
+
             .carousel-track {
                 display: flex;
                 transition: transform 0.5s ease-in-out;
             }
-            
+
             .carousel-slide {
                 flex: 0 0 100%;
                 max-width: 100%;
             }
-            
+
             @media (min-width: 768px) {
                 .md\:px-8 {
                     padding-left: 2rem;
                     padding-right: 2rem;
                 }
-                
+
                 .carousel-slide {
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
                     gap: 1.5rem;
                 }
             }
-            
+
             button {
                 cursor: pointer;
                 border: none;
                 outline: none;
                 transition: all 0.3s ease;
             }
-            
+
             button:hover {
                 transform: scale(1.05);
             }
-            
+
             .article-card {
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
             }
-            
+
             .article-card:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             }
-            
+
             .article-image {
                 width: 100%;
                 height: 16rem;
                 object-fit: cover;
                 transition: transform 0.5s ease;
             }
-            
+
             .article-card:hover .article-image {
                 transform: scale(1.05);
             }
-            
+
             .article-badge {
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 transition: all 0.3s ease;
             }
-            
+
             .article-card:hover .article-badge {
                 transform: scale(1.05);
             }
-            
+
             .article-title {
                 transition: color 0.3s ease;
             }
-            
+
             .article-card:hover .article-title {
                 color: #0891b2;
             }
-            
+
             /* Custom dot navigation */
             .dot {
                 transition: all 0.3s ease;
                 cursor: pointer;
             }
-            
+
             .dot:hover {
                 transform: scale(1.2);
             }
-            
+
             /* Navigation arrows */
             .nav-arrow {
                 transition: all 0.3s ease;
@@ -2363,11 +2234,11 @@
                 justify-content: center;
                 align-items: center;
             }
-            
+
             .nav-arrow:hover {
                 background-color: #14b8a6;
             }
-            
+
             .nav-arrow:hover svg {
                 color: white;
             }
@@ -2449,61 +2320,7 @@
     </section>
     <!-- End Sponsor Section -->
 
-    {{-- </main> --}}
-    <footer class="bg-[#0D3B66] text-white py-10">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- TLC Program -->
-            <div>
-                <h2 class="text-lg font-semibold">TLC Program</h2>
-                <p class="text-sm mt-2">
-                    Program sertifikasi untuk memberdayakan pendidik dengan pengetahuan dan keterampilan mengajar yang
-                    efektif.
-                </p>
-                <div class="flex space-x-4 mt-4">
-                    <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-gray-300"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-
-            <!-- Tautan Cepat -->
-            <div>
-                <h2 class="text-lg font-semibold">Tautan Cepat</h2>
-                <ul class="mt-2 space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-gray-300">Tentang TLC</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Manfaat</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Kurikulum</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Paket Harga</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Pendaftaran</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Galeri</a></li>
-                </ul>
-            </div>
-
-            <!-- Kontak -->
-            <div>
-                <h2 class="text-lg font-semibold">Kontak</h2>
-                <ul class="mt-2 space-y-2 text-sm">
-                    <li><i class="fas fa-map-marker-alt text-yellow-400"></i> Jl. Pendidikan No. 123, Jakarta Pusat,
-                        Indonesia</li>
-                    <li><i class="fas fa-phone-alt text-yellow-400"></i> +62 21 1234 5678</li>
-                    <li><i class="fas fa-envelope text-yellow-400"></i> info@tlcprogram.id</li>
-                </ul>
-            </div>
-
-
-        </div>
-
-        <hr class="border-gray-500 my-6">
-
-        <div class="text-center text-sm">
-            © 2025 Teaching and Learning Certification Program. All rights reserved.
-        </div>
-
-        <!-- FontAwesome for Icons -->
-        <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
-    </footer>
-    {{-- end footer --}}
+    
 
 </body>
 
