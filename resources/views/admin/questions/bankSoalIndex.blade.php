@@ -10,12 +10,14 @@
     <div class="p-4 bg-white rounded-lg mb-2">
         <nav class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-4 text-base">
             <!-- Breadcrumb -->
-            <ol class="flex items-center space-x-1 text-gray-600">
-                <li><a href="{{ route('admin.level.a.index') }}" class="hover:underline text-indigo-600">Level A</a></li>
+            <ol class="flex items-center space-x-1 text-indigo-600">
+                <li><a href="{{ route('admin.level.a.index') }}"
+                        class="hover:underline {{ request()->routeIs('admin.level.a.*') ? 'text-indigo-600' : '' }}">Level A</a>
+                </li>
                 <li>/</li>
-                <li><a href="{{ route('admin.level.c.index') }}" class="hover:underline text-indigo-600">Level B</a></li>
-                <li>/</li>
-                <li><a href="{{ route('admin.level.c.index') }}" class="hover:underline text-indigo-600">Level C</a></li>
+                <li><a href="{{ route('admin.categories.a.index') }}"
+                        class="hover:underline {{ request()->routeIs('admin.categories.a.*') ? 'text-indigo-600' : '' }}">Kategory Soal</a>
+                </li>
             </ol>
 
             <!-- Search & Info -->
@@ -95,14 +97,14 @@
                         </svg>
                     </button>
 
-                    <button class="p-2 border rounded text-red-500 hover:bg-red-50" data-modal-toggle="popup-modal"
+                    {{-- <button class="p-2 border rounded text-red-500 hover:bg-red-50" data-modal-toggle="popup-modal"
                         data-popover-target="popover-delete" data-popover-trigger="hover">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
                                 d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
                                 clip-rule="evenodd" />
                         </svg>
-                    </button>
+                    </button> --}}
                 </div>
             </div>
         </nav>
@@ -322,17 +324,6 @@
     </div>
 
     <!-- Popovers -->
-    <div data-popover id="popover-delete" role="tooltip"
-        class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
-        <div class="px-3 py-2 bg-red-50 border-b border-gray-200 rounded-t-lg">
-            <h3 class="font-semibold text-red-600">Delete All Users</h3>
-        </div>
-        <div class="px-3 py-2">
-            <p><strong class="text-red-500">Warning!!</strong> Tindakan ini akan menghapus semua pengguna dari sistem.</p>
-        </div>
-        <div data-popper-arrow></div>
-    </div>
-
     <div data-popover id="popover-addUser" role="tooltip"
         class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
         <div class="px-3 py-2 bg-indigo-50 border-b border-gray-200 rounded-t-lg">

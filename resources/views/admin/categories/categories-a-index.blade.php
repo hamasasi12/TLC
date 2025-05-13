@@ -2,6 +2,10 @@
 
 @section('title', 'Admin Dashboard')
 
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@endpush
+
 @section('content')
     <div class="p-4 bg-white rounded-lg mb-2">
         <nav class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-4 text-base">
@@ -30,6 +34,16 @@
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">Description
                         </th>
                         <th scope="col"
+                            class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">Duration
+                        </th>
+                        <th scope="col"
+                            class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">Banner
+                        </th>
+                        <th scope="col"
+                            class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">Kunci
+                            Kategori
+                        </th>
+                        <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">Jumlah Soal
                         </th>
                         <th scope="col"
@@ -41,9 +55,42 @@
                     @foreach ($categoriesA as $index)
                         <tr class="hover:bg-gray-50 transition-colors">
                             <td class="px-4 py-3 text-sm text-gray-500">{{ $loop->iteration }}</td>
+
+                            {{-- CATEGORY NAME --}}
                             <td class="px-4 py-3 text-sm text-gray-500">{{ $index['name'] }}</td>
+
+                            {{-- DESCRIPTION --}}
                             <td class="px-4 py-3 text-sm text-gray-500">{{ $index['description'] }}</td>
+
+                            {{-- DURATION --}}
+                            <td class="px-4 py-3 text-sm text-gray-500">{{ $index['time_limit'] }} <span>Minutes</span></td>
+
+                            {{-- BANNER IMG --}}
+                            <td class="px-4 py-3 text-sm text-gray-500">
+                                @if ($index['banner_img'])
+                                    <button class="text-blue-500 hover:underline"
+                                        onclick="showImageModal('{{ asset('storage/' . $index['banner_img']) }}')">
+                                        Lihat Gambar
+                                    </button>
+                                @else
+                                    <p>Tidak Ada</p>
+                                @endif
+
+                            </td>
+
+                            {{-- IS LOCKED --}}
+                            <td class="px-4 py-3 text-sm text-gray-500">
+                                @if ($index['is_locked'] == 0)
+                                    <P class="text-red-500">False</P>
+                                @else
+                                    True
+                                @endif
+                            </td>
+
+                            {{-- QUESTION COUNT --}}
                             <td class="px-4 py-3 text-sm text-gray-500">{{ $index['question_count'] }}</td>
+
+                            {{-- ACTIONS --}}
                             <td class="px-4 py-3 text-sm text-gray-500">
                                 <div class="flex space-x-2">
                                     <!-- Edit -->
@@ -91,4 +138,26 @@
     {{-- <div class="mt-6">
         {{ $userProfile->links() }}
     </div> --}}
+
+    <div id="imageModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-4 rounded shadow relative max-w-md w-full">
+            <button onclick="closeImageModal()" class="absolute top-2 right-2 text-gray-600 hover:text-black">✖</button>
+            <img id="modalImage" src="" class="max-w-full h-auto rounded" alt="Gambar Soal">
+        </div>
+    </div>
+
+    <script>
+        function showImageModal(imageUrl) {
+            const modal = document.getElementById('imageModal');
+            const img = document.getElementById('modalImage');
+            img.src = imageUrl;
+            modal.classList.remove('hidden');
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+        }
+    </script>
+
 @endsection

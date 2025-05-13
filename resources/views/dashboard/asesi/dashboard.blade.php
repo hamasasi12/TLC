@@ -64,7 +64,7 @@
                     <div
                         class="absolute -inset-4 bg-gradient-to-r from-orange-200 to-yellow-200 rounded-full blur-3xl opacity-60">
                     </div>
-                    <img src="{{ asset('images/hamas.png') }}" alt="TLC Program"
+                    <img src="{{ asset('images/hamass.png') }}" alt="TLC Program"
                         class="relative z-10 max-w-lg w-full rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500">
                 </div>
             </div>
@@ -219,7 +219,7 @@
         </section> --}}
 
         <section class="max-w-7xl mx-auto px-6 sm:px-8 py-20 bg-white" id="manfaat">
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-14">
+            <div class="flex flex-col 2xl:flex-row md:items-start md:justify-between gap-10 mb-14">
                 <div class="md:w-1/3 text-center md:text-left">
                     <span
                         class="inline-block px-4 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">MANFAAT</span>

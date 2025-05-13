@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Asesi;
 
-use App\Http\Controllers\Controller;
+use App\Models\CategoryA;
+use App\Models\QuestionA;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SertifikasiController extends Controller
 {
@@ -11,4 +13,4 @@ class SertifikasiController extends Controller
     {
         return view('dashboard.asesi.sertifikasi');
     }
-}
+}   

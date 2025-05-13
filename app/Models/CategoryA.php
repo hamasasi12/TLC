@@ -10,6 +10,9 @@ class CategoryA extends Model
     protected $fillable = [
         'name',
         'description',
+        'banner_img',
+        'time_limit',
+        'is_locked',
     ];
 
     public function questions(){

@@ -16,7 +16,7 @@ class RolePermissionSeeders extends Seeder
 
         // BELUM FIX PERMISSIONNYA
         $permission_levels = [
-            'access_level_A_unpaid',
+            'fresh_user',
             'access_level_B_unpaid',
             'access_level_C_unpaid',
             'level_a_pending_payment',
@@ -52,6 +52,6 @@ class RolePermissionSeeders extends Seeder
             ]);
         }
 
-        $asesi->givePermissionTo('access_level_A_unpaid', 'bundling');
+        $asesi->givePermissionTo('fresh_user');
     }
 }
