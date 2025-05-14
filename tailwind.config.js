@@ -42,7 +42,7 @@ module.exports = {
                 },
             },
             fontFamily: {
-                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+                sans: ["Times New Roman", "Ui-sans-serif", "system-ui" , "sans-serif"],
             },
         },
     },

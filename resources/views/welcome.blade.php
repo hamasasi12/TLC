@@ -85,7 +85,6 @@
         </header>
         {{-- End Navbar --}}
 
-
         <!-- HOME -->
         <main id="home" class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg">
             <div class="container mx-auto max-w-7xl view grid grid-cols-12 transition-all duration-500 ease-in-out mb-14">
@@ -396,65 +395,6 @@
         </section>
         <!-- End Manfaat TLC -->
 
-        <!-- Kurikulum TLC -->
-        {{-- <section class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl font-extrabold text-[#1D4E89]">Kurikulum TLC</h2>
-            <div class="w-16 h-1 bg-[#E76F51] mt-3 mb-6 mx-auto"></div>
-            <p class="text-gray-800 max-w-3xl mx-auto text-lg">
-                Kurikulum komprehensif yang dirancang untuk mengembangkan kompetensi mengajar Anda.
-            </p>
-        </div>
-
-        <!-- Tab Navigasi -->
-        <div class="max-w-6xl mx-auto mt-10 bg-white p-8 rounded-xl shadow-xl">
-            <div class="flex flex-wrap justify-center gap-3 border-b pb-4">
-                <button
-                    class="tab-btn px-5 py-3 font-semibold text-[#1D4E89] bg-gray-100 rounded-lg transition-all duration-300 hover:bg-[#E76F51] hover:text-white focus:bg-[#E76F51] focus:text-white active:scale-95">Dasar-Dasar
-                    Pengajaran</button>
-                <button
-                    class="tab-btn px-5 py-3 font-semibold text-gray-600 bg-gray-100 rounded-lg transition-all duration-300 hover:bg-[#E76F51] hover:text-white focus:bg-[#E76F51] focus:text-white active:scale-95">Metode
-                    Pengajaran Inovatif</button>
-                <button
-                    class="tab-btn px-5 py-3 font-semibold text-gray-600 bg-gray-100 rounded-lg transition-all duration-300 hover:bg-[#E76F51] hover:text-white focus:bg-[#E76F51] focus:text-white active:scale-95">Manajemen
-                    Kelas</button>
-                <button
-                    class="tab-btn px-5 py-3 font-semibold text-gray-600 bg-gray-100 rounded-lg transition-all duration-300 hover:bg-[#E76F51] hover:text-white focus:bg-[#E76F51] focus:text-white active:scale-95">Penilaian
-                    dan Evaluasi</button>
-                <button
-                    class="tab-btn px-5 py-3 font-semibold text-gray-600 bg-gray-100 rounded-lg transition-all duration-300 hover:bg-[#E76F51] hover:text-white focus:bg-[#E76F51] focus:text-white active:scale-95">Komunikasi
-                    Efektif</button>
-            </div>
-
-            <!-- Konten Kurikulum -->
-            <div class="mt-8">
-                <h3 class="text-2xl font-bold text-[#1D4E89] text-center">Dasar-Dasar Pengajaran</h3>
-                <div class="mt-6 space-y-5">
-                    <div
-                        class="bg-gray-100 p-6 rounded-xl flex justify-between items-center transition-all duration-300 hover:bg-[#E76F51] hover:text-white hover:scale-105 shadow-md">
-                        <span class="text-lg font-medium">Prinsip Dasar Pedagogi Modern</span>
-                        <span class="text-gray-600 group-hover:text-white">2 jam</span>
-                    </div>
-                    <div
-                        class="bg-gray-100 p-6 rounded-xl flex justify-between items-center transition-all duration-300 hover:bg-[#E76F51] hover:text-white hover:scale-105 shadow-md">
-                        <span class="text-lg font-medium">Psikologi Pendidikan</span>
-                        <span class="text-gray-600 group-hover:text-white">3 jam</span>
-                    </div>
-                    <div
-                        class="bg-gray-100 p-6 rounded-xl transition-all duration-300 hover:bg-[#E76F51] hover:text-white hover:scale-105 shadow-md">
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-medium">Perencanaan Pembelajaran Efektif</span>
-                            <span class="text-gray-600 group-hover:text-white">2.5 jam</span>
-                        </div>
-                        <p class="text-sm text-gray-600 mt-2 group-hover:text-white">Teknik menyusun rencana
-                            pembelajaran yang terstruktur dan efektif</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-        <!-- End Kurikulum TLC -->
-
         <!-- Success Stories Section -->
         <section class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg"
             id="testimonials">
@@ -715,108 +655,10 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Button Daftar -->
-            {{-- <div class="text-center mt-12">
-            <a href="#"
-                class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-110 active:scale-95">
-                Daftar Sekarang
-            </a>
-        </div> --}}
         </section>
         <!-- End Timeline Program TLC -->
 
-        <!-- Skema Pendaftaran TLC -->
-
-        {{-- Skema lama --}}
-        {{-- <div class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg" id="skema">
-        <div class="text-center mb-10">
-            <span class="text-[#E76F51] font-semibold text-lg">&#9889; Your Certification Journey</span>
-            <h1 class="text-4xl font-bold text-[#1D4E89] mt-2">Certification Process</h1>
-            <p class="text-gray-700 text-lg">belum ada deskripsi</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 px-5 relative">
-            <!-- Garis Penghubung (Desktop) -->
-            <div class="hidden lg:block absolute top-1/2 left-0 right-0 mx-auto w-4/5 border-t-2 border-gray-300">
-            </div>
-
-            <!-- Step 1 -->
-            <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold rounded-full text-xl">
-                    1</div>
-                <h2 class="font-bold text-lg mt-3">Mengikuti Kelas Level A</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi
-                </p>
-                <div
-                    class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-2xl text-gray-400">
-                    ➡</div>
-            </div>
-
-            <!-- Step 2 -->
-            <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-blue-500 text-white font-bold rounded-full text-xl">
-                    2</div>
-                <h2 class="font-bold text-lg mt-3">Tes Kompetensi Level A</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi</p>
-                <div
-                    class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-2xl text-gray-400">
-                    ➡</div>
-            </div>
-
-            <!-- Step 3 -->
-            <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-yellow-500 text-white font-bold rounded-full text-xl">
-                    3</div>
-                <h2 class="font-bold text-lg mt-3">Mengikuti Kelas Level B</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi</p>
-                <div
-                    class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-2xl text-gray-400">
-                    ➡</div>
-            </div>
-
-            <!-- Step 4 -->
-            <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-green-500 text-white font-bold rounded-full text-xl">
-                    4</div>
-                <h2 class="font-bold text-lg mt-3">Tes Kompetensi Level B</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi</p>
-                <div
-                    class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-2xl text-gray-400">
-                    ➡</div>
-            </div>
-
-            <!-- Step 5 -->
-            <div
-                class="bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-red-500 text-white font-bold rounded-full text-xl">
-                    5</div>
-                <h2 class="font-bold text-lg mt-3">Mengikuti Kelas Level C</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi
-                </p>
-            </div>
-            <div
-                class="bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-red-500 text-white font-bold rounded-full text-xl">
-                    6</div>
-                <h2 class="font-bold text-lg mt-3">Tes Sertifikasi Level C</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi
-                </p>
-            </div>
-        </div>
-
-    </div> --}}
-
+        <!-- Proses Sertifikasi TLC -->
         <div id="proses" class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg" id="skema">
             <div class="text-center mb-10">
                 <span class="text-[#E76F51] font-semibold text-lg">&#9889; Proses Sertifikasimu</span>
@@ -892,8 +734,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- End Skema -->
+        <!-- End proses sertifikasi -->
 
         <!-- Video TLC Section -->
         <section id="vidio" class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg">
@@ -973,105 +814,6 @@
             </div>
         </section>
         <!-- End Video -->
-
-        <!-- Mentor Section -->
-        {{-- <section class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg">
-        <div class="max-w-6xl mx-auto text-center">
-            <span
-                class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold flex items-center justify-center w-fit mx-auto">
-                Tim Ahli Kami
-            </span>
-            <h2 class="text-3xl font-bold text-gray-900 mt-3">
-                Mentor <span class="text-blue-600">Berpengalaman</span>
-            </h2>
-            <p class="text-gray-600 mt-2 mb-4 max-w-3xl mx-auto">
-                Bertemu dengan para ahli yang akan membimbing Anda dalam perjalanan TLC
-            </p>
-        </div>
-
-        <!-- Mentor Cards -->
-        <div class="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto px-5">
-            <!-- Mentor 1 -->
-            <div
-                class="bg-white shadow-lg rounded-xl overflow-hidden text-left relative p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer active:scale-95">
-                <span
-                    class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 text-xs font-semibold rounded-full">Ahli</span>
-                <img src="images/konten_satu.jpg" alt="Dr. Budi Santoso" class="w-full h-40 object-cover rounded-md">
-                <h3 class="font-bold text-lg mt-3 text-blue-900">Dr. Budi Santoso</h3>
-                <p class="text-yellow-600 text-sm">Direktur Program TLC</p>
-                <p class="text-gray-600 text-sm mt-2">
-                    Pakar pendidikan dengan pengalaman lebih dari 20 tahun dalam pengembangan kurikulum dan pelatihan.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Pengembangan Kurikulum</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Metode Pengajaran</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Evaluasi Pendidikan</span>
-                </div>
-                <a href="#" class="text-blue-600 text-sm font-semibold mt-4 block">Lihat Profil Lengkap →</a>
-            </div>
-
-            <!-- Mentor 2 -->
-            <div
-                class="bg-white shadow-lg rounded-xl overflow-hidden text-left relative p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer active:scale-95">
-                <span
-                    class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 text-xs font-semibold rounded-full">Ahli</span>
-                <img src="images/konten_tiga.jpg" alt="Prof. Siti Rahayu, M.Pd."
-                    class="w-full h-40 object-cover rounded-md">
-                <h3 class="font-bold text-lg mt-3 text-blue-900">Prof. Siti Rahayu, M.Pd.</h3>
-                <p class="text-yellow-600 text-sm">Ahli Pedagogi</p>
-                <p class="text-gray-600 text-sm mt-2">
-                    Profesor pendidikan dengan fokus pada metode pengajaran inovatif dan pembelajaran berbasis proyek.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Pedagogi Modern</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Pembelajaran Berbasis
-                        Proyek</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Psikologi Pendidikan</span>
-                </div>
-                <a href="#" class="text-blue-600 text-sm font-semibold mt-4 block">Lihat Profil Lengkap →</a>
-            </div>
-
-            <!-- Mentor 3 -->
-            <div
-                class="bg-white shadow-lg rounded-xl overflow-hidden text-left relative p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer active:scale-95">
-                <span
-                    class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 text-xs font-semibold rounded-full">Ahli</span>
-                <img src="images/hamas.png" alt="Ahmad Wijaya, M.Ed." class="w-full h-40 object-cover rounded-md">
-                <h3 class="font-bold text-lg mt-3 text-blue-900">Ahmad Wijaya, M.Ed.</h3>
-                <p class="text-yellow-600 text-sm">Spesialis Teknologi Pendidikan</p>
-                <p class="text-gray-600 text-sm mt-2">
-                    Ahli dalam integrasi teknologi dalam pembelajaran dan pengembangan media pembelajaran digital.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Teknologi Pendidikan</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">E-Learning</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Media Pembelajaran
-                        Digital</span>
-                </div>
-                <a href="#" class="text-blue-600 text-sm font-semibold mt-4 block">Lihat Profil Lengkap →</a>
-            </div>
-
-            <!-- Mentor 4 -->
-            <div
-                class="bg-white shadow-lg rounded-xl overflow-hidden text-left relative p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer active:scale-95">
-                <span
-                    class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 text-xs font-semibold rounded-full">Ahli</span>
-                <img src="images/aliando.jpg" alt="Dr. Maya Indrawati" class="w-full h-40 object-cover rounded-md">
-                <h3 class="font-bold text-lg mt-3 text-blue-900">Dr. Maya Indrawati</h3>
-                <p class="text-yellow-600 text-sm">Konsultan Manajemen Kelas</p>
-                <p class="text-gray-600 text-sm mt-2">
-                    Spesialis dalam manajemen kelas dan pengembangan lingkungan belajar yang positif dan inklusif.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Manajemen Kelas</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Pendidikan Inklusif</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Psikologi Anak</span>
-                </div>
-                <a href="#" class="text-blue-600 text-sm font-semibold mt-4 block">Lihat Profil Lengkap →</a>
-            </div>
-        </div>
-    </section> --}}
-        <!-- End Mentor Section -->
 
         <!-- Galeri Kegiatan TLC -->
         <section id="galeri" class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
@@ -1480,207 +1222,137 @@
         </section>
         <!-- End FAQ Section -->
 
-        {{-- Pendaftaraan --}}
-        {{-- <section class="w-full px-5 py-16 bg-gradient-to-r from-[#F4A261] via-[#A8DADC] to-[#1D4E89] text-gray-900">
-        <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 hover:scale-[1.02]">
-            <!-- Header -->
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-blue-900">Pendaftaran TLC</h2>
-                <div class="w-16 h-1 bg-yellow-500 mx-auto mt-2"></div>
-                <p class="text-gray-600 mt-3">
-                    Mulai perjalanan pengembangan profesional Anda dengan mendaftar program TLC
-                </p>
+        {{-- Fotter --}}
+        <footer class="bg-[#0D3B66] text-white py-10 relative">
+            <!-- Border Top -->
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500"></div>
+        
+            <div class="absolute inset-0 opacity-5">
+                <div class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNmMtMy4zMTQgMC02IDIuNjg2LTYgNnMyLjY4NiA2IDYgNnptMCAwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIuNSIvPjxwYXRoIGQ9Ik0yNCAzNmMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNmMtMy4zMTQgMC02IDIuNjg2LTYgNnMyLjY4NiA2IDYgNnptMCAwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIuNSIvPjwvZz48L3N2Zz4=')]"></div>
             </div>
-
-            <!-- Step Indicator -->
-            <div class="flex justify-between items-center bg-blue-900 text-white p-4 rounded-lg">
-                <div class="flex-1 text-center transition-transform duration-300 hover:scale-110 active:scale-95">
-                    <div class="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center mx-auto font-bold">1</div>
-                    <p class="text-sm mt-1">Informasi Pribadi</p>
-                </div>
-                <div class="w-20 h-1 bg-yellow-500"></div>
-                <div class="flex-1 text-center opacity-50 transition-transform duration-300 hover:scale-110 active:scale-95">
-                    <div class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center mx-auto font-bold">2</div>
-                    <p class="text-sm mt-1">Detail Institusi</p>
-                </div>
-                <div class="w-20 h-1 bg-blue-700"></div>
-                <div class="flex-1 text-center opacity-50 transition-transform duration-300 hover:scale-110 active:scale-95">
-                    <div class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center mx-auto font-bold">3</div>
-                    <p class="text-sm mt-1">Pilihan Program</p>
-                </div>
-            </div>
-
-            <!-- Formulir Pendaftaran -->
-            <div class="mt-8">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">Informasi Pribadi</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="transition-transform duration-300 hover:scale-105">
-                        <label class="text-sm text-gray-700">Nama Depan</label>
-                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1" placeholder="Masukkan nama depan">
-                    </div>
-                    <div class="transition-transform duration-300 hover:scale-105">
-                        <label class="text-sm text-gray-700">Nama Belakang</label>
-                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1" placeholder="Masukkan nama belakang">
-                    </div>
-                </div>
-                <div class="mt-4 transition-transform duration-300 hover:scale-105">
-                    <label class="text-sm text-gray-700">Email</label>
-                    <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1" placeholder="nama@contoh.com">
-                </div>
-                <div class="mt-4 transition-transform duration-300 hover:scale-105">
-                    <label class="text-sm text-gray-700">Nomor Telepon</label>
-                    <input type="tel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1" placeholder="08xxxxxxxxxx">
-                </div>
-            </div>
-
-            <!-- Tombol Lanjutkan -->
-            <div class="mt-6">
-                <button class="w-full bg-blue-700 text-white p-3 rounded-lg font-semibold hover:bg-blue-800 transition-transform duration-300 hover:scale-105 active:scale-95">Lanjutkan</button>
-            </div>
-        </div>
-    </section> --}}
-        {{-- End Pendafatraan --}}
-
-        <!-- Pendaftaran -->
-        {{-- <section class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
-        <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold text-blue-900">Pendaftaran TLC</h2>
-            <div class="w-16 h-1 bg-yellow-500 mx-auto mt-2"></div>
-            <p class="text-gray-600 mt-2">Mulai perjalanan pengembangan profesional Anda dengan mendaftar program TLC
-            </p>
-        </div>
-
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center">
-            <!-- Left Side: Text & Features -->
-            <div class="md:w-1/2 text-left space-y-4">
-                <span class="text-blue-600 font-semibold text-sm uppercase bg-blue-100 px-3 py-1 rounded-full">
-                    Join Us Today
-                </span>
-                <h1
-                    class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500">
-                    Register for TLC Program
-                </h1>
-                <p class="text-gray-600 max-w-md">
-                    Take the first step towards enhancing your teaching skills and advancing your career.
-                </p>
-
-                <!-- Feature List -->
-                <ul class="space-y-2 text-gray-700">
-                    <li class="flex items-center">✅ Flexible learning schedule</li>
-                    <li class="flex items-center">✅ Expert-led courses and workshops</li>
-                    <li class="flex items-center">✅ Globally recognized certification</li>
-                    <li class="flex items-center">✅ Ongoing professional development</li>
-                </ul>
-            </div>
-
-            <!-- Right Side: Form -->
-            <div
-                class="md:w-1/2 max-w-3xl bg-white p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-[1.02]">
-                <!-- Step Indicator -->
-                <div class="flex justify-between items-center bg-blue-900 text-white p-4 rounded-lg mb-6">
-                    <div class="flex-1 text-center transition-transform duration-300 hover:scale-110 active:scale-95">
-                        <div
-                            class="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center mx-auto font-bold">
-                            1</div>
-                        <p class="text-sm mt-1">Informasi Pribadi</p>
-                    </div>
-                    <div class="w-16 h-1 bg-yellow-500"></div>
-                    <div
-                        class="flex-1 text-center opacity-50 transition-transform duration-300 hover:scale-110 active:scale-95">
-                        <div
-                            class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center mx-auto font-bold">
-                            2</div>
-                        <p class="text-sm mt-1">Detail Institusi</p>
-                    </div>
-                    <div class="w-16 h-1 bg-blue-700"></div>
-                    <div
-                        class="flex-1 text-center opacity-50 transition-transform duration-300 hover:scale-110 active:scale-95">
-                        <div
-                            class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center mx-auto font-bold">
-                            3</div>
-                        <p class="text-sm mt-1">Pilihan Program</p>
-                    </div>
-                </div>
-
-                <!-- Formulir Pendaftaran -->
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Informasi Pribadi</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="transition-transform duration-300 hover:scale-105">
-                            <label class="text-sm text-gray-700">Nama Depan</label>
-                            <input type="text"
-                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1"
-                                placeholder="Masukkan nama depan">
-                        </div>
-                        <div class="transition-transform duration-300 hover:scale-105">
-                            <label class="text-sm text-gray-700">Nama Belakang</label>
-                            <input type="text"
-                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1"
-                                placeholder="Masukkan nama belakang">
+        
+            <div class="container max-w-6xl mx-auto px-6 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- TLC Program - kiri -->
+                    <div class="space-y-3">
+                        <h2 class="text-xl font-bold mb-3 pb-2 border-b-2 border-orange-400 inline-block">
+                            TLC Program
+                        </h2>
+                        <p class="text-gray-300 leading-relaxed mb-4 text-sm">
+                            Program sertifikasi untuk memberdayakan pendidik dengan pengetahuan dan
+                            keterampilan mengajar yang efektif.
+                        </p>
+                        <div class="flex space-x-4 mt-3">
+                            <a href="#" class="text-white hover:text-orange-400 transition-colors">
+                                <i class="fab fa-facebook-f text-lg"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-orange-400 transition-colors">
+                                <i class="fab fa-twitter text-lg"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-orange-400 transition-colors">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-orange-400 transition-colors">
+                                <i class="fab fa-linkedin-in text-lg"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="mt-4 transition-transform duration-300 hover:scale-105">
-                        <label class="text-sm text-gray-700">Email</label>
-                        <input type="email"
-                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1"
-                            placeholder="nama@contoh.com">
+        
+                    <!-- Tautan Cepat - Middle -->
+                    <div class="md:flex md:justify-center">
+                        <div class="space-y-3">
+                            <h2 class="text-xl font-bold mb-3 pb-2 border-b-2 border-orange-400 inline-block">
+                                Tautan Cepat
+                            </h2>
+                            <ul class="space-y-2 text-sm">
+                                <li class="group">
+                                    <a href="#home" class="flex items-center text-gray-300 hover:text-orange-400 transition-colors duration-300">
+                                        <span class="transform group-hover:translate-x-2 transition-transform duration-200">
+                                            <i class="fas fa-chevron-right mr-2 text-orange-400 text-sm"></i>
+                                            Beranda
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="#about" class="flex items-center text-gray-300 hover:text-orange-400 transition-colors duration-300">
+                                        <span class="transform group-hover:translate-x-2 transition-transform duration-200">
+                                            <i class="fas fa-chevron-right mr-2 text-orange-400 text-sm"></i>
+                                            Tentang TLC
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="#harga" class="flex items-center text-gray-300 hover:text-orange-400 transition-colors duration-300">
+                                        <span class="transform group-hover:translate-x-2 transition-transform duration-200">
+                                            <i class="fas fa-chevron-right mr-2 text-orange-400 text-sm"></i>
+                                            Harga
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="#skema" class="flex items-center text-gray-300 hover:text-orange-400 transition-colors duration-300">
+                                        <span class="transform group-hover:translate-x-2 transition-transform duration-200">
+                                            <i class="fas fa-chevron-right mr-2 text-orange-400 text-sm"></i>
+                                            Skema
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="group">
+                                    <a href="#proses" class="flex items-center text-gray-300 hover:text-orange-400 transition-colors duration-300">
+                                        <span class="transform group-hover:translate-x-2 transition-transform duration-200">
+                                            <i class="fas fa-chevron-right mr-2 text-orange-400 text-sm"></i>
+                                            Sertifikasi
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="mt-4 transition-transform duration-300 hover:scale-105">
-                        <label class="text-sm text-gray-700">Nomor Telepon</label>
-                        <input type="tel"
-                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1"
-                            placeholder="08xxxxxxxxxx">
+        
+                    <!-- Kontak - Kanan -->
+                    <div class="md:text-right space-y-3">
+                        <h2 class="text-xl font-bold mb-3 pb-2 border-b-2 border-orange-400 md:ml-auto md:inline-block">
+                            Kontak
+                        </h2>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start md:justify-end group">
+                                <i class="fas fa-map-marker-alt text-orange-400 text-lg mt-1 md:order-2 md:ml-3 group-hover:animate-bounce"></i>
+                                <span class="ml-3 md:ml-0 text-gray-300 md:text-right md:order-1">
+                                    Jl. Pendidikan No. 123, Jakarta Pusat, Indonesia
+                                </span>
+                            </li>
+                            <li class="flex items-center md:justify-end group">
+                                <i class="fas fa-phone-alt text-orange-400 text-lg md:order-2 md:ml-3 group-hover:animate-bounce"></i>
+                                <span class="ml-3 md:ml-0 text-gray-300 hover:text-orange-400 transition-colors md:order-1">
+                                    <a href="tel:+6221123456789">+62 21 1234 5678</a>
+                                </span>
+                            </li>
+                            <li class="flex items-center md:justify-end group">
+                                <i class="fas fa-envelope text-orange-400 text-lg md:order-2 md:ml-3 group-hover:animate-bounce"></i>
+                                <span class="ml-3 md:ml-0 text-gray-300 hover:text-orange-400 transition-colors md:order-1">
+                                    <a href="mailto:info@tlcprogram.id">info@tlcprogram.id</a>
+                                </span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-
-                <!-- Tombol Lanjutkan -->
-                <div class="mt-6">
-                    <button
-                        class="w-full bg-blue-700 text-white p-3 rounded-lg font-semibold hover:bg-blue-800 transition-transform duration-300 hover:scale-105 active:scale-95">
-                        Lanjutkan
-                    </button>
+        
+                <div class="mt-8 pt-4 border-t border-gray-500 text-center text-gray-400 text-sm">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p>© 2025 Teaching and Learning Certification Program. All rights reserved.</p>
+                        <div class="mt-2 md:mt-0">
+                            <a href="#" class="text-gray-400 hover:text-orange-400 mx-2 transition-colors">Kebijakan Privasi</a>
+                            <span class="mx-2">|</span>
+                            <a href="#" class="text-gray-400 hover:text-orange-400 mx-2 transition-colors">Syarat & Ketentuan</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section> --}}
-        <!-- End Pendaftaran -->
-
-        <!-- Sponsor Section -->
-        {{-- <section class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
-        <h2 class="text-2xl font-bold text-black text-center">Didukung Oleh</h2>
-        <div class="w-16 h-1 bg-[#E76F51] mx-auto mt-2 mb-8"></div>
-
-        <!-- Swiper Container -->
-        <div class="swiper mySwiper max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 1" class="w-96 h-96 object-contain">
-                </div>
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 2" class="w-96 h-96 object-contain">
-                </div>
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 3" class="w-96 h-96 object-contain">
-                </div>
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 4" class="w-96 h-96 object-contain">
-                </div>
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 5" class="w-96 h-96 object-contain">
-                </div>
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 6" class="w-96 h-96 object-contain">
-                </div>
-            </div>
-
-            <!-- Swiper Pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- Swiper Navigation Buttons -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-    </section> --}}
+        
+            <!-- FontAwesome Script untuk Icon -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+        </footer>
+        {{-- End Footer --}}
 
         <!-- Swiper.js CDN -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -1706,68 +1378,7 @@
                 },
             });
         </script>
-
         {{-- </main> --}}
-        <footer class="bg-[#0D3B66] text-white py-10">
-            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- TLC Program -->
-                <div>
-                    <h2 class="text-lg font-semibold">TLC Program</h2>
-                    <p class="text-sm mt-2">
-                        Program sertifikasi untuk memberdayakan pendidik dengan pengetahuan dan keterampilan mengajar yang
-                        efektif.
-                    </p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-
-                <!-- Tautan Cepat -->
-                <div>
-                    <h2 class="text-lg font-semibold">Tautan Cepat</h2>
-                    <ul class="mt-2 space-y-2 text-sm">
-                        <li><a href="#about" class="hover:text-gray-300">Tentang TLC</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Manfaat</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Paket Harga</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Pendaftaran</a></li>
-                        <li><a href="#galeri" class="hover:text-gray-300">Galeri</a></li>
-                    </ul>
-                </div>
-
-                <!-- Kontak -->
-                <div>
-                    <h2 class="text-lg font-semibold">Kontak</h2>
-                    <ul class="mt-2 space-y-2 text-sm">
-                        <li><i class="fas fa-map-marker-alt text-yellow-400"></i> Jl. Pendidikan No. 123, Jakarta Pusat,
-                            Indonesia</li>
-                        <li><i class="fas fa-phone-alt text-yellow-400"></i> +62 21 1234 5678</li>
-                        <li><i class="fas fa-envelope text-yellow-400"></i> info@tlcprogram.id</li>
-                    </ul>
-                </div>
-
-                <!-- Berlangganan -->
-                {{-- <div>
-                <h2 class="text-lg font-semibold">Berlangganan</h2>
-                <p class="text-sm mt-2">Dapatkan informasi terbaru tentang program dan kegiatan TLC.</p>
-                <div class="mt-4 flex">
-                    <input type="email" class="p-2 w-full text-gray-900 rounded-l-md" placeholder="Email Anda">
-                    <button class="bg-[#E76F51] px-4 py-2 rounded-r-md font-semibold hover:bg-[#D9534F]">Kirim</button>
-                </div>
-            </div> --}}
-            </div>
-
-            <hr class="border-gray-500 my-6">
-
-            <div class="text-center text-sm">
-                © 2025 Teaching and Learning Certification Program. All rights reserved.
-            </div>
-
-            <!-- FontAwesome for Icons -->
-            <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
-        </footer>
 
     </div>
     
