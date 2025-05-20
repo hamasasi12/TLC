@@ -224,7 +224,7 @@
                             'message' => $emptyStateMessage,
                             'colspan' => 6,
                             'showButton' => false,
-                        ])
+                    ])
                     @endforelse
                 </tbody>
             </table>
