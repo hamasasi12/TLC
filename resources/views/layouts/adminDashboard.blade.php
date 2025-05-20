@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-...your-integrity-hash..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="{{ asset('assets/img/tlc.png') }}" type="image/png">
@@ -328,6 +328,19 @@
                                 clip-rule="evenodd" />
                         </svg>
                         <span class="flex-1 ms-3 whitespace-nowrap">Dashboard Image</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.news.index') }}"
+                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-gray-800">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FBCB04"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-9 12V8l6 4-6 4z" />
+                            <path d="M4 7h16v2H4zm0 4h5v2H4zm0 4h5v2H4z" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Portal Berita</span>
                     </a>
                 </li>
                 <li>
