@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Admin\LevelAController;
@@ -15,6 +17,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Asesi\AsesiDashboardController;
 use App\Http\Controllers\Asesor\AsesorDashboardController;
+use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 
 Route::get('register2', function () {
     return view('register2');
@@ -22,7 +25,9 @@ Route::get('register2', function () {
 
 // GUEST
 Route::middleware('guest')->group(function () {
-    Route::get('/', fn() => view('welcome'));
+    // Route::get('/', fn() => view('welcome'));
+    Route::get('/', [WelcomeController::class, 'index'])->name('home');
+    Route::get('/newsDetail/{slug}', [WelcomeController::class, 'show'])->name('newsDetail');
 
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
@@ -60,6 +65,7 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
 
 // AUTH ADMIN
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/dashboard/asesi', [AdminDashboardController::class, 'asesiIndex'])->name('admin.asesi.index');
     Route::get('/dashboard/asesi/create', [AdminDashboardController::class, 'asesiCreate'])->name('admin.asesi.create');
@@ -120,12 +126,20 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard/level/a/question/{id}/edit', [LevelAController::class, 'bankSoalEdit'])->name('admin.question.a.edit');
     Route::put('/dashboard/level/a/question/{id}/update', [LevelAController::class, 'bankSoalUpdate'])->name('admin.question.a.update');
     Route::delete('/dashboard/level/a/question/{id}/delete', [LevelAController::class, 'bankSoalDestroy'])->name('admin.question.a.destroy');
-    
+
     // Route Level B
     Route::get('/dashboard/level/b', [LevelBController::class, 'index'])->name('admin.level.b.index');
 
     // Route Level C
     Route::get('/dashboard/level/c', [LevelCController::class, 'index'])->name('admin.level.c.index');
+
+    Route::get('/dashboard/news', [NewsController::class, 'index'])->name('admin.news.index');
+    Route::get('/dashboard/news/create', [NewsController::class, 'create'])->name('admin.news.create');
+    Route::get('/dashboard/news/edit/{id}', [NewsController::class, 'edit'])->name('admin.news.edit');
+    Route::post('/dashboard/news/store', [NewsController::class, 'store'])->name('admin.news.store');
+    Route::get('/dashboard/news/{id}', [NewsController::class, 'show'])->name('admin.news.show');
+    Route::put('/dashboard/news/update/{id}', [NewsController::class, 'update'])->name('admin.news.update');
+    Route::delete('/dashboard/news/delete/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
 
 
 
