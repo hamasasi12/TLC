@@ -4,896 +4,1126 @@
 
 @section('content')
     <div class="bg-abu">
-        <!-- Navbar -->
-        <header class="mb-20">
-            <nav
-                class="fixed w-full z-20 top-0 start-0 bg-gradient-to-r from-[#3A6EA5] to-[#90BE6D] shadow-sm border-b border-gray-300">
-                <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-4 px-12">
-                    <a href="#" class="flex items-center space-x-3">
-                        <img src="{{ asset('images/logo.svg') }}" class="h-12" alt="TLC Logo" loading="lazy">
-                        <div class="flex flex-col">
-                            <span class="text-lg font-bold text-[#1D4E89] tracking-wide">TLC Program</span>
-                            <span class="text-sm text-[#f1e686] font-medium">Teaching & Learning Certification</span>
-                        </div>
-                    </a>
-
-                    <!-- Hamburger Menu Button -->
-                    <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-
-                    <!-- Desktop Menu -->
-                    <div class="hidden lg:flex lg:items-center lg:space-x-10 text-sm font-semibold" id="menu">
-                        <a href="#home" class="text-white hover:text-[#F4A261] transition duration-300">Beranda</a>
-                        <a href="#about" class="text-white hover:text-[#F4A261] transition duration-300">Tentang TLC</a>
-                        <a href="#harga" class="text-white hover:text-[#F4A261] transition duration-300">Harga</a>
-                        <a href="#skema" class="text-white hover:text-[#F4A261] transition duration-300">Skema</a>
-                        <a href="#proses" class="text-white hover:text-[#F4A261] transition duration-300">Sertifikasi</a>
-                        <a href="#faq" class="text-white hover:text-[#F4A261] transition duration-300">FAQ</a>
-                    </div>
-
-                    <!-- Authentication Buttons -->
-                    <div class="hidden lg:flex lg:items-center lg:space-x-4">
-                        <a href="{{ route('login') }}">
-                            <button
-                                class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Log
-                                in</button>
-                        </a>
-                        <a href="{{ route('register') }}">
-                            <button
-                                class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Register
-                                Now</button>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Mobile Menu -->
-                <div id="mobile-menu"
-                    class="hidden lg:hidden flex flex-col items-center space-y-4 py-6 bg-[#3A6EA5] border-t border-gray-300 text-sm font-medium">
-                    <a href="#home" class="text-white hover:text-[#F4A261] transition duration-300">Beranda</a>
-                    <a href="#about" class="text-white hover:text-[#F4A261] transition duration-300">Tentang TLC</a>
-                    <a href="#harga" class="text-white hover:text-[#F4A261] transition duration-300">Harga</a>
-                    <a href="#skema" class="text-white hover:text-[#F4A261] transition duration-300">Skema</a>
-                    <a href="#proses" class="text-white hover:text-[#F4A261] transition duration-300">Sertifikasi</a>
-                    <a href="#faq" class="text-white hover:text-[#F4A261] transition duration-300">FAQ</a>
-
-                    <a href="{{ route('login') }}">
-
-                        <button
-                            class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Log
-                            in</button>
-                    </a>
-                    <a href="{{ route('register') }}">
-                        <button
-                            class="bg-gradient-to-r from-[#F4A261] to-[#90BE6D] text-white text-sm px-3 py-1.5 rounded-lg shadow-md hover:opacity-90 transition duration-300">Register
-                            Now</button>
-                    </a>
-                </div>
-
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        document.getElementById('menu-toggle').addEventListener('click', function() {
-                            document.getElementById('mobile-menu').classList.toggle('hidden');
-                        });
-                    });
-                </script>
-            </nav>
-        </header>
-        {{-- End Navbar --}}
-
 
         <!-- HOME -->
-        <main id="home" class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg">
-            <div class="container mx-auto max-w-7xl view grid grid-cols-12 transition-all duration-500 ease-in-out mb-14">
+        <main id="home" class="w-full px-5 py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 text-gray-900">
+            <div class="container mx-auto max-w-7xl view grid grid-cols-12 transition-all duration-500 ease-in-out mb-16">
                 <div class="col-span-12 lg:col-span-7 p-5">
-                    <div>
-                        <span class="text-lg text-[#E76F51] font-semibold">#Tingkatkan Kompetensi Mengajar Anda</span>
+                    <div class="animate-fadeIn">
+                        <span
+                            class="text-lg text-[#E76F51] font-semibold inline-block px-4 py-1 bg-orange-100 rounded-full">#TRANSFORMASI
+                            PENDIDIKAN ERA DIGITAL</span>
                         <h1
-                            class="text-5xl font-extrabold text-[#1D4E89] leading-snug mt-2 hover:scale-105 transition-transform duration-300">
-                            Teaching and Learning Certification (TLC)
+                            class="text-5xl md:text-6xl font-extrabold text-[#1D4E89] leading-tight mt-4 hover:scale-105 transition-transform duration-300">
+                            <span class="relative inline-block">
+                                <span class="relative z-10">Transform.</span>
+                                <span class="absolute -bottom-2 left-0 w-full h-3 bg-yellow-300 opacity-50 z-0"></span>
+                            </span>
+                            <span class="relative inline-block">
+                                <span class="relative z-10">Teach.</span>
+                                <span class="absolute -bottom-2 left-0 w-full h-3 bg-blue-300 opacity-50 z-0"></span>
+                            </span>
+                            <span class="relative inline-block">
+                                <span class="relative z-10">Thrive.</span>
+                                <span class="absolute -bottom-2 left-0 w-full h-3 bg-orange-300 opacity-50 z-0"></span>
+                            </span>
                         </h1>
-                        <p class="text-lg text-gray-700 mt-4">
-                            Memberdayakan pendidik dengan pengetahuan, keterampilan, dan alat untuk berkembang dalam
-                            pendidikan masa kini.
+                        <h2 class="text-4xl font-bold text-[#1D4E89] mt-2 mb-4">Teaching & Learning Certification</h2>
+                        <p class="text-xl text-gray-700 mt-6 max-w-xl leading-relaxed">
+                            <strong class="text-[#E76F51]">Bukan sekadar pelatihan biasa.</strong> Program sertifikasi yang
+                            telah memberdayakan <span class="font-semibold">500+ pendidik</span> dengan metode pengajaran
+                            revolusioner untuk menciptakan pengalaman belajar yang transformatif di era digital.
                         </p>
                     </div>
-                    <div class="flex my-6 gap-4">
+
+                    <div class="flex flex-col sm:flex-row my-8 gap-4">
                         <a href="#skema"
-                            class="bg-[#1D4E89] text-white px-6 py-3 rounded-xl shadow-md text-lg font-semibold hover:bg-[#14406B] transition-transform duration-300 hover:scale-110 active:scale-95">
-                            Daftar Sekarang
+                            class="bg-[#1D4E89] text-white px-8 py-4 rounded-xl shadow-lg text-lg font-semibold hover:bg-[#14406B] transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center">
+                            <span>Daftar Sekarang</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
                         </a>
                         <a href="#vidio"
-                            class="bg-gray-200 text-gray-900 px-6 py-3 rounded-xl shadow-md text-lg font-semibold hover:bg-gray-300 transition-transform duration-300 hover:scale-110 active:scale-95">
-                            Pelajari Lebih Lanjut
+                            class="bg-white border-2 border-[#1D4E89] text-[#1D4E89] px-8 py-4 rounded-xl shadow-md text-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>Lihat Video</span>
                         </a>
                     </div>
-                    <div class="flex flex-wrap gap-4 items-center justify-start">
-                        <img src="{{ asset('images/smpit-an-nur.png') }}" alt="SMPIT An-Nur"
-                            class="h-20 hover:scale-110 transition-transform duration-300" loading="lazy">
-                        <img src="{{ asset('images/smp-sma-gibs.png') }}" alt="Global Islamic Boarding School"
-                            class="h-20 hover:scale-110 transition-transform duration-300" loading="lazy">
-                        <img src="{{ asset('images/hafecs.png') }}" alt="HAFECS"
-                            class="h-16 hover:scale-110 transition-transform duration-300" loading="lazy">
-                        <img src="{{ asset('images/hrp.png') }}" alt="HAFECS Research & Publication"
-                            class="h-20 hover:scale-110 transition-transform duration-300" loading="lazy">
+
+                    <div class="mt-10">
+                        <p class="text-gray-600 font-medium mb-4">Dipercaya oleh institusi pendidikan terkemuka:</p>
+                        <div class="flex flex-wrap gap-6 items-center justify-start">
+                            <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
+                                <img src="{{ asset('images/smpit-an-nur.png') }}" alt="SMPIT An-Nur"
+                                    class="h-16 hover:scale-110 transition-transform duration-300" loading="lazy">
+                            </div>
+                            <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
+                                <img src="{{ asset('images/smp-sma-gibs.png') }}" alt="Global Islamic Boarding School"
+                                    class="h-16 hover:scale-110 transition-transform duration-300" loading="lazy">
+                            </div>
+                            <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
+                                <img src="{{ asset('images/hafecs.png') }}" alt="HAFECS"
+                                    class="h-12 hover:scale-110 transition-transform duration-300" loading="lazy">
+                            </div>
+                            <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
+                                <img src="{{ asset('images/hrp.png') }}" alt="HAFECS Research & Publication"
+                                    class="h-16 hover:scale-110 transition-transform duration-300" loading="lazy">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="hidden lg:block col-span-12 lg:col-span-5 rounded-2xl mx-3 overflow-hidden shadow-xl">
+
+                <div
+                    class="hidden lg:flex col-span-12 lg:col-span-5 rounded-2xl mx-3 overflow-hidden shadow-2xl relative group">
                     <img src="{{ asset('images/konten_satu.jpg') }}"
-                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" alt=""
-                        loading="lazy">
+                        class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-700"
+                        alt="Teacher engaging with students" loading="lazy">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-[#1D4E89]/70 to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm px-6 py-4 rounded-xl transform -translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                        <p class="text-[#1D4E89] font-bold text-xl">Kuasai Kelas Dengan Percaya Diri</p>
+                        <p class="text-gray-700">Tingkatkan keterampilan mengajar Anda</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Stats Section -->
-            <div class="container mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 text-center">
-                <div
-                    class="bg-[#1D4E89] p-6 rounded-xl shadow-md text-white hover:scale-110 transition-transform duration-300">
-                    <p class="text-4xl font-extrabold">500+</p>
-                    <p class="text-lg">Certified Teachers</p>
-                </div>
-                <div
-                    class="bg-[#1D4E89] p-6 rounded-xl shadow-md text-white hover:scale-110 transition-transform duration-300">
-                    <p class="text-4xl font-extrabold">98%</p>
-                    <p class="text-lg">Satisfaction Rate</p>
-                </div>
-                <div
-                    class="bg-[#1D4E89] p-6 rounded-xl shadow-md text-white hover:scale-110 transition-transform duration-300">
-                    <p class="text-4xl font-extrabold">20+</p>
-                    <p class="text-lg">Countries Reached</p>
-                </div>
-                <div
-                    class="bg-[#1D4E89] p-6 rounded-xl shadow-md text-white hover:scale-110 transition-transform duration-300">
-                    <p class="text-4xl font-extrabold">5 Years</p>
-                    <p class="text-lg">Of Excellence</p>
-                </div>
-            </div>
+
         </main>
         <!-- End Home -->
 
         <!-- Apa itu TLC? -->
-        <section id="about" class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg">
-            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                <!-- Gambar dengan label -->
-                <div
-                    class="relative bg-gray-200 rounded-xl h-96 flex items-center justify-center overflow-hidden shadow-xl transition-transform duration-300 hover:scale-105 active:scale-95">
-                    <img src="{{ asset('images/konten_tiga.jpg') }}" alt="Teaching Mastery Framework"
-                        class="object-cover w-full h-full" loading="lazy">
-                    <div
-                        class="absolute bottom-4 left-4 bg-[#E76F51] text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-md">
-                        Teaching Mastery Framework
-                    </div>
+        <section id="about"
+            class="w-full px-5 py-20 bg-gradient-to-br from-blue-50 via-white to-blue-100 text-gray-900">
+            <div class="max-w-7xl mx-auto w-full">
+                <!-- Section Title -->
+                <div class="text-center mb-16">
+                    <span
+                        class="inline-block px-4 py-1 bg-[#1D4E89]/10 text-[#1D4E89] font-semibold rounded-full text-sm mb-3">TENTANG
+                        PROGRAM</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#1D4E89]">Temukan Kekuatan TLC</h2>
+                    <div class="w-24 h-1 bg-[#E76F51] mt-4 mb-6 mx-auto"></div>
+                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">Program revolusioner yang mengubah cara guru
+                        mengajar dan siswa belajar</p>
                 </div>
 
-                <!-- Konten Deskripsi -->
-                <div class="text-center">
-                    <h2 class="text-4xl font-extrabold text-[#1D4E89]">Apa itu TLC?</h2>
-                    <div class="w-16 h-1 bg-[#E76F51] mt-3 mb-6 mx-auto"></div>
-                    <p class="leading-relaxed text-gray-800 text-lg">
-                        Program <span class="font-semibold text-[#1D4E89]">Teaching and Learning Certification</span>
-                        dirancang untuk meningkatkan kompetensi guru dalam mengajar menggunakan metode
-                        <span class="font-semibold text-[#1D4E89]">Teaching Mastery Framework (TMF)</span>.
-                    </p>
-                    <p class="mt-4 leading-relaxed text-gray-800 text-lg">
-                        Program ini bertujuan memberikan standar pengajaran berkualitas dan terstruktur, membantu para guru
-                        mencapai hasil belajar optimal.
-                    </p>
-                    <div
-                        class="bg-gray-100 text-gray-900 p-5 mt-6 rounded-xl shadow-sm italic border-l-4 border-[#1D4E89] text-lg">
-                        "Dengan mengikuti program ini, guru dapat menunjukkan keterampilan mengajar mereka, meningkatkan
-                        keahlian, dan memperoleh sertifikasi sebagai pengakuan atas kemampuan mereka dalam mengelola kelas
-                        secara efektif."
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <!-- Gambar dengan label yang ditingkatkan -->
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl group h-[500px]">
+                        <img src="{{ asset('images/konten_tiga.jpg') }}" alt="Teaching Mastery Framework"
+                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                            loading="lazy">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1D4E89]/80 to-transparent"></div>
+
+                        <div
+                            class="absolute bottom-0 left-0 right-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                            <div
+                                class="bg-[#E76F51] text-white px-4 py-2 rounded-lg inline-block text-sm font-semibold shadow-md mb-3">
+                                Teaching Mastery Framework
+                            </div>
+                            <h3 class="text-3xl font-bold text-white mb-2">Metodologi Yang Teruji</h3>
+                            <p class="text-white/90 mb-4">Framework yang dirancang khusus untuk meningkatkan efektivitas
+                                pengajaran di era digital</p>
+                            <a href="#framework"
+                                class="inline-flex items-center text-white hover:text-[#E76F51] transition-colors duration-300">
+                                <span class="mr-2">Pelajari Framework</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Fitur -->
-                    {{-- <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-                    <div
-                        class="bg-white p-6 rounded-xl shadow-md border-l-4 border-[#1D4E89] flex items-start gap-4 hover:shadow-xl hover:scale-105 active:scale-95 transition-transform duration-300">
-                        <div class="bg-[#1D4E89] text-white px-4 py-2 rounded-full font-bold text-lg">1</div>
-                        <div>
-                            <h3 class="font-semibold text-lg text-[#1D4E89]">Pembelajaran Terstruktur</h3>
-                            <p class="text-gray-700 text-md mt-1">
-                                Kurikulum yang dirancang secara sistematis untuk pengembangan kompetensi.
+                    <!-- Konten Deskripsi yang ditingkatkan -->
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#1D4E89] mb-6">Transformasi Mengajar Untuk Era Digital</h3>
+
+                        <p class="leading-relaxed text-gray-800 text-lg mb-6">
+                            <span class="font-semibold text-[#1D4E89]">Teaching and Learning Certification (TLC)</span>
+                            adalah langkah nyata menuju pengembangan diri sebagai pendidik unggul. Dengan pendekatan <span
+                                class="font-semibold text-[#1D4E89]">Teaching Mastery Framework (TMF)</span>, Anda akan
+                            dibekali strategi mengajar yang efektif, relevan, dan mampu menciptakan pengalaman belajar yang
+                            bermakna.
+                        </p>
+
+                        <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#1D4E89] mb-8">
+                            <h4 class="font-bold text-xl text-[#1D4E89] mb-3">Mengapa TLC Berbeda?</h4>
+                            <p class="text-gray-700">
+                                Program ini memberikan standar pengajaran berkualitas yang terstruktur dan praktis, membantu
+                                para guru mencapai hasil belajar optimal dalam lingkungan pendidikan modern.
                             </p>
                         </div>
-                    </div>
-                    <div
-                        class="bg-white p-6 rounded-xl shadow-md border-l-4 border-[#E76F51] flex items-start gap-4 hover:shadow-xl hover:scale-105 active:scale-95 transition-transform duration-300">
-                        <div class="bg-[#E76F51] text-white px-4 py-2 rounded-full font-bold text-lg">2</div>
-                        <div>
-                            <h3 class="font-semibold text-lg text-[#E76F51]">Praktik Langsung</h3>
-                            <p class="text-gray-700 text-md mt-1">
-                                Penerapan langsung metode pengajaran dalam lingkungan nyata.
-                            </p>
+
+                        <!-- Benefits with icons -->
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4 p-4 bg-blue-50 rounded-lg">
+                                <div class="bg-[#1D4E89] text-white p-3 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-lg text-[#1D4E89]">Pengakuan Profesional</h5>
+                                    <p class="text-gray-700">Dapatkan sertifikasi yang diakui sebagai bukti keahlian
+                                        mengajar Anda</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 p-4 bg-orange-50 rounded-lg">
+                                <div class="bg-[#E76F51] text-white p-3 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-lg text-[#E76F51]">Peningkatan Kinerja</h5>
+                                    <p class="text-gray-700">Tingkatkan hasil belajar siswa dengan teknik pengajaran yang
+                                        efektif</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
+                                <div class="bg-[#2A9D8F] text-white p-3 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-lg text-[#2A9D8F]">Jaringan Global</h5>
+                                    <p class="text-gray-700">Bergabunglah dengan komunitas pengajar terbaik dari berbagai
+                                        negara</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div> --}}
                 </div>
             </div>
         </section>
         <!-- End Apa itu TLC -->
 
-        <!-- Visi & Misi Section -->
-        <section class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg">
-            <div class="max-w-5xl mx-auto text-center">
-                <h2 class="text-4xl font-extrabold text-[#1D4E89]">Visi & Misi</h2>
-                <div class="w-16 h-1 bg-[#E76F51] mt-3 mb-6 mx-auto"></div>
-                <p class="text-gray-800 max-w-2xl mx-auto text-lg ">
-                    Kami berkomitmen untuk meningkatkan kualitas pendidikan melalui pengembangan
-                    kompetensi guru yang berkelanjutan.
+        <!-- Visi & Misi Section - Enhanced Version -->
+        <section class="w-full py-20 bg-gradient-to-br from-[#1D4E89]/10 to-white text-gray-900">
+            <div class="max-w-5xl mx-auto text-center px-6">
+                <h2 class="text-5xl font-black text-[#1D4E89] mb-2 tracking-tight">Transformasi Pendidikan Dimulai dari
+                    <span class="text-[#E76F51]">Anda</span>
+                </h2>
+                <div class="w-24 h-1 bg-[#E76F51] mt-4 mb-8 mx-auto rounded-full"></div>
+                <p class="text-gray-800 max-w-3xl mx-auto text-xl leading-relaxed font-medium">
+                    Bergabunglah dengan ribuan pendidik profesional yang telah meningkatkan kualitas pengajaran mereka
+                    melalui program pengembangan kompetensi guru terdepan di Indonesia.
                 </p>
             </div>
 
-            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 mt-10">
-                <!-- Visi -->
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 mt-16 px-6">
+                <!-- Visi - Enhanced -->
                 <div
-                    class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl active:scale-95">
-                    <div class="flex items-center gap-4 mb-5">
-                        <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
-                            <svg class="w-7 h-7 text-[#1D4E89]" fill="none" stroke="currentColor" stroke-width="2.5"
+                    class="bg-white p-10 rounded-3xl shadow-xl border-l-4 border-[#1D4E89] transition-transform duration-300 ease-in-out hover:scale-102 hover:shadow-2xl relative overflow-hidden group">
+                    <div
+                        class="absolute -top-12 -right-12 w-40 h-40 bg-[#1D4E89]/5 rounded-full blur-2xl group-hover:bg-[#1D4E89]/10 transition-all duration-500">
+                    </div>
+                    <div class="flex items-center gap-5 mb-6 relative z-10">
+                        <div class="bg-[#A8DADC] p-4 rounded-xl shadow-lg">
+                            <svg class="w-8 h-8 text-[#1D4E89]" fill="none" stroke="currentColor" stroke-width="2.5"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-[#1D4E89]">Visi Kami</h3>
+                        <h3 class="text-3xl font-black text-[#1D4E89]">Visi Kami</h3>
                     </div>
-                    <p class="text-gray-700 text-lg text-justify">
-                        Menjadi lembaga terdepan dalam pengembangan kompetensi guru yang
-                        menghasilkan pendidik berkualitas tinggi, mampu menginspirasi dan
-                        mempersiapkan generasi masa depan untuk menghadapi tantangan global.
+                    <p class="text-gray-700 text-xl text-left leading-relaxed relative z-10">
+                        Menciptakan generasi pendidik <span class="font-bold text-[#1D4E89]">terbaik di Indonesia</span>
+                        yang mampu menginspirasi dan mempersiapkan siswa menghadapi tantangan global masa depan.
                     </p>
-                    <ul class="mt-5 space-y-3 text-gray-700 text-lg">
-                        <li class="flex items-center gap-3">
-                            <span class="text-[#E76F51] text-2xl">🏆</span> Keunggulan dalam pengajaran dan pembelajaran
+                    <ul class="mt-8 space-y-5 text-gray-700 text-lg relative z-10">
+                        <li class="flex items-start gap-4 group/item">
+                            <span
+                                class="text-[#E76F51] text-3xl mt-1 group-hover/item:scale-125 transition-transform">🏆</span>
+                            <div>
+                                <span class="font-bold text-[#1D4E89]">Keunggulan Pengajaran</span>
+                                <p class="text-gray-600 mt-1">Metode pembelajaran tervalidasi yang meningkatkan hasil
+                                    belajar hingga 43%</p>
+                            </div>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-[#E76F51] text-2xl">🚀</span> Inovasi dalam metode pendidikan
+                        <li class="flex items-start gap-4 group/item">
+                            <span
+                                class="text-[#E76F51] text-3xl mt-1 group-hover/item:scale-125 transition-transform">🚀</span>
+                            <div>
+                                <span class="font-bold text-[#1D4E89]">Inovasi Pendidikan</span>
+                                <p class="text-gray-600 mt-1">Penerapan teknologi dan pendekatan pembelajaran terkini</p>
+                            </div>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-[#E76F51] text-2xl">🎓</span> Pendidikan berkualitas untuk semua
+                        <li class="flex items-start gap-4 group/item">
+                            <span
+                                class="text-[#E76F51] text-3xl mt-1 group-hover/item:scale-125 transition-transform">🎓</span>
+                            <div>
+                                <span class="font-bold text-[#1D4E89]">Pendidikan Berkualitas</span>
+                                <p class="text-gray-600 mt-1">Akses pendidikan komprehensif untuk guru di seluruh Indonesia
+                                </p>
+                            </div>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Misi -->
+                <!-- Misi - Enhanced -->
                 <div
-                    class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#E76F51] transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl active:scale-95">
-                    <div class="flex items-center gap-4 mb-5">
-                        <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
-                            <svg class="w-7 h-7 text-[#E76F51]" fill="none" stroke="currentColor" stroke-width="2.5"
+                    class="bg-white p-10 rounded-3xl shadow-xl border-l-4 border-[#E76F51] transition-transform duration-300 ease-in-out hover:scale-102 hover:shadow-2xl relative overflow-hidden group">
+                    <div
+                        class="absolute -top-12 -right-12 w-40 h-40 bg-[#E76F51]/5 rounded-full blur-2xl group-hover:bg-[#E76F51]/10 transition-all duration-500">
+                    </div>
+                    <div class="flex items-center gap-5 mb-6 relative z-10">
+                        <div class="bg-[#A8DADC] p-4 rounded-xl shadow-lg">
+                            <svg class="w-8 h-8 text-[#E76F51]" fill="none" stroke="currentColor" stroke-width="2.5"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-[#E76F51]">Misi Kami</h3>
+                        <h3 class="text-3xl font-black text-[#E76F51]">Misi Kami</h3>
                     </div>
-                    <p class="text-gray-700 text-lg text-justify">
-                        Menyediakan program sertifikasi dan pelatihan berkualitas tinggi yang
-                        membekali para pendidik dengan pengetahuan, keterampilan, dan alat yang
-                        mereka butuhkan untuk menciptakan lingkungan belajar yang efektif dan
-                        inspiratif.
+                    <p class="text-gray-700 text-xl text-left leading-relaxed relative z-10">
+                        Memberikan <span class="font-bold text-[#E76F51]">pelatihan transformatif</span> yang memberdayakan
+                        guru menciptakan pengalaman belajar luar biasa dan hasil nyata bagi siswa di seluruh Indonesia.
                     </p>
-                    <ul class="mt-5 space-y-3 text-gray-700 text-lg">
-                        <li class="flex items-center gap-3">
-                            <span class="text-[#E76F51] text-2xl">👩‍🏫</span> Mengembangkan kompetensi pedagogis guru
+                    <ul class="mt-8 space-y-5 text-gray-700 text-lg relative z-10">
+                        <li class="flex items-start gap-4 group/item">
+                            <span
+                                class="text-[#E76F51] text-3xl mt-1 group-hover/item:scale-125 transition-transform">👩‍🏫</span>
+                            <div>
+                                <span class="font-bold text-[#E76F51]">Kompetensi Pedagogis</span>
+                                <p class="text-gray-600 mt-1">Program pelatihan guru bersertifikasi dengan metode terkini
+                                </p>
+                            </div>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-[#E76F51] text-2xl">🔄</span> Memfasilitasi pertukaran praktik terbaik
+                        <li class="flex items-start gap-4 group/item">
+                            <span
+                                class="text-[#E76F51] text-3xl mt-1 group-hover/item:scale-125 transition-transform">🔄</span>
+                            <div>
+                                <span class="font-bold text-[#E76F51]">Komunitas Pendidik</span>
+                                <p class="text-gray-600 mt-1">Jaringan +5,000 guru berbagi praktik terbaik di seluruh
+                                    negeri</p>
+                            </div>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-[#E76F51] text-2xl">💡</span> Mendorong inovasi dalam pengajaran
+                        <li class="flex items-start gap-4 group/item">
+                            <span
+                                class="text-[#E76F51] text-3xl mt-1 group-hover/item:scale-125 transition-transform">💡</span>
+                            <div>
+                                <span class="font-bold text-[#E76F51]">Inovasi Pengajaran</span>
+                                <p class="text-gray-600 mt-1">Kurikulum dinamis yang mengikuti perkembangan dunia
+                                    pendidikan</p>
+                            </div>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-[#E76F51] text-2xl">🤝</span> Membangun komunitas pendidik yang kolaboratif
+                        <li class="flex items-start gap-4 group/item">
+                            <span
+                                class="text-[#E76F51] text-3xl mt-1 group-hover/item:scale-125 transition-transform">🤝</span>
+                            <div>
+                                <span class="font-bold text-[#E76F51]">Kolaborasi</span>
+                                <p class="text-gray-600 mt-1">Membangun ekosistem pendidikan yang saling mendukung</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
+
+            <!-- CTA Button -->
+            <div class="max-w-3xl mx-auto mt-16 text-center px-6">
+                <a href="#daftar"
+                    class="inline-block px-10 py-4 bg-[#E76F51] text-white font-bold text-xl rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95">
+                    Mulai Perjalanan Profesional Anda Hari Ini
+                </a>
+                <p class="text-gray-500 mt-4 italic">Sudah lebih dari 10.000+ guru bergabung dengan program kami</p>
+            </div>
         </section>
         <!-- End Visi & Misi -->
 
-        <!-- Manfaat TLC -->
-        <section class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg">
-            <div class="max-w-6xl mx-auto text-center">
-                <h2 class="text-4xl font-extrabold text-[#1D4E89]">Manfaat TLC</h2>
-                <div class="w-16 h-1 bg-[#E76F51] mt-3 mb-6 mx-auto"></div>
-                <p class="text-gray-800 max-w-3xl mx-auto text-lg">
-                    Program TLC memberikan berbagai manfaat yang akan membantu Anda berkembang sebagai pendidik profesional.
+        <!-- Manfaat TLC - Enhanced -->
+        <section class="w-full py-24 bg-gradient-to-t from-[#1D4E89]/5 to-white text-gray-900">
+            <div class="max-w-6xl mx-auto text-center px-6">
+                <span class="text-[#E76F51] font-bold text-lg uppercase tracking-wider">MANFAAT EKSKLUSIF</span>
+                <h2 class="text-5xl font-black text-[#1D4E89] mt-2 tracking-tight">Transformasi Karir yang <span
+                        class="text-[#E76F51]">Nyata</span></h2>
+                <div class="w-24 h-1 bg-[#E76F51] mt-4 mb-8 mx-auto rounded-full"></div>
+                <p class="text-gray-800 max-w-3xl mx-auto text-xl leading-relaxed">
+                    Program Teaching and Learning Certification memberikan manfaat konkret yang telah terbukti mengubah
+                    perjalanan karir
+                    ribuan pendidik profesional di Indonesia.
                 </p>
             </div>
 
-            <!-- Grid Manfaat -->
-            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mt-10">
-                <!-- Item Manfaat -->
+
+            <!-- Grid Manfaat - Enhanced -->
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mt-10 px-6">
+                <!-- Item Manfaat 1 -->
                 <div
-                    class="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
-                    <div class="flex items-center gap-4 mb-5">
-                        <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
-                            <span class="text-[#1D4E89] text-4xl">🏅</span>
+                    class="group bg-white p-8 rounded-3xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
+                    <div
+                        class="absolute -top-12 -right-12 w-40 h-40 bg-[#1D4E89]/5 rounded-full blur-2xl group-hover:bg-[#1D4E89]/10 transition-all duration-500">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-transparent to-[#A8DADC]/20 rounded-tl-full">
+                    </div>
+                    <div class="flex items-center gap-4 mb-5 relative z-10">
+                        <div
+                            class="bg-[#A8DADC] p-4 rounded-xl shadow-lg group-hover:bg-[#1D4E89] transition-colors duration-300">
+                            <span
+                                class="text-[#1D4E89] text-4xl group-hover:text-white transition-colors duration-300">🏅</span>
                         </div>
                         <h3 class="text-2xl font-bold text-[#1D4E89] group-hover:text-[#E76F51] transition-colors">
-                            Sertifikasi ber - NPSN</h3>
+                            Sertifikasi NPSN Resmi</h3>
                     </div>
-                    <p class="text-gray-700 text-lg">
-                        Dapatkan sertifikasi yang diakui sebagai bukti kompetensi mengajar Anda.
+                    <p class="text-gray-700 text-lg relative z-10">
+                        Tingkatkan kredibilitas Anda dengan sertifikasi profesional yang diakui oleh Dinas Pendidikan dan
+                        tercatat dalam database nasional.
                     </p>
+
                 </div>
 
+                <!-- Item Manfaat 2 -->
                 <div
-                    class="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
-                    <div class="flex items-center gap-4 mb-5">
-                        <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
-                            <span class="text-[#1D4E89] text-4xl">📖</span>
+                    class="group bg-white p-8 rounded-3xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
+                    <div
+                        class="absolute -top-12 -right-12 w-40 h-40 bg-[#1D4E89]/5 rounded-full blur-2xl group-hover:bg-[#1D4E89]/10 transition-all duration-500">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-transparent to-[#A8DADC]/20 rounded-tl-full">
+                    </div>
+                    <div class="flex items-center gap-4 mb-5 relative z-10">
+                        <div
+                            class="bg-[#A8DADC] p-4 rounded-xl shadow-lg group-hover:bg-[#1D4E89] transition-colors duration-300">
+                            <span
+                                class="text-[#1D4E89] text-4xl group-hover:text-white transition-colors duration-300">📖</span>
                         </div>
                         <h3 class="text-2xl font-bold text-[#1D4E89] group-hover:text-[#E76F51] transition-colors">
-                            Peningkatan Keterampilan</h3>
+                            Keterampilan Premium</h3>
                     </div>
-                    <p class="text-gray-700 text-lg">
-                        Kembangkan metode pengajaran yang efektif dan inovatif.
+                    <p class="text-gray-700 text-lg relative z-10">
+                        Kuasai metode pengajaran terkini yang sudah terbukti meningkatkan prestasi siswa hingga 65% dalam
+                        waktu satu semester.
                     </p>
+
                 </div>
 
+                <!-- Item Manfaat 3 -->
                 <div
-                    class="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
-                    <div class="flex items-center gap-4 mb-5">
-                        <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
-                            <span class="text-[#1D4E89] text-4xl">🤝</span>
+                    class="group bg-white p-8 rounded-3xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
+                    <div
+                        class="absolute -top-12 -right-12 w-40 h-40 bg-[#1D4E89]/5 rounded-full blur-2xl group-hover:bg-[#1D4E89]/10 transition-all duration-500">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-transparent to-[#A8DADC]/20 rounded-tl-full">
+                    </div>
+                    <div class="flex items-center gap-4 mb-5 relative z-10">
+                        <div
+                            class="bg-[#A8DADC] p-4 rounded-xl shadow-lg group-hover:bg-[#1D4E89] transition-colors duration-300">
+                            <span
+                                class="text-[#1D4E89] text-4xl group-hover:text-white transition-colors duration-300">🤝</span>
                         </div>
                         <h3 class="text-2xl font-bold text-[#1D4E89] group-hover:text-[#E76F51] transition-colors">Jaringan
-                            Profesional</h3>
+                            Profesional Elite</h3>
                     </div>
-                    <p class="text-gray-700 text-lg">
-                        Bergabung dengan komunitas pendidik yang berdedikasi.
+                    <p class="text-gray-700 text-lg relative z-10">
+                        Bergabunglah dengan komunitas eksklusif +5,000 pendidik top Indonesia untuk berkolaborasi dan
+                        berbagi peluang karir.
                     </p>
+
                 </div>
 
+                <!-- Item Manfaat 4 -->
                 <div
-                    class="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
-                    <div class="flex items-center gap-4 mb-5">
-                        <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
-                            <span class="text-[#1D4E89] text-4xl">💡</span>
+                    class="group bg-white p-8 rounded-3xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
+                    <div
+                        class="absolute -top-12 -right-12 w-40 h-40 bg-[#1D4E89]/5 rounded-full blur-2xl group-hover:bg-[#1D4E89]/10 transition-all duration-500">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-transparent to-[#A8DADC]/20 rounded-tl-full">
+                    </div>
+                    <div class="flex items-center gap-4 mb-5 relative z-10">
+                        <div
+                            class="bg-[#A8DADC] p-4 rounded-xl shadow-lg group-hover:bg-[#1D4E89] transition-colors duration-300">
+                            <span
+                                class="text-[#1D4E89] text-4xl group-hover:text-white transition-colors duration-300">💡</span>
                         </div>
                         <h3 class="text-2xl font-bold text-[#1D4E89] group-hover:text-[#E76F51] transition-colors">Inovasi
-                            Pembelajaran</h3>
+                            Digital Edutech</h3>
                     </div>
-                    <p class="text-gray-700 text-lg">
-                        Pelajari teknik pengajaran terbaru yang sesuai dengan kebutuhan siswa masa kini.
+                    <p class="text-gray-700 text-lg relative z-10">
+                        Kuasai teknologi pembelajaran terbaru yang membuat siswa lebih terlibat dan meningkatkan retensi
+                        materi hingga 87%.
                     </p>
+
                 </div>
 
-                {{-- <div
-                class="group bg-white p-8 rounded-2xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
-                <div class="flex items-center gap-4 mb-5">
-                    <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
-                        <span class="text-[#1D4E89] text-4xl">🎓</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-[#1D4E89] group-hover:text-[#E76F51] transition-colors">
-                        Pengakuan Profesional</h3>
-                </div>
-                <p class="text-gray-700 text-lg">
-                    Tingkatkan kredibilitas dan reputasi Anda sebagai pendidik.
-                </p>
-            </div> --}}
-
+                <!-- Item Manfaat 5 -->
                 <div
-                    class="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
-                    <div class="flex items-center gap-4 mb-5">
-                        <div class="bg-[#A8DADC] p-3 rounded-full shadow-md">
-                            <span class="text-[#1D4E89] text-4xl">📚</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[#1D4E89] group-hover:text-[#E76F51] transition-colors">Akses
-                            Sumber Daya</h3>
+                    class="group bg-white p-8 rounded-3xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
+                    <div
+                        class="absolute -top-12 -right-12 w-40 h-40 bg-[#1D4E89]/5 rounded-full blur-2xl group-hover:bg-[#1D4E89]/10 transition-all duration-500">
                     </div>
-                    <p class="text-gray-700 text-lg">
-                        Dapatkan akses ke materi dan alat pengajaran eksklusif.
+                    <div
+                        class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-transparent to-[#A8DADC]/20 rounded-tl-full">
+                    </div>
+                    <div class="flex items-center gap-4 mb-5 relative z-10">
+                        <div
+                            class="bg-[#A8DADC] p-4 rounded-xl shadow-lg group-hover:bg-[#1D4E89] transition-colors duration-300">
+                            <span
+                                class="text-[#1D4E89] text-4xl group-hover:text-white transition-colors duration-300">📚</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#1D4E89] group-hover:text-[#E76F51] transition-colors">
+                            Perpustakaan
+                            Premium</h3>
+                    </div>
+                    <p class="text-gray-700 text-lg relative z-10">
+                        Akses tanpa batas ke 1000+ sumber belajar eksklusif, template rencana pembelajaran, dan materi siap
+                        pakai bernilai Rp12 juta+.
                     </p>
+
+                </div>
+
+                <!-- Item Manfaat 6 -->
+                <div
+                    class="group bg-white p-8 rounded-3xl shadow-xl border-l-4 border-[#1D4E89] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
+                    <div
+                        class="absolute -top-12 -right-12 w-40 h-40 bg-[#1D4E89]/5 rounded-full blur-2xl group-hover:bg-[#1D4E89]/10 transition-all duration-500">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-transparent to-[#A8DADC]/20 rounded-tl-full">
+                    </div>
+
+                    <div class="flex items-center gap-4 mb-5 relative z-10">
+                        <div
+                            class="bg-[#A8DADC] p-4 rounded-xl shadow-lg group-hover:bg-[#1D4E89] transition-colors duration-300">
+                            <span
+                                class="text-[#1D4E89] text-4xl group-hover:text-white transition-colors duration-300">🎓</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#1D4E89] group-hover:text-[#E76F51] transition-colors">Jenjang
+                            Karir Eksklusif</h3>
+                    </div>
+                    <p class="text-gray-700 text-lg relative z-10">
+                        Jalur cepat untuk kesempatan mengajar di sekolah-sekolah unggulan dan akses eksklusif ke kesempatan
+                        peningkatan karir.
+                    </p>
+
                 </div>
             </div>
         </section>
-        <!-- End Manfaat TLC -->
-
-        <!-- Kurikulum TLC -->
-        {{-- <section class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl font-extrabold text-[#1D4E89]">Kurikulum TLC</h2>
-            <div class="w-16 h-1 bg-[#E76F51] mt-3 mb-6 mx-auto"></div>
-            <p class="text-gray-800 max-w-3xl mx-auto text-lg">
-                Kurikulum komprehensif yang dirancang untuk mengembangkan kompetensi mengajar Anda.
-            </p>
-        </div>
-
-        <!-- Tab Navigasi -->
-        <div class="max-w-6xl mx-auto mt-10 bg-white p-8 rounded-xl shadow-xl">
-            <div class="flex flex-wrap justify-center gap-3 border-b pb-4">
-                <button
-                    class="tab-btn px-5 py-3 font-semibold text-[#1D4E89] bg-gray-100 rounded-lg transition-all duration-300 hover:bg-[#E76F51] hover:text-white focus:bg-[#E76F51] focus:text-white active:scale-95">Dasar-Dasar
-                    Pengajaran</button>
-                <button
-                    class="tab-btn px-5 py-3 font-semibold text-gray-600 bg-gray-100 rounded-lg transition-all duration-300 hover:bg-[#E76F51] hover:text-white focus:bg-[#E76F51] focus:text-white active:scale-95">Metode
-                    Pengajaran Inovatif</button>
-                <button
-                    class="tab-btn px-5 py-3 font-semibold text-gray-600 bg-gray-100 rounded-lg transition-all duration-300 hover:bg-[#E76F51] hover:text-white focus:bg-[#E76F51] focus:text-white active:scale-95">Manajemen
-                    Kelas</button>
-                <button
-                    class="tab-btn px-5 py-3 font-semibold text-gray-600 bg-gray-100 rounded-lg transition-all duration-300 hover:bg-[#E76F51] hover:text-white focus:bg-[#E76F51] focus:text-white active:scale-95">Penilaian
-                    dan Evaluasi</button>
-                <button
-                    class="tab-btn px-5 py-3 font-semibold text-gray-600 bg-gray-100 rounded-lg transition-all duration-300 hover:bg-[#E76F51] hover:text-white focus:bg-[#E76F51] focus:text-white active:scale-95">Komunikasi
-                    Efektif</button>
-            </div>
-
-            <!-- Konten Kurikulum -->
-            <div class="mt-8">
-                <h3 class="text-2xl font-bold text-[#1D4E89] text-center">Dasar-Dasar Pengajaran</h3>
-                <div class="mt-6 space-y-5">
-                    <div
-                        class="bg-gray-100 p-6 rounded-xl flex justify-between items-center transition-all duration-300 hover:bg-[#E76F51] hover:text-white hover:scale-105 shadow-md">
-                        <span class="text-lg font-medium">Prinsip Dasar Pedagogi Modern</span>
-                        <span class="text-gray-600 group-hover:text-white">2 jam</span>
-                    </div>
-                    <div
-                        class="bg-gray-100 p-6 rounded-xl flex justify-between items-center transition-all duration-300 hover:bg-[#E76F51] hover:text-white hover:scale-105 shadow-md">
-                        <span class="text-lg font-medium">Psikologi Pendidikan</span>
-                        <span class="text-gray-600 group-hover:text-white">3 jam</span>
-                    </div>
-                    <div
-                        class="bg-gray-100 p-6 rounded-xl transition-all duration-300 hover:bg-[#E76F51] hover:text-white hover:scale-105 shadow-md">
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-medium">Perencanaan Pembelajaran Efektif</span>
-                            <span class="text-gray-600 group-hover:text-white">2.5 jam</span>
-                        </div>
-                        <p class="text-sm text-gray-600 mt-2 group-hover:text-white">Teknik menyusun rencana
-                            pembelajaran yang terstruktur dan efektif</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-        <!-- End Kurikulum TLC -->
 
         <!-- Success Stories Section -->
-        <section class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg"
+        <section class="w-full px-5 py-20 bg-gradient-to-br from-blue-50 via-gray-50 to-white text-gray-900 shadow-xl"
             id="testimonials">
             <div class="text-center">
-                <span class="text-blue-700 font-semibold text-sm uppercase bg-blue-100 px-4 py-2 rounded-full shadow-sm">
-                    Testimonials
+                <span
+                    class="text-blue-700 font-semibold text-sm uppercase bg-blue-100 px-4 py-2 rounded-full shadow-md animate-pulse">
+                    Kisah Sukses
                 </span>
-                <h1 class="text-4xl font-extrabold text-[#1D4E89] mt-4">
-                    Apa Kata Mereka?
+                <h1 class="text-5xl font-extrabold text-[#1D4E89] mt-6 leading-tight">
+                    Transformasi Nyata <span class="text-[#E76F51]">Dari Para Pendidik</span>
                 </h1>
-                <p class="text-gray-700 mt-3 max-w-2xl mx-auto text-lg">
-                    Dengarkan pengalaman para guru yang telah mengikuti program Teaching and Learning Certification.
+                <p class="text-gray-700 mt-5 max-w-3xl mx-auto text-xl">
+                    Bergabunglah dengan ratusan pendidik yang telah mengubah karir mereka melalui program Teaching and
+                    Learning Certification kami.
                 </p>
             </div>
 
             <!-- Testimonial Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16 max-w-6xl mx-auto">
                 <!-- Testimonial 1 -->
                 <div
-                    class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <img src="{{ asset('images/hamas.png') }}" alt="Hamas, M.Pd"
-                        class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -top-10 left-6"
-                        loading="lazy">
-                    <div class="mt-12">
-                        <strong class="block text-xl text-gray-900">Hamas, M.Pd</strong>
-                        <span class="text-gray-500 text-sm">High School Teacher</span>
-                        <p class="text-gray-600 italic mt-4">
-                            "Setelah mengikuti program TLC, saya memiliki lebih banyak teknik dan strategi untuk membuat
-                            kelas saya lebih interaktif. Saya juga mendapatkan jaringan profesional yang luas dari sesama
-                            pendidik di seluruh Indonesia."
+                    class="bg-white border border-gray-200 rounded-2xl shadow-md p-8 relative transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
+                    <div class="absolute -top-10 left-6 transition-all duration-300 group-hover:-translate-y-2">
+                        <img src="{{ asset('images/hamas.png') }}" alt="Hamas, M.Pd"
+                            class="w-24 h-24 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51]"
+                            loading="lazy">
+                        <div class="absolute -bottom-2 -right-2 bg-blue-600 text-white rounded-full p-2 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-16">
+                        <strong class="block text-2xl text-gray-900 font-bold">Hamas, M.Pd</strong>
+                        <span class="text-blue-600 text-sm font-medium">Guru SMA - Peraih Penghargaan Guru Terbaik
+                            2024</span>
+                        <div class="flex items-center mt-2 mb-4">
+                            <div class="flex text-yellow-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mt-4 text-lg leading-relaxed">
+                            "Program TLC <span class="text-blue-600 font-semibold">telah membuka dunia baru</span> dalam
+                            karir mengajar saya. Siswa-siswa saya kini lebih antusias dan hasil belajar mereka meningkat
+                            drastis. Investasi terbaik untuk karir pendidikan yang saya pernah lakukan!"
                         </p>
+                        <div class="mt-6 text-sm text-blue-600 font-medium">
+                            📈 Peningkatan nilai rata-rata kelas: 28%
+                        </div>
                     </div>
                 </div>
 
                 <!-- Testimonial 2 -->
                 <div
-                    class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <img src="{{ asset('images/aliando.jpg') }}" alt="Candra, M.Pd"
-                        class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -top-10 left-6"
-                        loading="lazy">
-                    <div class="mt-12">
-                        <strong class="block text-xl text-gray-900">Candra, M.Pd</strong>
-                        <span class="text-gray-500 text-sm">University Professor</span>
-                        <p class="text-gray-600 italic mt-4">
-                            "Program TLC telah mengubah cara saya mengajar. Metode yang diajarkan sangat praktis dan
-                            langsung dapat diterapkan di kelas. Siswa saya menjadi lebih aktif dan bersemangat dalam
-                            belajar."
+                    class="bg-white border border-gray-200 rounded-2xl shadow-md p-8 relative transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
+                    <div class="absolute -top-10 left-6 transition-all duration-300 group-hover:-translate-y-2">
+                        <img src="{{ asset('images/aliando.jpg') }}" alt="Candra, M.Pd"
+                            class="w-24 h-24 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51]"
+                            loading="lazy">
+                        <div class="absolute -bottom-2 -right-2 bg-blue-600 text-white rounded-full p-2 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-16">
+                        <strong class="block text-2xl text-gray-900 font-bold">Candra, M.Pd</strong>
+                        <span class="text-blue-600 text-sm font-medium">Dosen Universitas - Peneliti Pendidikan</span>
+                        <div class="flex items-center mt-2 mb-4">
+                            <div class="flex text-yellow-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mt-4 text-lg leading-relaxed">
+                            "Metode pembelajaran yang saya dapatkan di TLC <span
+                                class="text-blue-600 font-semibold">revolusioner dan berbasis riset</span>. Mahasiswa saya
+                            sekarang lebih kritis, kreatif, dan publikasi riset pendidikan saya meningkat berkat insight
+                            yang didapat."
                         </p>
+                        <div class="mt-6 text-sm text-blue-600 font-medium">
+                            🏆 Dipromosikan menjadi Ketua Jurusan setelah menerapkan metode TLC
+                        </div>
                     </div>
                 </div>
 
                 <!-- Testimonial 3 -->
                 <div
-                    class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <img src="{{ asset('images/guru.png') }}" alt="Yudha, M.Pd"
-                        class="w-20 h-20 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51] absolute -topy10 left-6"
-                        loading="lazy">
-                    <div class="mt-12">
-                        <strong class="block text-xl text-gray-900">Yudha, M.Pd</strong>
-                        <span class="text-gray-500 text-sm">Elementary School Teacher</span>
-                        <p class="text-gray-600 italic mt-4">
-                            "Setelah mengikuti program TLC, saya memiliki lebih banyak teknik dan strategi untuk membuat
-                            kelas saya lebih interaktif. Saya juga mendapatkan jaringan profesional yang luas dari sesama
-                            pendidik di seluruh Indonesia."
+                    class="bg-white border border-gray-200 rounded-2xl shadow-md p-8 relative transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
+                    <div class="absolute -top-10 left-6 transition-all duration-300 group-hover:-translate-y-2">
+                        <img src="{{ asset('images/guru.png') }}" alt="Yudha, M.Pd"
+                            class="w-24 h-24 rounded-full border-4 border-white shadow-lg ring-4 ring-[#E76F51]"
+                            loading="lazy">
+                        <div class="absolute -bottom-2 -right-2 bg-blue-600 text-white rounded-full p-2 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-16">
+                        <strong class="block text-2xl text-gray-900 font-bold">Yudha, M.Pd</strong>
+                        <span class="text-blue-600 text-sm font-medium">Guru SD - Trainer Pendidikan Nasional</span>
+                        <div class="flex items-center mt-2 mb-4">
+                            <div class="flex text-yellow-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mt-4 text-lg leading-relaxed">
+                            "TLC mengubah saya dari guru biasa menjadi <span class="text-blue-600 font-semibold">pendidik
+                                berpengaruh</span>. Kini saya sering diundang sebagai pembicara di berbagai pelatihan guru
+                            nasional dan memiliki jaringan profesional yang luas."
                         </p>
+                        <div class="mt-6 text-sm text-blue-600 font-medium">
+                            🌟 Menjadi mentor bagi 87 guru di seluruh Indonesia
+                        </div>
                     </div>
                 </div>
             </div>
+
         </section>
         <!-- End Success Stories -->
 
         <!-- Paket Harga -->
         <section id="harga" class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg">
             <div class="max-w-6xl mx-auto text-center">
-                <h2 class="text-4xl font-extrabold text-[#1D4E89] mt-4">Paket Harga</h2>
+                <h2 class="text-4xl font-extrabold text-[#1D4E89] mt-4">Investasi untuk Masa Depan Profesional Anda</h2>
                 <div class="w-16 h-1 bg-[#E76F51] mt-3 mb-6 mx-auto"></div>
                 <p class="text-gray-700 max-w-3xl mx-auto text-lg">
-                    Pilih paket yang sesuai dengan kebutuhan pengembangan profesional Anda.
+                    Tingkatkan keterampilan, perluas wawasan, dan raih peluang karier terbaik dengan paket pelatihan
+                    bertahap yang dirancang untuk mendampingi perkembangan Anda dari dasar hingga mahir.
                 </p>
+
+                <!-- Progress Path -->
+                <div class="flex items-center justify-center gap-4 text-sm font-semibold text-gray-600 mt-8">
+                    <div class="flex items-center gap-2">
+                        <span class="text-green-600">✔</span> Level A
+                    </div>
+                    <span>→</span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-gray-400">🔒</span> Level B
+                    </div>
+                    <span>→</span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-gray-400">🔒</span> Level C
+                    </div>
+                </div>
             </div>
 
             <!-- Kartu Paket -->
-
             <div class="max-w-6xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+
                 <!-- Paket Basic (Level A) -->
                 <div
                     class="bg-white border border-gray-200 rounded-xl shadow-sm p-8 text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer">
-                    <h3 class="text-lg font-bold text-white bg-blue-900 py-3 rounded-lg">LEVEL A</h3>
-                    <p class="text-gray-600 mt-3">Paket dasar untuk memulai perjalanan TLC Anda</p>
+                    <h3 class="text-lg font-bold text-white bg-blue-900 py-3 rounded-lg">LEVEL A - Basic Explorer</h3>
+                    <p class="text-gray-600 mt-3">Langkah pertama menuju transformasi profesional Anda.</p>
                     <p class="text-3xl font-extrabold text-blue-900 mt-5">Rp 2.500.000</p>
                     <ul class="mt-6 text-left text-gray-700 space-y-3">
-                        <li>✔ Akses ke 5 modul dasar</li>
-                        <li>✔ Sertifikat kelulusan digital</li>
-                        <li>✔ Materi pembelajaran digital</li>
-                        <li>✔ Forum diskusi online</li>
-                        <li>✔ Durasi akses 3 bulan</li>
+                        <li>✔ 5 Modul pembelajaran dasar</li>
+                        <li>✔ Sertifikat digital resmi</li>
+                        <li>✔ Akses materi online kapan saja</li>
+                        <li>✔ Forum diskusi interaktif</li>
+                        <li>✔ Akses penuh selama 3 bulan</li>
                     </ul>
                     <button
                         class="mt-6 bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-transform transform hover:scale-105 active:scale-95">
-                        Pilih Paket
+                        Mulai Sekarang
                     </button>
                 </div>
 
-
-                <!-- Paket Intermediate (Level B) -->
+                <!-- Paket Intermediate (Level B - Dikunci) -->
                 <div
-                    class="bg-white border border-gray-200 rounded-xl shadow-sm p-8 text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer">
-                    <h3 class="text-lg font-bold text-white bg-blue-900 py-3 rounded-lg">LEVEL B</h3>
-                    <p class="text-gray-600 mt-3">Paket dasar untuk memulai perjalanan TLC Anda</p>
-                    <p class="text-3xl font-extrabold text-blue-900 mt-5">Rp 2.500.000</p>
+                    class="bg-white border border-gray-200 rounded-xl shadow-sm p-8 text-center opacity-60 cursor-not-allowed">
+                    <h3 class="text-lg font-bold text-white bg-blue-900 py-3 rounded-lg">LEVEL B - Skilled Achiever</h3>
+                    <p class="text-gray-600 mt-3">Tersedia setelah Anda menyelesaikan Level A.</p>
+                    <p class="text-3xl font-extrabold text-blue-900 mt-5">Rp 3.500.000</p>
                     <ul class="mt-6 text-left text-gray-700 space-y-3">
-                        <li>✔ Akses ke 5 modul dasar</li>
-                        <li>✔ Sertifikat kelulusan digital</li>
-                        <li>✔ Materi pembelajaran digital</li>
-                        <li>✔ Forum diskusi online</li>
-                        <li>✔ Durasi akses 3 bulan</li>
+                        <li>✔ 10 Modul pembelajaran menengah</li>
+                        <li>✔ Sertifikat digital & akses komunitas</li>
+                        <li>✔ Materi eksklusif tambahan</li>
+                        <li>✔ Mentoring grup (2 sesi)</li>
+                        <li>✔ Akses selama 6 bulan</li>
                     </ul>
-                    <button
-                        class="mt-6 bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-transform transform hover:scale-105 active:scale-95">
-                        Pilih Paket
+                    <button class="mt-6 bg-gray-400 text-white px-6 py-3 rounded-lg font-semibold cursor-not-allowed"
+                        disabled>
+                        Tersedia Setelah Level A
                     </button>
                 </div>
 
-                <!-- Paket Advanced (Level C) -->
+                <!-- Paket Advanced (Level C - Dikunci) -->
                 <div
-                    class="bg-white border border-gray-200 rounded-xl shadow-sm p-8 text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer">
-                    <h3 class="text-lg font-bold text-white bg-blue-900 py-3 rounded-lg">LEVEL C</h3>
-                    <p class="text-gray-600 mt-3">Pengalaman TLC paling komprehensif</p>
+                    class="bg-white border border-gray-200 rounded-xl shadow-sm p-8 text-center opacity-60 cursor-not-allowed">
+                    <h3 class="text-lg font-bold text-white bg-blue-900 py-3 rounded-lg">LEVEL C - Master Leader</h3>
+                    <p class="text-gray-600 mt-3">Buka akses setelah menyelesaikan Level B.</p>
                     <p class="text-3xl font-extrabold text-blue-900 mt-5">Rp 7.500.000</p>
                     <ul class="mt-6 text-left text-gray-700 space-y-3">
-                        <li>✔ Akses ke semua 15 modul</li>
-                        <li>✔ Sertifikat kelulusan premium</li>
-                        <li>✔ Semua materi pembelajaran</li>
-                        <li>✔ Mentoring pribadi (6 sesi)</li>
-                        <li>✔ Akses komunitas seumur hidup</li>
-                        <li>✔ Durasi akses 12 bulan</li>
-                        <li>✔ Paket 3 buku panduan pengajaran</li>
+                        <li>✔ Semua 15 Modul lengkap</li>
+                        <li>✔ Sertifikat premium + cetak</li>
+                        <li>✔ Sesi mentoring pribadi (6x)</li>
                         <li>✔ Workshop eksklusif (2x)</li>
+                        <li>✔ Akses komunitas seumur hidup</li>
+                        <li>✔ Paket 3 buku panduan</li>
+                        <li>✔ Durasi akses 12 bulan</li>
                     </ul>
-                    <button
-                        class="mt-6 bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-transform transform hover:scale-105 active:scale-95">
-                        Pilih Paket
+                    <button class="mt-6 bg-gray-400 text-white px-6 py-3 rounded-lg font-semibold cursor-not-allowed"
+                        disabled>
+                        Selesaikan Level B Terlebih Dahulu
                     </button>
                 </div>
 
-                <!-- Bundle Package - Added inside the grid with full-width on larger screens -->
-                <div class="col-span-1 md:col-span-3 flex justify-center">
+                <!-- Paket Bundle -->
+                {{-- <div class="col-span-1 md:col-span-3 flex justify-center">
                     <div
                         class="bg-gradient-to-b from-orange-500 to-orange-600 text-white border border-orange-500 rounded-xl shadow-sm p-8 text-center relative transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer w-full md:w-2/3 lg:w-1/2">
                         <span
-                            class="absolute top-0 right-0 bg-yellow-400 text-xs font-bold text-gray-900 px-4 py-2 rounded-bl-lg shadow-md">TERPOPULER</span>
-                        <h3 class="text-lg font-bold bg-orange-700 py-3 rounded-lg">PAKET BUNDLE</h3>
-                        <p class="mt-3">Paket lengkap untuk pengembangan profesional</p>
+                            class="absolute top-0 right-0 bg-yellow-400 text-xs font-bold text-gray-900 px-4 py-2 rounded-bl-lg shadow-md">PALING
+                            POPULER</span>
+                        <h3 class="text-lg font-bold bg-orange-700 py-3 rounded-lg">PAKET BUNDLE - Smart Choice</h3>
+                        <p class="mt-3">Solusi lengkap & hemat untuk perjalanan profesional Anda.</p>
                         <p class="text-3xl font-extrabold mt-5">Rp 4.500.000</p>
                         <ul class="mt-6 text-left space-y-3">
-                            <li>✔ Akses ke semua 10 modul</li>
+                            <li>✔ 10 Modul terfavorit</li>
                             <li>✔ Sertifikat cetak & digital</li>
-                            <li>✔ Materi pembelajaran lengkap</li>
+                            <li>✔ Materi lengkap & up-to-date</li>
                             <li>✔ Mentoring grup (4 sesi)</li>
                             <li>✔ Akses komunitas eksklusif</li>
-                            <li>✔ Durasi akses 6 bulan</li>
-                            <li>✔ 1 buku panduan pengajaran</li>
+                            <li>✔ 6 bulan akses fleksibel</li>
+                            <li>✔ Bonus buku panduan</li>
                         </ul>
                         <button
                             class="mt-6 bg-orange-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-transform transform hover:scale-105 active:scale-95">
-                            Pilih Paket
+                            Pilih Paket Hemat
                         </button>
                     </div>
-                </div>
+                </div> --}}
+
             </div>
         </section>
         <!-- End Paket Harga -->
 
-        <!-- Timeline Program TLC -->
-        <section id="skema" class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg">
+        <!-- Timeline Program TLC - Enhanced Version -->
+        <section id="skema"
+            class="w-full px-5 py-20 bg-gradient-to-b from-blue-50 to-gray-50 text-gray-900 shadow-lg">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl font-extrabold text-[#1D4E89] mt-4">Timeline Program TLC</h2>
-                <div class="w-16 h-1 bg-[#E76F51] mt-3 mb-6 mx-auto"></div>
-                <p class="text-gray-700 max-w-2xl mx-auto text-lg">
-                    Jadwal kegiatan program Teaching and Learning Certification batch terbaru.
+                <span
+                    class="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold mb-4">PROGRAM
+                    UNGGULAN 2025</span>
+                <h2 class="text-5xl font-extrabold text-[#1D4E89] mt-4 leading-tight">Transformasi Karir Anda Dimulai <span
+                        class="text-[#E76F51]">Di Sini</span></h2>
+                <div class="w-24 h-1 bg-[#E76F51] mt-5 mb-8 mx-auto"></div>
+                <p class="text-gray-700 max-w-2xl mx-auto text-xl leading-relaxed">
+                    Jadwal komprehensif program <strong>Teaching and Learning Certification</strong> yang akan membuka pintu
+                    kesuksesan profesional Anda. <span class="text-blue-700 font-semibold">Bergabunglah dengan ribuan
+                        alumni sukses kami!</span>
                 </p>
             </div>
 
             <!-- Timeline -->
-            <div class="max-w-4xl mx-auto mt-12 relative">
+            <div class="max-w-5xl mx-auto mt-16 relative">
                 <div
-                    class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-500 rounded-full">
+                    class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-2 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full">
                 </div>
 
                 <!-- Event Items -->
-                <div class="space-y-10">
+                <div class="space-y-12">
                     <div class="flex flex-col md:flex-row items-center justify-between w-full">
                         <div class="w-full md:w-1/2 flex items-center">
                             <div
-                                class="bg-white p-6 rounded-lg shadow-sm w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                                <span class="text-5xl mr-5">📅</span>
+                                class="bg-white p-8 rounded-xl shadow-sm border-l-4 border-blue-500 w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                                <span class="text-6xl mr-6 group-hover:animate-bounce">📅</span>
                                 <div>
-                                    <h3 class="text-xl font-semibold text-blue-700">Pendaftaran</h3>
-                                    <p class="text-gray-500 text-sm">Daftar lebih awal untuk mendapatkan diskon early bird.
+                                    <h3 class="text-2xl font-bold text-blue-700">Pendaftaran Eksklusif</h3>
+                                    <p class="text-gray-600 mt-3">Daftar sekarang dan dapatkan <span
+                                            class="bg-yellow-100 px-2 py-1 rounded-md font-semibold text-yellow-800">diskon
+                                            30%</span> plus akses ke 5 masterclass eksklusif senilai Rp2.500.000!</p>
+                                    <button
+                                        class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">Daftar
+                                        Sekarang</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="hidden md:flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row-reverse items-center justify-between w-full">
+                        <div class="w-full md:w-1/2 flex items-center justify-end">
+                            <div
+                                class="bg-white p-8 rounded-xl shadow-sm border-r-4 border-blue-500 w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                                <span class="text-6xl mr-6 group-hover:animate-pulse">🎯</span>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-blue-700">Orientasi Intensif</h3>
+                                    <p class="text-gray-600 mt-3">Acara pembuka yang menginspirasi dengan <span
+                                            class="bg-green-100 px-2 py-1 rounded-md font-semibold text-green-800">pembicara
+                                            tamu internasional</span> dan jaringan dengan profesional industri terkemuka.
                                     </p>
+                                    <button
+                                        class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">Lihat
+                                        Agenda</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row-reverse items-center justify-between w-full">
-                        <div class="w-full md:w-1/2 flex items-center justify-end">
-                            <div
-                                class="bg-white p-6 rounded-lg shadow-sm w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                                <span class="text-5xl mr-5">🎯</span>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-blue-700">Orientasi Program</h3>
-                                    <p class="text-gray-500 text-sm">Pengenalan program, platform pembelajaran, dan jadwal
-                                        kegiatan.</p>
-                                </div>
-                            </div>
+                        <div
+                            class="hidden md:flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2">
                         </div>
                     </div>
 
                     <div class="flex flex-col md:flex-row items-center justify-between w-full">
                         <div class="w-full md:w-1/2 flex items-center">
                             <div
-                                class="bg-white p-6 rounded-lg shadow-sm w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                                <span class="text-5xl mr-5">📖</span>
+                                class="bg-white p-8 rounded-xl shadow-sm border-l-4 border-blue-500 w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                                <span class="text-6xl mr-6 group-hover:rotate-12 transition-transform">📖</span>
                                 <div>
-                                    <h3 class="text-xl font-semibold text-blue-700">Sesi Pelatihan</h3>
-                                    <p class="text-gray-500 text-sm">belum ada</p>
+                                    <h3 class="text-2xl font-bold text-blue-700">Sesi Pelatihan Premium</h3>
+                                    <p class="text-gray-600 mt-3">12 modul interaktif dipimpin oleh <span
+                                            class="bg-purple-100 px-2 py-1 rounded-md font-semibold text-purple-800">pakar
+                                            industri bersertifikasi</span> dengan studi kasus dunia nyata dan feedback
+                                        personal.</p>
+                                    <button
+                                        class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">Eksplorasi
+                                        Kurikulum</button>
                                 </div>
                             </div>
+                        </div>
+                        <div
+                            class="hidden md:flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2">
                         </div>
                     </div>
 
                     <div class="flex flex-col md:flex-row-reverse items-center justify-between w-full">
                         <div class="w-full md:w-1/2 flex items-center justify-end">
                             <div
-                                class="bg-white p-6 rounded-lg shadow-sm w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                                <span class="text-5xl mr-5">👨‍🏫</span>
+                                class="bg-white p-8 rounded-xl shadow-sm border-r-4 border-blue-500 w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                                <span class="text-6xl mr-6 group-hover:animate-spin slow">👨‍🏫</span>
                                 <div>
-                                    <h3 class="text-xl font-semibold text-blue-700">Penugasan</h3>
-                                    <p class="text-gray-500 text-sm">belum ada.</p>
+                                    <h3 class="text-2xl font-bold text-blue-700">Project Praktis Bernilai Tinggi</h3>
+                                    <p class="text-gray-600 mt-3">Kembangkan portofolio profesional Anda dengan <span
+                                            class="bg-red-100 px-2 py-1 rounded-md font-semibold text-red-800">proyek riil
+                                            dari perusahaan partner</span> dan bimbingan langsung dari mentor industri.</p>
+                                    <button
+                                        class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">Lihat
+                                        Project Sebelumnya</button>
                                 </div>
                             </div>
+                        </div>
+                        <div
+                            class="hidden md:flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2">
                         </div>
                     </div>
 
                     <div class="flex flex-col md:flex-row items-center justify-between w-full">
                         <div class="w-full md:w-1/2 flex items-center">
                             <div
-                                class="bg-white p-6 rounded-lg shadow-lg w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                                <span class="text-5xl mr-5">🏆</span>
+                                class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-blue-500 w-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
+                                <span class="text-6xl mr-6 group-hover:scale-125 transition-transform">🏆</span>
                                 <div>
-                                    <h3 class="text-xl font-semibold text-blue-700">Evaluasi & Penilaian</h3>
-                                    <p class="text-gray-500 text-sm">Evaluasi akhir dan penyerahan sertifikat bagi peserta
-                                        yang lulus.</p>
+                                    <h3 class="text-2xl font-bold text-blue-700">Sertifikasi & Penempatan Karir</h3>
+                                    <p class="text-gray-600 mt-3">Raih sertifikasi yang <span
+                                            class="bg-blue-100 px-2 py-1 rounded-md font-semibold text-blue-800">diakui
+                                            secara internasional</span> dan akses ke jaringan 500+ perusahaan partner untuk
+                                        peluang karir eksklusif.</p>
+                                    <button
+                                        class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">Lihat
+                                        Testimonial Alumni</button>
                                 </div>
                             </div>
+                        </div>
+                        <div
+                            class="hidden md:flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Button Daftar -->
-            {{-- <div class="text-center mt-12">
-            <a href="#"
-                class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-110 active:scale-95">
-                Daftar Sekarang
-            </a>
-        </div> --}}
         </section>
         <!-- End Timeline Program TLC -->
 
-        <!-- Skema Pendaftaran TLC -->
-
-        {{-- Skema lama --}}
-        {{-- <div class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg" id="skema">
-        <div class="text-center mb-10">
-            <span class="text-[#E76F51] font-semibold text-lg">&#9889; Your Certification Journey</span>
-            <h1 class="text-4xl font-bold text-[#1D4E89] mt-2">Certification Process</h1>
-            <p class="text-gray-700 text-lg">belum ada deskripsi</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 px-5 relative">
-            <!-- Garis Penghubung (Desktop) -->
-            <div class="hidden lg:block absolute top-1/2 left-0 right-0 mx-auto w-4/5 border-t-2 border-gray-300">
+        {{-- Skema - Enhanced Version --}}
+        <div id="proses" class="w-full px-5 py-24 bg-gradient-to-b from-white to-gray-50 text-gray-900 shadow-lg"
+            id="skema">
+            <div class="text-center mb-16">
+                <span
+                    class="inline-block px-4 py-1 rounded-full bg-orange-100 text-orange-800 text-sm font-semibold mb-4">JALAN
+                    MENUJU KESUKSESAN</span>
+                <h1 class="text-5xl font-bold text-[#1D4E89] mt-2 leading-tight">Perjalanan Transformasi <span
+                        class="text-[#E76F51]">Profesional Anda</span></h1>
+                <div class="w-24 h-1 bg-[#E76F51] mt-5 mb-8 mx-auto"></div>
+                <p class="text-gray-700 text-xl max-w-3xl mx-auto">Enam langkah terstruktur yang akan mengubah pengetahuan
+                    menjadi keahlian dan sertifikasi yang diakui industri, dengan tingkat keberhasilan alumni 94%.</p>
             </div>
 
-            <!-- Step 1 -->
-            <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold rounded-full text-xl">
-                    1</div>
-                <h2 class="font-bold text-lg mt-3">Mengikuti Kelas Level A</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi
-                </p>
-                <div
-                    class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-2xl text-gray-400">
-                    ➡</div>
-            </div>
-
-            <!-- Step 2 -->
-            <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-blue-500 text-white font-bold rounded-full text-xl">
-                    2</div>
-                <h2 class="font-bold text-lg mt-3">Tes Kompetensi Level A</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi</p>
-                <div
-                    class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-2xl text-gray-400">
-                    ➡</div>
-            </div>
-
-            <!-- Step 3 -->
-            <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-yellow-500 text-white font-bold rounded-full text-xl">
-                    3</div>
-                <h2 class="font-bold text-lg mt-3">Mengikuti Kelas Level B</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi</p>
-                <div
-                    class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-2xl text-gray-400">
-                    ➡</div>
-            </div>
-
-            <!-- Step 4 -->
-            <div
-                class="relative bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-green-500 text-white font-bold rounded-full text-xl">
-                    4</div>
-                <h2 class="font-bold text-lg mt-3">Tes Kompetensi Level B</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi</p>
-                <div
-                    class="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-2xl text-gray-400">
-                    ➡</div>
-            </div>
-
-            <!-- Step 5 -->
-            <div
-                class="bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-red-500 text-white font-bold rounded-full text-xl">
-                    5</div>
-                <h2 class="font-bold text-lg mt-3">Mengikuti Kelas Level C</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi
-                </p>
-            </div>
-            <div
-                class="bg-white shadow-lg p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                    class="w-12 h-12 mx-auto flex items-center justify-center bg-red-500 text-white font-bold rounded-full text-xl">
-                    6</div>
-                <h2 class="font-bold text-lg mt-3">Tes Sertifikasi Level C</h2>
-                <p class="text-gray-600 text-sm">belum ada deskripsi
-                </p>
-            </div>
-        </div>
-
-    </div> --}}
-
-        <div id="proses" class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg" id="skema">
-            <div class="text-center mb-10">
-                <span class="text-[#E76F51] font-semibold text-lg">&#9889; Proses Sertifikasimu</span>
-                <h1 class="text-5xl font-bold text-[#1D4E89] mt-2">Proses Sertifikasi</h1>
-                <p class="text-gray-700 text-lg">Jalur lengkap untuk mendapatkan sertifikasi profesional Anda.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-5 justify-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-5 justify-center max-w-6xl mx-auto">
                 <!-- Step 1 -->
                 <div
-                    class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    class="relative bg-white shadow-md p-8 rounded-2xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden group">
                     <div
-                        class="w-14 h-14 mx-auto flex items-center justify-center bg-blue-600 text-white font-bold rounded-full text-xl">
-                        1
+                        class="absolute -right-12 -top-12 w-24 h-24 bg-blue-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
                     </div>
-                    <h2 class="font-bold text-lg mt-3">Mengikuti Kelas Level A</h2>
-                    <p class="text-gray-600 text-sm">Memulai perjalanan dengan dasar pembelajaran.</p>
+                    <div
+                        class="absolute -left-12 -bottom-12 w-24 h-24 bg-blue-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
+                    </div>
+                    <div class="relative">
+                        <div
+                            class="w-20 h-20 mx-auto flex items-center justify-center bg-blue-600 text-white font-bold rounded-full text-2xl shadow-lg mb-6 group-hover:animate-pulse">
+                            1
+                        </div>
+                        <h2 class="font-bold text-2xl text-blue-800 mb-3">Fondasi Pembelajaran</h2>
+                        <p class="text-gray-600 mb-4">Kuasai konsep dasar dan metodologi terkini melalui 8 modul intensif
+                            Level A yang diajarkan oleh pakar industri.</p>
+
+                    </div>
                 </div>
 
                 <!-- Step 2 -->
                 <div
-                    class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    class="relative bg-white shadow-md p-8 rounded-2xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden group">
                     <div
-                        class="w-14 h-14 mx-auto flex items-center justify-center bg-green-500 text-white font-bold rounded-full text-xl">
-                        2
+                        class="absolute -right-12 -top-12 w-24 h-24 bg-green-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
                     </div>
-                    <h2 class="font-bold text-lg mt-3">Tes Kompetensi Level A</h2>
-                    <p class="text-gray-600 text-sm">Ujian untuk mendapatkan sertifikat dasar.</p>
+                    <div
+                        class="absolute -left-12 -bottom-12 w-24 h-24 bg-green-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
+                    </div>
+                    <div class="relative">
+                        <div
+                            class="w-20 h-20 mx-auto flex items-center justify-center bg-green-500 text-white font-bold rounded-full text-2xl shadow-lg mb-6 group-hover:animate-pulse">
+                            2
+                        </div>
+                        <h2 class="font-bold text-2xl text-green-800 mb-3">Validasi Kompetensi</h2>
+                        <p class="text-gray-600 mb-4">Uji kemampuan Anda dalam skenario dunia nyata dengan tes komprehensif
+                            dan dapatkan sertifikat Level A Anda.</p>
+
+                    </div>
                 </div>
 
                 <!-- Step 3 -->
                 <div
-                    class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    class="relative bg-white shadow-md p-8 rounded-2xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden group">
                     <div
-                        class="w-14 h-14 mx-auto flex items-center justify-center bg-yellow-500 text-white font-bold rounded-full text-xl">
-                        3
+                        class="absolute -right-12 -top-12 w-24 h-24 bg-yellow-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
                     </div>
-                    <h2 class="font-bold text-lg mt-3">Mengikuti Kelas Level B</h2>
-                    <p class="text-gray-600 text-sm">Melanjutkan ke tingkat pembelajaran lanjutan.</p>
+                    <div
+                        class="absolute -left-12 -bottom-12 w-24 h-24 bg-yellow-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
+                    </div>
+                    <div class="relative">
+                        <div
+                            class="w-20 h-20 mx-auto flex items-center justify-center bg-yellow-500 text-white font-bold rounded-full text-2xl shadow-lg mb-6 group-hover:animate-pulse">
+                            3
+                        </div>
+                        <h2 class="font-bold text-2xl text-yellow-800 mb-3">Spesialisasi Lanjutan</h2>
+                        <p class="text-gray-600 mb-4">Perdalam keahlian dengan modul Level B yang fokus pada strategi
+                            implementasi dan pemecahan masalah kompleks.</p>
+
+                    </div>
                 </div>
 
                 <!-- Step 4 -->
                 <div
-                    class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    class="relative bg-white shadow-md p-8 rounded-2xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden group">
                     <div
-                        class="w-14 h-14 mx-auto flex items-center justify-center bg-orange-500 text-white font-bold rounded-full text-xl">
-                        4
+                        class="absolute -right-12 -top-12 w-24 h-24 bg-orange-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
                     </div>
-                    <h2 class="font-bold text-lg mt-3">Tes Kompetensi Level B</h2>
-                    <p class="text-gray-600 text-sm">Menguji pemahaman dan keterampilan lebih lanjut.</p>
+                    <div
+                        class="absolute -left-12 -bottom-12 w-24 h-24 bg-orange-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
+                    </div>
+                    <div class="relative">
+                        <div
+                            class="w-20 h-20 mx-auto flex items-center justify-center bg-orange-500 text-white font-bold rounded-full text-2xl shadow-lg mb-6 group-hover:animate-pulse">
+                            4
+                        </div>
+                        <h2 class="font-bold text-2xl text-orange-800 mb-3">Proyek Implementasi</h2>
+                        <p class="text-gray-600 mb-4">Terapkan pengetahuan Level B dalam proyek kolaboratif dengan
+                            perusahaan partner untuk pengalaman praktis bernilai tinggi.</p>
+
+                    </div>
                 </div>
 
                 <!-- Step 5 -->
                 <div
-                    class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    class="relative bg-white shadow-md p-8 rounded-2xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden group">
                     <div
-                        class="w-14 h-14 mx-auto flex items-center justify-center bg-red-500 text-white font-bold rounded-full text-xl">
-                        5
+                        class="absolute -right-12 -top-12 w-24 h-24 bg-red-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
                     </div>
-                    <h2 class="font-bold text-lg mt-3">Mengikuti Kelas Level C</h2>
-                    <p class="text-gray-600 text-sm">Kelas tingkat akhir sebelum sertifikasi penuh.</p>
+                    <div
+                        class="absolute -left-12 -bottom-12 w-24 h-24 bg-red-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
+                    </div>
+                    <div class="relative">
+                        <div
+                            class="w-20 h-20 mx-auto flex items-center justify-center bg-red-500 text-white font-bold rounded-full text-2xl shadow-lg mb-6 group-hover:animate-pulse">
+                            5
+                        </div>
+                        <h2 class="font-bold text-2xl text-red-800 mb-3">Masterclass Level C</h2>
+                        <p class="text-gray-600 mb-4">Akses kelas eksklusif dari pemimpin industri global dan pengembangan
+                            kepemimpinan untuk posisi senior.</p>
+
+                    </div>
                 </div>
 
                 <!-- Step 6 -->
                 <div
-                    class="relative bg-white shadow-sm p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    class="relative bg-white shadow-md p-8 rounded-2xl text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden group">
                     <div
-                        class="w-14 h-14 mx-auto flex items-center justify-center bg-purple-500 text-white font-bold rounded-full text-xl">
-                        6
+                        class="absolute -right-12 -top-12 w-24 h-24 bg-purple-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
                     </div>
-                    <h2 class="font-bold text-lg mt-3">Tes Sertifikasi Level C</h2>
-                    <p class="text-gray-600 text-sm">Evaluasi akhir untuk mendapatkan sertifikasi.</p>
+                    <div
+                        class="absolute -left-12 -bottom-12 w-24 h-24 bg-purple-100 rounded-full opacity-70 group-hover:scale-150 transition-all duration-500">
+                    </div>
+                    <div class="relative">
+                        <div
+                            class="w-20 h-20 mx-auto flex items-center justify-center bg-purple-500 text-white font-bold rounded-full text-2xl shadow-lg mb-6 group-hover:animate-pulse">
+                            6
+                        </div>
+                        <h2 class="font-bold text-2xl text-purple-800 mb-3">Sertifikasi Global</h2>
+                        <p class="text-gray-600 mb-4">Dapatkan kredensial yang diakui secara internasional dan bergabung
+                            dengan jaringan alumni eksklusif kami di seluruh dunia.</p>
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- End Skema -->
+        </div>
+        <!-- End Skema Enhanced -->
 
         <!-- Video TLC Section -->
         <section id="vidio" class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg">
@@ -923,14 +1153,7 @@
                         class="flex-1 py-3 text-[#1D4E89] font-semibold border-b-4 border-[#E76F51] transition-all duration-300 hover:bg-[#E76F51] hover:text-white active:scale-95">
                         📺 Pengenalan TLC
                     </button>
-                    <button
-                        class="flex-1 py-3 text-gray-800 font-semibold transition-all duration-300 hover:bg-[#E76F51] hover:text-white active:scale-95">
-                        🧑‍🎓 Testimoni Peserta
-                    </button>
-                    <button
-                        class="flex-1 py-3 text-gray-800 font-semibold transition-all duration-300 hover:bg-[#E76F51] hover:text-white active:scale-95">
-                        📖 Metode Pengajaran
-                    </button>
+
                 </div>
 
                 <!-- Embedded YouTube Video -->
@@ -941,140 +1164,12 @@
                         allowfullscreen>
                     </iframe>
                 </div>
-
-                <!-- Tab Descriptions -->
-                {{-- <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-5">
-                <div
-                    class="bg-[#E76F51] p-5 rounded-lg text-center text-white font-semibold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg">
-                    📺 Pengenalan TLC
-                    <p class="text-sm font-normal opacity-90 mt-1">Video pengenalan program Teaching and Learning
-                        Certification</p>
-                </div>
-                <div
-                    class="bg-[#A8DADC] p-5 rounded-lg text-center text-gray-900 font-semibold transition-all duration-300 hover:bg-[#1D4E89] hover:text-white hover:scale-105 active:scale-95 shadow-md hover:shadow-lg">
-                    🧑‍🎓 Testimoni Peserta
-                    <p class="text-sm text-gray-800 font-normal opacity-80 mt-1">Pengalaman para alumni program TLC</p>
-                </div>
-                <div
-                    class="bg-[#A8DADC] p-5 rounded-lg text-center text-gray-900 font-semibold transition-all duration-300 hover:bg-[#1D4E89] hover:text-white hover:scale-105 active:scale-95 shadow-md hover:shadow-lg">
-                    📖 Metode Pengajaran
-                    <p class="text-sm text-gray-800 font-normal opacity-80 mt-1">Penjelasan tentang metode TMF yang
-                        efektif</p>
-                </div>
-            </div> --}}
-
-                <!-- View More Button -->
-                {{-- <div class="text-center mt-6">
-                <button
-                    class="text-[#E76F51] font-semibold text-lg transition-transform duration-300 hover:underline hover:scale-105 active:scale-95">
-                    Lihat Semua Video →
-                </button>
-            </div> --}}
             </div>
         </section>
         <!-- End Video -->
 
-        <!-- Mentor Section -->
-        {{-- <section class="w-full px-5 py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 shadow-lg">
-        <div class="max-w-6xl mx-auto text-center">
-            <span
-                class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold flex items-center justify-center w-fit mx-auto">
-                Tim Ahli Kami
-            </span>
-            <h2 class="text-3xl font-bold text-gray-900 mt-3">
-                Mentor <span class="text-blue-600">Berpengalaman</span>
-            </h2>
-            <p class="text-gray-600 mt-2 mb-4 max-w-3xl mx-auto">
-                Bertemu dengan para ahli yang akan membimbing Anda dalam perjalanan TLC
-            </p>
-        </div>
-
-        <!-- Mentor Cards -->
-        <div class="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto px-5">
-            <!-- Mentor 1 -->
-            <div
-                class="bg-white shadow-lg rounded-xl overflow-hidden text-left relative p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer active:scale-95">
-                <span
-                    class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 text-xs font-semibold rounded-full">Ahli</span>
-                <img src="images/konten_satu.jpg" alt="Dr. Budi Santoso" class="w-full h-40 object-cover rounded-md">
-                <h3 class="font-bold text-lg mt-3 text-blue-900">Dr. Budi Santoso</h3>
-                <p class="text-yellow-600 text-sm">Direktur Program TLC</p>
-                <p class="text-gray-600 text-sm mt-2">
-                    Pakar pendidikan dengan pengalaman lebih dari 20 tahun dalam pengembangan kurikulum dan pelatihan.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Pengembangan Kurikulum</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Metode Pengajaran</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Evaluasi Pendidikan</span>
-                </div>
-                <a href="#" class="text-blue-600 text-sm font-semibold mt-4 block">Lihat Profil Lengkap →</a>
-            </div>
-
-            <!-- Mentor 2 -->
-            <div
-                class="bg-white shadow-lg rounded-xl overflow-hidden text-left relative p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer active:scale-95">
-                <span
-                    class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 text-xs font-semibold rounded-full">Ahli</span>
-                <img src="images/konten_tiga.jpg" alt="Prof. Siti Rahayu, M.Pd."
-                    class="w-full h-40 object-cover rounded-md">
-                <h3 class="font-bold text-lg mt-3 text-blue-900">Prof. Siti Rahayu, M.Pd.</h3>
-                <p class="text-yellow-600 text-sm">Ahli Pedagogi</p>
-                <p class="text-gray-600 text-sm mt-2">
-                    Profesor pendidikan dengan fokus pada metode pengajaran inovatif dan pembelajaran berbasis proyek.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Pedagogi Modern</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Pembelajaran Berbasis
-                        Proyek</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Psikologi Pendidikan</span>
-                </div>
-                <a href="#" class="text-blue-600 text-sm font-semibold mt-4 block">Lihat Profil Lengkap →</a>
-            </div>
-
-            <!-- Mentor 3 -->
-            <div
-                class="bg-white shadow-lg rounded-xl overflow-hidden text-left relative p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer active:scale-95">
-                <span
-                    class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 text-xs font-semibold rounded-full">Ahli</span>
-                <img src="images/hamas.png" alt="Ahmad Wijaya, M.Ed." class="w-full h-40 object-cover rounded-md">
-                <h3 class="font-bold text-lg mt-3 text-blue-900">Ahmad Wijaya, M.Ed.</h3>
-                <p class="text-yellow-600 text-sm">Spesialis Teknologi Pendidikan</p>
-                <p class="text-gray-600 text-sm mt-2">
-                    Ahli dalam integrasi teknologi dalam pembelajaran dan pengembangan media pembelajaran digital.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Teknologi Pendidikan</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">E-Learning</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Media Pembelajaran
-                        Digital</span>
-                </div>
-                <a href="#" class="text-blue-600 text-sm font-semibold mt-4 block">Lihat Profil Lengkap →</a>
-            </div>
-
-            <!-- Mentor 4 -->
-            <div
-                class="bg-white shadow-lg rounded-xl overflow-hidden text-left relative p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer active:scale-95">
-                <span
-                    class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 text-xs font-semibold rounded-full">Ahli</span>
-                <img src="images/aliando.jpg" alt="Dr. Maya Indrawati" class="w-full h-40 object-cover rounded-md">
-                <h3 class="font-bold text-lg mt-3 text-blue-900">Dr. Maya Indrawati</h3>
-                <p class="text-yellow-600 text-sm">Konsultan Manajemen Kelas</p>
-                <p class="text-gray-600 text-sm mt-2">
-                    Spesialis dalam manajemen kelas dan pengembangan lingkungan belajar yang positif dan inklusif.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Manajemen Kelas</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Pendidikan Inklusif</span>
-                    <span class="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">Psikologi Anak</span>
-                </div>
-                <a href="#" class="text-blue-600 text-sm font-semibold mt-4 block">Lihat Profil Lengkap →</a>
-            </div>
-        </div>
-    </section> --}}
-        <!-- End Mentor Section -->
-
         <!-- Galeri Kegiatan TLC -->
-        <section id="galeri" class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
+        {{-- <section id="galeri" class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
             <div class="max-w-6xl mx-auto text-center">
                 <!-- Label -->
                 <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">
@@ -1196,142 +1291,192 @@
                         Detail</button>
                 </div>
             </div>
+        </section> --}}
+        <!-- End Galeri Kegiatan TLC -->
+
+        <!-- Galeri Kegiatan TLC -->
+        <section id="galeri" class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
+            <div class="max-w-6xl mx-auto text-center">
+                <!-- Label -->
+                <span
+                    class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+                    Portal Berita
+                </span>
+
+                <!-- Title -->
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+                    Berita & Informasi Terkini TLC
+                </h2>
+
+                <!-- Subtitle -->
+                <p class="text-gray-600 mt-2 max-w-3xl mx-auto">
+                    Dapatkan informasi terbaru, dokumentasi kegiatan, dan perkembangan program Teaching and Learning
+                    Certification secara real-time.
+                </p>
+            </div>
+
+
+            <!-- Image Grid (Menampilkan data berita) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto">
+                @forelse($latestNews as $news)
+                    <!-- News Item -->
+                    <div class="relative w-full h-52 rounded-lg overflow-hidden group">
+                        <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
+                            class="w-full h-full object-cover" loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
+                        </div>
+                        <div
+                            class="absolute bottom-4 left-4 right-4 text-white group-hover:opacity-0 transition-opacity duration-300">
+                            <h3 class="font-semibold text-lg">{{ $news->title }}</h3>
+                            <p class="text-sm">{{ Str::limit($news->summary, 100) }}</p>
+                        </div>
+                        <a href="{{ route('newsDetail', $news->slug) }}"
+                            class="absolute top-3 right-3 bg-white text-gray-900 px-3 py-1 text-xs font-semibold rounded-full shadow-md group-hover:opacity-0 transition-opacity duration-300">Lihat
+                            Detail</a>
+                    </div>
+                @empty
+                    <!-- Tampilkan jika tidak ada berita -->
+                    @for ($i = 0; $i < 6; $i++)
+                        <div class="relative w-full h-52 rounded-lg overflow-hidden group bg-gray-100">
+                            <div class="flex items-center justify-center h-full">
+                                <p class="text-gray-400">Belum ada konten</p>
+                            </div>
+                        </div>
+                    @endfor
+                @endforelse
+            </div>
         </section>
         <!-- End Galeri Kegiatan TLC -->
 
         <!-- Our Books Section -->
-        <div class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg" id="books">
-            <div class="text-center">
-                <span class="text-blue-600 font-semibold text-sm uppercase bg-blue-100 px-3 py-1 rounded-full">
+        <section id="books" class="w-full px-5 py-20 bg-gray-50 text-gray-900">
+            <div class="text-center mb-12">
+                <span class="text-blue-600 font-semibold text-sm uppercase bg-blue-100 px-4 py-1 rounded-full">
                     Koleksi Buku Terbaik
                 </span>
-                <h1
-                    class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500 mt-3">
-                    Temukan Buku Favorit Anda 📖✨
-                </h1>
-                <p class="text-gray-700 mt-2 max-w-2xl mx-auto text-lg">
-                    Berbagai pilihan buku menarik untuk menambah wawasan dan inspirasi!
+                <h2 class="text-4xl font-bold text-[#1D4E89] mt-3">
+                    Temukan Buku Favorit Anda 📚
+                </h2>
+                <p class="text-gray-600 mt-2 max-w-xl mx-auto text-lg">
+                    Buku pilihan untuk memperkaya wawasan dan meningkatkan kualitas pengajaran Anda.
                 </p>
             </div>
 
             <!-- Book Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-12 max-w-6xl mx-auto">
-                <!-- Book Item 1 -->
-                <div
-                    class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
-                    <div class="relative w-full h-full">
-                        <img src="{{ asset('images/buku1.png') }}" alt="Buku 1"
-                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+                <!-- Book 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="{{ asset('images/buku1.png') }}" alt="The Power of Teaching"
+                            class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-gray-900/80 to-transparent p-4">
+                            <h3 class="text-white font-semibold text-lg">The Power of Teaching</h3>
+                            <p class="text-sm text-gray-200">Metode pengajaran efektif untuk hasil maksimal.</p>
                         </div>
                     </div>
-                    <div class="absolute bottom-5 left-5 right-5 text-white">
-                        <h3 class="font-semibold text-xl">The Power of Teaching</h3>
-                        <p class="text-sm">Metode pengajaran efektif untuk hasil maksimal.</p>
+                    <div class="p-4">
                         <button
-                            class="mt-3 w-full bg-blue-600 text-white font-medium py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                            class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
                             Beli Sekarang
                         </button>
                     </div>
                 </div>
 
-                <!-- Book Item 2 -->
-                <div
-                    class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
-                    <div class="relative w-full h-full">
-                        <img src="{{ asset('images/buku2.png') }}" alt="Buku 2"
-                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
+                <!-- Book 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="{{ asset('images/buku2.png') }}" alt="The Art of Learning"
+                            class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-gray-900/80 to-transparent p-4">
+                            <h3 class="text-white font-semibold text-lg">The Art of Learning</h3>
+                            <p class="text-sm text-gray-200">Strategi pembelajaran yang mudah dan menyenangkan.</p>
                         </div>
                     </div>
-                    <div class="absolute bottom-5 left-5 right-5 text-white">
-                        <h3 class="font-semibold text-xl">The Art of Learning</h3>
-                        <p class="text-sm">Strategi pembelajaran yang mudah dan menyenangkan.</p>
+                    <div class="p-4">
                         <button
-                            class="mt-3 w-full bg-blue-600 text-white font-medium py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                            class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
                             Beli Sekarang
                         </button>
                     </div>
                 </div>
 
-                <!-- Book Item 3 -->
-                <div
-                    class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
-                    <div class="relative w-full h-full">
-                        <img src="{{ asset('images/buku3.png') }}" alt="Buku 3"
-                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
+                <!-- Book 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="{{ asset('images/buku3.png') }}" alt="Digital Education"
+                            class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-gray-900/80 to-transparent p-4">
+                            <h3 class="text-white font-semibold text-lg">Digital Education</h3>
+                            <p class="text-sm text-gray-200">Teknologi dalam pendidikan untuk era digital.</p>
                         </div>
                     </div>
-                    <div class="absolute bottom-5 left-5 right-5 text-white">
-                        <h3 class="font-semibold text-xl">Digital Education</h3>
-                        <p class="text-sm">Teknologi dalam pendidikan untuk era digital.</p>
+                    <div class="p-4">
                         <button
-                            class="mt-3 w-full bg-blue-600 text-white font-medium py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                            class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
                             Beli Sekarang
                         </button>
                     </div>
                 </div>
 
-                <!-- Book Item 4 -->
-                <div
-                    class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
-                    <div class="relative w-full h-full">
-                        <img src="{{ asset('images/buku4.png') }}" alt="Buku 4"
-                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
+                <!-- Book 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="{{ asset('images/buku4.png') }}" alt="Curriculum Design"
+                            class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-gray-900/80 to-transparent p-4">
+                            <h3 class="text-white font-semibold text-lg">Curriculum Design</h3>
+                            <p class="text-sm text-gray-200">Panduan lengkap merancang kurikulum yang efektif.</p>
                         </div>
                     </div>
-                    <div class="absolute bottom-5 left-5 right-5 text-white">
-                        <h3 class="font-semibold text-xl">Curriculum Design</h3>
-                        <p class="text-sm">Panduan lengkap merancang kurikulum yang efektif.</p>
+                    <div class="p-4">
                         <button
-                            class="mt-3 w-full bg-blue-600 text-white font-medium py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                            class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
                             Beli Sekarang
                         </button>
                     </div>
                 </div>
 
-                <!-- Book Item 5 -->
-                <div
-                    class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:-rotate-2">
-                    <div class="relative w-full h-full">
-                        <img src="{{ asset('images/buku5.png') }}" alt="Buku 5"
-                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
+                <!-- Book 5 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="{{ asset('images/buku5.png') }}" alt="Leadership in Education"
+                            class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-gray-900/80 to-transparent p-4">
+                            <h3 class="text-white font-semibold text-lg">Leadership in Education</h3>
+                            <p class="text-sm text-gray-200">Menjadi pemimpin inspiratif dalam dunia pendidikan.</p>
                         </div>
                     </div>
-                    <div class="absolute bottom-5 left-5 right-5 text-white">
-                        <h3 class="font-semibold text-xl">Leadership in Education</h3>
-                        <p class="text-sm">Menjadi pemimpin inspiratif dalam dunia pendidikan.</p>
+                    <div class="p-4">
                         <button
-                            class="mt-3 w-full bg-blue-600 text-white font-medium py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                            class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
                             Beli Sekarang
                         </button>
                     </div>
                 </div>
 
-                <!-- Book Item 6 -->
-                <div
-                    class="relative w-full h-96 bg-white shadow-sm rounded-lg p-5 transition-transform transform hover:scale-105 hover:rotate-2">
-                    <div class="relative w-full h-full">
-                        <img src="{{ asset('images/buku6.png') }}" alt="Buku 6"
-                            class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50 rounded-lg">
+                <!-- Book 6 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="{{ asset('images/buku6.png') }}" alt="Innovation in Teaching"
+                            class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-gray-900/80 to-transparent p-4">
+                            <h3 class="text-white font-semibold text-lg">Innovation in Teaching</h3>
+                            <p class="text-sm text-gray-200">Metode inovatif dalam dunia pendidikan.</p>
                         </div>
                     </div>
-                    <div class="absolute bottom-5 left-5 right-5 text-white">
-                        <h3 class="font-semibold text-xl">Innovation in Teaching</h3>
-                        <p class="text-sm">Metode inovatif dalam dunia pendidikan.</p>
+                    <div class="p-4">
                         <button
-                            class="mt-3 w-full bg-blue-600 text-white font-medium py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                            class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
                             Beli Sekarang
                         </button>
                     </div>
                 </div>
+
             </div>
-        </div>
-        <!-- End Our Books Section -->
+        </section>
+
 
         <!-- FAQ Section -->
         <section id="faq" class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
@@ -1379,7 +1524,8 @@
                             <span class="faq-icon transition-transform duration-300">▼</span>
                         </h3>
                         <p class="faq-answer hidden mt-2 text-gray-600">
-                            Durasi program TLC bervariasi tergantung modul yang diambil, namun rata-rata berlangsung selama
+                            Durasi program TLC bervariasi tergantung modul yang diambil, namun rata-rata berlangsung
+                            selama
                             3-6 bulan.
                         </p>
                     </div>
@@ -1402,7 +1548,8 @@
                             <span class="faq-icon transition-transform duration-300">▼</span>
                         </h3>
                         <p class="faq-answer hidden mt-2 text-gray-600">
-                            Program TLC menggunakan metode blended learning yang menggabungkan pembelajaran online dan tatap
+                            Program TLC menggunakan metode blended learning yang menggabungkan pembelajaran online dan
+                            tatap
                             muka.
                         </p>
                     </div>
@@ -1480,295 +1627,9 @@
         </section>
         <!-- End FAQ Section -->
 
-        {{-- Pendaftaraan --}}
-        {{-- <section class="w-full px-5 py-16 bg-gradient-to-r from-[#F4A261] via-[#A8DADC] to-[#1D4E89] text-gray-900">
-        <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg transition-transform duration-300 hover:scale-[1.02]">
-            <!-- Header -->
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-blue-900">Pendaftaran TLC</h2>
-                <div class="w-16 h-1 bg-yellow-500 mx-auto mt-2"></div>
-                <p class="text-gray-600 mt-3">
-                    Mulai perjalanan pengembangan profesional Anda dengan mendaftar program TLC
-                </p>
-            </div>
 
-            <!-- Step Indicator -->
-            <div class="flex justify-between items-center bg-blue-900 text-white p-4 rounded-lg">
-                <div class="flex-1 text-center transition-transform duration-300 hover:scale-110 active:scale-95">
-                    <div class="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center mx-auto font-bold">1</div>
-                    <p class="text-sm mt-1">Informasi Pribadi</p>
-                </div>
-                <div class="w-20 h-1 bg-yellow-500"></div>
-                <div class="flex-1 text-center opacity-50 transition-transform duration-300 hover:scale-110 active:scale-95">
-                    <div class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center mx-auto font-bold">2</div>
-                    <p class="text-sm mt-1">Detail Institusi</p>
-                </div>
-                <div class="w-20 h-1 bg-blue-700"></div>
-                <div class="flex-1 text-center opacity-50 transition-transform duration-300 hover:scale-110 active:scale-95">
-                    <div class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center mx-auto font-bold">3</div>
-                    <p class="text-sm mt-1">Pilihan Program</p>
-                </div>
-            </div>
 
-            <!-- Formulir Pendaftaran -->
-            <div class="mt-8">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">Informasi Pribadi</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="transition-transform duration-300 hover:scale-105">
-                        <label class="text-sm text-gray-700">Nama Depan</label>
-                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1" placeholder="Masukkan nama depan">
-                    </div>
-                    <div class="transition-transform duration-300 hover:scale-105">
-                        <label class="text-sm text-gray-700">Nama Belakang</label>
-                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1" placeholder="Masukkan nama belakang">
-                    </div>
-                </div>
-                <div class="mt-4 transition-transform duration-300 hover:scale-105">
-                    <label class="text-sm text-gray-700">Email</label>
-                    <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1" placeholder="nama@contoh.com">
-                </div>
-                <div class="mt-4 transition-transform duration-300 hover:scale-105">
-                    <label class="text-sm text-gray-700">Nomor Telepon</label>
-                    <input type="tel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1" placeholder="08xxxxxxxxxx">
-                </div>
-            </div>
-
-            <!-- Tombol Lanjutkan -->
-            <div class="mt-6">
-                <button class="w-full bg-blue-700 text-white p-3 rounded-lg font-semibold hover:bg-blue-800 transition-transform duration-300 hover:scale-105 active:scale-95">Lanjutkan</button>
-            </div>
-        </div>
-    </section> --}}
-        {{-- End Pendafatraan --}}
-
-        <!-- Pendaftaran -->
-        {{-- <section class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
-        <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold text-blue-900">Pendaftaran TLC</h2>
-            <div class="w-16 h-1 bg-yellow-500 mx-auto mt-2"></div>
-            <p class="text-gray-600 mt-2">Mulai perjalanan pengembangan profesional Anda dengan mendaftar program TLC
-            </p>
-        </div>
-
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center">
-            <!-- Left Side: Text & Features -->
-            <div class="md:w-1/2 text-left space-y-4">
-                <span class="text-blue-600 font-semibold text-sm uppercase bg-blue-100 px-3 py-1 rounded-full">
-                    Join Us Today
-                </span>
-                <h1
-                    class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500">
-                    Register for TLC Program
-                </h1>
-                <p class="text-gray-600 max-w-md">
-                    Take the first step towards enhancing your teaching skills and advancing your career.
-                </p>
-
-                <!-- Feature List -->
-                <ul class="space-y-2 text-gray-700">
-                    <li class="flex items-center">✅ Flexible learning schedule</li>
-                    <li class="flex items-center">✅ Expert-led courses and workshops</li>
-                    <li class="flex items-center">✅ Globally recognized certification</li>
-                    <li class="flex items-center">✅ Ongoing professional development</li>
-                </ul>
-            </div>
-
-            <!-- Right Side: Form -->
-            <div
-                class="md:w-1/2 max-w-3xl bg-white p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-[1.02]">
-                <!-- Step Indicator -->
-                <div class="flex justify-between items-center bg-blue-900 text-white p-4 rounded-lg mb-6">
-                    <div class="flex-1 text-center transition-transform duration-300 hover:scale-110 active:scale-95">
-                        <div
-                            class="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center mx-auto font-bold">
-                            1</div>
-                        <p class="text-sm mt-1">Informasi Pribadi</p>
-                    </div>
-                    <div class="w-16 h-1 bg-yellow-500"></div>
-                    <div
-                        class="flex-1 text-center opacity-50 transition-transform duration-300 hover:scale-110 active:scale-95">
-                        <div
-                            class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center mx-auto font-bold">
-                            2</div>
-                        <p class="text-sm mt-1">Detail Institusi</p>
-                    </div>
-                    <div class="w-16 h-1 bg-blue-700"></div>
-                    <div
-                        class="flex-1 text-center opacity-50 transition-transform duration-300 hover:scale-110 active:scale-95">
-                        <div
-                            class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center mx-auto font-bold">
-                            3</div>
-                        <p class="text-sm mt-1">Pilihan Program</p>
-                    </div>
-                </div>
-
-                <!-- Formulir Pendaftaran -->
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Informasi Pribadi</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="transition-transform duration-300 hover:scale-105">
-                            <label class="text-sm text-gray-700">Nama Depan</label>
-                            <input type="text"
-                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1"
-                                placeholder="Masukkan nama depan">
-                        </div>
-                        <div class="transition-transform duration-300 hover:scale-105">
-                            <label class="text-sm text-gray-700">Nama Belakang</label>
-                            <input type="text"
-                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1"
-                                placeholder="Masukkan nama belakang">
-                        </div>
-                    </div>
-                    <div class="mt-4 transition-transform duration-300 hover:scale-105">
-                        <label class="text-sm text-gray-700">Email</label>
-                        <input type="email"
-                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1"
-                            placeholder="nama@contoh.com">
-                    </div>
-                    <div class="mt-4 transition-transform duration-300 hover:scale-105">
-                        <label class="text-sm text-gray-700">Nomor Telepon</label>
-                        <input type="tel"
-                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 mt-1"
-                            placeholder="08xxxxxxxxxx">
-                    </div>
-                </div>
-
-                <!-- Tombol Lanjutkan -->
-                <div class="mt-6">
-                    <button
-                        class="w-full bg-blue-700 text-white p-3 rounded-lg font-semibold hover:bg-blue-800 transition-transform duration-300 hover:scale-105 active:scale-95">
-                        Lanjutkan
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-        <!-- End Pendaftaran -->
-
-        <!-- Sponsor Section -->
-        {{-- <section class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
-        <h2 class="text-2xl font-bold text-black text-center">Didukung Oleh</h2>
-        <div class="w-16 h-1 bg-[#E76F51] mx-auto mt-2 mb-8"></div>
-
-        <!-- Swiper Container -->
-        <div class="swiper mySwiper max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 1" class="w-96 h-96 object-contain">
-                </div>
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 2" class="w-96 h-96 object-contain">
-                </div>
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 3" class="w-96 h-96 object-contain">
-                </div>
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 4" class="w-96 h-96 object-contain">
-                </div>
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 5" class="w-96 h-96 object-contain">
-                </div>
-                <div class="swiper-slide flex items-center justify-center">
-                    <img src="images/guru.png" alt="Sponsor 6" class="w-96 h-96 object-contain">
-                </div>
-            </div>
-
-            <!-- Swiper Pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- Swiper Navigation Buttons -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-    </section> --}}
-
-        <!-- Swiper.js CDN -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-        <!-- Swiper.js Initialization -->
-        <script>
-            var swiper = new Swiper(".mySwiper", {
-                slidesPerView: 3,
-                spaceBetween: 15, // Jarak antar gambar tetap dekat
-                loop: true,
-                autoplay: {
-                    delay: 2000,
-                    disableOnInteraction: false,
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-            });
-        </script>
-
-        {{-- </main> --}}
-        <footer class="bg-[#0D3B66] text-white py-10">
-            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- TLC Program -->
-                <div>
-                    <h2 class="text-lg font-semibold">TLC Program</h2>
-                    <p class="text-sm mt-2">
-                        Program sertifikasi untuk memberdayakan pendidik dengan pengetahuan dan keterampilan mengajar yang
-                        efektif.
-                    </p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-
-                <!-- Tautan Cepat -->
-                <div>
-                    <h2 class="text-lg font-semibold">Tautan Cepat</h2>
-                    <ul class="mt-2 space-y-2 text-sm">
-                        <li><a href="#about" class="hover:text-gray-300">Tentang TLC</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Manfaat</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Paket Harga</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Pendaftaran</a></li>
-                        <li><a href="#galeri" class="hover:text-gray-300">Galeri</a></li>
-                    </ul>
-                </div>
-
-                <!-- Kontak -->
-                <div>
-                    <h2 class="text-lg font-semibold">Kontak</h2>
-                    <ul class="mt-2 space-y-2 text-sm">
-                        <li><i class="fas fa-map-marker-alt text-yellow-400"></i> Jl. Pendidikan No. 123, Jakarta Pusat,
-                            Indonesia</li>
-                        <li><i class="fas fa-phone-alt text-yellow-400"></i> +62 21 1234 5678</li>
-                        <li><i class="fas fa-envelope text-yellow-400"></i> info@tlcprogram.id</li>
-                    </ul>
-                </div>
-
-                <!-- Berlangganan -->
-                {{-- <div>
-                <h2 class="text-lg font-semibold">Berlangganan</h2>
-                <p class="text-sm mt-2">Dapatkan informasi terbaru tentang program dan kegiatan TLC.</p>
-                <div class="mt-4 flex">
-                    <input type="email" class="p-2 w-full text-gray-900 rounded-l-md" placeholder="Email Anda">
-                    <button class="bg-[#E76F51] px-4 py-2 rounded-r-md font-semibold hover:bg-[#D9534F]">Kirim</button>
-                </div>
-            </div> --}}
-            </div>
-
-            <hr class="border-gray-500 my-6">
-
-            <div class="text-center text-sm">
-                © 2025 Teaching and Learning Certification Program. All rights reserved.
-            </div>
-
-            <!-- FontAwesome for Icons -->
-            <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
-        </footer>
 
     </div>
-    
+
 @endsection
