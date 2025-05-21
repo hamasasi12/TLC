@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\NewsController;
@@ -61,6 +62,14 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::get('/registeraddtional', [AuthController::class, 'registeraddtional'])->name('registeraddtional');
     Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
 
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
+    Route::get('/payments/create', [PaymentController::class, 'create'])->name('payments.create');
+    Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
+    Route::get('/payments/{id}', [PaymentController::class, 'detail'])->name('payments.detail');
+    Route::get('/payments/finish', [PaymentController::class, 'finish'])->name('payments.finish');
 });
 
 // AUTH ADMIN
@@ -140,7 +149,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard/news/{id}', [NewsController::class, 'show'])->name('admin.news.show');
     Route::put('/dashboard/news/update/{id}', [NewsController::class, 'update'])->name('admin.news.update');
     Route::delete('/dashboard/news/delete/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
-
+    
+    Route::post('/payments/notification', [PaymentController::class, 'notification'])->name('payments.notification');
 
 
 

@@ -28,4 +28,18 @@ class CategoriesA extends Component
             'categoriesA' => $categoriesWithCount,
         ]);
     }
+
+    public $activeCategoryId = null;
+
+    public function openModal($id)
+    {
+        $this->activeCategoryId = $id;
+    }
+
+    public function closeModal()
+    {
+        $this->activeCategoryId = null;
+    }
+
+
 }
