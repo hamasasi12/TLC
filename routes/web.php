@@ -3,7 +3,10 @@
 use App\Exports\AsesiExport;
 use App\Exports\AsesorExport;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Admin\LevelAController;
@@ -20,13 +23,18 @@ use App\Http\Controllers\Asesor\AsesorDashboardController;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 
+use App\Http\Controllers\Admin\NewsController as AdminNewsController;
+
+
 Route::get('register2', function () {
     return view('register2');
 })->name('register2');
 
 // GUEST
 Route::middleware('guest')->group(function () {
-    Route::get('/', fn() => view('welcome'));
+    // Route::get('/', fn() => view('welcome'));
+    Route::get('/', [WelcomeController::class, 'index'])->name('home');
+    Route::get('/newsDetail/{slug}', [WelcomeController::class, 'show'])->name('newsDetail');
 
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.post');
@@ -61,8 +69,17 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
+    Route::get('/payments/create', [PaymentController::class, 'create'])->name('payments.create');
+    Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
+    Route::get('/payments/{id}', [PaymentController::class, 'detail'])->name('payments.detail');
+    Route::get('/payments/finish', [PaymentController::class, 'finish'])->name('payments.finish');
+});
+
 // AUTH ADMIN
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::get('/dashboard/asesi', [AdminDashboardController::class, 'asesiIndex'])->name('admin.asesi.index');
@@ -137,6 +154,15 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     // Route Level C
     Route::get('/dashboard/level/c', [LevelCController::class, 'index'])->name('admin.level.c.index');
 
+    Route::get('/dashboard/news', [NewsController::class, 'index'])->name('admin.news.index');
+    Route::get('/dashboard/news/create', [NewsController::class, 'create'])->name('admin.news.create');
+    Route::get('/dashboard/news/edit/{id}', [NewsController::class, 'edit'])->name('admin.news.edit');
+    Route::post('/dashboard/news/store', [NewsController::class, 'store'])->name('admin.news.store');
+    Route::get('/dashboard/news/{id}', [NewsController::class, 'show'])->name('admin.news.show');
+    Route::put('/dashboard/news/update/{id}', [NewsController::class, 'update'])->name('admin.news.update');
+    Route::delete('/dashboard/news/delete/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
+
+    Route::post('/payments/notification', [PaymentController::class, 'notification'])->name('payments.notification');
 
 
 

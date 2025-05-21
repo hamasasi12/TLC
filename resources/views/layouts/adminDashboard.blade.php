@@ -330,6 +330,19 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.news.index') }}"
+                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-gray-800">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FBCB04"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-9 12V8l6 4-6 4z" />
+                            <path d="M4 7h16v2H4zm0 4h5v2H4zm0 4h5v2H4z" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Portal Berita</span>
+                    </a>
+                </li>
+                <li>
                     <a href="#"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"

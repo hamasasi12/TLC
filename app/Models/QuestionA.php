@@ -16,7 +16,7 @@ class QuestionA extends Model
         'option_b',
         'option_c',
         'option_d',
-        'correct_answer'
+        'correct_answer',
     ];
 
     public function categoryA()
