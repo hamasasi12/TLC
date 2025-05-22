@@ -71,6 +71,7 @@ class DatabaseSeeder extends Seeder
             UserSeeders::class,
             AsesorSeeders::class,
             CategoryASeeders::class,
+            LevelSeeders::class,
         ]);
     }
 }

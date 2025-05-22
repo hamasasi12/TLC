@@ -217,7 +217,7 @@
 
                         {{-- Settings --}}
                         <li>
-                            <a href="{{ route('admin.level.index') }}"
+                            <a href="{{ route('admin.level.settings.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-solid fa-gear"></i>
                                 <p>Settings</p>
