@@ -37,7 +37,7 @@
 
                 <!-- Total Users -->
                 <div class="text-gray-600 text-sm">
-                    👥 {{ $userCount['user'] }} Asesi
+                    {{-- 👥 {{ $userCount['user'] }} Asesi --}}
                 </div>
 
                 <!-- Actions -->
@@ -82,31 +82,27 @@
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Name
+                            Nama Level
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            No HP
+                            Harga
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Instansi
+                            Discount
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Jenis Kelamin
+                            Image Banner
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Created At
+                            Promo Code
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Last Seen
-                        </th>
-                        <th scope="col"
-                            class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
-                            Status
+                            Final Price
                         </th>
                         <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
@@ -115,81 +111,35 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    {{-- @forelse ($userProfile as $index => $user) --}}
+                    @forelse ($levels as $index)
                         <tr class="hover:bg-gray-50 transition-colors">
                             <!-- Row Number -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{-- {{ $loop->iteration }} --}}
+                                {{ $loop->iteration }}
                             </td>
-
-                            <!-- User Info -->
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <div class="flex items-center space-x-4">
-                                    <div class="flex-shrink-0 h-10 w-10">
-                                        <img class="h-10 w-10 rounded-full object-cover border-2 border-indigo-100"
-                                            src="{{  }}" alt="Profile image">
-                                    </div>
-                                    <div>
-                                        <div class="text-sm font-medium text-gray-900">Hamas Akif Sanie</div>
-                                        <div class="text-xs text-gray-500">Email</div>
-                                    </div>
-                                </div>
-                            </td>
-
-                            <!-- Phone -->
+                          
+                            <!-- Nama Levels -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{-- {{ $user->no_wa }} --}}
-                                NO WA
+                                {{ $index->level_name }}
                             </td>
 
-                            <!-- Institution -->
+                            <!-- Harga Per level -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 max-w-xs truncate">
-                                {{-- {{ $user->instansi }} --}}
-                                Instansi
+                                Rp. {{ number_format($index->price, 0, ',', '.') }}
                             </td>
-
-                            <!-- Gender -->
-                            {{-- <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-    {{ $user->jenis_kelamin === 'L'
-        ? 'bg-blue-100 text-blue-800'
-        : ($user->jenis_kelamin === 'P'
-            ? 'bg-pink-100 text-pink-800'
-            : 'bg-gray-100 text-gray-800') }}">
-                                    {{ $user->jenis_kelamin === 'L'
-                                        ? 'Laki-laki'
-                                        : ($user->jenis_kelamin === 'P'
-                                            ? 'Perempuan'
-                                            : ($user->jenis_kelamin === null
-                                                ? '-'
-                                                : $user->jenis_kelamin)) }}
-                                </span>
-                            </td> --}}
-
-                            <!-- Created At -->
+                           
+                            <!-- discount -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{-- {{ $user->user->created_at->format('d-m-Y') }} --}}
+                                {{ $index->discount }}
                             </td>
 
-                            <!-- Last Seen -->
+                            <!-- Image -->
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                {{-- {{ $user->user->last_seen_at ? \Carbon\Carbon::parse($user->user->last_seen_at)->diffForHumans() : 'Never logged in' }} --}}
+                                {{ $index->image }}
                             </td>
-
-                            <!-- Status -->
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                {{-- @if ($user->user->status === 'active')
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        Active
-                                    </span>
-                                @else
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                        Suspended
-                                    </span>
-                                @endif --}}
+                            {{-- Promo Code --}}
+                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                                {{ $index->promo_code }}
                             </td>
 
                             <!-- Actions -->
@@ -242,8 +192,8 @@
                     @empty
                         @livewire('empty-state', [
                             'title' => 'Tidak Ada Data',
-                            'colspan' => 9,
-                            'message' => 'Data asesi belum tersedia. Klik tombol "Tambah Asesi" di kanan untuk membuat data asesi baru.',
+                            'colspan' => 8,
+                            'message' => 'Data Level tidak tersedia.',
                         ])
                     @endforelse
                 </tbody>
@@ -253,7 +203,7 @@
 
     <!-- Pagination -->
     <div class="mt-6">
-        {{ $userProfile->links() }}
+        {{-- {{ $userProfile->links() }} --}}
     </div>
 
     <!-- Delete Modal -->

@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Payment;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Midtrans\Snap;
+use App\Models\Level;
+use App\Models\Payment;
+use Illuminate\Support\Str;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
+    
     public function index()
     {
         $payments = Payment::where('user_id', Auth::id())
@@ -20,9 +22,22 @@ class PaymentController extends Controller
         return view('payments.index', compact('payments'));
     }
 
-    public function create()
+    public function __construct()
     {
-        return view('payments.create');
+        // Set Midtrans configuration
+        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
+        \Midtrans\Config::$clientKey = env('MIDTRANS_CLIENT_KEY');
+        \Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION', false);
+        \Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED', true);
+        \Midtrans\Config::$is3ds = env('MIDTRANS_IS_3DS', true);
+    }
+
+    public function create(string $id)
+    {   
+        $levels = Level::where('id', $id)->first();
+        return view('payments.create', [
+            'level' => $levels,
+        ]);
     }
 
     public function store(Request $request)
@@ -52,20 +67,35 @@ class PaymentController extends Controller
                 'first_name' => Auth::user()->name,
                 'email' => Auth::user()->email,
             ],
-            'callbacks' => [
-                'finish' => route('payments.finish'),
-            ],
         ];
+
+        // Debug: Log parameters
+        \Log::info('Midtrans Parameters:', $params);
+        \Log::info('Midtrans Config:', [
+            'server_key' => env('MIDTRANS_SERVER_KEY') ? 'Set' : 'Not Set',
+            'client_key' => env('MIDTRANS_CLIENT_KEY') ? 'Set' : 'Not Set',
+            'is_production' => env('MIDTRANS_IS_PRODUCTION', false),
+        ]);
 
         try {
             // Get Snap Token
             $snapToken = Snap::getSnapToken($params);
+            
+            // Debug: Log snap token
+            \Log::info('Snap Token Generated:', ['token' => $snapToken]);
 
             // Save token to payment record
             $payment->update(['snap_token' => $snapToken]);
 
             return view('payments.checkout', compact('snapToken', 'payment'));
         } catch (\Exception $e) {
+            
+            \Log::error('Midtrans Error:', [
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+            ]);
+            
             return redirect()->back()->with('error', 'Error creating payment: ' . $e->getMessage());
         }
     }
@@ -74,18 +104,18 @@ class PaymentController extends Controller
     {
         return redirect()->route('payments.index')->with('success', 'Pembayaran sedang diproses');
     }
-    
+
     public function notification(Request $request)
     {
         $notif = new \Midtrans\Notification();
-        
+
         $orderId = $notif->order_id;
         $status = $notif->transaction_status;
         $fraudStatus = $notif->fraud_status;
         $paymentType = $notif->payment_type;
-        
+
         $payment = Payment::where('order_id', $orderId)->firstOrFail();
-        
+
         if ($status == 'capture') {
             if ($fraudStatus == 'challenge') {
                 $payment->status = 'pending';
@@ -99,24 +129,24 @@ class PaymentController extends Controller
         } else if ($status == 'pending') {
             $payment->status = 'pending';
         }
-        
+
         $payment->transaction_id = $notif->transaction_id;
         $payment->payment_type = $paymentType;
         $payment->payment_time = now();
         $payment->payment_details = json_decode(json_encode($notif), true);
         $payment->save();
-        
+
         return response()->json(['status' => 'success']);
     }
-    
+
     public function detail($id)
     {
         $payment = Payment::findOrFail($id);
-        
+
         if ($payment->user_id !== Auth::id()) {
             abort(403);
         }
-        
+
         return view('payments.detail', compact('payment'));
     }
 

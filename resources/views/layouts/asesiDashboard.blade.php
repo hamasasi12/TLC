@@ -17,7 +17,7 @@
 <body>
     <header class="mb-20">
         {{-- <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-sm border-b border-gray-200"> --}}
-        <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-lg border-b border-gray-200 overflow-visible">
+        <nav class="fixed w-full z-20 top-0 start-0 bg-white shadow-md border-b border-gray-200 overflow-visible">
 
             <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-4 px-10">
 
