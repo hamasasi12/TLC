@@ -22,7 +22,7 @@
                             </button>
                         </div>
                         <div class="flex-shrink-0">
-                            <img src="/api/placeholder/200/200" alt="Student"
+                            <img src="{{ asset('assets/img/tlc.png') }}" alt="Student"
                                 class="w-32 h-32 md:w-48 md:h-48 rounded-lg object-cover">
                         </div>
                     </div>
@@ -295,7 +295,7 @@
 
             <!-- Right Sidebar - Checkout -->
             <div class="lg:col-span-1">
-                <div class="bg-white rounded-2xl p-6 shadow-sm sticky top-4">
+                <div class="bg-white rounded-2xl p-6 shadow-sm sticky top-4 border">
                     <!-- Product Summary -->
                     <div class="mb-6">
                         <h3 class="text-gray-500 text-sm font-medium mb-2">RINGKASAN PRODUK</h3>
@@ -314,15 +314,16 @@
                             <input type="text" placeholder="Masukkan kode promo"
                                 class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
                         </div>
-                        <button
+                        {{-- <button
                             class="w-full mt-2 text-teal-500 border border-teal-500 px-4 py-2 rounded-lg hover:bg-teal-50 transition-colors flex items-center justify-center">
                             <i class="fas fa-gift mr-2"></i>
                             Lihat Promo Hari Ini
-                        </button>
+                        </button> --}}
+                        <livewire:payments.promo-modal>
                     </div>
 
                     <!-- Payment Method Button -->
-                    <form action="{{ route('payments.store') }}" method="POST">
+                    {{-- <form action="{{ route('payments.store') }}" method="POST">
                         @csrf
                         @method('post')
                         <input type="hidden" name="amount" value="{{ (int) $level->price }}">
@@ -331,7 +332,7 @@
                             Pilih Metode Pembayaran
                             <i class="fas fa-chevron-right ml-2"></i>
                         </button>
-                    </form>
+                    </form> --}}
 
 
                     <!-- Price Summary -->
@@ -342,24 +343,37 @@
                                 Rp. {{ number_format($level->price, 0, ',', '.') }}
                             </span>
                         </div>
-                        <div class="flex justify-between">
+                        {{-- <div class="flex justify-between">
                             <span class="text-gray-600">PPN (11%)</span>
                             <span class="font-semibold">Rp 19.690</span>
-                        </div>
+                        </div> --}}
                         <hr class="border-gray-200">
                         <div class="flex justify-between text-lg font-bold">
                             <span>Total</span>
-                            <span>Rp 198.690</span>
+                            <span>
+                                Rp. {{ number_format($level->price, 0, ',', '.') }}
+                            </span>
                         </div>
-                        <div class="text-right">
+                        {{-- <div class="text-right">
                             <button class="text-teal-500 text-sm hover:underline">+ kode unik ⓘ</button>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <!-- Continue Payment Button -->
-                    <button class="w-full bg-gray-300 text-gray-500 py-3 rounded-lg font-semibold cursor-not-allowed">
+                    {{-- <button class="w-full bg-gray-300 text-gray-500 py-3 rounded-lg font-semibold cursor-not-allowed">
                         Lanjut Bayar
-                    </button>
+                    </button> --}}
+
+                     <form action="{{ route('payments.store') }}" method="POST">
+                        @csrf
+                        @method('post')
+                        <input type="hidden" name="amount" value="{{ (int) $level->price }}">
+                        <button
+                            class="w-full bg-teal-500 text-white py-3 rounded-lg font-semibold hover:bg-teal-600 transition-colors mb-6 flex items-center justify-center">
+                            Pilih Metode Pembayaran
+                            <i class="fas fa-chevron-right ml-2"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
