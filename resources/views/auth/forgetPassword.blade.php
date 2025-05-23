@@ -3,22 +3,7 @@
 @section('title', 'Lupa Password')
 
 @section('content')
-    <header>
-        <nav class="fixed w-full z-20 top-0 start-0">
-            <div class=" flex flex-wrap items-center justify-between mx-auto py-3 px-6">
-                <!-- Brand Section -->
-                <div class="flex items-center space-x-4">
-                    <img src="{{ asset('assets/img/tlc.png') }}" class="h-8 w-8 md:h-12 md:w-12" alt="TLC Logo">
-                    <div>
-                        <h1 class="text-lg md:text-xl font-bold text-gray-800 tracking-wide capitalize">TLC Program</h1>
-                        <p class="text-xs md:text-sm text-gray-500 font-medium capitalize">
-                            Teaching & Learning Certification
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    
 
     <section class="bg-gray-50 min-h-screen pt-20">
         <div class="flex items-center justify-center h-[calc(100vh-200px)]">
