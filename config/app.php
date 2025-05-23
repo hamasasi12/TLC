@@ -123,7 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'providers' => [
+//     'providers' => [
 
         /*
      * Laravel Framework Service Providers…
@@ -139,4 +139,7 @@ return [
         // Tambahin custom Midtrans lo di sini ⬇️
         App\Providers\MidtransServiceProvider::class,
     ],
+
+//     App\Providers\MidtransServiceProvider::class,
+// ],
 ];

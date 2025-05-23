@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('levels', function (Blueprint $table) {
             $table->id();
             $table->enum('level_name', ['A', 'B', 'C', 'BUNDLING'])->nullable();
+            $table->string('promo_code')->nullable();
+            $table->string('image')->nullable();
             // $table->string('name')->nullable()->comment('nama sertifikat');
             // $table->integer('duration')->nullable()->comment('durasi sertifikat format Bulan');
             // $table->string('benefit')->nullable()->comment('benefit mengikuti sertifikat');
