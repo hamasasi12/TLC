@@ -46,7 +46,7 @@
                             @endif
                         </td>
                         <td class="px-4 py-3 whitespace-nowrap text-xs text-gray-500">
-                            <span class=" bg-purple-100 text-purple-800 font-medium rounded-full p-1">
+                            <span class="bg-purple-100 text-purple-800 font-medium rounded-full p-1">
                                 {{ $user->created_at->diffForHumans() }}
                             </span>
                         </td>
@@ -64,6 +64,5 @@
         <div class="mt-6">
             {{ $users->links() }}
         </div>
-    </div>
     </div>
 </div>
