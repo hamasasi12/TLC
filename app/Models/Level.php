@@ -14,6 +14,8 @@ class Level extends Model
         'level_name',
         'price',
         'discount',
-        'final_price'
+        'final_price',
+        'promo_code',
+        'image'
     ];
 }

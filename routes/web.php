@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\LevelSettingsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WelcomeController;
@@ -23,6 +24,8 @@ use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 Route::get('register2', function () {
     return view('register2');
 })->name('register2');
+
+// Route::post('/asesi/payments/notification', [PaymentController::class, 'notification'])->name('payments.notification');
 
 // GUEST
 Route::middleware('guest')->group(function () {
@@ -64,9 +67,9 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
 
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->prefix('asesi')->group(function () {
     Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
-    Route::get('/payments/create', [PaymentController::class, 'create'])->name('payments.create');
+    Route::get('/payments/{id}/create', [PaymentController::class, 'create'])->name('payments.create');
     Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
     Route::get('/payments/{id}', [PaymentController::class, 'detail'])->name('payments.detail');
     Route::get('/payments/finish', [PaymentController::class, 'finish'])->name('payments.finish');
@@ -142,6 +145,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     // Route Level C
     Route::get('/dashboard/level/c', [LevelCController::class, 'index'])->name('admin.level.c.index');
 
+    // Route Level Settings
+    Route::get('/dashboard/level/settings/index', [LevelSettingsController::class, 'index'])->name('admin.level.settings.index');
+
+
     Route::get('/dashboard/news', [NewsController::class, 'index'])->name('admin.news.index');
     Route::get('/dashboard/news/create', [NewsController::class, 'create'])->name('admin.news.create');
     Route::get('/dashboard/news/edit/{id}', [NewsController::class, 'edit'])->name('admin.news.edit');
@@ -149,23 +156,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard/news/{id}', [NewsController::class, 'show'])->name('admin.news.show');
     Route::put('/dashboard/news/update/{id}', [NewsController::class, 'update'])->name('admin.news.update');
     Route::delete('/dashboard/news/delete/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
-    
-    Route::post('/payments/notification', [PaymentController::class, 'notification'])->name('payments.notification');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     Route::get('/profile', [AdminSettingsController::class, 'edit'])->name('admin.settings.edit');
@@ -178,6 +168,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 Route::middleware(['auth', 'role:asesor'])->prefix('asesor')->group(function () {
     Route::get('/dashboard', [AsesorDashboardController::class, 'index'])->name('asesor.dashboard');
 });
+
+
 
 // INDOREGION
 Route::get('/regencies/{provinceId}', [IndoRegionController::class, 'getRegencies']);
@@ -226,3 +218,6 @@ Route::get('/real', function () {
 Route::get('/iseng', function () {
     return view('iseng');
 })->name('iseng');
+
+require __DIR__.'/auth.php';
+

@@ -123,20 +123,9 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'providers' => [
+//     'providers' => [
 
-    /*
-     * Laravel Framework Service Providers…
-     */
-    Illuminate\Auth\AuthServiceProvider::class,
-    // …bla bla…
 
-    /*
-     * Application Service Providers…
-     */
-    App\Providers\AppServiceProvider::class,
-    App\Providers\AuthServiceProvider::class,
-    // Tambahin custom Midtrans lo di sini ⬇️
-    App\Providers\MidtransServiceProvider::class,
-],
+//     App\Providers\MidtransServiceProvider::class,
+// ],
 ];

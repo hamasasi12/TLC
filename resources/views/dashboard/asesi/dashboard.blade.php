@@ -502,7 +502,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Card Level A -->
                     <div
-                        class="relative group overflow-hidden rounded-2xl shadow-xl cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                        class="relative group overflow-hidden rounded-2xl shadow-xl cursor-pointer transform transition-transform hover:shadow-2xl">
                         <div
                             class="absolute -right-4 top-6 bg-orange-500 text-white px-8 py-1 rotate-45 text-sm font-bold">
                             POPULER</div>
@@ -624,6 +624,8 @@
                 </div>
             </div>
         </section>
+        
+        @livewire('asesi.payment-card')
 
         <!-- Modal Template -->
         {{-- @foreach (['A', 'B', 'C'] as $level)
