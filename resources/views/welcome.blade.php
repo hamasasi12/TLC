@@ -725,7 +725,7 @@
         <!-- End Success Stories -->
 
         <!-- Paket Harga -->
-        <section id="harga" class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg">
+        {{-- <section id="harga" class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg">
             <div class="max-w-6xl mx-auto text-center">
                 <h2 class="text-4xl font-extrabold text-[#1D4E89] mt-4">Investasi untuk Masa Depan Profesional Anda</h2>
                 <div class="w-16 h-1 bg-[#E76F51] mt-3 mb-6 mx-auto"></div>
@@ -811,35 +811,370 @@
                         Selesaikan Level B Terlebih Dahulu
                     </button>
                 </div>
+            </div>
+        </section> --}}
 
-                <!-- Paket Bundle -->
-                {{-- <div class="col-span-1 md:col-span-3 flex justify-center">
+        <section class="w-full py-20 px-6 bg-gradient-to-b from-white to-blue-50" id="sertifikasi">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span
+                        class="inline-block px-4 py-1 bg-yellow-100 text-yellow-600 rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">PROGRAM
+                        SERTIFIKASI</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-800 mb-4">Pilih Jalur Sertifikasi Anda</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Program bertingkat yang disesuaikan dengan kebutuhan
+                        dan tujuan karir pendidik</p>
+                </div>
+
+                <!-- Course Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card Level A -->
                     <div
-                        class="bg-gradient-to-b from-orange-500 to-orange-600 text-white border border-orange-500 rounded-xl shadow-sm p-8 text-center relative transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer w-full md:w-2/3 lg:w-1/2">
-                        <span
-                            class="absolute top-0 right-0 bg-yellow-400 text-xs font-bold text-gray-900 px-4 py-2 rounded-bl-lg shadow-md">PALING
-                            POPULER</span>
-                        <h3 class="text-lg font-bold bg-orange-700 py-3 rounded-lg">PAKET BUNDLE - Smart Choice</h3>
-                        <p class="mt-3">Solusi lengkap & hemat untuk perjalanan profesional Anda.</p>
-                        <p class="text-3xl font-extrabold mt-5">Rp 4.500.000</p>
-                        <ul class="mt-6 text-left space-y-3">
-                            <li>✔ 10 Modul terfavorit</li>
-                            <li>✔ Sertifikat cetak & digital</li>
-                            <li>✔ Materi lengkap & up-to-date</li>
-                            <li>✔ Mentoring grup (4 sesi)</li>
-                            <li>✔ Akses komunitas eksklusif</li>
-                            <li>✔ 6 bulan akses fleksibel</li>
-                            <li>✔ Bonus buku panduan</li>
-                        </ul>
-                        <button
-                            class="mt-6 bg-orange-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-transform transform hover:scale-105 active:scale-95">
-                            Pilih Paket Hemat
-                        </button>
+                        class="relative group overflow-hidden rounded-2xl shadow-xl cursor-pointer transform transition-transform hover:shadow-2xl">
+                        <div
+                            class="absolute -right-4 top-6 bg-orange-500 text-white px-8 py-1 rotate-45 text-sm font-bold">
+                            POPULER</div>
+                        <img src="{{ asset('images/levela.png') }}" alt="Level A"
+                            class="w-full h-56 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-6 transition-all duration-500">
+                            <div class="mb-4">
+                                <span
+                                    class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">LEVEL
+                                    A</span>
+                            </div>
+                            <h3 class="text-white text-2xl md:text-3xl font-bold mb-3 leading-tight">
+                                Sertifikasi Dasar</h3>
+                            <p class="text-white/90 text-sm md:text-base mb-4">
+                                Fondasi pengajaran efektif untuk semua guru</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Manajemen
+                                    Kelas</span>
+                                <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Desain
+                                    Pembelajaran</span>
+                                <span
+                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Asesmen</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-white font-bold text-xl">Rp 499.000</span>
+                                <button onclick="document.getElementById('modalA').classList.remove('hidden')"
+                                    class="bg-white text-gray-800 px-4 md:px-6 py-2 text-xs md:text-sm font-bold rounded-lg hover:bg-orange-200 transition-all">Detail
+                                    Program</button>
+                            </div>
+                        </div>
                     </div>
-                </div> --}}
 
+                    <!-- Card Level B -->
+                    <div
+                        class="relative group overflow-hidden rounded-2xl shadow-xl cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="{{ asset('images/levelb.png') }}" alt="Level B"
+                            class="w-full h-56 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-6 transition-all duration-500">
+                            <div class="mb-4">
+                                <span
+                                    class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">LEVEL
+                                    B</span>
+                            </div>
+                            <h3 class="text-white text-2xl md:text-3xl font-bold mb-3 leading-tight">
+                                Sertifikasi Menengah</h3>
+                            <p class="text-white/90 text-sm md:text-base mb-4">
+                                Strategi pembelajaran lanjutan untuk guru berpengalaman</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Modul
+                                    Interaktif</span>
+                                <span
+                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Literasi
+                                    Digital</span>
+                                <span
+                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Project
+                                    Based</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-white font-bold text-xl">Rp 699.000</span>
+                                <button onclick="document.getElementById('modalB').classList.remove('hidden')"
+                                    class="bg-white text-gray-800 px-4 md:px-6 py-2 text-xs md:text-sm font-bold rounded-lg hover:bg-orange-200 transition-all">Detail
+                                    Program</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Level C -->
+                    <div
+                        class="relative group overflow-hidden rounded-2xl shadow-xl cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="absolute -right-4 top-6 bg-blue-500 text-white px-8 py-1 rotate-45 text-sm font-bold">
+                            PREMIUM</div>
+                        <img src="{{ asset('images/levelc.png') }}" alt="Level C"
+                            class="w-full h-56 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-6 transition-all duration-500">
+                            <div class="mb-4">
+                                <span
+                                    class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">LEVEL
+                                    C</span>
+                            </div>
+                            <h3 class="text-white text-2xl md:text-3xl font-bold mb-3 leading-tight">
+                                Sertifikasi Master</h3>
+                            <p class="text-white/90 text-sm md:text-base mb-4">
+                                Pengajaran kreatif tingkat mahir untuk pemimpin pendidikan</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Praktik
+                                    Video</span>
+                                <span
+                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Mentoring
+                                    1-on-1</span>
+                                <span
+                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Publikasi</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-white font-bold text-xl">Rp 999.000</span>
+                                <button onclick="document.getElementById('modalC').classList.remove('hidden')"
+                                    class="bg-white text-gray-800 px-4 md:px-6 py-2 text-xs md:text-sm font-bold rounded-lg hover:bg-orange-200 transition-all">Detail
+                                    Program</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
             </div>
         </section>
+
+        {{-- Modal --}}
+        @foreach (['A', 'B', 'C'] as $level)
+            <div id="modal{{ $level }}"
+                class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center z-50 hidden transition-all duration-300">
+                <div
+                    class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 relative transform transition-all duration-500 scale-100">
+                    <button onclick="document.getElementById('modal{{ $level }}').classList.add('hidden')"
+                        class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold text-orange-600">{{ $level }}</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">Sertifikasi Level {{ $level }}</h2>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="h-1 w-16 bg-orange-500 mb-4"></div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-3">
+                            @switch($level)
+                                @case('A')
+                                    Fondasi Pengajaran Efektif
+                                @break
+
+                                @case('B')
+                                    Strategi Pembelajaran Lanjutan
+                                @break
+
+                                @case('C')
+                                    Mastery Pengajaran Kreatif
+                                @break
+                            @endswitch
+                        </h3>
+
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            @switch($level)
+                                @case('A')
+                                    Bangun fondasi pengajaran Anda dengan pendekatan yang terbukti efektif! Di Level A, Anda akan
+                                    mempelajari dasar-dasar penting yang wajib dimiliki setiap guru hebat—mulai dari manajemen
+                                    kelas,
+                                    penyusunan tujuan pembelajaran, hingga strategi instruksional yang kuat. Cocok untuk semua guru
+                                    yang
+                                    ingin mengajar dengan percaya diri sejak hari pertama.
+                                @break
+
+                                @case('B')
+                                    Naik ke tahap lanjutan! Di Level B, Anda akan ditantang untuk menyusun modul ajar yang kreatif
+                                    dan
+                                    mengisi skala literasi yang mengukur kemampuan Anda dalam memahami kebutuhan belajar siswa. Ini
+                                    adalah langkah nyata menuju pembelajaran yang berdampak dan terukur.
+                                @break
+
+                                @case('C')
+                                    Tunjukkan mastery Anda sebagai pendidik sejati! Level C mengajak Anda membuktikan keterampilan
+                                    mengajar melalui video praktik langsung dan refleksi diri mendalam. Sertifikasi ini dirancang
+                                    bagi
+                                    guru yang ingin menjadi role model inspiratif di ruang kelas dan komunitas belajar.
+                                @break
+                            @endswitch
+                        </p>
+
+                        <!-- Benefit cards -->
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            @switch($level)
+                                @case('A')
+                                    <div class="flex items-center p-3 bg-orange-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Manajemen Kelas</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-orange-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Strategi Motivasi</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-orange-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Desain Pembelajaran</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-orange-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Teknik Asesmen</span>
+                                    </div>
+                                @break
+
+                                @case('B')
+                                    <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Modul Interaktif</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Literasi Digital</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Project Based</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Analisis Pembelajaran</span>
+                                    </div>
+                                @break
+
+                                @case('C')
+                                    <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Praktik Video</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Mentoring 1-on-1</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Publikasi</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">Kepemimpinan</span>
+                                    </div>
+                                @break
+                            @endswitch
+                        </div>
+                    </div>
+
+                    <!-- Price and CTA -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-gray-500 text-sm line-through">
+                                @switch($level)
+                                    @case('A')
+                                        Rp 699.000
+                                    @break
+
+                                    @case('B')
+                                        Rp 999.000
+                                    @break
+
+                                    @case('C')
+                                        Rp 1.299.000
+                                    @break
+                                @endswitch
+                            </span>
+                            <div class="text-2xl font-bold text-gray-800">
+                                @switch($level)
+                                    @case('A')
+                                        Rp 499.000
+                                    @break
+
+                                    @case('B')
+                                        Rp 699.000
+                                    @break
+
+                                    @case('C')
+                                        Rp 999.000
+                                    @break
+                                @endswitch
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] hover:from-[#E76F51] hover:to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105">
+                            Daftar Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
+        {{-- End Modal --}}
         <!-- End Paket Harga -->
 
         <!-- Timeline Program TLC - Enhanced Version -->
@@ -1168,131 +1503,7 @@
         </section>
         <!-- End Video -->
 
-        <!-- Galeri Kegiatan TLC -->
-        {{-- <section id="galeri" class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
-            <div class="max-w-6xl mx-auto text-center">
-                <!-- Label -->
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">
-                    Dokumentasi Kegiatan
-                </span>
 
-                <!-- Title -->
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">
-                    Galeri Kegiatan TLC
-                </h2>
-
-                <!-- Subtitle -->
-                <p class="text-gray-600 mt-2 max-w-3xl mx-auto">
-                    Dokumentasi berbagai kegiatan dalam program Teaching and Learning Certification
-                </p>
-            </div>
-
-            <!-- Image Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto">
-                <!-- Image 1 -->
-                <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="{{ asset('images/siswa.png') }}" alt="Workshop Metode Pengajaran Inovatif"
-                        class="w-full h-full object-cover" loading="lazy">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
-                    </div>
-                    <div
-                        class="absolute bottom-4 left-4 right-4 text-white group-hover:opacity-0 transition-opacity duration-300">
-                        <h3 class="font-semibold text-lg">Workshop Metode Pengajaran Inovatif</h3>
-                        <p class="text-sm">Para guru sedang berpartisipasi dalam workshop interaktif tentang metode
-                            pengajaran inovatif yang dipimpin oleh Dr....</p>
-                    </div>
-                    <button
-                        class="absolute top-3 right-3 bg-white text-gray-900 px-3 py-1 text-xs font-semibold rounded-full shadow-md group-hover:opacity-0 transition-opacity duration-300">Lihat
-                        Detail</button>
-                </div>
-
-                <!-- Image 2 -->
-                <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="{{ asset('images/guru.png') }}" alt="Image 2" class="w-full h-full object-cover"
-                        loading="lazy">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
-                    </div>
-                    <div
-                        class="absolute bottom-4 left-4 right-4 text-white group-hover:opacity-0 transition-opacity duration-300">
-                        <h3 class="font-semibold text-lg">Judul Kegiatan 2</h3>
-                        <p class="text-sm">Deskripsi singkat tentang kegiatan 2 yang berlangsung dalam program TLC.</p>
-                    </div>
-                    <button
-                        class="absolute top-3 right-3 bg-white text-gray-900 px-3 py-1 text-xs font-semibold rounded-full shadow-md group-hover:opacity-0 transition-opacity duration-300">Lihat
-                        Detail</button>
-                </div>
-
-                <!-- Image 3 -->
-                <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="{{ asset('images/guru.png') }}" alt="Image 3" class="w-full h-full object-cover"
-                        loading="lazy">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
-                    </div>
-                    <div
-                        class="absolute bottom-4 left-4 right-4 text-white group-hover:opacity-0 transition-opacity duration-300">
-                        <h3 class="font-semibold text-lg">Judul Kegiatan 3</h3>
-                        <p class="text-sm">Deskripsi singkat tentang kegiatan 3 yang berlangsung dalam program TLC.</p>
-                    </div>
-                    <button
-                        class="absolute top-3 right-3 bg-white text-gray-900 px-3 py-1 text-xs font-semibold rounded-full shadow-md group-hover:opacity-0 transition-opacity duration-300">Lihat
-                        Detail</button>
-                </div>
-
-                <!-- Image 4 -->
-                <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="{{ asset('images/guru.png') }}" alt="Image 4" class="w-full h-full object-cover">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
-                    </div>
-                    <div
-                        class="absolute bottom-4 left-4 right-4 text-white group-hover:opacity-0 transition-opacity duration-300">
-                        <h3 class="font-semibold text-lg">Judul Kegiatan 4</h3>
-                        <p class="text-sm">Deskripsi singkat tentang kegiatan 4 yang berlangsung dalam program TLC.</p>
-                    </div>
-                    <button
-                        class="absolute top-3 right-3 bg-white text-gray-900 px-3 py-1 text-xs font-semibold rounded-full shadow-md group-hover:opacity-0 transition-opacity duration-300">Lihat
-                        Detail</button>
-                </div>
-
-                <!-- Image 5 -->
-                <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="{{ asset('images/guru.png') }}" alt="Image 5" class="w-full h-full object-cover"
-                        loading="lazy">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
-                    </div>
-                    <div
-                        class="absolute bottom-4 left-4 right-4 text-white group-hover:opacity-0 transition-opacity duration-300">
-                        <h3 class="font-semibold text-lg">Judul Kegiatan 5</h3>
-                        <p class="text-sm">Deskripsi singkat tentang kegiatan 5 yang berlangsung dalam program TLC.</p>
-                    </div>
-                    <button
-                        class="absolute top-3 right-3 bg-white text-gray-900 px-3 py-1 text-xs font-semibold rounded-full shadow-md group-hover:opacity-0 transition-opacity duration-300">Lihat
-                        Detail</button>
-                </div>
-
-                <!-- Image 6 -->
-                <div class="relative w-full h-52 rounded-lg overflow-hidden group">
-                    <img src="{{ asset('images/guru.png') }}" alt="Image 6" class="w-full h-full object-cover"
-                        loading="lazy">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-300">
-                    </div>
-                    <div
-                        class="absolute bottom-4 left-4 right-4 text-white group-hover:opacity-0 transition-opacity duration-300">
-                        <h3 class="font-semibold text-lg">Judul Kegiatan 6</h3>
-                        <p class="text-sm">Deskripsi singkat tentang kegiatan 6 yang berlangsung dalam program TLC.</p>
-                    </div>
-                    <button
-                        class="absolute top-3 right-3 bg-white text-gray-900 px-3 py-1 text-xs font-semibold rounded-full shadow-md group-hover:opacity-0 transition-opacity duration-300">Lihat
-                        Detail</button>
-                </div>
-            </div>
-        </section> --}}
-        <!-- End Galeri Kegiatan TLC -->
 
         <!-- Galeri Kegiatan TLC -->
         <section id="galeri" class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
