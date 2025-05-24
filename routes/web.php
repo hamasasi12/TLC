@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\LevelSettingsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WelcomeController;
@@ -15,6 +14,8 @@ use App\Http\Controllers\Asesi\ProfileController;
 use App\Http\Controllers\Asesi\SertifikasiController;
 use App\Http\Controllers\Asesi\TransactionController;
 use App\Http\Controllers\Admin\AdminSettingsController;
+use App\Http\Controllers\Admin\LevelSettingsController;
+use App\Http\Controllers\Admin\PaymentDetailController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Asesi\AsesiDashboardController;
@@ -157,6 +158,12 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::put('/dashboard/news/update/{id}', [NewsController::class, 'update'])->name('admin.news.update');
     Route::delete('/dashboard/news/delete/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
 
+
+    Route::get('/payments', [PaymentDetailController::class, 'index'])->name('admin.payments.index');
+    Route::get('/payments/{id}', [PaymentDetailController::class, 'show'])->name('admin.payments.show');
+    Route::get('/payments-export', [PaymentDetailController::class, 'export'])->name('admin.payments.export');
+    Route::delete('/payments/{id}', [PaymentDetailController::class, 'destroy'])->name('admin.payments.destroy');
+    Route::patch('/payments/{id}/status', [PaymentDetailController::class, 'updateStatus'])->name('admin.payments.updateStatus');
 
     Route::get('/profile', [AdminSettingsController::class, 'edit'])->name('admin.settings.edit');
     Route::patch('/profile', [AdminSettingsController::class, 'update'])->name('admin.settings.update');
