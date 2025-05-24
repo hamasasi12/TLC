@@ -275,7 +275,7 @@
                                     </svg>
                                 </button>
                             </div>
-                            <livewire:payments.promo-modal>
+                            {{-- <livewire:payments.promo-modal> --}}
                         </div>
 
                         <!-- Price Summary -->
@@ -298,13 +298,13 @@
                         <!-- Continue Payment Button -->
                         <form action="{{ route('payments.store') }}" method="POST">
                             @csrf
-                            @method('post')
+                            {{-- @method('post') --}}
                             <input type="hidden" name="amount" value="{{ (int) $level->price }}">
                             <button class="w-full bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-4 rounded-xl font-semibold text-lg hover:from-teal-700 hover:to-cyan-700 smooth-transition hover:scale-105 shadow-lg hover:shadow-xl">
                                 <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                                 </svg>
-                                Bayar Sekarang
+                                Lanjutkan Pembayaran
                             </button>
                         </form>
 
@@ -329,7 +329,7 @@
         </div>
     </div>
 
-    <script>
+    {{-- <script>
         // Enhanced expand/collapse functionality
         const readMoreBtn = document.getElementById('readMoreBtn');
         const expandableContent = document.getElementById('expandableContent');
@@ -366,5 +366,5 @@
                 this.parentElement.classList.remove('ring-2', 'ring-teal-500');
             });
         }
-    </script>
+    </script> --}}
 @endsection
