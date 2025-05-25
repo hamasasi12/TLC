@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Laravel\Sanctum\HasApiTokens;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,7 +13,7 @@ use Illuminate\Auth\Passwords\CanResetPassword as CanResetPasswordTrait;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles, CanResetPasswordTrait;
+    use HasFactory, Notifiable, HasRoles, CanResetPasswordTrait, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.

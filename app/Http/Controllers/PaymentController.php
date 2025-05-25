@@ -6,7 +6,6 @@ use Midtrans\Snap;
 use App\Models\Level;
 use App\Models\Payment;
 use Illuminate\Support\Str;
-use Midtrans\Config;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,14 +22,23 @@ class PaymentController extends Controller
         return view('payments.index', compact('payments'));
     }
 
-    // public function __construct()
-    // {
-    //     Config::$serverKey = config('midtrans.server_key');
-    //     Config::$clientKey = config('midtrans.client_key');
-    //     Config::$isProduction = config('midtrans.is_production', false);
-    //     Config::$isSanitized = config('midtrans.is_sanitized', true);
-    //     Config::$is3ds = config('midtrans.is_3ds', true);
-    // }
+    public function __construct()
+    {
+        // Set Midtrans configuration
+        // \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
+        // \Midtrans\Config::$clientKey = env('MIDTRANS_CLIENT_KEY');
+        // \Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION', false);
+        // \Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED', true);
+        // \Midtrans\Config::$is3ds = env('MIDTRANS_IS_3DS', true);
+
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-ZKtv_ZU-fK8ziit38faelY7l';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+    }
 
     public function create(string $id)
     {
@@ -42,14 +50,20 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
-        // dd($serverKey, $clientKey, $isProduction, $isSanitized, $is3ds);
+        // dd(config('midtrans.client_key'));
+        // dd(env('MIDTRANS_SERVER_KEY'));
 
-        Config::$serverKey = config('midtrans.server_key');
-        Config::$clientKey = config('midtrans.client_key');
-        Config::$isProduction = config('midtrans.is_production', false);
-        Config::$isSanitized = config('midtrans.is_sanitized', true);
-        Config::$is3ds = config('midtrans.is_3ds', true);
-        
+        // dd(config('midtrans.client_key'));
+
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-ZKtv_ZU-fK8ziit38faelY7l';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+
         $request->validate([
             'amount' => 'required|numeric|min:10000',
         ]);
@@ -80,9 +94,9 @@ class PaymentController extends Controller
         // Debug: Log parameters
         \Log::info('Midtrans Parameters:', $params);
         \Log::info('Midtrans Config:', [
-            'server_key' => config('midtrans.server_key') ? 'Set' : 'Not Set',
-            'client_key' => config('midtrans.client_key') ? 'Set' : 'Not Set',
-            'is_production' => config('midtrans.is_production'),
+            'server_key' => env('MIDTRANS_SERVER_KEY') ? 'Set' : 'Not Set',
+            'client_key' => env('MIDTRANS_CLIENT_KEY') ? 'Set' : 'Not Set',
+            'is_production' => env('MIDTRANS_IS_PRODUCTION', false),
         ]);
 
         try {
@@ -157,4 +171,7 @@ class PaymentController extends Controller
 
         return view('payments.detail', compact('payment'));
     }
+
+
+
 }
