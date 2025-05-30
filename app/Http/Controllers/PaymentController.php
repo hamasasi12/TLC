@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use Midtrans\Snap;
+use App\Models\User;
 use App\Models\Level;
 use App\Models\Payment;
-use Illuminate\Support\Str;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
-    
+
     public function index()
     {
         $payments = Payment::where('user_id', Auth::id())
@@ -33,7 +34,7 @@ class PaymentController extends Controller
     }
 
     public function create(string $id)
-    {   
+    {
         $levels = Level::where('id', $id)->first();
         return view('payments.create', [
             'level' => $levels,
@@ -80,7 +81,7 @@ class PaymentController extends Controller
         try {
             // Get Snap Token
             $snapToken = Snap::getSnapToken($params);
-            
+
             // Debug: Log snap token
             \Log::info('Snap Token Generated:', ['token' => $snapToken]);
 
@@ -89,13 +90,13 @@ class PaymentController extends Controller
 
             return view('payments.checkout', compact('snapToken', 'payment'));
         } catch (\Exception $e) {
-            
+
             \Log::error('Midtrans Error:', [
                 'message' => $e->getMessage(),
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
             ]);
-            
+
             return redirect()->back()->with('error', 'Error creating payment: ' . $e->getMessage());
         }
     }
@@ -130,6 +131,11 @@ class PaymentController extends Controller
             $payment->status = 'pending';
         }
 
+        // $payments = Payment::where('order_id', $orderId)->first();
+        // $users = User::where('id', $payments->user_id)->first();
+        // $users->revokePermissionTo('access_level_A_unpaid');
+        // $users->givePermissionTo('access_level_A');
+
         $payment->transaction_id = $notif->transaction_id;
         $payment->payment_type = $paymentType;
         $payment->payment_time = now();
@@ -149,7 +155,4 @@ class PaymentController extends Controller
 
         return view('payments.detail', compact('payment'));
     }
-
-
-
 }

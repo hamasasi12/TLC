@@ -305,5 +305,22 @@
             }
         });
     };
+
+    while (notDone()) {
+  moveForward();
+  if (isPathRight()) {
+    turnRight();
+    moveForward();
+    if (isPathLeft()) {
+      turnLeft();
+    }
+  }
+  if (isPathLeft()) {
+    turnLeft();
+    moveForward();
+  }
+}
 </script>
+
+
 @endsection
