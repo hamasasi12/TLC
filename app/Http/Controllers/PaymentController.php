@@ -44,6 +44,7 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
+        // dd(config('midtrans.server_key'));
         $user = user::with('userProfile')->where('id', Auth::id())->first();
 
         if (!$user->userProfile) {
@@ -120,9 +121,31 @@ class PaymentController extends Controller
 
     public function finish(Request $request)
     {
-        return redirect()->route('payments.index')->with('success', 'Pembayaran sedang diproses');
-    }
+        // Ambil order_id dari query parameter atau session
+        $orderId = $request->get('order_id') ?? session('last_order_id');
 
+        $payment = null;
+        if ($orderId) {
+            $payment = Payment::where('order_id', $orderId)->first();
+        }
+
+        // Jika tidak ada payment ditemukan, bisa gunakan data dummy atau redirect
+        if (!$payment) {
+            // Option 1: Redirect ke halaman payments dengan pesan error
+            // return redirect()->route('payments.index')->with('error', 'Data pembayaran tidak ditemukan');
+
+            // Option 2: Gunakan data dummy untuk testing (hapus setelah production)
+            $payment = (object) [
+                'order_id' => $orderId ?? 'ORD-' . time(),
+                'amount' => 100000,
+                'created_at' => now(),
+                'updated_at' => now()
+            ];
+        }
+
+        return view('payments.finish', compact('payment'));
+    }
+    
     public function notification(Request $request)
     {
         $notif = new \Midtrans\Notification();

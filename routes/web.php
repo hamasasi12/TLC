@@ -68,10 +68,10 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
 
 Route::middleware(['auth'])->prefix('asesi')->group(function () {
     Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
+    Route::get('/payments/finish', [PaymentController::class, 'finish'])->name('payments.finish'); // Pindahkan ke atas
     Route::get('/payments/{id}/create', [PaymentController::class, 'create'])->name('payments.create');
     Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
-    Route::get('/payments/{id}', [PaymentController::class, 'detail'])->name('payments.detail');
-    Route::get('/payments/finish', [PaymentController::class, 'finish'])->name('payments.finish');
+    Route::get('/payments/{id}', [PaymentController::class, 'detail'])->name('payments.detail'); // Pindahkan ke bawah
 });
 
 // AUTH ADMIN
