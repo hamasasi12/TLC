@@ -26,8 +26,6 @@ Route::get('register2', function () {
     return view('register2');
 })->name('register2');
 
-// Route::post('/asesi/payments/notification', [PaymentController::class, 'notification'])->name('payments.notification');
-
 // GUEST
 Route::middleware('guest')->group(function () {
     // Route::get('/', fn() => view('welcome'));

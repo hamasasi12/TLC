@@ -71,5 +71,9 @@ class User extends Authenticatable
         return $this->hasOne(\App\Models\AdminsProfile::class, 'user_id', 'id');
     }
 
+    public function payment() {
+        return $this->hasOne(Payment::class);
+    }
+
 
 }

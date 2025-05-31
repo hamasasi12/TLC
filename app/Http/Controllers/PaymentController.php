@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PaymentSuccessful;
 use Midtrans\Snap;
 use App\Models\User;
 use App\Models\Level;
@@ -23,15 +24,15 @@ class PaymentController extends Controller
         return view('payments.index', compact('payments'));
     }
 
-    public function __construct()
-    {
-        // Set Midtrans configuration
-        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
-        \Midtrans\Config::$clientKey = env('MIDTRANS_CLIENT_KEY');
-        \Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION', false);
-        \Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED', true);
-        \Midtrans\Config::$is3ds = env('MIDTRANS_IS_3DS', true);
-    }
+    // public function __construct()
+    // {
+    //     Set Midtrans configuration
+    //     \Midtrans\Config::$serverKey = config('midtrans.server_key');
+    //     \Midtrans\Config::$clientKey = config('midtrans.client_key');
+    //     \Midtrans\Config::$isProduction = config('midtrans.is_production', false);
+    //     \Midtrans\Config::$isSanitized = config('midtrans.is_sanitized', true);
+    //     \Midtrans\Config::$is3ds = config('midtrans.is_3ds', true);
+    // }
 
     public function create(string $id)
     {
@@ -43,6 +44,12 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
+        $user = user::with('userProfile')->where('id', Auth::id())->first();
+
+        if (!$user->userProfile) {
+            return back()->with('userProfileNull', 'Data user belum lengkap.');
+        }
+
         $request->validate([
             'amount' => 'required|numeric|min:10000',
         ]);
@@ -54,6 +61,7 @@ class PaymentController extends Controller
         $payment = Payment::create([
             'user_id' => Auth::id(),
             'order_id' => $orderId,
+            'level_id' => $request->level_id,
             'amount' => $request->amount,
             'status' => 'pending',
         ]);
@@ -65,8 +73,17 @@ class PaymentController extends Controller
                 'gross_amount' => (int) $request->amount,
             ],
             'customer_details' => [
-                'first_name' => Auth::user()->name,
-                'email' => Auth::user()->email,
+                'user_id' => Auth::id(),
+                'first_name' => $user->name,
+                'email' => $user->email,
+                'billing_address' => [
+                    'first_name' => $user->name,
+                    'last_name' => '',
+                    'email' => $user->email,
+                    'phone' => $user->userProfile->no_wa,
+                    'city' => $user->userProfile->kabupaten,
+                    'country_code' => 'IDN',
+                ]
             ],
         ];
 
@@ -115,7 +132,7 @@ class PaymentController extends Controller
         $fraudStatus = $notif->fraud_status;
         $paymentType = $notif->payment_type;
 
-        $payment = Payment::where('order_id', $orderId)->firstOrFail();
+        $payment = Payment::with('user')->where('order_id', $orderId)->firstOrFail();
 
         if ($status == 'capture') {
             if ($fraudStatus == 'challenge') {
@@ -131,18 +148,31 @@ class PaymentController extends Controller
             $payment->status = 'pending';
         }
 
-        // $payments = Payment::where('order_id', $orderId)->first();
-        // $users = User::where('id', $payments->user_id)->first();
-        // $users->revokePermissionTo('access_level_A_unpaid');
-        // $users->givePermissionTo('access_level_A');
-
         $payment->transaction_id = $notif->transaction_id;
         $payment->payment_type = $paymentType;
         $payment->payment_time = now();
         $payment->payment_details = json_decode(json_encode($notif), true);
         $payment->save();
 
+        if ($payment->status == 'success') {
+            event(new PaymentSuccessful($payment));
+            // $user = $payment->user;
+            // $user->givePermissionTo('access_level_A');
+        }
+
         return response()->json(['status' => 'success']);
+    }
+
+    public function grandLevelAAccess($payment)
+    {
+
+        try {
+            $user = User::where('id', $payment->user_id)->first();
+            $user->givePermissionTo('access_level_a');
+            $user->revokePermissionTo('fresh_user');
+        } catch (\Exception $e) {
+            \Log::error('Error Granting Access Level A:', ['message' => $e->getMessage()]);
+        }
     }
 
     public function detail($id)
@@ -155,7 +185,5 @@ class PaymentController extends Controller
 
         return view('payments.detail', compact('payment'));
     }
-
-
 
 }
