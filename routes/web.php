@@ -60,6 +60,12 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::get('/sertifikasi', [SertifikasiController::class, 'index'])->name('asesi.sertifikasi');
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('asesi.transaksi');
     Route::get('/profile', [ProfileController::class, 'index'])->name('asesi.profile');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('asesi.profile.update');
+    Route::post('/profile/upload-photo', [ProfileController::class, 'uploadPhoto'])->name('asesi.profile.upload');
+    Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('asesi.password.change');
+    Route::get('/api/cities/{provinceId}', [ProfileController::class, 'getCities'])->name('asesi.api.cities');
+    Route::get('/api/districts/{cityId}', [ProfileController::class, 'getDistricts'])->name('asesi.api.districts');
+    Route::get('/api/villages/{districtId}', [ProfileController::class, 'getVillages'])->name('asesi.api.villages');
     Route::get('/register/2', [AuthController::class, 'registerStepTwo'])->name('asesi.registerStepTwo');
     Route::get('/registeraddtional', [AuthController::class, 'registeraddtional'])->name('registeraddtional');
     Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
