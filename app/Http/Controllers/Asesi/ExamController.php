@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Asesi;
 
 use App\Models\ExamA;
+use App\Models\CategoryA;
 use App\Models\QuestionA;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
@@ -63,6 +64,7 @@ class ExamController extends Controller
                 'category_a_id' => $validated['category_id'],
                 'status' => 'started',
                 'start_time' => now(),
+                'is_passed' => false,   
             ]);
 
             Log::channel('exam')->info('New exam started', [
@@ -162,15 +164,19 @@ class ExamController extends Controller
         if ($exam->user_id != Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
-
-        // Calculate score
+        
+        $category = CategoryA::find($exam->category_a_id);
+        $questionCount = QuestionA::where('category_a_id', $exam->category_a_id)->count();
         $score = $exam->calculateScore();
+
+        $count = round(($score / $questionCount) * 100, 2);
 
         // Update exam
         $exam->update([
             'status' => 'finished',
             'end_time' => now(),
-            'score' => $score,
+            'score' => $count,
+            'is_passed' => $count >= $category->passing_score? true : false,
         ]);
 
         return redirect()->route('asesi.sertifikasi.level.a.result', $exam);
@@ -187,6 +193,19 @@ class ExamController extends Controller
         $wrongAnswers = $exam->questionsA()->wherePivot('is_correct', false)->count();
         $unansweredQuestions = $totalQuestions - ($correctAnswers + $wrongAnswers);
 
+        $category = CategoryA::find($exam->category_a_id);
+    
+        // if ($exam->score >= $category->passing_score) {
+        //     $exam->is_passed = true;
+        //     $exam->save();
+        // }
+        $exam->update([
+            'correct_answers' => $correctAnswers,
+            'wrong_answers' => $wrongAnswers,
+            'total_questions' => $totalQuestions,
+            'unanswered_questions' => $unansweredQuestions,
+        ]);
+
         return view('user.sertifikasi.levelA.exam.result', compact(
             'exam',
             'totalQuestions',
@@ -198,7 +217,7 @@ class ExamController extends Controller
 
     public function continue()
     {
-
+        return 'ok';
     }
 
 

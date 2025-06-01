@@ -40,6 +40,9 @@
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">Banner
                         </th>
                         <th scope="col"
+                            class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">Passing Score
+                        </th>
+                        <th scope="col"
                             class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">Kunci
                             Kategori
                         </th>
@@ -75,8 +78,10 @@
                                 @else
                                     <p>Tidak Ada</p>
                                 @endif
-
                             </td>
+
+                            {{-- passing_score --}}
+                            <td class="px-4 py-3 text-sm text-gray-500">{{ $index['passing_score'] }}</td>
 
                             {{-- IS LOCKED --}}
                             <td class="px-4 py-3 text-sm text-gray-500">

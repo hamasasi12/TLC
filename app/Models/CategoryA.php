@@ -13,6 +13,7 @@ class CategoryA extends Model
         'banner_img',
         'time_limit',
         'is_locked',
+        'passing_score'
     ];
 
     public function questionsA(){
