@@ -1,0 +1,205 @@
+<?php
+
+namespace App\Http\Controllers\Asesi;
+
+use App\Models\ExamA;
+use App\Models\QuestionA;
+use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
+class ExamController extends Controller
+{
+
+    public function instruction(Request $request)
+    {
+        $request->validate([
+            'category_id' => 'required|numeric',
+        ]);
+
+        switch ($request->category_id) {
+            case 1:
+                return view('user.sertifikasi.levelA.HOTS.instruction');
+            case 2:
+                return view('user.sertifikasi.levelA.PCK.instruction');
+            case 3:
+                return view('user.sertifikasi.levelA.LITERASI.instruction');
+            case 4:
+                return view('user.sertifikasi.levelA.NUMERASI.instruction');
+            default:
+                Log::warning('Kategori tidak valid diakses', [
+                    'category_id' => $request->category_id,
+                    'user_id' => Auth::id(),
+                    'ip_address' => $request->ip(),
+                    'user_agent' => $request->userAgent()
+                ]);
+                return redirect()->back();
+        }
+    }
+    public function start(Request $request)
+    {
+        $validated = $request->validate([
+            'category_id' => 'required'
+        ]);
+
+        $unfinishedExam = ExamA::where('user_id', Auth::id())
+            ->where('category_a_id', $validated['category_id'])
+            ->where('status', 'started')
+            ->first();
+
+        if ($unfinishedExam) {
+            return redirect()->route('exams.continue', $unfinishedExam); // belum selesai
+            // return 'ok';
+        }
+
+        DB::beginTransaction();
+        try {
+            $exam = ExamA::create([
+                'user_id' => Auth::id(),
+                'category_a_id' => $validated['category_id'],
+                'status' => 'started',
+                'start_time' => now(),
+            ]);
+
+            Log::channel('exam')->info('New exam started', [
+                'id' => $exam->id,
+                'user_id' => Auth::id(),
+                'category_id' => $validated['category_id']
+            ]);
+
+            DB::commit();
+        } catch (\Exception $e) {
+
+            DB::rollBack();
+            Log::channel('exam')->error('Error starting exam', [
+                'error' => $e->getMessage(),
+                'user_id' => Auth::id(),
+                'category_id' => $validated['category_id']
+            ]);
+
+            return redirect()->back();
+        }
+
+
+        $questions = QuestionA::where('category_a_id', $validated['category_id'])
+            ->inRandomOrder()
+            ->limit(30)
+            ->get();
+
+        foreach ($questions as $question) {
+            $exam->questionsA()->attach($question->id);
+        }
+
+        return redirect()->route('asesi.sertifikasi.level.a.show', $exam);
+    }
+
+    public function show(ExamA $exam)
+    {
+        // Ensure the exam belongs to the authenticated user
+        if ($exam->user_id != Auth::id()) {
+            abort(403, 'Unauthorized action.');
+            Log::channel('exam')->warning('Unauthorized exam access attempt', [
+                'user_id' => Auth::id(),
+                'attempted_exam_id' => $exam->id,
+                'exam_owner_id' => $exam->user_id,
+                'ip_address' => request()->ip(),
+                'user_agent' => request()->userAgent()
+            ]);
+        }
+
+        $questions = $exam->questionsA()->paginate(1);
+        $totalQuestions = $exam->questionsA()->count();
+        $answeredQuestions = $exam->questionsA()->wherePivotNotNull('user_answer')->count();
+
+        return view('user.sertifikasi.levelA.exam.show', [
+            'exam' => $exam,
+            'questions' => $questions,
+            'totalQuestions' => $totalQuestions,
+            'answeredQuestions' => $answeredQuestions
+        ]);
+    }
+
+    public function answer(Request $request, ExamA $exam)
+    {
+        // Ensure the exam belongs to the authenticated user
+        if ($exam->user_id != Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $validated = $request->validate([
+            'question_a_id' => 'required|exists:questions_a,id',
+            'user_answer' => 'required|in:a,b,c,d',
+        ]);
+
+        // Get the question
+        $question = QuestionA::findOrFail($validated['question_a_id']);
+
+        // Check if the answer is correct
+        $isCorrect = $question->correct_answer === $validated['user_answer'];
+
+        // Update the pivot record
+        $exam->questionsA()->updateExistingPivot($validated['question_a_id'], [
+            'user_answer' => $validated['user_answer'],
+            'is_correct' => $isCorrect,
+        ]);
+
+        // Redirect to the next question or to the finish page
+        if ($request->has('next_question')) {
+            return redirect()->route('asesi.sertifikasi.level.a.show', [
+                'exam' => $exam,
+                'page' => $request->input('next_question'),
+            ]);
+        }
+        return redirect()->route('asesi.sertifikasi.level.a.show', $exam);
+    }
+
+    public function finish(ExamA $exam)
+    {
+        if ($exam->user_id != Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        // Calculate score
+        $score = $exam->calculateScore();
+
+        // Update exam
+        $exam->update([
+            'status' => 'finished',
+            'end_time' => now(),
+            'score' => $score,
+        ]);
+
+        return redirect()->route('asesi.sertifikasi.level.a.result', $exam);
+    }
+
+    public function result(ExamA $exam)
+    {
+        if ($exam->user_id != Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $totalQuestions = $exam->questionsA()->count();
+        $correctAnswers = $exam->questionsA()->wherePivot('is_correct', true)->count();
+        $wrongAnswers = $exam->questionsA()->wherePivot('is_correct', false)->count();
+        $unansweredQuestions = $totalQuestions - ($correctAnswers + $wrongAnswers);
+
+        return view('user.sertifikasi.levelA.exam.result', compact(
+            'exam',
+            'totalQuestions',
+            'correctAnswers',
+            'wrongAnswers',
+            'unansweredQuestions'
+        ));
+    }
+
+    public function continue()
+    {
+
+    }
+
+
+}

@@ -118,6 +118,20 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'payment' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/payment.log'),
+            'level' => 'debug',
+        ],
+
+         'exam' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/exam.log'),
+            'level' => 'debug',
+        ],
+
+
+
         'null' => [
             'driver' => 'monolog',
             'handler' => NullHandler::class,

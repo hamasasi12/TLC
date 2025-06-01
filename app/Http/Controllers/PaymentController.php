@@ -156,8 +156,6 @@ class PaymentController extends Controller
 
         if ($payment->status == 'success') {
             event(new PaymentSuccessful($payment));
-            // $user = $payment->user;
-            // $user->givePermissionTo('access_level_A');
         }
 
         return response()->json(['status' => 'success']);

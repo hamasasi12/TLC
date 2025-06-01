@@ -15,7 +15,11 @@ class CategoryA extends Model
         'is_locked',
     ];
 
-    public function questions(){
-        return $this->hasMany(QuestionA::class);
+    public function questionsA(){
+        return $this->hasMany(QuestionA::class,'category_a_id' );
     }
+
+    // public function questions(){
+    //     return $this->hasMany(Questions::class, 'category_id');
+    // }
 }
