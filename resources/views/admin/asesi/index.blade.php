@@ -48,10 +48,11 @@
                             + Tambah Asesi
                         </button>
                     </a>
-                    <button class="px-3 py-1.5 border text-gray-600 text-sm rounded hover:bg-gray-50"
+                    <a href="{{ route('dashboard.asesi.export') }}"
+                        class="px-3 py-1.5 border text-gray-600 text-sm rounded hover:bg-gray-50"
                         data-popover-target="popover-export" data-popover-trigger="hover">
                         Export
-                    </button>
+                    </a>
                     <button class="p-2 border rounded text-gray-500 hover:bg-gray-100">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path
@@ -237,14 +238,11 @@
                                 </div>
                             </td>
                         </tr>
-                        @empty
-                          @livewire('empty-state', [
+                    @empty
+                        @livewire('empty-state', [
                             'title' => 'Tidak Ada Data',
                             'colspan' => 9,
                             'message' => 'Data asesi belum tersedia. Klik tombol "Tambah Asesi" di kanan untuk membuat data asesi baru.',
-                           
-                           
-                            
                         ])
                     @endforelse
                 </tbody>

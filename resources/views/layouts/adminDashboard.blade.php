@@ -57,10 +57,9 @@
                                         <img src="{{ asset('storage/' . auth()->user()->adminsProfile->profile_image) }}"
                                             class="w-[40px] h-[40px] rounded-full object-cover shadow-md border-2 border-indigo-500 transform transition-all duration-300 ease-in-out hover:scale-105">
                                     @else
-                                        <img src="{{ asset('assets/img/blank_profile.png') }}"
+                                        <img src="{{ asset('img/blank_profile.png') }}"
                                             class="w-[40px] h-[40px] rounded-full object-cover shadow-md border-2 border-gray-500 transform transition-all duration-300 ease-in-out hover:scale-105">
                                     @endif
-
                                     <!-- User Email -->
                                     <div class="text-left">
                                         <p class="text-sm text-white">
