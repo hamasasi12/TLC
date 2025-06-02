@@ -9,11 +9,14 @@
     <link rel="icon" href="{{ asset('assets/img/tlc.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    @livewireStyles
 
 </head>
 
 <body class="bg-white flex items-center justify-center min-h-screen p-4">
     @yield('content')
+
+    @livewireScripts
 </body>
 
 </html>

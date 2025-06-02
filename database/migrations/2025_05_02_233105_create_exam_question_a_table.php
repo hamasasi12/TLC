@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('exam_question_a', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('exams_a_id')->constrained('exams_a')->onDelete('cascade');
+            $table->foreignId('exam_a_id')->constrained('exams_a')->onDelete('cascade');
             $table->foreignId('question_a_id')->constrained('questions_a')->onDelete('cascade');
             $table->enum('user_answer', ['a', 'b', 'c', 'd', 'e'])->nullable();
             $table->boolean('is_correct')->nullable();

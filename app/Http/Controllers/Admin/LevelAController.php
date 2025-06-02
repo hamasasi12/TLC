@@ -35,6 +35,7 @@ class LevelAController extends Controller
                 'banner_img' => $category->banner_img ?? 'blankCategories.jpg',
                 'time_limit' => $category->time_limit ?? 0,
                 'is_locked' => $category->is_locked ?? false,
+                'passing_score' => $category->passing_score?? 0,
                 'question_count' => $count ?? 'null, data not found'
             ];
         });
@@ -97,7 +98,8 @@ class LevelAController extends Controller
             'description' => 'required|string|max:255',
             'banner_img' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
             'time_limit' => 'required|integer',
-            'is_locked' => 'required|boolean'
+            'is_locked' => 'required|boolean',
+            'passing_score' => 'required|integer'
         ]);
 
         $categoriesBaseID = CategoryA::find($id);

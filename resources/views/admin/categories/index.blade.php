@@ -5,23 +5,6 @@
 @section('content')
     <div class="p-4 bg-white rounded-lg mb-2">
         <nav class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-4 text-base">
-            <!-- Breadcrumb -->
-            {{-- <ol class="flex items-center space-x-1 text-gray-600">
-                <li><a href="{{ route('admin.level.index') }}"
-                        class="hover:underline {{ request()->routeIs('admin.level.*') ? 'text-indigo-600' : '' }}">Level
-                        A</a>
-                </li>
-                <li>/</li>
-                <li><a href="{{ route('admin.asesor.index') }}"
-                        class="hover:underline {{ request()->routeIs('admin.asesor.*') ? 'text-indigo-600' : '' }}">Level
-                        B</a>
-                </li>
-                <li>/</li>
-                <li><a href="{{ route('admin.admins.index') }}"
-                        class="hover:underline {{ request()->routeIs('admin.admins.*') ? 'text-indigo-600' : '' }}">Level
-                        C</a>
-                </li>
-            </ol> --}}
 
             <!-- Search & Info -->
             <div class="flex flex-wrap items-center gap-3">

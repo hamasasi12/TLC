@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title', 'TLC')</title>
+    <title>@yield('title', 'Teaching and Learning Certification')</title>
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="icon" href="{{ asset('assets/img/tlc.png') }}" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    @stack('scripts')
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
