@@ -123,7 +123,23 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-//     'providers' => [
-//     App\Providers\MidtransServiceProvider::class,
-// ],
+    // 'providers' => [
+
+    //     /*
+    //  * Laravel Framework Service Providers…
+    //  */
+    //     // Illuminate\Auth\AuthServiceProvider::class,
+    //     // …bla bla…
+
+    //     /*
+    //  * Application Service Providers…
+    //  */
+    //     App\Providers\AppServiceProvider::class,
+    //     // Tambahin custom Midtrans lo di sini ⬇️
+    //     App\Providers\MidtransServiceProvider::class,
+    // ],
+
+    //     App\Providers\MidtransServiceProvider::class,
+    // ],
+
 ];
