@@ -21,6 +21,7 @@ class CategoriesA extends Component
                 'banner_img' => $category->banner_img ?? 'blankCategories.jpg',
                 'time_limit' => $category->time_limit?? 'null, data not found',
                 'is_locked' => $category->is_locked?? false,
+                // 'kkm' => $category->kkm?? 'null, data not found',
                 'question_count' => $count ?? 'null, data not found'
             ];
         });

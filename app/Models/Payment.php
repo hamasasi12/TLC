@@ -11,6 +11,7 @@ class Payment extends Model
     protected $fillable = [
         'user_id',
         'order_id',
+        'level_id',
         'amount',
         'status',
         'snap_token',
@@ -29,5 +30,10 @@ class Payment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
     }
 }
