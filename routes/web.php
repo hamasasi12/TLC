@@ -8,6 +8,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Asesi\ExamController;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Admin\LevelAController;
@@ -32,8 +33,6 @@ use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 Route::get('register2', function () {
     return view('register2');
 })->name('register2');
-
-// Route::post('/asesi/payments/notification', [PaymentController::class, 'notification'])->name('payments.notification');
 
 // GUEST
 Route::middleware('guest')->group(function () {
@@ -72,6 +71,16 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::get('/register/2', [AuthController::class, 'registerStepTwo'])->name('asesi.registerStepTwo');
     Route::get('/registeraddtional', [AuthController::class, 'registeraddtional'])->name('registeraddtional');
     Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
+
+
+    // EXAM CONTROLLER 
+    Route::post('/sertifikasi/level/a/instruction', [ExamController::class, 'instruction'])->name('asesi.sertifikasi.level.a.instruction');
+    Route::get('/sertifikasi/level/a/{exam}/show', [ExamController::class, 'show'])->name('asesi.sertifikasi.level.a.show');
+    Route::post('/sertifikasi/level/a/start', [ExamController::class, 'start'])->name('asesi.sertifikasi.level.a.start');
+    Route::post('/sertifikasi/level/a/{exam}/finish', [ExamController::class, 'finish'])->name('asesi.sertifikasi.level.a.finish');
+    Route::post('/sertifikasi/level/a/{exam}/answer', [ExamController::class, 'answer'])->name('asesi.sertifikasi.level.a.answer');
+    Route::get('/sertifikasi/level/a/{exam}/result', [ExamController::class, 'result'])->name('asesi.sertifikasi.level.a.result');
+    Route::get('/sertifikasi/level/a/{exam}/continue', [ExamController::class, 'continue'])->name('asesi.sertifikasi.level.a.continue');
 });
 
 Route::middleware(['auth'])->prefix('asesi')->group(function () {
@@ -170,7 +179,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard/news/{id}', [NewsController::class, 'show'])->name('admin.news.show');
     Route::put('/dashboard/news/update/{id}', [NewsController::class, 'update'])->name('admin.news.update');
     Route::delete('/dashboard/news/delete/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
-
 
     Route::get('/payments', [PaymentDetailController::class, 'index'])->name('admin.payments.index');
     Route::get('/payments/{id}', [PaymentDetailController::class, 'show'])->name('admin.payments.show');

@@ -13,9 +13,14 @@ class CategoryA extends Model
         'banner_img',
         'time_limit',
         'is_locked',
+        'passing_score'
     ];
 
-    public function questions(){
-        return $this->hasMany(QuestionA::class);
+    public function questionsA(){
+        return $this->hasMany(QuestionA::class,'category_a_id' );
     }
+
+    // public function questions(){
+    //     return $this->hasMany(Questions::class, 'category_id');
+    // }
 }

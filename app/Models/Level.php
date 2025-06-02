@@ -18,4 +18,9 @@ class Level extends Model
         'promo_code',
         'image'
     ];
+
+    public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

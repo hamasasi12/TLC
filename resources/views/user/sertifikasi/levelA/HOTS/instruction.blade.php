@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    instruksi level A
+    <p>HOTS instruction</p>
+
+    <form action="{{ route('asesi.sertifikasi.level.a.start') }}" method="post">
+        @csrf
+        <input type="hidden" name="category_id" value="1">
+        <button type="submit">mulai ujian</button>
+    </form>
 </body>
 </html>

@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    instruksi level A
+    <p>NUMERASI INSTRUKSI SOAL</p>
 </body>
 </html>

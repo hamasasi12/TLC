@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PaymentSuccessful;
 use Midtrans\Snap;
+use App\Models\User;
 use App\Models\Level;
 use App\Models\Payment;
-use Illuminate\Support\Str;
-use Midtrans\Config;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,11 +26,12 @@ class PaymentController extends Controller
 
     // public function __construct()
     // {
-    //     Config::$serverKey = config('midtrans.server_key');
-    //     Config::$clientKey = config('midtrans.client_key');
-    //     Config::$isProduction = config('midtrans.is_production', false);
-    //     Config::$isSanitized = config('midtrans.is_sanitized', true);
-    //     Config::$is3ds = config('midtrans.is_3ds', true);
+    //     Set Midtrans configuration
+    //     \Midtrans\Config::$serverKey = config('midtrans.server_key');
+    //     \Midtrans\Config::$clientKey = config('midtrans.client_key');
+    //     \Midtrans\Config::$isProduction = config('midtrans.is_production', false);
+    //     \Midtrans\Config::$isSanitized = config('midtrans.is_sanitized', true);
+    //     \Midtrans\Config::$is3ds = config('midtrans.is_3ds', true);
     // }
 
     public function create(string $id)
@@ -42,14 +44,12 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
-        // dd($serverKey, $clientKey, $isProduction, $isSanitized, $is3ds);
+        $user = user::with('userProfile')->where('id', Auth::id())->first();
 
-        Config::$serverKey = config('midtrans.server_key');
-        Config::$clientKey = config('midtrans.client_key');
-        Config::$isProduction = config('midtrans.is_production', false);
-        Config::$isSanitized = config('midtrans.is_sanitized', true);
-        Config::$is3ds = config('midtrans.is_3ds', true);
-        
+        if (!$user->userProfile) {
+            return back()->with('userProfileNull', 'Data user belum lengkap.');
+        }
+
         $request->validate([
             'amount' => 'required|numeric|min:10000',
         ]);
@@ -61,6 +61,7 @@ class PaymentController extends Controller
         $payment = Payment::create([
             'user_id' => Auth::id(),
             'order_id' => $orderId,
+            'level_id' => $request->level_id,
             'amount' => $request->amount,
             'status' => 'pending',
         ]);
@@ -72,17 +73,26 @@ class PaymentController extends Controller
                 'gross_amount' => (int) $request->amount,
             ],
             'customer_details' => [
-                'first_name' => Auth::user()->name,
-                'email' => Auth::user()->email,
+                'user_id' => Auth::id(),
+                'first_name' => $user->name,
+                'email' => $user->email,
+                'billing_address' => [
+                    'first_name' => $user->name,
+                    'last_name' => '',
+                    'email' => $user->email,
+                    'phone' => $user->userProfile->no_wa,
+                    'city' => $user->userProfile->kabupaten,
+                    'country_code' => 'IDN',
+                ]
             ],
         ];
 
         // Debug: Log parameters
         \Log::info('Midtrans Parameters:', $params);
         \Log::info('Midtrans Config:', [
-            'server_key' => config('midtrans.server_key') ? 'Set' : 'Not Set',
-            'client_key' => config('midtrans.client_key') ? 'Set' : 'Not Set',
-            'is_production' => config('midtrans.is_production'),
+            'server_key' => env('MIDTRANS_SERVER_KEY') ? 'Set' : 'Not Set',
+            'client_key' => env('MIDTRANS_CLIENT_KEY') ? 'Set' : 'Not Set',
+            'is_production' => env('MIDTRANS_IS_PRODUCTION', false),
         ]);
 
         try {
@@ -122,7 +132,7 @@ class PaymentController extends Controller
         $fraudStatus = $notif->fraud_status;
         $paymentType = $notif->payment_type;
 
-        $payment = Payment::where('order_id', $orderId)->firstOrFail();
+        $payment = Payment::with('user')->where('order_id', $orderId)->firstOrFail();
 
         if ($status == 'capture') {
             if ($fraudStatus == 'challenge') {
@@ -144,7 +154,23 @@ class PaymentController extends Controller
         $payment->payment_details = json_decode(json_encode($notif), true);
         $payment->save();
 
+        if ($payment->status == 'success') {
+            event(new PaymentSuccessful($payment));
+        }
+
         return response()->json(['status' => 'success']);
+    }
+
+    public function grandLevelAAccess($payment)
+    {
+
+        try {
+            $user = User::where('id', $payment->user_id)->first();
+            $user->givePermissionTo('access_level_a');
+            $user->revokePermissionTo('fresh_user');
+        } catch (\Exception $e) {
+            \Log::error('Error Granting Access Level A:', ['message' => $e->getMessage()]);
+        }
     }
 
     public function detail($id)
@@ -157,4 +183,5 @@ class PaymentController extends Controller
 
         return view('payments.detail', compact('payment'));
     }
+
 }

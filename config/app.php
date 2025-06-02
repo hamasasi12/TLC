@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE', 'UTC'),
+    'timezone' => env('APP_TIMEZONE', 'Asia/Jakarta'),
 
     /*
     |--------------------------------------------------------------------------
@@ -141,4 +141,5 @@ return [
 
     //     App\Providers\MidtransServiceProvider::class,
     // ],
+
 ];

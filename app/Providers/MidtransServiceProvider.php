@@ -13,9 +13,10 @@ class MidtransServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            base_path('config/midtrans.php'), 'midtrans'
+            base_path('config/midtrans.php'),
+            'midtrans'
         );
-    }
+}
 
     /**
      * Bootstrap services.
