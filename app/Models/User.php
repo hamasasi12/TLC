@@ -74,6 +74,32 @@ class User extends Authenticatable
     public function payment() {
         return $this->hasOne(Payment::class);
     }
-
+    public function isProfileComplete()
+    {
+        if (!$this->userProfile) {
+            return false;
+        }
+    
+        // Define required fields
+        $requiredFields = [
+            'nama_depan',
+            'no_wa',
+            'tempat_lahir',
+            'tanggal_lahir',
+            'jenis_kelamin',
+            // 'instansi',
+            // 'profesi',
+            // 'latar_belakang_pendidikan',
+            // 'nama_universitas'
+        ];
+    
+        foreach ($requiredFields as $field) {
+            if (empty($this->userProfile->$field)) {
+                return false;
+            }
+        }
+    
+        return true;
+    }
 
 }
