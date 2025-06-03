@@ -83,23 +83,37 @@ class User extends Authenticatable
         // Define required fields
         $requiredFields = [
             'nama_depan',
-            'no_wa',
+            'nik',
             'tempat_lahir',
             'tanggal_lahir',
             'jenis_kelamin',
-            // 'instansi',
-            // 'profesi',
-            // 'latar_belakang_pendidikan',
-            // 'nama_universitas'
+            'no_wa',
+            'instansi',
+            'profesi',
+            'lama_masa_kerja',
+            'latar_belakang_pendidikan',
+            'nama_universitas',
+            'program_studi',
+            'tahun_studi',
         ];
     
         foreach ($requiredFields as $field) {
-            if (empty($this->userProfile->$field)) {
+            $value = $this->userProfile->$field;
+            
+            // Check if field is empty, null, or just whitespace
+            if (empty($value) || trim($value) === '') {
+                return false;
+            }
+        }
+
+        // Special validation for instansi custom field
+        if ($this->userProfile->instansi === 'Lainnya') {
+            if (empty($this->userProfile->custom_instansi) || trim($this->userProfile->custom_instansi) === '') {
                 return false;
             }
         }
     
         return true;
-    }
 
+    }
 }

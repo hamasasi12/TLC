@@ -53,17 +53,28 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         $user = User::with('userProfile')->where('id', Auth::id())->first();
-    
-        // Check if profile is complete FIRST
-        if (!$user->isProfileComplete()) {
-            session()->put('payment_redirect', [
-                'route' => route('payments.checkout', $request->level_id),
-                'message' => 'Silakan lengkapi profil terlebih dahulu sebelum lanjut ke pembayaran.'
-            ]);
-            
-            return redirect()->route('asesi.profile')
-                ->with('warning', 'Lengkapi profil Anda terlebih dahulu untuk melanjutkan pembayaran');
-        }
+
+    if (!$user->isProfileComplete()) {
+        // Buat payment record terlebih dahulu
+        $orderId = 'ORDER-' . time() . '-' . Str::random(5);
+        $payment = Payment::create([
+            'user_id' => Auth::id(),
+            'order_id' => $orderId,
+            'level_id' => $request->level_id,
+            'amount' => $request->amount,
+            'snap_token' => '...',
+            'status' => 'pending',
+        ]);
+
+        session()->put('payment_redirect', [
+            'route_name' => 'payments.checkout',
+            'parameters' => ['id' => $payment->id], // Gunakan ID payment, bukan level_id
+            'message' => 'Silakan lengkapi profil terlebih dahulu sebelum lanjut ke pembayaran.'
+        ]);
+        
+        return redirect()->route('asesi.profile')
+            ->with('warning', 'Lengkapi profil Anda terlebih dahulu untuk melanjutkan pembayaran');
+    }
     
         // Validate request
         $request->validate([
@@ -105,20 +116,16 @@ class PaymentController extends Controller
             ],
         ];
     
-        // Debug: Log parameters
-        \Log::info('Midtrans Parameters:', $params);
-    
         try {
             // Get Snap Token
             $snapToken = Snap::getSnapToken($params);
-            \Log::info('Snap Token Generated:', ['token' => $snapToken]);
-    
+            
             // Update payment record with snap token
             $payment->update(['snap_token' => $snapToken]);
     
             // Redirect to checkout page
-            return view('payments.checkout', compact('snapToken', 'payment'));
-    
+            return redirect()->route('payments.checkout', ['id' => $payment->id]);
+            
         } catch (\Exception $e) {
             \Log::error('Midtrans Error:', [
                 'message' => $e->getMessage(),
@@ -222,13 +229,21 @@ class PaymentController extends Controller
 
     public function checkout($id)
     {
-        // Ambil data payment berdasarkan ID
         $payment = Payment::findOrFail($id);
         
-        // Ambil snapToken yang sudah disimpan di database
+        // Pastikan payment milik user yang login
+        if ($payment->user_id !== Auth::id()) {
+            abort(403);
+        }
+        
+        // Pastikan status masih pending
+        if ($payment->status !== 'pending') {
+            return redirect()->route('payments.detail', $id)
+                ->with('error', 'Pembayaran ini sudah diproses sebelumnya');
+        }
+        
         $snapToken = $payment->snap_token;
         
         return view('payments.checkout', compact('payment', 'snapToken'));
-    }    
-
+    }
 }
