@@ -95,6 +95,10 @@ class User extends Authenticatable
             'nama_universitas',
             'program_studi',
             'tahun_studi',
+            'provinsi',
+            'kabupaten',
+            'kecamatan',
+            'kelurahan',
         ];
     
         foreach ($requiredFields as $field) {

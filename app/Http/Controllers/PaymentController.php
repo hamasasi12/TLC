@@ -53,29 +53,35 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         $user = User::with('userProfile')->where('id', Auth::id())->first();
-
-    if (!$user->isProfileComplete()) {
-        // Buat payment record terlebih dahulu
-        $orderId = 'ORDER-' . time() . '-' . Str::random(5);
-        $payment = Payment::create([
-            'user_id' => Auth::id(),
-            'order_id' => $orderId,
-            'level_id' => $request->level_id,
-            'amount' => $request->amount,
-            'snap_token' => '...',
-            'status' => 'pending',
-        ]);
-
-        session()->put('payment_redirect', [
-            'route_name' => 'payments.checkout',
-            'parameters' => ['id' => $payment->id], // Gunakan ID payment, bukan level_id
-            'message' => 'Silakan lengkapi profil terlebih dahulu sebelum lanjut ke pembayaran.'
-        ]);
-        
-        return redirect()->route('asesi.profile')
-            ->with('warning', 'Lengkapi profil Anda terlebih dahulu untuk melanjutkan pembayaran');
-    }
     
+        if (!$user->isProfileComplete()) {
+            // Buat payment record terlebih dahulu
+            $orderId = 'ORDER-' . time() . '-' . Str::random(5);
+            $payment = Payment::create([
+                'user_id' => Auth::id(),
+                'order_id' => $orderId,
+                'level_id' => $request->level_id,
+                'amount' => $request->amount,
+                'snap_token' => '...',
+                'status' => 'pending',
+            ]);
+    
+            // Store payment redirect information with proper structure
+            session()->put('payment_redirect', [
+                'route_name' => 'payments.checkout',
+                'parameters' => ['id' => $payment->id],
+                'route' => route('payments.checkout', ['id' => $payment->id]), // Fallback route
+                'message' => 'Silakan lengkapi profil terlebih dahulu sebelum lanjut ke pembayaran.',
+                'payment_id' => $payment->id, // Additional info for reference
+                'level_id' => $request->level_id,
+                'amount' => $request->amount
+            ]);
+            
+            return redirect()->route('asesi.profile')
+                ->with('warning', 'Lengkapi profil Anda terlebih dahulu untuk melanjutkan pembayaran')
+                ->with('info', 'Data pembayaran telah disimpan dan akan diproses setelah profil lengkap.');
+        }
+        
         // Validate request
         $request->validate([
             'amount' => 'required|numeric|min:10000',
@@ -109,8 +115,8 @@ class PaymentController extends Controller
                     'first_name' => $user->name,
                     'last_name' => '',
                     'email' => $user->email,
-                    'phone' => $user->userProfile->no_wa,
-                    'city' => $user->userProfile->kabupaten,
+                    'phone' => $user->userProfile->no_wa ?? '',
+                    'city' => $user->userProfile->kabupaten ?? '',
                     'country_code' => 'IDN',
                 ]
             ],
@@ -136,7 +142,6 @@ class PaymentController extends Controller
             return redirect()->back()->with('error', 'Error creating payment: ' . $e->getMessage());
         }
     }
-
     public function finish(Request $request)
     {
         // Ambil order_id dari query parameter atau session

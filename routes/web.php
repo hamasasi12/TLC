@@ -80,9 +80,22 @@ Route::middleware(['auth'])->prefix('asesi')->group(function () {
     Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('asesi.password.change');
     
     // API routes untuk location cascade
-    Route::get('/api/cities/{provinceId}', [ProfileController::class, 'getCities'])->name('asesi.api.cities');
-    Route::get('/api/districts/{cityId}', [ProfileController::class, 'getDistricts'])->name('asesi.api.districts');
-    Route::get('/api/villages/{districtId}', [ProfileController::class, 'getVillages'])->name('asesi.api.villages');
+    // Route::get('/api/regencys/{provinceId}', [ProfileController::class, 'getRegencys'])->name('asesi.api.regencys');
+    // Route::get('/api/districts/{cityId}', [ProfileController::class, 'getDistricts'])->name('asesi.api.districts');
+    // Route::get('/api/villages/{districtId}', [ProfileController::class, 'getVillages'])->name('asesi.api.villages');
+
+    // routes/api.php
+Route::get('/regencies/{provinceId}', function($provinceId) {
+    return \App\Models\Regency::where('province_id', $provinceId)->get();
+});
+
+Route::get('/districts/{regencyId}', function($regencyId) {
+    return \App\Models\District::where('regency_id', $regencyId)->get();
+});
+
+Route::get('/villages/{districtId}', function($districtId) {
+    return \App\Models\Village::where('district_id', $districtId)->get();
+});
 
 });
 
