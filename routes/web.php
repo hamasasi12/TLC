@@ -1,5 +1,8 @@
 <?php
 
+use App\Exports\AsesiExport;
+use App\Exports\AsesorExport;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WelcomeController;
@@ -21,7 +24,11 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Asesi\AsesiDashboardController;
 use App\Http\Controllers\Asesor\AsesorDashboardController;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
+
 
 Route::get('register2', function () {
     return view('register2');
@@ -64,15 +71,15 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::get('/registeraddtional', [AuthController::class, 'registeraddtional'])->name('registeraddtional');
     Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
 
+
     // EXAM CONTROLLER 
-    Route::post('/sertifikasi/level/a/instruction', [ExamController::class,'instruction'])->name('asesi.sertifikasi.level.a.instruction');
-    Route::get('/sertifikasi/level/a/{exam}/show', [ExamController::class,'show'])->name('asesi.sertifikasi.level.a.show');
-    Route::post('/sertifikasi/level/a/start', [ExamController::class,'start'])->name('asesi.sertifikasi.level.a.start');
+    Route::post('/sertifikasi/level/a/instruction', [ExamController::class, 'instruction'])->name('asesi.sertifikasi.level.a.instruction');
+    Route::get('/sertifikasi/level/a/{exam}/show', [ExamController::class, 'show'])->name('asesi.sertifikasi.level.a.show');
+    Route::post('/sertifikasi/level/a/start', [ExamController::class, 'start'])->name('asesi.sertifikasi.level.a.start');
     Route::post('/sertifikasi/level/a/{exam}/finish', [ExamController::class, 'finish'])->name('asesi.sertifikasi.level.a.finish');
     Route::post('/sertifikasi/level/a/{exam}/answer', [ExamController::class, 'answer'])->name('asesi.sertifikasi.level.a.answer');
     Route::get('/sertifikasi/level/a/{exam}/result', [ExamController::class, 'result'])->name('asesi.sertifikasi.level.a.result');
     Route::get('/sertifikasi/level/a/{exam}/continue', [ExamController::class, 'continue'])->name('asesi.sertifikasi.level.a.continue');
-
 });
 
 Route::middleware(['auth'])->prefix('asesi')->group(function () {
@@ -114,7 +121,11 @@ Route::middleware(['auth'])->prefix('asesi')->group(function () {
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+
     Route::get('/dashboard/asesi', [AdminDashboardController::class, 'asesiIndex'])->name('admin.asesi.index');
+    Route::get('/dashboard/asesi/export', function () {
+        return Excel::download(new AsesiExport, 'Asesi.xlsx');
+    })->name('dashboard.asesi.export');
     Route::get('/dashboard/asesi/create', [AdminDashboardController::class, 'asesiCreate'])->name('admin.asesi.create');
     Route::get('/dashboard/asesi/edit/{id}', [AdminDashboardController::class, 'asesiEdit'])->name('admin.asesi.edit');
     Route::post('/dashboard/asesi/store', [AdminDashboardController::class, 'asesiStore'])->name('admin.asesi.store');
@@ -123,6 +134,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::delete('/dashboard/asesi/delete/{id}', [AdminDashboardController::class, 'asesiDestroy'])->name('admin.asesi.destroy');
 
     Route::get('/dashboard/asesor', [AdminDashboardController::class, 'asesorIndex'])->name('admin.asesor.index');
+    Route::get('/dashboard/asesor/export', function () {
+        return Excel::download(new AsesorExport, 'Asesor.xlsx');
+    })->name('dashboard.asesor.export');
     Route::get('/dashboard/asesor/create', [AdminDashboardController::class, 'asesorCreate'])->name('admin.asesor.create');
     Route::post('/dashboard/asesor/store', [AdminDashboardController::class, 'asesorStore'])->name('admin.asesor.store');
     Route::delete('/dashboard/asesor/delete/{id}', [AdminDashboardController::class, 'asesorDestroy'])->name('admin.asesor.destroy');
@@ -259,5 +273,4 @@ Route::get('/iseng', function () {
     return view('iseng');
 })->name('iseng');
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';
