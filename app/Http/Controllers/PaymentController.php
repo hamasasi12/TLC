@@ -36,7 +36,15 @@ class PaymentController extends Controller
 
     public function create(string $id)
     {
+        $user = auth()->user();
         $levels = Level::where('id', $id)->first();
+
+        // Validasi apakah level ada
+        if (!$levels) {
+            return redirect()->back()->with('error', 'Level tidak ditemukan');
+        }
+
+        // Jika profile sudah lengkap, tampilkan halaman pembayaran
         return view('payments.create', [
             'level' => $levels,
         ]);
@@ -44,28 +52,38 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
-        $user = user::with('userProfile')->where('id', Auth::id())->first();
-
-        if (!$user->userProfile) {
-            return back()->with('userProfileNull', 'Data user belum lengkap.');
+        $user = User::with('userProfile')->where('id', Auth::id())->first();
+    
+        // Check if profile is complete FIRST
+        if (!$user->isProfileComplete()) {
+            session()->put('payment_redirect', [
+                'route' => route('payments.checkout', $request->level_id),
+                'message' => 'Silakan lengkapi profil terlebih dahulu sebelum lanjut ke pembayaran.'
+            ]);
+            
+            return redirect()->route('asesi.profile')
+                ->with('warning', 'Lengkapi profil Anda terlebih dahulu untuk melanjutkan pembayaran');
         }
-
+    
+        // Validate request
         $request->validate([
             'amount' => 'required|numeric|min:10000',
+            'level_id' => 'required|exists:levels,id'
         ]);
-
+    
         // Generate unique order ID
         $orderId = 'ORDER-' . time() . '-' . Str::random(5);
-
+    
         // Create payment record
         $payment = Payment::create([
             'user_id' => Auth::id(),
             'order_id' => $orderId,
             'level_id' => $request->level_id,
             'amount' => $request->amount,
+            'snap_token' => '...',
             'status' => 'pending',
         ]);
-
+    
         // Set up Midtrans transaction parameters
         $params = [
             'transaction_details' => [
@@ -86,43 +104,59 @@ class PaymentController extends Controller
                 ]
             ],
         ];
-
+    
         // Debug: Log parameters
         \Log::info('Midtrans Parameters:', $params);
-        \Log::info('Midtrans Config:', [
-            'server_key' => env('MIDTRANS_SERVER_KEY') ? 'Set' : 'Not Set',
-            'client_key' => env('MIDTRANS_CLIENT_KEY') ? 'Set' : 'Not Set',
-            'is_production' => env('MIDTRANS_IS_PRODUCTION', false),
-        ]);
-
+    
         try {
             // Get Snap Token
             $snapToken = Snap::getSnapToken($params);
-
-            // Debug: Log snap token
             \Log::info('Snap Token Generated:', ['token' => $snapToken]);
-
-            // Save token to payment record
+    
+            // Update payment record with snap token
             $payment->update(['snap_token' => $snapToken]);
-
+    
+            // Redirect to checkout page
             return view('payments.checkout', compact('snapToken', 'payment'));
+    
         } catch (\Exception $e) {
-
             \Log::error('Midtrans Error:', [
                 'message' => $e->getMessage(),
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
             ]);
-
+    
             return redirect()->back()->with('error', 'Error creating payment: ' . $e->getMessage());
         }
     }
 
     public function finish(Request $request)
     {
-        return redirect()->route('payments.index')->with('success', 'Pembayaran sedang diproses');
-    }
+        // Ambil order_id dari query parameter atau session
+        $orderId = $request->get('order_id') ?? session('last_order_id');
 
+        $payment = null;
+        if ($orderId) {
+            $payment = Payment::where('order_id', $orderId)->first();
+        }
+
+        // Jika tidak ada payment ditemukan, bisa gunakan data dummy atau redirect
+        if (!$payment) {
+            // Option 1: Redirect ke halaman payments dengan pesan error
+            // return redirect()->route('payments.index')->with('error', 'Data pembayaran tidak ditemukan');
+
+            // Option 2: Gunakan data dummy untuk testing (hapus setelah production)
+            $payment = (object) [
+                'order_id' => $orderId ?? 'ORD-' . time(),
+                'amount' => 100000,
+                'created_at' => now(),
+                'updated_at' => now()
+            ];
+        }
+
+        return view('payments.finish', compact('payment'));
+    }
+    
     public function notification(Request $request)
     {
         $notif = new \Midtrans\Notification();
@@ -183,5 +217,16 @@ class PaymentController extends Controller
 
         return view('payments.detail', compact('payment'));
     }
+
+    public function checkout($id)
+    {
+        // Ambil data payment berdasarkan ID
+        $payment = Payment::findOrFail($id);
+        
+        // Ambil snapToken yang sudah disimpan di database
+        $snapToken = $payment->snap_token;
+        
+        return view('payments.checkout', compact('payment', 'snapToken'));
+    }    
 
 }

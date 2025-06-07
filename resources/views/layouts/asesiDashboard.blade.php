@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     @stack('scripts')
-    
+    @livewireStyles
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -270,7 +271,7 @@
             will-change: transform;
         }
     </style>
-
+@livewireScripts
 </body>
 
 </html>
