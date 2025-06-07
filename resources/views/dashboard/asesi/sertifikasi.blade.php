@@ -882,9 +882,20 @@
                     <span class="inline-block w-2 h-2 bg-[#E76F51] rounded-full mr-2 animate-pulse"></span>
                     Dalam Progres
                 </span>
+                {{-- TAMPILAN SELESAI --}}
+                {{-- <span class="px-4 py-2 bg-green-100 text-green-700 font-medium rounded-full border border-green-200 shadow-sm flex items-center w-fit">
+                    <span class="inline-block w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                    Selesai
+                </span> --}}
+
+                {{-- TAMPILAN BELUM DIMULAI --}}
+                 {{-- <span class="px-4 py-2 bg-gray-100 text-gray-600 font-medium rounded-full border border-gray-200 shadow-sm flex items-center w-fit">
+                    <span class="inline-block w-2 h-2 bg-gray-400 rounded-full mr-2"></span>
+                    Belum Dimulai
+                </span> --}}
                 <button
-                    class="px-6 py-2 bg-gradient-to-r from-[#1D4E89] to-[#14406B] text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 focus:ring-4 focus:ring-blue-200">
-                    Nilai
+                    class="px-6 py-2 bg-gradient-to-r from-[#1D4E89] to-[#14406B] text-white rounded-xl font-medium shadow-lg hover:shadow-xl focus:ring-4 focus:ring-blue-200">
+                    Lihat Nilai
                 </button>
             </div>
         </div>

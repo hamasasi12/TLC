@@ -95,7 +95,9 @@
         @php
             $categoryId = $index['id'];
             $categoryName = strtoupper($index['name']);
-            $hasAccess = Auth::user()->hasPermissionTo($categoryName);
+            // $hasAccess = Auth::user()->hasPermissionTo('access_level_A');
+            $hasAccessCategory = $index['is_locked'] == 0;
+            $hasAccess = Auth::user()->hasPermissionTo('access_level_A');
         @endphp
 
         <div class="relative">
@@ -106,11 +108,18 @@
                 <div class="relative">
                     <img src="{{ asset('/storage/' . $index['banner_img']) }}" alt="{{ $index['name'] }}"
                         class="w-full h-48 object-cover group-hover:opacity-90 transition">
-                    <div
-                        class="absolute top-4 right-4 text-white text-xs font-medium shadow px-3 py-1 rounded-full
-                        {{ $hasAccess ? 'bg-green-500' : 'bg-red-500' }}">
-                        {{ $hasAccess ? 'Tersedia' : 'Terkunci' }}
-                    </div>
+                    @if ($hasAccess)
+                        <div
+                            class="absolute top-4 right-4 text-white text-xs font-medium shadow px-3 py-1 rounded-full
+                        {{ $hasAccessCategory ? 'bg-green-600' : 'bg-red-500' }}">
+                            {{ $hasAccessCategory ? 'Tersedia' : 'Terkunci' }}
+                        </div>
+                    @else
+                        <div
+                            class="absolute top-4 right-4 text-white text-xs font-medium shadow px-3 py-1 rounded-full bg-red-500">
+                            Terkunci
+                        </div>
+                    @endif
                     <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
                 </div>
 
@@ -149,7 +158,7 @@
                             <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-1"></span>
                             {{ $index['time_limit'] }} Menit
                         </div>
-                        @if (Auth::user()->hasPermissionTo('access_level_A'))
+                        @if (Auth::user()->hasPermissionTo('access_level_A') && $hasAccessCategory)
                             <button wire:click="openModal({{ $categoryId }})"
                                 class="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-100 hover:shadow-xl hover:-translate-y-0.5 flex items-center">
                                 Mulai
