@@ -21,16 +21,25 @@ class ExamController extends Controller
         $request->validate([
             'category_id' => 'required|numeric',
         ]);
+        $category = CategoryA::find($request->category_id);
 
         switch ($request->category_id) {
             case 1:
-                return view('user.sertifikasi.levelA.HOTS.instruction');
+                return view('user.sertifikasi.levelA.HOTS.instruction', [
+                    'category' => $category,
+                ]);
             case 2:
-                return view('user.sertifikasi.levelA.PCK.instruction');
+                return view('user.sertifikasi.levelA.PCK.instruction', [
+                    'category' => $category,
+                ]);
             case 3:
-                return view('user.sertifikasi.levelA.LITERASI.instruction');
+                return view('user.sertifikasi.levelA.LITERASI.instruction', [
+                    'category' => $category,
+                ]);
             case 4:
-                return view('user.sertifikasi.levelA.NUMERASI.instruction');
+                return view('user.sertifikasi.levelA.NUMERASI.instruction', [
+                    'category' => $category,
+                ]);
             default:
                 Log::warning('Kategori tidak valid diakses', [
                     'category_id' => $request->category_id,

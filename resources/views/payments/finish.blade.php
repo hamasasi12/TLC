@@ -60,7 +60,7 @@
                                 </div>
                                 <p class="text-sm font-medium text-gray-600">Tanggal Pembayaran</p>
                             </div>
-                            <p class="text-lg font-bold text-gray-800">{{ $payment->updated_at->format('d M Y H:i') ?? now()->format('d M Y H:i') }}</p>
+                            <p class="text-lg font-bold text-gray-800">{{ $payment->updated_at->format('d M Y H:i') ?? now()->format('d M Y H:i') }} WIB</p>
                         </div>
 
                         <!-- Amount Card -->
@@ -151,7 +151,8 @@
                         </div>
                         <div class="text-center">
                             <p class="text-gray-600 text-sm mb-2">
-                                <span class="font-medium">📧 Bukti Pembayaran:</span> Email konfirmasi telah dikirim ke alamat email terdaftar Anda.
+                                <span class="font-medium">📧 Bukti Pembayaran:</span> Email konfirmasi telah dikirim ke alamat email
+                                <span class="text-blue-500">{{ Auth::user()->email }}</span>
                             </p>
                             <p class="text-gray-600 text-sm">
                                 <span class="font-medium">🎯 Akses Tersedia:</span> Anda sekarang dapat menggunakan semua fitur yang telah dibayar.
