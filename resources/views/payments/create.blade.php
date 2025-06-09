@@ -43,6 +43,17 @@
         body {
             font-family: 'Inter', system-ui, sans-serif;
         }
+
+        /* Arrow rotation animation */
+        .arrow-rotate {
+            transform: rotate(180deg);
+        }
+
+        /* Expandable content animation */
+        .expanding {
+            max-height: 1000px !important;
+            padding-top: 2rem;
+        }
     </style>
 
     <div class="container mx-auto px-4 py-8 max-w-7xl">
@@ -67,7 +78,6 @@
                                     Pelajari Ratusan Skill Bersertifikat Sekali Bayar
                                 </h1>
                                 <p class="text-lg opacity-90 mb-6">Fleksibel & Praktikal untuk Pengembangan Karir Anda</p>
-
                             </div>
                             <div class="flex-shrink-0">
                                 <div
@@ -291,7 +301,6 @@
                                     </svg>
                                 </button>
                             </div>
-                            {{-- <livewire:payments.promo-modal> --}}
                         </div>
 
                         <!-- Price Summary -->
@@ -314,22 +323,20 @@
                         <!-- Continue Payment Button -->
                         <form action="{{ route('payments.store') }}" method="POST" id="payment-form">
                             @csrf
-                            {{-- @method('post') --}}
                             <input type="hidden" name="amount" value="{{ (int) $level->price }}">
                             <input type="hidden" name="level_name" value="Level A">
                             <input type="hidden" name="level_id" value="1">
-                            
-                            <button
-                                class="w-full bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-4 rounded-xl font-semibold text-lg hover:from-teal-700 hover:to-cyan-700 smooth-transition hover:scale-105 shadow-lg hover:shadow-xl">
-                                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        
+                            <button class="w-full bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-4 rounded-xl font-semibold text-lg hover:from-teal-700 hover:to-cyan-700 smooth-transition hover:scale-105 shadow-lg hover:shadow-xl">
+                                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                 </svg>
                                 Lanjutkan Pembayaran
                             </button>
                         </form>
 
+
+                        
                         <!-- Security Info -->
                         <div class="mt-6 flex items-center justify-center space-x-4 text-xs text-gray-500">
                             <div class="flex items-center">
@@ -355,47 +362,37 @@
         </div>
     </div>
 
-    @if (session('userProfileNull'))
+    {{-- @if (session('userProfileNull'))
         @livewire('payments.user-profile-form')
-    @endif
+    @endif --}}
 
+    <!-- JavaScript for Dropdown Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const readMoreBtn = document.getElementById('readMoreBtn');
+            const expandableContent = document.getElementById('expandableContent');
+            const arrow = document.getElementById('arrow');
 
-    {{-- <script>
-        // Enhanced expand/collapse functionality
-        const readMoreBtn = document.getElementById('readMoreBtn');
-        const expandableContent = document.getElementById('expandableContent');
-        const arrow = document.getElementById('arrow');
-        let isExpanded = false;
+            let isExpanded = false;
 
-        readMoreBtn.addEventListener('click', function() {
-            if (!isExpanded) {
-                expandableContent.style.maxHeight = expandableContent.scrollHeight + 'px';
-                arrow.style.transform = 'rotate(180deg)';
-                isExpanded = true;
-            } else {
-                expandableContent.style.maxHeight = '0px';
-                arrow.style.transform = 'rotate(0deg)';
-                isExpanded = false;
-            }
-        });
+            readMoreBtn.addEventListener('click', function(e) {
+                e.preventDefault();
 
-        // Smooth scroll for better UX
-        expandableContent.addEventListener('transitionend', function() {
-            if (isExpanded) {
-                expandableContent.style.maxHeight = 'none';
-            }
-        });
-
-        // Promo code input enhancement
-        const promoInput = document.querySelector('input[placeholder="Masukkan kode promo"]');
-        if (promoInput) {
-            promoInput.addEventListener('focus', function() {
-                this.parentElement.classList.add('ring-2', 'ring-teal-500');
+                if (!isExpanded) {
+                    // Expand content
+                    expandableContent.style.maxHeight = '1000px';
+                    expandableContent.classList.add('expanding');
+                    arrow.classList.add('arrow-rotate');
+                    isExpanded = true;
+                } else {
+                    // Collapse content
+                    expandableContent.style.maxHeight = '0';
+                    expandableContent.classList.remove('expanding');
+                    arrow.classList.remove('arrow-rotate');
+                    isExpanded = false;
+                }
             });
+        });
+    </script>
 
-            promoInput.addEventListener('blur', function() {
-                this.parentElement.classList.remove('ring-2', 'ring-teal-500');
-            });
-        }
-    </script> --}}
 @endsection
