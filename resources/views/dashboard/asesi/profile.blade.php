@@ -312,20 +312,6 @@
             </div>
         </form>
 
-        {{-- Uncomment when ready to use address section
-        <div class="mt-8 bg-white rounded-3xl shadow-lg p-8">
-            <h4 class="text-xl font-semibold text-gray-800 mb-6 flex items-center">
-                <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">📍</span>
-                Alamat
-            </h4>
-            @livewire('wilayah-dropdown', [
-                'province_id' => old('province_id', auth()->user()->userProfile?->province_id),
-                'regency_id' => old('regency_id', auth()->user()->userProfile?->regency_id),
-                'district_id' => old('district_id', auth()->user()->userProfile?->district_id),
-                'village_id' => old('village_id', auth()->user()->userProfile?->village_id)
-            ])
-        </div>
-        --}}
     </div>
 </section>
 
