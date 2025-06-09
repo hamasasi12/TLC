@@ -87,7 +87,7 @@
                                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                 </div>
-                                <p class="text-sm font-medium text-gray-600">Status Pembayaran</p>
+                                <p class="text-sm font-medium text-gray-600">Payment Method</p>
                             </div>
                             <div class="flex items-center">
                                 <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">

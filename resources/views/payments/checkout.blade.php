@@ -1,7 +1,8 @@
 @extends('layouts.asesiDashboard')
 
 @push('scripts')
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key=" {{ config('midtrans.client_key') }}"></script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key=" {{ config('midtrans.client_key') }}">
+    </script>
 @endpush
 
 @section('content')
@@ -234,60 +235,59 @@
     <!-- Midtrans JS SDK -->
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
     <script>
+        const snapToken = "{{ $snapToken }}";
+        const fallbackFinishUrl = "{{ route('payments.finish') }}";
+        const orderId = "{{ $payment->order_id ?? '' }}";
+        const finishUrlWithOrder = "{{ route('payments.finish', ':order_id') }}";
+
         document.getElementById('pay-button').onclick = function() {
-            // Add loading state
             const button = this;
             const originalContent = button.innerHTML;
+
             button.innerHTML = `
-            <span class="flex items-center justify-center">
-                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Memproses...
-            </span>
-        `;
+        <span class="flex items-center justify-center">
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Memproses...
+        </span>
+    `;
             button.disabled = true;
 
-            // Trigger snap popup
-            window.snap.pay('{{ $snapToken }}', {
+            const finishUrl = orderId ? finishUrlWithOrder.replace(':order_id', orderId) : fallbackFinishUrl;
+
+            window.snap.pay(snapToken, {
                 onSuccess: function(result) {
-                    window.location.href = '{{ route('payments.finish') }}';
+                    window.location.href = finishUrl;
                 },
                 onPending: function(result) {
-                    window.location.href = '{{ route('payments.finish') }}';
+                    window.location.href = fallbackFinishUrl;
                 },
                 onError: function(result) {
-                    window.location.href = '{{ route('payments.finish') }}';
+                    window.location.href = fallbackFinishUrl;
                 },
                 onClose: function() {
-                    // Restore button state
                     button.innerHTML = originalContent;
                     button.disabled = false;
 
-                    // Show elegant alert
                     const alertDiv = document.createElement('div');
                     alertDiv.className =
                         'fixed top-4 right-4 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
                     alertDiv.innerHTML = `
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                        </svg>
-                        Pembayaran dibatalkan. Silahkan coba lagi.
-                    </div>
-                `;
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                    Pembayaran dibatalkan. Silahkan coba lagi.
+                </div>
+            `;
                     document.body.appendChild(alertDiv);
 
-                    setTimeout(() => {
-                        alertDiv.classList.remove('translate-x-full');
-                    }, 100);
-
+                    setTimeout(() => alertDiv.classList.remove('translate-x-full'), 100);
                     setTimeout(() => {
                         alertDiv.classList.add('translate-x-full');
-                        setTimeout(() => {
-                            document.body.removeChild(alertDiv);
-                        }, 300);
+                        setTimeout(() => document.body.removeChild(alertDiv), 300);
                     }, 3000);
                 }
             });

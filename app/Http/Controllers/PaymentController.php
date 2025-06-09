@@ -130,14 +130,15 @@ class PaymentController extends Controller
         }
     }
 
-    public function finish(Request $request)
+    public function finish(string $orderID)
     {
+        dd($orderID);
         // Ambil order_id dari query parameter atau session
-        $orderId = $request->get('order_id') ?? session('last_order_id');
+        // $orderID = $request->get('order_id') ?? session('last_order_id');
 
         $payment = null;
-        if ($orderId) {
-            $payment = Payment::where('order_id', $orderId)->first();
+        if ($orderID) {
+            $payment = Payment::where('order_id', $orderID)->first();
         }
 
         // Jika tidak ada payment ditemukan, bisa gunakan data dummy atau redirect

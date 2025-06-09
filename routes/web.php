@@ -98,7 +98,7 @@ Route::middleware(['auth'])->prefix('asesi')->group(function () {
     // Route::get('/api/villages/{districtId}', [ProfileController::class, 'getVillages'])->name('asesi.api.villages');
 
     Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
-    Route::get('/payments/finish', [PaymentController::class, 'finish'])->name('payments.finish'); // Harus di atas sebelum {id}
+    Route::get('/payments/finish/{orderID}', [PaymentController::class, 'finish'])->name('payments.finish'); // Harus di atas sebelum {id}
     Route::get('/payments/{id}/create', [PaymentController::class, 'create'])->name('payments.create');
     Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store'); // ✅ SUDAH BENAR
     Route::get('/payments/{id}/checkout', [PaymentController::class, 'checkout'])->name('payments.checkout'); // ✅ SUDAH BENAR
