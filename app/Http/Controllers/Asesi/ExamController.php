@@ -194,7 +194,13 @@ class ExamController extends Controller
     public function result(ExamA $exam)
     {
         if ($exam->user_id != Auth::id()) {
-            abort(403, 'Unauthorized action.');
+            Log::channel('exam')->warning('Unauthorized exam result access attempt', [
+                'user_id' => Auth::id(),
+                'attempted_exam_id' => $exam->id,
+                'exam_owner_id' => $exam->user_id,
+                'ip_address' => request()->ip(),
+                'user_agent' => request()->userAgent()
+            ]);
         }
 
         $totalQuestions = $exam->questionsA()->count();

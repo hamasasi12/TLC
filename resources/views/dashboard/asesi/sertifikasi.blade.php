@@ -6,10 +6,10 @@
     {{-- Overview Sertifikasi --}}
     <section class="max-w-7xl mx-auto px-4 py-8 ">
         <!-- Dashboard Header -->
-        <div class="text-center mb-8">
+        {{-- <div class="text-center mb-8">
             <h1 class="text-3xl font-bold text-gray-900 mb-2">Dashboard Overview</h1>
             <p class="text-gray-600">Selamat datang di Teaching & Learning Certification Program</p>
-        </div>
+        </div> --}}
 
         <!-- Stats Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -128,7 +128,7 @@
     {{-- End Overview --}}
 
     {{-- Status Sertifikasi --}}
-    <section class="max-w-7xl mx-auto px-4 py-8" id="kategori-sertifikasi">
+    <section class="max-w-7xl mx-auto px-4 py-8">
         <!-- Header dengan gradient yang menarik -->
         <div class="mb-8 relative overflow-hidden animate-fadeIn">
             <div class="bg-gradient-to-r from-[#1D4E89] via-[#2A5AAF] to-[#E76F51] rounded-2xl p-8 text-white relative">
@@ -153,7 +153,7 @@
         </div>
 
         <!-- Certification Cards -->
-            <livewire:asesi.certification-card />
+        <livewire:asesi.certification-card />
         <!-- Certification Cards -->
 
     </section>
