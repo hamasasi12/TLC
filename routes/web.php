@@ -84,7 +84,7 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
 
 Route::middleware(['auth'])->prefix('asesi')->group(function () {
     Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
-    Route::get('/payments/finish', [PaymentController::class, 'finish'])->name('payments.finish');
+    Route::get('/payments/finish/{id}', [PaymentController::class, 'finish'])->name('payments.finish');
     Route::get('/payments/pending', [PaymentController::class, 'pending'])->name('payments.pending');
     Route::get('/payments/eror', [PaymentController::class, 'eror'])->name('payments.eror');
     Route::get('/payments/{id}/create', [PaymentController::class, 'create'])->name('payments.create');

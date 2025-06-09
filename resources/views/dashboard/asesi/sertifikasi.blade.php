@@ -128,7 +128,7 @@
     {{-- End Overview --}}
 
     {{-- Status Sertifikasi --}}
-    <section class="max-w-7xl mx-auto px-4 py-8">
+    <section class="max-w-7xl mx-auto px-4 py-8" id="kategori-sertifikasi">
         <!-- Header dengan gradient yang menarik -->
         <div class="mb-8 relative overflow-hidden animate-fadeIn">
             <div class="bg-gradient-to-r from-[#1D4E89] via-[#2A5AAF] to-[#E76F51] rounded-2xl p-8 text-white relative">
@@ -153,7 +153,7 @@
         </div>
 
         <!-- Certification Cards -->
-        <livewire:asesi.certification-card />
+            <livewire:asesi.certification-card />
         <!-- Certification Cards -->
 
     </section>

@@ -52,7 +52,7 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         $user = User::with('userProfile')->where('id', Auth::id())->first();
-    
+
         if (!$user->isProfileComplete()) {
             // Buat payment record terlebih dahulu DENGAN snap_token dummy
             $orderId = 'ORDER-' . time() . '-' . Str::random(5);
@@ -64,7 +64,7 @@ class PaymentController extends Controller
                 'snap_token' => '...', // Token dummy yang akan di-regenerate nanti
                 'status' => 'pending',
             ]);
-    
+
             // Store payment redirect information with proper structure
             session()->put('payment_redirect', [
                 'route_name' => 'payments.checkout',
@@ -75,24 +75,24 @@ class PaymentController extends Controller
                 'level_id' => $request->level_id,
                 'amount' => $request->amount
             ]);
-            
+
             return redirect()->route('asesi.profile')
                 ->with('warning', 'Lengkapi profil Anda terlebih dahulu untuk melanjutkan pembayaran')
                 ->with('info', 'Data pembayaran telah disimpan dan akan diproses setelah profil lengkap.');
         }
-        
+
         // Set up Midtrans configuration explicitly
         $this->setupMidtransConfig();
-        
+
         // Validate request
         $request->validate([
             'amount' => 'required|numeric|min:10000',
             'level_id' => 'required|exists:levels,id'
         ]);
-    
+
         // Generate unique order ID
         $orderId = 'ORDER-' . time() . '-' . Str::random(5);
-    
+
         // Set up Midtrans transaction parameters
         $params = [
             'transaction_details' => [
@@ -113,11 +113,11 @@ class PaymentController extends Controller
                 ]
             ],
         ];
-    
+
         try {
             // Get Snap Token
             $snapToken = Snap::getSnapToken($params);
-            
+
             // Create payment record SETELAH mendapat snap token
             $payment = Payment::create([
                 'user_id' => Auth::id(),
@@ -127,10 +127,10 @@ class PaymentController extends Controller
                 'snap_token' => $snapToken, // Token yang valid
                 'status' => 'pending',
             ]);
-    
+
             // Redirect to checkout page
             return redirect()->route('payments.checkout', ['id' => $payment->id]);
-            
+
         } catch (\Exception $e) {
             \Log::error('Midtrans Error:', [
                 'message' => $e->getMessage(),
@@ -139,7 +139,7 @@ class PaymentController extends Controller
                 'order_id' => $orderId,
                 'amount' => $request->amount,
             ]);
-    
+
             return redirect()->back()->with('error', 'Error creating payment: ' . $e->getMessage());
         }
     }
@@ -156,31 +156,31 @@ class PaymentController extends Controller
     public function checkout($id)
     {
         $payment = Payment::findOrFail($id);
-        
+
         // Pastikan payment milik user yang login
         if ($payment->user_id !== Auth::id()) {
             abort(403);
         }
-        
+
         // Pastikan status masih pending
         if ($payment->status !== 'pending') {
             return redirect()->route('payments.detail', $id)
                 ->with('error', 'Pembayaran ini sudah diproses sebelumnya');
         }
-        
+
         // Cek apakah snap_token valid
         if (!$payment->snap_token || $payment->snap_token === '...') {
             // Regenerate snap token jika tidak valid
             $this->setupMidtransConfig();
-            
+
             $user = $payment->user;
-            
+
             // Pastikan user profile sudah lengkap sebelum generate token
             if (!$user->isProfileComplete()) {
                 return redirect()->route('asesi.profile')
                     ->with('warning', 'Lengkapi profil Anda terlebih dahulu untuk melanjutkan pembayaran');
             }
-            
+
             $params = [
                 'transaction_details' => [
                     'order_id' => $payment->order_id,
@@ -204,7 +204,7 @@ class PaymentController extends Controller
             try {
                 $snapToken = Snap::getSnapToken($params);
                 $payment->update(['snap_token' => $snapToken]);
-                
+
                 \Log::info('Snap token regenerated successfully:', [
                     'payment_id' => $payment->id,
                     'order_id' => $payment->order_id,
@@ -218,39 +218,40 @@ class PaymentController extends Controller
                     'file' => $e->getFile(),
                     'line' => $e->getLine(),
                 ]);
-                
+
                 return redirect()->route('asesi.transaksi')
                     ->with('error', 'Gagal memproses pembayaran. Silakan coba lagi.');
             }
         }
-        
+
         $snapToken = $payment->snap_token;
-        
+
         return view('payments.checkout', compact('payment', 'snapToken'));
     }
 
-    public function finish(Request $request)
+    public function finish(string $id)
     {
-        // Ambil order_id dari query parameter atau session
-        // $orderID = $request->get('order_id') ?? session('last_order_id');
+        $payment = Payment::where('order_id', $id)->first();
 
-        $payment = null;
-        if ($orderID) {
-            $payment = Payment::where('order_id', $orderID)->first();
-        }
-
-        // Jika tidak ada payment ditemukan, redirect dengan pesan error
         if (!$payment) {
-            return redirect()->route('asesi.transaksi')->with('error', 'Data pembayaran tidak ditemukan');
+            // return redirect()->route('asesi.transaksi')->with('error', 'Data pembayaran tidak ditemukan');
+            return 'error';
         }
 
-        return view('payments.finish', compact('payment'));
+        $level = Level::find($payment->level_id);
+        $levelName = $level ? $level->level_name : '-';
+
+        return view('payments.finish', [
+            'payment' => $payment,
+            'levelName' => $levelName,
+        ]);
     }
-    
+
+
     public function notification(Request $request)
     {
         $this->setupMidtransConfig();
-        
+
         $notif = new \Midtrans\Notification();
 
         $orderId = $notif->order_id;
