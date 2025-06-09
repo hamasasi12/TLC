@@ -577,191 +577,7 @@
         {{-- End Main Tampilan Awal --}}
 
         {{-- Apa guru Dapatkan --}}
-        {{-- <section class="w-full px-5 py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50" id="manfaat">
-            <div class="container mx-auto max-w-7xl">
-                <!-- Header Section -->
-                <div class="text-center mb-16 animate-fadeIn">
-                    <span
-                        class="text-lg text-[#E76F51] font-semibold inline-block px-6 py-2 bg-orange-100 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 mb-6">
-                        #MANFAAT PROGRAM TLC
-                    </span>
-                    <h2
-                        class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-[#1D4E89] mb-6 hover:scale-105 transition-transform duration-300">
-                        <span class="relative inline-block">
-                            <span class="relative z-10">Apa yang akan</span>
-                            <span class="absolute -bottom-2 left-0 w-full h-3 bg-yellow-300 opacity-50 z-0"></span>
-                        </span>
-                        <br>
-                        <span class="relative inline-block">
-                            <span class="relative z-10">Guru Dapatkan?</span>
-                            <span class="absolute -bottom-2 left-0 w-full h-3 bg-orange-300 opacity-50 z-0"></span>
-                        </span>
-                    </h2>
-                    <p class="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-                        <strong class="text-[#E76F51]">Bukan sekadar sertifikat biasa.</strong> Program komprehensif yang
-                        telah terbukti meningkatkan <span class="font-semibold text-[#1D4E89]">kompetensi dan karir</span>
-                        ratusan pendidik profesional.
-                    </p>
-                </div>
 
-                <!-- Manfaat -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Box 1: Sertifikasi Terakreditasi -->
-                    <div
-                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
-                        <div
-                            class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-teal-600 transition-colors duration-300">
-                            Sertifikasi Terakreditasi
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Dapatkan sertifikat yang diakui secara nasional untuk meningkatkan kredibilitas profesional Anda
-                        </p>
-                    </div>
-
-                    <!-- Box 2: Kurikulum Terkini -->
-                    <div
-                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
-                        <div
-                            class="bg-gradient-to-br from-blue-400 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-blue-600 transition-colors duration-300">
-                            Kurikulum Terkini
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Akses materi pembelajaran yang selalu diperbaharui sesuai perkembangan dunia pendidikan
-                        </p>
-                    </div>
-
-                    <!-- Box 3: Pengembangan Keterampilan -->
-                    <div
-                        class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl hover-lift border-2 border-[#E76F51]/30 group cursor-pointer relative overflow-hidden">
-                        <div
-                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-200 to-orange-300 rounded-full -translate-y-10 translate-x-10 opacity-30">
-                        </div>
-                        <div
-                            class="bg-gradient-to-br from-[#E76F51] to-orange-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative z-10">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-[#E76F51] transition-colors duration-300 relative z-10">
-                            Pengembangan Keterampilan
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed relative z-10">
-                            Kembangkan keterampilan mengajar modern yang relevan dengan kebutuhan siswa di era digital
-                        </p>
-                    </div>
-
-                    <!-- Box 4: Jaringan Profesional -->
-                    <div
-                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
-                        <div
-                            class="bg-gradient-to-br from-orange-400 to-orange-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 20h5v‐2a3 3 0 00‐5.356‐1.857M17 20H7m10 0v‐2c0‐.656‐.126‐1.283‐.356‐1.857M7 20H2v‐2a3 3 0 015.356‐1.857M7 20v‐2c0‐.656.126‐1.283.356‐1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11‐6 0 3 3 0 016 0zm6 3a2 2 0 11‐4 0 2 2 0 014 0zM7 10a2 2 0 11‐4 0 2 2 0 014 0z" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-orange-600 transition-colors duration-300">
-                            Jaringan Profesional
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Bergabung dengan komunitas pendidik dari seluruh Indonesia untuk berbagi pengalaman dan praktik
-                            terbaik
-                        </p>
-                    </div>
-
-                    <!-- Box 5: Peningkatan Karir -->
-                    <div
-                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
-                        <div
-                            class="bg-gradient-to-br from-pink-400 to-pink-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 7h8m0 0v8m0‐8l‐8 8‐4‐4‐6 6" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-pink-600 transition-colors duration-300">
-                            Peningkatan Karir
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Buka peluang karir yang lebih luas dan potensi kenaikan pendapatan dengan kualifikasi yang lebih
-                            tinggi
-                        </p>
-                    </div>
-
-                    <!-- Box 6: Pengakuan Profesional -->
-                    <div
-                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
-                        <div
-                            class="bg-gradient-to-br from-green-400 to-green-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4‐4M7.835 4.697a3.42 3.42 0 001.946‐.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00‐.806 1.946 3.42 3.42 0 01‐3.138 3.138 3.42 3.42 0 00‐1.946.806 3.42 3.42 0 01‐4.438 0 3.42 3.42 0 00‐1.946‐.806 3.42 3.42 0 01‐3.138‐3.138 3.42 3.42 0 00‐.806‐1.946 3.42 3.42 0 010‐4.438 3.42 3.42 0 00.806‐1.946 3.42 3.42 0 013.138‐3.138z" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-green-600 transition-colors duration-300">
-                            Pengakuan Profesional
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Dapatkan pengakuan sebagai pendidik berkualitas tinggi yang memenuhi standar kompetensi nasional
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <style>
-                .animate-fadeIn {
-                    animation: fadeIn 1s ease-in-out;
-                }
-
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-
-                .hover-lift {
-                    transition: all 0.3s ease-in-out;
-                }
-
-                .hover-lift:hover {
-                    transform: translateY(-8px) scale(1.02);
-                }
-
-                .hover-lift:active {
-                    transform: translateY(-4px) scale(0.98);
-                }
-            </style>
-        </section> --}}
         <section class="w-full px-5 py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50" id="manfaat">
             <div class="container mx-auto max-w-7xl">
                 <!-- Header Section -->
@@ -2480,6 +2296,175 @@
             </style>
         </section>
         {{-- End Vidio Keseruan --}}
+
+
+                {{-- Langkah Pembayaran --}}
+                <section class="relative mt-32 max-w-6xl mx-auto px-4 py-12">
+                    <!-- Header with gradient background -->
+                    <div class="bg-gradient-to-r from-teal-400 to-blue-500 rounded-3xl p-8 text-white shadow-2xl mb-12">
+                        <h1 class="text-2xl md:text-3xl font-bold text-center mb-4">
+                            Cara Transaksi Paket di Teaching & Learning Certification
+                        </h1>
+                        <p class="text-center text-lg opacity-90">
+                            Ikuti langkah-langkah mudah berikut untuk memulai sertifikasi Anda
+                        </p>
+                    </div>
+        
+                    <!-- Main content container -->
+                    <div class="bg-white rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 border border-gray-200">
+        
+                        <!-- Steps 1-4 -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                            <!-- Step 1 -->
+                            <div class="step-card bg-gray-50 rounded-2xl p-6 text-center relative">
+                                <div
+                                    class="w-16 h-16 bg-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <i class="fas fa-play text-white text-2xl"></i>
+                                </div>
+                                <div
+                                    class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-sm absolute top-4 right-4">
+                                    1
+                                </div>
+                                <h3 class="font-bold text-gray-800 mb-2">Kunjungi tlc.com</h3>
+                                <p class="text-gray-600 text-sm">Ketik TLC.com di browser</p>
+                                <div class="flex justify-center mt-4">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                            </div>
+        
+                            <!-- Step 2 -->
+                            <div class="step-card bg-gray-50 rounded-2xl p-6 text-center relative">
+                                <div
+                                    class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <i class="fas fa-check text-white text-2xl"></i>
+                                </div>
+                                <div
+                                    class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm absolute top-4 right-4">
+                                    2
+                                </div>
+                                <h3 class="font-bold text-gray-800 mb-2">Pastikan kategori sesuai</h3>
+                                <p class="text-gray-600 text-sm">Pilih kategori sesuai paket</p>
+                                <div class="flex justify-center mt-4">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                            </div>
+        
+                            <!-- Step 3 -->
+                            <div class="step-card bg-gray-50 rounded-2xl p-6 text-center relative">
+                                <div
+                                    class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <i class="fas fa-shopping-cart text-white text-2xl"></i>
+                                </div>
+                                <div
+                                    class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm absolute top-4 right-4">
+                                    3
+                                </div>
+                                <h3 class="font-bold text-gray-800 mb-2">Pilih produk TLC</h3>
+                                <p class="text-gray-600 text-sm">Pilih produk TLC</p>
+                                <div class="flex justify-center mt-4">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                            </div>
+        
+                            <!-- Step 4 -->
+                            <div class="step-card bg-gray-50 rounded-2xl p-6 text-center relative">
+                                <div
+                                    class="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <i class="fas fa-bookmark text-white text-2xl"></i>
+                                </div>
+                                <div
+                                    class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm absolute top-4 right-4">
+                                    4
+                                </div>
+                                <h3 class="font-bold text-gray-800 mb-2">Pilih paket langganan</h3>
+                                <p class="text-gray-600 text-sm">Pilih paket langganan</p>
+                                <div class="flex justify-center mt-4">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Steps 5-8 -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                            <!-- Step 5 -->
+                            <div class="step-card bg-gray-50 rounded-2xl p-6 text-center relative">
+                                <div
+                                    class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <i class="fas fa-file-alt text-white text-2xl"></i>
+                                </div>
+                                <div
+                                    class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm absolute top-4 right-4">
+                                    5
+                                </div>
+                                <h3 class="font-bold text-gray-800 mb-2">Pilih kode diskon</h3>
+                                <p class="text-gray-600 text-sm">Pilih kode diskon</p>
+                                <div class="flex justify-center mt-4">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                            </div>
+        
+                            <!-- Step 6 -->
+                            <div class="step-card bg-gray-50 rounded-2xl p-6 text-center relative">
+                                <div
+                                    class="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <i class="fas fa-file-invoice text-white text-2xl"></i>
+                                </div>
+                                <div
+                                    class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm absolute top-4 right-4">
+                                    6
+                                </div>
+                                <h3 class="font-bold text-gray-800 mb-2">Halaman draft invoice</h3>
+                                <p class="text-gray-600 text-sm">Halaman draft invoice</p>
+                                <div class="flex justify-center mt-4">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                            </div>
+        
+                            <!-- Step 7 -->
+                            <div class="step-card bg-gray-50 rounded-2xl p-6 text-center relative">
+                                <div
+                                    class="w-16 h-16 bg-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <i class="fas fa-credit-card text-white text-2xl"></i>
+                                </div>
+                                <div
+                                    class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm absolute top-4 right-4">
+                                    7
+                                </div>
+                                <h3 class="font-bold text-gray-800 mb-2">Pilih metode pembayaran</h3>
+                                <p class="text-gray-600 text-sm">Pilih metode pembayaran</p>
+                                <div class="flex justify-center mt-4">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                            </div>
+        
+                            <!-- Step 8 -->
+                            <div class="step-card bg-gray-50 rounded-2xl p-6 text-center relative">
+                                <div
+                                    class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <i class="fas fa-download text-white text-2xl"></i>
+                                </div>
+                                <div
+                                    class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm absolute top-4 right-4">
+                                    8
+                                </div>
+                                <h3 class="font-bold text-gray-800 mb-2">Lihat invoice pembayaran</h3>
+                                <p class="text-gray-600 text-sm">Lihat invoice pembayaran</p>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        .step-card {
+                            transition: all 0.3s ease;
+                        }
+        
+                        .step-card:hover {
+                            transform: translateY(-2px);
+                            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                        }
+                    </style>
+                </section>
+                {{-- End Langkah Pembayaran --}}
+        
 
 
         {{-- Tampilan Home Sebelumnya --}}

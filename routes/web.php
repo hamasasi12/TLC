@@ -83,30 +83,18 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
 });
 
 Route::middleware(['auth'])->prefix('asesi')->group(function () {
-    // Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
-    // Route::get('/payments/finish', [PaymentController::class, 'finish'])->name('payments.finish'); // Pindahkan ke atas
-    // Route::get('/payments/{id}/create', [PaymentController::class, 'create'])->name('payments.create');
-    // Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
-    // Route::get('/payments/{id}', [PaymentController::class, 'detail'])->name('payments.detail'); // Pindahkan ke bawah
-    // Route::get('/payments/{id}/checkout', [PaymentController::class, 'checkout'])->name('payments.checkout');
-    // Route::get('/profile', [ProfileController::class, 'index'])->name('asesi.profile');
-    // Route::put('/profile/update', [ProfileController::class, 'update'])->name('asesi.profile.update');
-    // Route::post('/profile/upload-photo', [ProfileController::class, 'uploadPhoto'])->name('asesi.profile.upload');
-    // Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('asesi.password.change');
-    // Route::get('/api/cities/{provinceId}', [ProfileController::class, 'getCities'])->name('asesi.api.cities');
-    // Route::get('/api/districts/{cityId}', [ProfileController::class, 'getDistricts'])->name('asesi.api.districts');
-    // Route::get('/api/villages/{districtId}', [ProfileController::class, 'getVillages'])->name('asesi.api.villages');
-
     Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
-    Route::get('/payments/finish/{orderID}', [PaymentController::class, 'finish'])->name('payments.finish'); // Harus di atas sebelum {id}
+    Route::get('/payments/finish', [PaymentController::class, 'finish'])->name('payments.finish');
+    Route::get('/payments/pending', [PaymentController::class, 'pending'])->name('payments.pending');
+    Route::get('/payments/eror', [PaymentController::class, 'eror'])->name('payments.eror');
     Route::get('/payments/{id}/create', [PaymentController::class, 'create'])->name('payments.create');
-    Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store'); // ✅ SUDAH BENAR
-    Route::get('/payments/{id}/checkout', [PaymentController::class, 'checkout'])->name('payments.checkout'); // ✅ SUDAH BENAR
-    Route::get('/payments/{id}', [PaymentController::class, 'detail'])->name('payments.detail'); // Harus di bawah semua route spesifik
+    Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store'); 
+    Route::get('/payments/{id}/checkout', [PaymentController::class, 'checkout'])->name('payments.checkout'); 
+    Route::get('/payments/{id}', [PaymentController::class, 'detail'])->name('payments.detail');
     
     // Profile routes
     Route::get('/profile', [ProfileController::class, 'index'])->name('asesi.profile');
-    Route::put('/profile/update', [ProfileController::class, 'update'])->name('asesi.profile.update'); // ✅ SUDAH BENAR
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('asesi.profile.update'); 
     Route::post('/profile/upload-photo', [ProfileController::class, 'uploadPhoto'])->name('asesi.profile.upload');
     Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('asesi.password.change');
     

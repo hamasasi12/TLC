@@ -259,13 +259,13 @@
 
             window.snap.pay(snapToken, {
                 onSuccess: function(result) {
-                    window.location.href = finishUrl;
+                    window.location.href = '{{ route('payments.finish') }}?order_id={{ $payment->order_id }}';
                 },
                 onPending: function(result) {
-                    window.location.href = fallbackFinishUrl;
+                    window.location.href = '{{ route('payments.pending') }}?order_id={{ $payment->order_id }}';
                 },
                 onError: function(result) {
-                    window.location.href = fallbackFinishUrl;
+                    window.location.href = '{{ route('payments.eror') }}?order_id={{ $payment->order_id }}';
                 },
                 onClose: function() {
                     button.innerHTML = originalContent;
