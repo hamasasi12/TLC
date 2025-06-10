@@ -11,7 +11,7 @@
                         <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
-                <h2 class="text-2xl font-bold text-gray-800">Level A: Pengetahuan Mengajar</h2>
+                <h2 class="text-2xl font-bold text-gray-800">Level A: Teaching Knowledge Certification</h2>
             </div>
 
             <p class="text-gray-600 mb-6 leading-relaxed">Dasar yang wajib dimiliki untuk mengajar dengan
@@ -99,7 +99,7 @@
                             d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                     </svg>
                 </div>
-                <h2 class="text-2xl font-bold text-gray-800">Level B: Aktivasi Mengajar</h2>
+                <h2 class="text-2xl font-bold text-gray-800">Level B: Teaching Activation Certification</h2>
             </div>
 
             <p class="text-gray-600 mb-6 leading-relaxed">Pengajaran aktif melalui proyek dan tugas nyata
@@ -166,7 +166,7 @@
                             d="M2 6a2 2 0 012-2h6l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
                     </svg>
                 </div>
-                <h2 class="text-2xl font-bold text-gray-800">Level C: Penguasaan Mengajar</h2>
+                <h2 class="text-2xl font-bold text-gray-800">Level C: Teaching Mastery Certification</h2>
             </div>
 
             <p class="text-gray-600 mb-6 leading-relaxed">Tunjukkan video praktik dan refleksi mendalam

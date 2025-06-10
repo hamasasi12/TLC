@@ -6,14 +6,13 @@
     {{-- Overview Sertifikasi --}}
     <section class="max-w-7xl mx-auto px-4 py-8 ">
         <!-- Dashboard Header -->
-        <div class="text-center mb-8">
+        {{-- <div class="text-center mb-8">
             <h1 class="text-3xl font-bold text-gray-900 mb-2">Dashboard Overview</h1>
             <p class="text-gray-600">Selamat datang di Teaching & Learning Certification Program</p>
-        </div>
+        </div> --}}
 
         <!-- Stats Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Card 1: Peserta Telah Tersertifikasi -->
+        {{-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white rounded-xl shadow-sm p-6 relative overflow-hidden">
                 <div class="flex items-start justify-between">
                     <div>
@@ -38,7 +37,6 @@
                 </div>
             </div>
 
-            <!-- Card 2: Tingkat Kepuasan Peserta -->
             <div class="bg-white rounded-xl shadow-sm p-6 relative overflow-hidden">
                 <div class="flex items-start justify-between">
                     <div>
@@ -63,7 +61,6 @@
                 </div>
             </div>
 
-            <!-- Card 3: Level Sertifikasi -->
             <div class="bg-white rounded-xl shadow-sm p-6 relative overflow-hidden">
                 <div class="flex items-start justify-between">
                     <div>
@@ -82,7 +79,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Add some interactive animations -->
         <script>
@@ -526,7 +523,7 @@
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 shadow-xl rounded-3xl border border-orange-100 p-8 mb-10 bg-gradient-to-br from-blue-50 via-white to-orange-50">
         <div class="flex flex-col sm:flex-row justify-between items-center mb-8 space-y-4 sm:space-y-0">
             <div class="flex items-center space-x-3">
-                <div class="bg-gradient-to-r from-[#1D4E89] to-[#E76F51] text-white p-3 rounded-xl shadow-lg">
+                <div class="bg-gradient-to-r from-[#1D4E89] to-[#5396ae] text-white p-3 rounded-xl shadow-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -534,7 +531,7 @@
                     </svg>
                 </div>
                 <h2
-                    class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#1D4E89] to-[#E76F51]">
+                    class="text-3xl font-extrabold text-transparent bg-clip-text bg-[#1D4E89]">
                     KATEGORI LEVEL</h2>
             </div>
             <div class="flex items-center space-x-4">
