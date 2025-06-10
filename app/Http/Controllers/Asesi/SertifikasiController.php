@@ -18,4 +18,12 @@ class SertifikasiController extends Controller
             ->paginate(10);
         return view('dashboard.asesi.sertifikasi', compact('exams'));
     }
+
+    public function nilai()
+    {
+        $exams = ExamA::with('user', 'categoryA')
+            ->where('user_id', Auth::id())
+            ->paginate(10);
+        return view('dashboard.asesi.nilai', compact('exams'));
+    }
 }

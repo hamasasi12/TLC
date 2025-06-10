@@ -1,5 +1,5 @@
 <div>
-    <div id="timer" class="text-xl text-slate-50 font-bold">Loading...</div>
+    <div id="timer" class="text-[#3A6EA5] text-xl font-bold">Loading...</div>
 
     <script>
         const endTime = new Date(@json($endTime)).getTime();

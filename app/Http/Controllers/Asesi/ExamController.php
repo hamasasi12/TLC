@@ -61,10 +61,10 @@ class ExamController extends Controller
             ->where('status', 'started')
             ->first();
 
-        if ($unfinishedExam) {
-            return redirect()->route('exams.continue', $unfinishedExam); // belum selesai
-            // return 'ok';
-        }
+        // if ($unfinishedExam) {
+        //     return redirect()->route('exams.continue', $unfinishedExam); // belum selesai
+        //     // return 'ok';
+        // }
 
         DB::beginTransaction();
         try {
