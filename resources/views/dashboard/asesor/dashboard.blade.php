@@ -526,17 +526,21 @@
                                     <span class="text-gray-700">Pengaturan</span>
                                 </a>
                                 <div class="border-t border-blue-100 my-1"></div>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-red-50 transition-colors duration-200 flex items-center space-x-3 text-red-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                        <polyline points="16 17 21 12 16 7"></polyline>
-                                        <line x1="21" y1="12" x2="9" y2="12"></line>
-                                    </svg>
-                                    <span>Logout</span>
-                                </a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit"
+                                        class="block w-full px-4 py-2 hover:bg-red-50 transition-colors duration-200 flex items-center space-x-3 text-red-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                            <polyline points="16 17 21 12 16 7"></polyline>
+                                            <line x1="21" y1="12" x2="9" y2="12">
+                                            </line>
+                                        </svg>
+                                        <span>Logout</span>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -585,7 +589,7 @@
                     if (window.scrollY > 10) {
                         navbar.classList.add('bg-white', 'shadow-lg');
                         navbar.classList.remove('bg-gradient-to-r', 'from-blue-100', 'to-blue-200',
-                        'shadow-md');
+                            'shadow-md');
                     } else {
                         navbar.classList.remove('bg-white', 'shadow-lg');
                         navbar.classList.add('bg-gradient-to-r', 'from-blue-100', 'to-blue-200', 'shadow-md');
