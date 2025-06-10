@@ -130,8 +130,6 @@ return [
             'level' => 'debug',
         ],
 
-
-
         'null' => [
             'driver' => 'monolog',
             'handler' => NullHandler::class,
@@ -140,7 +138,5 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
-
     ],
-
 ];

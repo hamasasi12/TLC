@@ -45,7 +45,6 @@ class ExamA extends Model
     }
 
     public function questionsA()
-
     {
         return $this->belongsToMany(QuestionA::class, 'exam_question_a')
             ->withPivot('user_answer', 'is_correct')

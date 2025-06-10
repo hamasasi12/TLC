@@ -27,13 +27,13 @@ class CategoryASeeders extends Seeder
                 'passing_score' => '75',
             ],
             [
-                'name' => 'Literasi',
+                'name' => 'LITERASI',
                 'description' => 'Kemampuan membaca dan memahami informasi',
                 'time_limit' => '30',
                 'passing_score' => '75',
             ],
             [
-                'name' => 'Numerasi',
+                'name' => 'NUMERASI',
                 'description' => 'Kemampuan menggunakan angka dan simbol terkait matematika',
                 'time_limit' => '30',
                 'passing_score' => '75',

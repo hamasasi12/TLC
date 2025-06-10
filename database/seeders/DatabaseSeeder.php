@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         $user->assignRole('asesi');
+        $user->givePermissionTo(('access_level_A'));
 
 
         $admin = User::factory()->create([
@@ -73,6 +74,7 @@ class DatabaseSeeder extends Seeder
             CategoryASeeders::class,
             LevelSeeders::class,
             QuestionSeeders::class,
+            PaymentSeeders::class,
         ]);
     }
 }

@@ -14,7 +14,6 @@ class RolePermissionSeeders extends Seeder
         $asesi = Role::firstOrCreate(['name' => 'asesi']);
         $asesor = Role::firstOrCreate(['name' => 'asesor']);
 
-        // BELUM FIX PERMISSIONNYA
         $permission_levels = [
             'fresh_user',
             'access_level_B_unpaid',
@@ -25,6 +24,9 @@ class RolePermissionSeeders extends Seeder
             'access_level_A',
             'access_level_B',
             'access_level_C',
+            'level_A_completed',
+            'level_B_completed',
+            'level_C_completed',
             'bundling',
             'EXPIRED_LEVEL',
         ];
@@ -36,12 +38,15 @@ class RolePermissionSeeders extends Seeder
             ]);
         }
 
-        // KATEGORI LEVEL A, BELUM FIX JUGA
         $permission_kategories = [
             'HOTS',
             'PCK',
             'NUMERASI',
             'LITERASI',
+            'PPT_UPLOAD',
+            'ESSAY',
+            'VIDEO_UPLOAD',
+            'YES_NO_QUESTIONS',
             'EXPIRED_KATEGORY'
         ];
 
