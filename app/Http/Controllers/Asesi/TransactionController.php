@@ -2,13 +2,31 @@
 
 namespace App\Http\Controllers\Asesi;
 
-use App\Http\Controllers\Controller;
+use App\Models\Payment;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
-    public function index() 
+    public function index()
     {
-        return view('dashboard.asesi.transaksi');
+        $userId = Auth::id();
+
+        $paymentCount = Payment::where('user_id', $userId)->count();
+
+        $paymentSuccessCount = Payment::where('user_id', $userId)
+            ->where('status', 'success')
+            ->count();
+
+        $paymentPendingCount = Payment::where('user_id', $userId)
+            ->where('status', 'pending')
+            ->count();
+
+        return view('dashboard.asesi.transaksi', [
+            'paymentCount' => $paymentCount,
+            'paymentSuccessCount' => $paymentSuccessCount,
+            'paymentPendingCount' => $paymentPendingCount,
+        ]);
     }
 }

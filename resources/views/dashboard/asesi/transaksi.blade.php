@@ -23,7 +23,7 @@
                             <p class="text-blue-100 mt-1">Daftar riwayat transaksi yang telah Anda lakukan</p>
                         </div>
                     </div>
-                    <button
+                    {{-- <button
                         class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-xl transition-all duration-200 flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -31,7 +31,7 @@
                             </path>
                         </svg>
                         Filter
-                    </button>
+                    </button> --}}
                 </div>
             </div>
 
@@ -42,15 +42,15 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-gray-500 text-sm font-medium">Total Transaksi</p>
-                            <p class="text-3xl font-bold text-gray-800 mt-2">3</p>
-                            <div class="flex items-center mt-2">
+                            <p class="text-3xl font-bold text-gray-800 mt-2">{{ $paymentCount }}</p>
+                            {{-- <div class="flex items-center mt-2">
                                 <svg class="w-4 h-4 text-green-500 mr-1" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                                 </svg>
                                 <span class="text-green-500 text-sm font-medium">+12%</span>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="bg-blue-500 rounded-2xl p-4">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -66,15 +66,15 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-gray-500 text-sm font-medium">Transaksi Sukses</p>
-                            <p class="text-3xl font-bold text-gray-800 mt-2">1</p>
-                            <div class="flex items-center mt-2">
+                            <p class="text-3xl font-bold text-gray-800 mt-2">{{ $paymentSuccessCount ?? '0' }}</p>
+                            {{-- <div class="flex items-center mt-2">
                                 <svg class="w-4 h-4 text-green-500 mr-1" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                                 </svg>
                                 <span class="text-green-500 text-sm font-medium">+8%</span>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="bg-green-500 rounded-2xl p-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-gray-500 text-sm font-medium">Menunggu Pembayaran</p>
-                            <p class="text-3xl font-bold text-gray-800 mt-2">2</p>
+                            <p class="text-3xl font-bold text-gray-800 mt-2">{{ $paymentPendingCount ?? '0' }}</p>
                         </div>
                         <div class="bg-orange-500 rounded-2xl p-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@
             </div>
 
             <!-- Search and Filter -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-6">
+            {{-- <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-6">
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div class="relative flex-1 max-w-md">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -124,7 +124,7 @@
                         <option>Waiting to Validate</option>
                     </select>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Transaction Table -->
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">

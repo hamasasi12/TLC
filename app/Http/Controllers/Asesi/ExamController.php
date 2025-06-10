@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Asesi;
 
+use App\Events\ExamCompleted;
 use App\Models\ExamA;
 use App\Models\CategoryA;
 use App\Models\QuestionA;
@@ -73,7 +74,7 @@ class ExamController extends Controller
                 'category_a_id' => $validated['category_id'],
                 'status' => 'started',
                 'start_time' => now(),
-                'is_passed' => false,   
+                'is_passed' => false,
             ]);
 
             Log::channel('exam')->info('New exam started', [
@@ -125,6 +126,12 @@ class ExamController extends Controller
         $questions = $exam->questionsA()->paginate(1);
         $totalQuestions = $exam->questionsA()->count();
         $answeredQuestions = $exam->questionsA()->wherePivotNotNull('user_answer')->count();
+        // dd($answeredQuestions);
+        // $answeredQuestions = $exam->questionsA()
+        //     ->where('category_a_id', 2) 
+        //     ->wherePivotNotNull('user_answer')
+        //     ->count();
+
 
         return view('user.sertifikasi.levelA.exam.show', [
             'exam' => $exam,
@@ -173,7 +180,7 @@ class ExamController extends Controller
         if ($exam->user_id != Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
-        
+
         $category = CategoryA::find($exam->category_a_id);
         $questionCount = QuestionA::where('category_a_id', $exam->category_a_id)->count();
         $score = $exam->calculateScore();
@@ -185,7 +192,7 @@ class ExamController extends Controller
             'status' => 'finished',
             'end_time' => now(),
             'score' => $count,
-            'is_passed' => $count >= $category->passing_score? true : false,
+            'is_passed' => $count >= $category->passing_score ? true : false,
         ]);
 
         return redirect()->route('asesi.sertifikasi.level.a.result', $exam);
@@ -209,7 +216,7 @@ class ExamController extends Controller
         $unansweredQuestions = $totalQuestions - ($correctAnswers + $wrongAnswers);
 
         $category = CategoryA::find($exam->category_a_id);
-    
+
         // if ($exam->score >= $category->passing_score) {
         //     $exam->is_passed = true;
         //     $exam->save();
@@ -220,6 +227,14 @@ class ExamController extends Controller
             'total_questions' => $totalQuestions,
             'unanswered_questions' => $unansweredQuestions,
         ]);
+
+        if ($exam->score >= $category->passing_score) {
+            $user = $exam->user;
+            $user->givePermissionTo($category->name);
+            event(new ExamCompleted($exam, $user, $category->name));
+        }
+
+        // event new ExamCompleted($exam, $user);
 
         return view('user.sertifikasi.levelA.exam.result', compact(
             'exam',

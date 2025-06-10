@@ -24,6 +24,9 @@ class RolePermissionSeeders extends Seeder
             'access_level_A',
             'access_level_B',
             'access_level_C',
+            'level_A_completed',
+            'level_B_completed',
+            'level_C_completed',
             'bundling',
             'EXPIRED_LEVEL',
         ];

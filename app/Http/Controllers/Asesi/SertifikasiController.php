@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Asesi;
 
 use App\Models\ExamA;
 use App\Models\CategoryA;
+use App\Models\Payment;
 use App\Models\QuestionA;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

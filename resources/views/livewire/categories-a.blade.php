@@ -108,7 +108,7 @@
                 <div class="relative">
                     <img src="{{ asset('/storage/' . $index['banner_img']) }}" alt="{{ $index['name'] }}"
                         class="w-full h-48 object-cover group-hover:opacity-90 transition">
-                    @if ($hasAccess)
+                    {{-- @if ($hasAccess)
                         <div
                             class="absolute top-4 right-4 text-white text-xs font-medium shadow px-3 py-1 rounded-full
                         {{ $hasAccessCategory ? 'bg-green-600' : 'bg-red-500' }}">
@@ -119,7 +119,7 @@
                             class="absolute top-4 right-4 text-white text-xs font-medium shadow px-3 py-1 rounded-full bg-red-500">
                             Terkunci
                         </div>
-                    @endif
+                    @endif --}}
                     <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
                 </div>
 
@@ -137,7 +137,7 @@
 
                     {{-- Rating & soal --}}
                     <div class="flex items-center text-yellow-500 mb-4">
-                        @for ($i = 0; $i < 4; $i++)
+                        {{-- @for ($i = 0; $i < 4; $i++)
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor"
                                 viewBox="0 0 24 24">
                                 <path
@@ -148,6 +148,18 @@
                             viewBox="0 0 24 24">
                             <path
                                 d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                        </svg> --}}
+
+                        {{-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg> --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                            <path d="M8,12H16V14H8V12M8,16H13V18H8V16Z" />
                         </svg>
                         <span class="ml-2 text-sm text-gray-600">{{ $index['question_count'] }} Soal</span>
                     </div>
@@ -158,7 +170,19 @@
                             <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-1"></span>
                             {{ $index['time_limit'] }} Menit
                         </div>
-                        @if (Auth::user()->hasPermissionTo('access_level_A') && $hasAccessCategory)
+                        @if (Auth::user()->hasPermissionTo($index['name']))
+                            {{-- Prioritas: kalau sudah HOTS, anggap udah selesai --}}
+                            <button disabled
+                                class="px-5 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-xl text-sm font-medium shadow-md flex items-center cursor-default">
+                                Selesai
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                            </button>
+                        @elseif (Auth::user()->hasPermissionTo('access_level_A') && $hasAccessCategory)
+                            {{-- Kalau belum selesai tapi sudah dapat akses --}}
                             <button wire:click="openModal({{ $categoryId }})"
                                 class="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-100 hover:shadow-xl hover:-translate-y-0.5 flex items-center">
                                 Mulai
@@ -169,6 +193,7 @@
                                 </svg>
                             </button>
                         @else
+                            {{-- Kalau gak punya akses apa pun --}}
                             <button disabled
                                 class="px-5 py-2 bg-gradient-to-r from-gray-400 to-gray-500 text-gray-200 rounded-xl text-sm font-medium shadow-md cursor-not-allowed flex items-center opacity-60">
                                 Terkunci

@@ -135,7 +135,7 @@
                         <div class="flex flex-col sm:flex-row justify-between items-center mb-5">
                             <h3 class="text-lg font-bold text-gray-800 mb-3 sm:mb-0">Navigasi Soal</h3>
 
-                            @if ($answeredQuestions > 4)
+                            @if ($answeredQuestions == 30)
                                 <form action="{{ route('asesi.sertifikasi.level.a.finish', $exam) }}" method="POST"
                                     id="finishExamForm" class="inline-block">
                                     @csrf
