@@ -12,7 +12,7 @@
                         Dashboard Sertifikasi
                     </a>
                     <span class="text-gray-400">•</span>
-                    <span class="text-gray-800 font-medium">Hasil Ujian {{ $exam->categoryA->name }}</span>
+                    <span class="text-gray-800 font-medium">Hasil Ujian {{ $category->name }}</span>
                 </nav>
             </div>
 
@@ -24,7 +24,7 @@
                             <i class="fas fa-chart-line text-white text-2xl"></i>
                         </div>
                         <h3 class="text-3xl font-bold mb-3 text-gray-800">Ringkasan Hasil Ujian</h3>
-                        <p class="text-gray-600 text-lg">{{ $exam->categoryA->name }}</p>
+                        <p class="text-gray-600 text-lg">{{ $category->name }}</p>
 
                         <!-- Status Badge -->
                         @if ($exam->is_passed === 1)
@@ -127,7 +127,7 @@
                                 <div class="text-gray-600 mb-2 text-sm font-medium">Kategori Ujian</div>
                                 <div class="font-semibold text-gray-800 flex items-center">
                                     <i class="fas fa-bookmark mr-2 text-blue-500"></i>
-                                    {{ $exam->categoryA->name }}
+                                    {{ $category->name }}
                                 </div>
                             </div>
                             <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
@@ -188,17 +188,17 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                            <a href="#"
+                            <a href="{{ route('asesi.nilai') }}"
                                 class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
                                 <i class="fas fa-eye mr-2"></i>
-                                Lihat Detail Jawaban
+                                Lihat Nilai Anda
                             </a>
 
-                            <button onclick="window.print()"
+                            {{-- <button onclick="window.print()"
                                 class="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
                                 <i class="fas fa-print mr-2"></i>
                                 Cetak Hasil
-                            </button>
+                            </button> --}}
                         </div>
                     </div>
 

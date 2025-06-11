@@ -75,39 +75,26 @@
                 <table class="w-full">
                     <thead class="bg-gradient-to-r from-blue-50 to-orange-50">
                         <tr>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                No</th>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                Nama Peserta</th>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                Kategori</th>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                Status</th>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                Skor</th>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                Total Soal</th>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                Tidak Dijawab</th>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                Benar</th>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                Salah</th>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                Kelulusan</th>
-                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">
-                                Aksi</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">No</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">Nama Peserta</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">Kategori</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">Status</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">Skor</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">Total Soal</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">Tidak Dijawab</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">Benar</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">Salah</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">Kelulusan</th>
+                            <th class="px-8 py-5 text-left text-xs font-bold text-[#1D4E89] uppercase tracking-wider">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-orange-100">
-                        <!-- Row 1 - Ahmad Rizki HOTS -->
-                        @foreach ($exams as $data)
+                        @forelse ($exams as $data)
                             <tr class="table-row">
                                 <td class="px-8 py-6 text-sm font-semibold text-[#1D4E89]">{{ $loop->iteration }}</td>
                                 <td class="px-8 py-6">
                                     <div class="flex items-center gap-3">
-                                        <span
-                                            class="text-sm font-semibold text-[#1D4E89]">{{ $data->user?->name }}</span>
+                                        <span class="text-sm font-semibold text-[#1D4E89]">{{ $data->user?->name }}</span>
                                     </div>
                                 </td>
                                 <td class="px-8 py-6">
@@ -115,8 +102,10 @@
                                         <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
                                             <i class="fas fa-lightbulb text-[#E76F51] text-sm"></i>
                                         </div>
-                                        <span
-                                            class="text-sm font-medium text-[#1D4E89]">{{ $data->categoryA?->name }}</span>
+                                        <span class="text-sm font-medium text-[#1D4E89]">
+                                            {{-- Gunakan relasi categoryA atau fallback ke category_info --}}
+                                            {{ $data->categoryA?->name ?? $data->category_info?->name ?? 'Kategori Tidak Ditemukan' }}
+                                        </span>
                                     </div>
                                 </td>
                                 <td class="px-8 py-6">
@@ -129,19 +118,23 @@
                                         <span class="text-lg font-bold text-[#1D4E89]">{{ $data->score }}</span>
                                     </div>
                                 </td>
-                                <td class="px-8 py-6 text-sm font-medium text-gray-700">{{ $data->total_questions }}
+                                <td class="px-8 py-6 text-sm font-medium text-gray-700">
+                                    {{ $data->total_questions ?? 0 }}
                                 </td>
                                 <td class="px-8 py-6">
-                                    <span
-                                        class="px-3 py-1 text-xs font-semibold bg-gray-100 text-gray-800 rounded-full">{{ $data->unanswered_questions }}</span>
+                                    <span class="px-3 py-1 text-xs font-semibold bg-gray-100 text-gray-800 rounded-full">
+                                        {{ $data->unanswered_questions ?? 0 }}
+                                    </span>
                                 </td>
                                 <td class="px-8 py-6">
-                                    <span
-                                        class="px-3 py-1 text-xs font-semibold bg-teal-100 text-teal-800 rounded-full">{{ $data->correct_answers }}</span>
+                                    <span class="px-3 py-1 text-xs font-semibold bg-teal-100 text-teal-800 rounded-full">
+                                        {{ $data->correct_answers ?? 0 }}
+                                    </span>
                                 </td>
                                 <td class="px-8 py-6">
-                                    <span
-                                        class="px-3 py-1 text-xs font-semibold bg-pink-100 text-pink-800 rounded-full">{{ $data->wrong_answers }}</span>
+                                    <span class="px-3 py-1 text-xs font-semibold bg-pink-100 text-pink-800 rounded-full">
+                                        {{ $data->wrong_answers ?? 0 }}
+                                    </span>
                                 </td>
                                 <td class="px-8 py-6">
                                     <div class="flex items-center text-teal-600 font-semibold">
@@ -150,18 +143,30 @@
                                     </div>
                                 </td>
                                 <td class="px-8 py-6">
-                                    <button
-                                        class="bg-blue-50 hover:bg-blue-100 text-[#1D4E89] px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-200 font-medium hover-lift">
+                                    <a href="{{ route('asesi.sertifikasi.level.a.result', $data->id) }}" 
+                                       class="bg-blue-50 hover:bg-blue-100 text-[#1D4E89] px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-200 font-medium hover-lift">
                                         <i class="fas fa-eye"></i>
                                         Detail
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="11" class="px-8 py-6 text-center text-gray-500">
+                                    Tidak ada data ujian yang ditemukan.
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
-        </div>
+            
+            {{-- Jika menggunakan pagination --}}
+            @if(isset($paginatedExams))
+                <div class="mt-4">
+                    {{ $paginatedExams->links() }}
+                </div>
+            @endif        </div>
     </div>
     <style>
         .gradient-bg {
