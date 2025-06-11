@@ -21,9 +21,10 @@ class GrandExamPermission
      */
     public function handle(ExamCompleted $event): void
     {
-        $exam = $event->exam;
-        $user = $exam->user;
+        // $exam = $event->exam;
+        $user = $event->user;
+        $category = $event->category;
 
-        $user->givePermissionTo('grand_exam_access');
+        $user->givePermissionTo($category);
     }
 }
