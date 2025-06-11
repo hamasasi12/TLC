@@ -2,7 +2,7 @@
 
 use App\Exports\AsesiExport;
 use App\Exports\AsesorExport;
-
+use App\Exports\ResultExamsAExport;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WelcomeController;
@@ -28,7 +28,8 @@ use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
-
+use App\Http\Controllers\Admin\ResultExamsA;
+use App\Http\Controllers\Admin\ResultExamsAController;
 
 Route::get('register2', function () {
     return view('register2');
@@ -104,7 +105,6 @@ Route::middleware(['auth'])->prefix('asesi')->group(function () {
     Route::get('/api/cities/{provinceId}', [ProfileController::class, 'getCities'])->name('asesi.api.cities');
     Route::get('/api/districts/{cityId}', [ProfileController::class, 'getDistricts'])->name('asesi.api.districts');
     Route::get('/api/villages/{districtId}', [ProfileController::class, 'getVillages'])->name('asesi.api.villages');
-
 });
 
 // AUTH ADMIN
@@ -206,6 +206,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::patch('/profile', [AdminSettingsController::class, 'update'])->name('admin.settings.update');
     Route::delete('/profile', [AdminSettingsController::class, 'destroy'])->name('admin.settings.destroy');
     Route::put('profile', [AdminSettingsController::class, 'updatePassword'])->name('admin.password.update');
+
+    Route::get('/result-exams-a', [ResultExamsAController::class, 'index'])->name('admin.resulta.index');
+    Route::get('/result-exams-a/export', function () {
+        return Excel::download(new ResultExamsAExport, 'Result Exams A.xlsx');
+    })->name('admin.resulta.export');
 });
 
 // AUTH ASESOR
