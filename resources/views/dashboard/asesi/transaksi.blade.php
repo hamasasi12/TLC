@@ -143,40 +143,63 @@
                 <!-- Table Body -->
                 <div class="divide-y divide-gray-100">
                     <!-- Row 1 -->
-                    <div class="px-6 py-6 hover:bg-gray-50 transition-colors duration-200">
-                        <div class="grid grid-cols-12 gap-4 items-center">
-                            <div class="col-span-1">
-                                <span class="text-blue-600 font-semibold text-lg">1</span>
-                            </div>
-                            <div class="col-span-2">
-                                <span class="text-gray-800 font-medium">Level A</span>
-                            </div>
-                            <div class="col-span-2">
-                                <span class="text-green-600 font-semibold">Rp 300,000</span>
-                            </div>
-                            <div class="col-span-3">
-                                <span class="text-gray-500">22 Feb 2022, 10:50 WIB</span>
-                            </div>
-                            <div class="col-span-2">
-                                <span class="px-3 py-1 text-xs font-semibold rounded-full status-waiting-validate">
-                                    Waiting to Validate
-                                </span>
-                            </div>
-                            <div class="col-span-2">
-                                <button
-                                    class="btn-pay text-white px-6 py-2 rounded-xl text-sm font-semibold transition-all duration-200 hover:shadow-lg transform hover:-translate-y-1 flex items-center gap-2">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M2 17h20v2H2zm1.15-4.05L4 11l.85 1.95.45-.2C5.8 12.16 6.28 12 7 12s1.2.16 1.7.75l.45.2L10 11l.85 1.95.45-.2c.5-.59.98-.75 1.7-.75s1.2.16 1.7.75l.45.2L16 11l.85 1.95.45-.2c.5-.59.98-.75 1.7-.75.72 0 1.2.16 1.7.75l.45.2L22 11v4.5c0 .83-.67 1.5-1.5 1.5h-17C2.67 17 2 16.33 2 15.5V11l.85 1.95.3-.15c.5-.59.98-.8 1.7-.8.72 0 1.2.21 1.7.8l.3.15-.7-.1z" />
-                                    </svg>
-                                    Pay
-                                </button>
+                    @foreach ($pembayaran as $item)
+                        <div class="px-6 py-6 hover:bg-gray-50 transition-colors duration-200">
+                            <div class="grid grid-cols-12 gap-4 items-center">
+                                <div class="col-span-1">
+                                    <span class="text-blue-600 font-semibold text-lg">{{ $loop->iteration }}</span>
+                                </div>
+                                <div class="col-span-2">
+                                    <span class="text-gray-800 font-medium">Level {{ $item->level->level_name }}</span>
+                                </div>
+                                <div class="col-span-2">
+                                    <span class="text-green-600 font-semibold">Rp.
+                                        {{ number_format($item->amount, 0, ',', '.') }}</span>
+                                </div>
+                                <div class="col-span-3">
+                                    {{ \Carbon\Carbon::parse($item->payment_time)->translatedFormat('d F Y') }}
+                                </div>
+                                <div class="col-span-2">
+                                    <span
+                                        class="px-3 py-1 text-xs font-semibold rounded-full 
+                                    {{ $item->status === 'success' ? 'bg-green-100 text-green-800' : '' }}
+                                    {{ $item->status === 'pending' ? 'bg-yellow-100 text-yellow-800' : '' }}
+                                    {{ $item->status === 'failed' ? 'bg-red-100 text-red-800' : '' }}">
+                                        {{ $item->status }}
+                                    </span>
+                                </div>
+                                <div class="col-span-2">
+                                    @if ($item->status === 'success')
+                                        <!-- Button Invoice -->
+                                        <button
+                                            class="btn-invoice text-white px-6 py-2 rounded-xl text-sm font-semibold transition-all duration-200 hover:shadow-lg transform hover:-translate-y-1 flex items-center gap-2">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                                </path>
+                                            </svg>
+                                            Invoice
+                                        </button>
+                                    @elseif ($item->status === 'pending')
+                                        <!-- Button Pay -->
+                                        <button
+                                            class="btn-pay text-white px-6 py-2 rounded-xl text-sm font-semibold transition-all duration-200 hover:shadow-lg transform hover:-translate-y-1 flex items-center gap-2">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M2 17h20v2H2zm1.15-4.05L4 11l.85 1.95.45-.2C5.8 12.16 6.28 12 7 12s1.2.16 1.7.75l.45.2L10 11l.85 1.95.45-.2c.5-.59.98-.75 1.7-.75s1.2.16 1.7.75l.45.2L16 11l.85 1.95.45-.2c.5-.59.98-.75 1.7-.75.72 0 1.2.16 1.7.75l.45.2L22 11v4.5c0 .83-.67 1.5-1.5 1.5h-17C2.67 17 2 16.33 2 15.5V11l.85 1.95.3-.15c.5-.59.98-.8 1.7-.8.72 0 1.2.21 1.7.8l.3.15-.7-.1z" />
+                                            </svg>
+                                            Pay
+                                        </button>
+                                    @elseif ($item->status === 'failed')
+                                        <!-- Kosong -->
+                                    @endif
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
 
                     <!-- Row 2 -->
-                    <div class="px-6 py-6 hover:bg-gray-50 transition-colors duration-200">
+                    {{-- <div class="px-6 py-6 hover:bg-gray-50 transition-colors duration-200">
                         <div class="grid grid-cols-12 gap-4 items-center">
                             <div class="col-span-1">
                                 <span class="text-blue-600 font-semibold text-lg">2</span>
@@ -206,10 +229,10 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- Row 3 -->
-                    <div class="px-6 py-6 hover:bg-gray-50 transition-colors duration-200">
+                    {{-- <div class="px-6 py-6 hover:bg-gray-50 transition-colors duration-200">
                         <div class="grid grid-cols-12 gap-4 items-center">
                             <div class="col-span-1">
                                 <span class="text-blue-600 font-semibold text-lg">3</span>
@@ -240,7 +263,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <script>

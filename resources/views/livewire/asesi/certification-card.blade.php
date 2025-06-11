@@ -70,8 +70,7 @@
             @else
                 {{-- <p class="text-sm text-gray-500 italic mb-6">Status : <span class="text-blue-600">On Progress</span>
                 </p> --}}
-            <p class="text-sm text-gray-500 italic mb-6">Selesaikan kategori level A terlebih dahulu</p>
-
+                <p class="text-sm text-gray-500 italic mb-6">Selesaikan kategori level A terlebih dahulu</p>
             @endif
 
             <div class="flex gap-3">
@@ -89,12 +88,12 @@
     <!-- Level B Card -->
     <div class="bg-white rounded-2xl shadow-lg card-hover overflow-hidden opacity-0 slide-in border border-gray-100"
         style="animation-delay: 0.2s">
-        <div class="h-2 bg-gradient-to-r from-[#E76F51] to-yellow-400"></div>
+        <div class="h-2 bg-gradient-to-r from-[#1D4E89] to-[#2A5AAF]"></div>
         <div class="p-8">
             <div class="flex items-center mb-6">
                 <div
-                    class="w-12 h-12 bg-gradient-to-r from-orange-100 to-yellow-100 rounded-xl flex items-center justify-center mr-4">
-                    <svg class="w-6 h-6 text-[#E76F51]" fill="currentColor" viewBox="0 0 20 20">
+                    class="w-12 h-12 bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-[#1D4E89]" fill="currentColor" viewBox="0 0 20 20">
                         <path
                             d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                     </svg>
@@ -156,12 +155,12 @@
     <!-- Level C Card -->
     <div class="bg-white rounded-2xl shadow-lg card-hover overflow-hidden opacity-0 slide-in border border-gray-100"
         style="animation-delay: 0.3s">
-        <div class="h-2 bg-gradient-to-r from-gray-300 to-gray-400"></div>
+        <div class="h-2 bg-gradient-to-r from-[#1D4E89] to-[#2A5AAF]"></div>
         <div class="p-8">
             <div class="flex items-center mb-6">
                 <div
-                    class="w-12 h-12 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl flex items-center justify-center mr-4">
-                    <svg class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                    class="w-12 h-12 bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-[#1D4E89]" fill="currentColor" viewBox="0 0 20 20">
                         <path
                             d="M2 6a2 2 0 012-2h6l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
                     </svg>
@@ -174,8 +173,8 @@
 
             <div class="space-y-4 mb-8">
                 <div class="flex items-center">
-                    <div class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                        <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
                                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                 clip-rule="evenodd" />
@@ -184,8 +183,8 @@
                     <span class="text-gray-500">Video mengajar (YouTube)</span>
                 </div>
                 <div class="flex items-center">
-                    <div class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                        <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
                                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                 clip-rule="evenodd" />
@@ -194,8 +193,8 @@
                     <span class="text-gray-500">Refleksi tertulis</span>
                 </div>
                 <div class="flex items-center">
-                    <div class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                        <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
                                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                 clip-rule="evenodd" />

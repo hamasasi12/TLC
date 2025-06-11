@@ -214,8 +214,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 // AUTH ASESOR
 Route::middleware(['auth', 'role:asesor'])->prefix('asesor')->group(function () {
     Route::get('/dashboard', [AsesorDashboardController::class, 'index'])->name('asesor.dashboard');
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout'); //ROUTE LOGOUT
-
 });
 
 

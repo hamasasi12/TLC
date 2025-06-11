@@ -13,6 +13,8 @@ class TransactionController extends Controller
     {
         $userId = Auth::id();
 
+        $pembayaran = Payment::where('user_id', $userId)->orderBy('payment_time', 'desc')->get();
+
         $paymentCount = Payment::where('user_id', $userId)->count();
 
         $paymentSuccessCount = Payment::where('user_id', $userId)
@@ -27,6 +29,7 @@ class TransactionController extends Controller
             'paymentCount' => $paymentCount,
             'paymentSuccessCount' => $paymentSuccessCount,
             'paymentPendingCount' => $paymentPendingCount,
+            'pembayaran' => $pembayaran
         ]);
     }
 }
