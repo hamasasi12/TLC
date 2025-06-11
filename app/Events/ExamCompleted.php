@@ -19,13 +19,12 @@ class ExamCompleted
      * Create a new event instance.
      */
 
-    public $exam;
     public $user;
     public $category;
 
-    public function __construct($exam, $user, $category)
+    public function __construct($user, $category)
     {
-        $this->exam = $exam;
+        // $this->exam = $exam;
         $this->user = $user;
         $this->category = $category;
     }

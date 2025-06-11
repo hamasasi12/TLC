@@ -230,11 +230,8 @@ class ExamController extends Controller
 
         if ($exam->score >= $category->passing_score) {
             $user = $exam->user;
-            $user->givePermissionTo($category->name);
-            event(new ExamCompleted($exam, $user, $category->name));
+            event(new ExamCompleted( $user, $category->name));
         }
-
-        // event new ExamCompleted($exam, $user);
 
         return view('user.sertifikasi.levelA.exam.result', compact(
             'exam',
@@ -244,11 +241,9 @@ class ExamController extends Controller
             'unansweredQuestions'
         ));
     }
-
+    
     public function continue()
     {
         return 'ok';
     }
-
-
 }
