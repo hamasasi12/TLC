@@ -10,6 +10,7 @@ class AsesiDashboardController extends Controller
 {
     public function index() {
         $levels = Level::where('id', '!=', 4)->get();
+        
         return view('dashboard.asesi.dashboard', [
             'levels' => $levels
         ]);
