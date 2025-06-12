@@ -122,7 +122,7 @@
                 `;
             document.head.appendChild(style);
         </script>
-    </section> --}}
+    </section> 
 
     {{-- End Overview --}}
 

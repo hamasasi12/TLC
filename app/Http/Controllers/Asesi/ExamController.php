@@ -260,6 +260,12 @@ class ExamController extends Controller
             'unanswered_questions' => $totalQuestions - $exam->questionsA()->wherePivotNotNull('user_answer')->count(),
         ]);
 
+        if ($exam->is_passed) {
+            Alert::success('Ujian Selesai', 'Selamat, Anda telah lulus ujian ini!');
+        } else {
+            Alert::error('Ujian Selesai', 'Maaf, Anda belum lulus ujian ini.');
+        }
+
         return redirect()->route('asesi.sertifikasi.level.a.result', $exam);
     }
 

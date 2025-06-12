@@ -1047,6 +1047,9 @@
                 </div>
 
                 <!-- Card Section -->
+                @php
+                    $user = Auth::user();
+                @endphp
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-16">
                     <!-- Level A -->
                     <div class="relative group card-hover">
@@ -1056,16 +1059,16 @@
                         <div
                             class="relative h-[600px] rounded-3xl shadow-2xl overflow-hidden bg-white border border-gray-200">
 
-                            <div class="absolute top-6 right-6 z-20">
-                                <span
+                            {{-- <div class="absolute top-6 right-6 z-20"> --}}
+                            {{-- <span
                                     class="inline-flex items-center px-4 py-2 bg-orange-500 text-white text-xs font-bold rounded-full pulse-glow">
                                     <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                         <path
                                             d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                     </svg>
                                     POPULER
-                                </span>
-                            </div>
+                                </span> --}}
+                            {{-- </div> --}}
 
 
                             <div class="absolute inset-0 card-bg-level-a opacity-90"></div>
@@ -1080,43 +1083,45 @@
                                         </span>
                                     </div>
                                     <h3 class="text-4xl font-black mb-4 leading-tight">
-                                        Sertifikasi<br>Dasar
+                                        {{-- Sertifikasi<br>Dasar --}}
+                                        Teaching Knowledge Certification
                                     </h3>
-                                    <p class="text-white/90 text-lg mb-8 leading-relaxed">
+                                    {{-- <p class="text-white/90 text-lg mb-8 leading-relaxed">
                                         Fondasi pengajaran efektif untuk semua guru yang ingin memulai perjalanan
                                         profesional
-                                    </p>
+                                    </p> --}}
                                 </div>
 
                                 <div>
                                     <div class="grid grid-cols-1 gap-3 mb-8">
                                         <div class="flex items-center space-x-3">
                                             <div class="w-2 h-2 bg-white rounded-full"></div>
-                                            <span class="text-sm font-medium">Manajemen Kelas Efektif</span>
+                                            <span class="text-sm font-medium">Uji Literasi Numerasi</span>
                                         </div>
                                         <div class="flex items-center space-x-3">
                                             <div class="w-2 h-2 bg-white rounded-full"></div>
-                                            <span class="text-sm font-medium">Desain Pembelajaran Inovatif</span>
+                                            <span class="text-sm font-medium">Uji Pedagogical Content Kowledge (PCK)</span>
                                         </div>
                                         <div class="flex items-center space-x-3">
                                             <div class="w-2 h-2 bg-white rounded-full"></div>
-                                            <span class="text-sm font-medium">Teknik Asesmen Modern</span>
+                                            <span class="text-sm font-medium">Uji Higher Order Thinking Skills
+                                                (HOTS)</span>
                                         </div>
                                     </div>
 
                                     <div class="flex items-center justify-between">
-                                        <div>
-                                            {{-- <span class="text-3xl font-black">{{ $levels[0]->price }}</span> --}}
+                                        {{-- <div>
                                             <span class="text-3xl font-black">
                                                 Rp.{{ number_format($levels[0]->price, 0, ',', '.') }}
                                             </span>
-
                                             <span class="block text-sm text-white/70">Per sertifikasi</span>
-                                        </div>
-                                        <button onclick="document.getElementById('modalA').classList.remove('hidden')"
-                                            class="bg-white text-orange-500 px-6 py-3 font-bold rounded-xl hover:bg-orange-50 transition-all transform hover:scale-105 shadow-lg">
-                                            Detail Program
-                                        </button>
+                                        </div> --}}
+                                        @if ($user->hasPermissionTo('access_level_A'))
+                                            <button onclick="document.getElementById('modalA').classList.remove('hidden')"
+                                                class="bg-white text-orange-500 px-6 py-3 font-bold rounded-xl hover:bg-orange-50 transition-all  shadow-lg">
+                                                Mulai Sekarang
+                                            </button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -1143,34 +1148,36 @@
                                         </span>
                                     </div>
                                     <h3 class="text-4xl font-black mb-4 leading-tight">
-                                        Sertifikasi<br>Menengah
+                                        Teaching Activation Certification
                                     </h3>
-                                    <p class="text-white/90 text-lg mb-8 leading-relaxed">
+                                    {{-- <p class="text-white/90 text-lg mb-8 leading-relaxed">
                                         Strategi pembelajaran lanjutan untuk guru berpengalaman yang ingin berkembang
-                                    </p>
+                                    </p> --}}
                                 </div>
 
                                 <div>
                                     <div class="grid grid-cols-1 gap-3 mb-8">
                                         <div class="flex items-center space-x-3">
                                             <div class="w-2 h-2 bg-white rounded-full"></div>
-                                            <span class="text-sm font-medium">Modul Pembelajaran Interaktif</span>
+                                            <span class="text-sm font-medium">Merancang modul ajar/RPP</span>
                                         </div>
                                         <div class="flex items-center space-x-3">
                                             <div class="w-2 h-2 bg-white rounded-full"></div>
-                                            <span class="text-sm font-medium">Literasi Digital Terapan</span>
+                                            <span class="text-sm font-medium">Menyusun materi ajar (PPT)</span>
                                         </div>
                                         <div class="flex items-center space-x-3">
                                             <div class="w-2 h-2 bg-white rounded-full"></div>
-                                            <span class="text-sm font-medium">Project Based Learning</span>
+                                            <span class="text-sm font-medium">Merancang LKS</span>
                                         </div>
                                     </div>
 
                                     <div class="flex items-center justify-between">
-                                        <div>
-                                            <span class="text-3xl font-black">Rp 699.000</span>
+                                        {{-- <div>
+                                            <span class="text-3xl font-black">
+                                                Rp.{{ number_format($levels[1]->price, 0, ',', '.') }}
+                                            </span>
                                             <span class="block text-sm text-white/70">Per sertifikasi</span>
-                                        </div>
+                                        </div> --}}
                                         <button onclick="document.getElementById('modalB').classList.remove('hidden')"
                                             class="bg-white text-blue-600 px-6 py-3 font-bold rounded-xl hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg">
                                             Detail Program
@@ -1189,7 +1196,7 @@
                         <div
                             class="relative h-[600px] rounded-3xl shadow-2xl overflow-hidden bg-white border border-gray-200">
 
-                            <div class="absolute top-6 right-6 z-20">
+                            {{-- <div class="absolute top-6 right-6 z-20">
                                 <span
                                     class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-full pulse-glow">
                                     <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -1198,7 +1205,7 @@
                                     </svg>
                                     PREMIUM
                                 </span>
-                            </div>
+                            </div> --}}
 
 
                             <div class="absolute inset-0 card-bg-level-c opacity-90"></div>
@@ -1213,34 +1220,36 @@
                                         </span>
                                     </div>
                                     <h3 class="text-4xl font-black mb-4 leading-tight">
-                                        Sertifikasi<br>Master
+                                        Teaching Mastery Certification
                                     </h3>
-                                    <p class="text-white/90 text-lg mb-8 leading-relaxed">
+                                    {{-- <p class="text-white/90 text-lg mb-8 leading-relaxed">
                                         Pengajaran kreatif tingkat mahir untuk pemimpin pendidikan masa depan
-                                    </p>
+                                    </p> --}}
                                 </div>
 
                                 <div>
                                     <div class="grid grid-cols-1 gap-3 mb-8">
                                         <div class="flex items-center space-x-3">
                                             <div class="w-2 h-2 bg-white rounded-full"></div>
-                                            <span class="text-sm font-medium">Praktik Pengajaran Video</span>
+                                            <span class="text-sm font-medium">Melaksanakan Pengajaran berbasis TMF</span>
                                         </div>
                                         <div class="flex items-center space-x-3">
                                             <div class="w-2 h-2 bg-white rounded-full"></div>
-                                            <span class="text-sm font-medium">Mentoring Personal 1-on-1</span>
+                                            <span class="text-sm font-medium">Self Review</span>
                                         </div>
-                                        <div class="flex items-center space-x-3">
+                                        {{-- <div class="flex items-center space-x-3">
                                             <div class="w-2 h-2 bg-white rounded-full"></div>
                                             <span class="text-sm font-medium">Publikasi Karya Ilmiah</span>
-                                        </div>
+                                        </div> --}}
                                     </div>
 
                                     <div class="flex items-center justify-between">
-                                        <div>
-                                            <span class="text-3xl font-black">Rp 999.000</span>
+                                        {{-- <div>
+                                            <span class="text-3xl font-black">
+                                                Rp.{{ number_format($levels[2]->price, 0, ',', '.') }}
+                                            </span>
                                             <span class="block text-sm text-white/70">Per sertifikasi</span>
-                                        </div>
+                                        </div> --}}
                                         <button onclick="document.getElementById('modalC').classList.remove('hidden')"
                                             class="bg-white text-blue-700 px-6 py-3 font-bold rounded-xl hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg">
                                             Detail Program
@@ -1253,7 +1262,7 @@
                 </div>
 
 
-                <div class="text-center">
+                {{-- <div class="text-center">
                     <button
                         class="group relative inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-blue-500/25 transform transition-all hover:scale-105 overflow-hidden">
                         <span class="relative z-10 flex items-center">
@@ -1269,7 +1278,7 @@
                         <div class="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
                         </div>
                     </button>
-                </div>
+                </div> --}}
             </div>
 
             <script>
@@ -1410,7 +1419,7 @@
         {{-- End Pilih Jalur Sertifikasi --}}
 
         {{-- Investasi untuk Masa Depan --}}
-        @livewire('asesi.payment-card')
+        {{-- @livewire('asesi.payment-card') --}}
         @foreach (['A', 'B', 'C'] as $level)
             <div id="modal{{ $level }}"
                 class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center z-50 hidden transition-all duration-300">
@@ -1437,42 +1446,37 @@
                         <h3 class="text-lg font-semibold text-gray-700 mb-3">
                             @switch($level)
                                 @case('A')
-                                    Fondasi Pengajaran Efektif
+                                    Teaching Knowledge Certification
                                 @break
 
                                 @case('B')
-                                    Strategi Pembelajaran Lanjutan
+                                    Teaching Activation Certification
                                 @break
 
                                 @case('C')
-                                    Mastery Pengajaran Kreatif
+                                    Teaching Mastery Certification
                                 @break
                             @endswitch
                         </h3>
 
-                        <p class="text-gray-600 mb-6 leading-relaxed">
+                        <p class="text-gray-600 mb-6 leading-relaxed text-justify">
                             @switch($level)
                                 @case('A')
-                                    Bangun fondasi pengajaran Anda dengan pendekatan yang terbukti efektif! Di Level A, Anda akan
-                                    mempelajari dasar-dasar penting yang wajib dimiliki setiap guru hebat—mulai dari manajemen
-                                    kelas,
-                                    penyusunan tujuan pembelajaran, hingga strategi instruksional yang kuat. Cocok untuk semua guru
-                                    yang
-                                    ingin mengajar dengan percaya diri sejak hari pertama.
+                                    Sertifikasi Level A bertujuan menguji pemahaman dasar guru melalui ujian teori terkait
+                                    pengajaran yang efektif, terstruktur, dan berdiferensiasi, serta penerapan penilaian berbasis
+                                    Teaching Mastery Framework serta Literasi Numerasi
                                 @break
 
                                 @case('B')
-                                    Naik ke tahap lanjutan! Di Level B, Anda akan ditantang untuk menyusun modul ajar yang kreatif
-                                    dan
-                                    mengisi skala literasi yang mengukur kemampuan Anda dalam memahami kebutuhan belajar siswa. Ini
-                                    adalah langkah nyata menuju pembelajaran yang berdampak dan terukur.
+                                    Sertifikasi Level B bertujuan untuk menguji keterampilan guru melalui aktivasi pengetahuan PCK
+                                    dan HOTS dalam pengajaran serta mengembangkan lesson plan (Modul Ajar), Teaching Tactics dan
+                                    Teaching Scenario untuk menunjang efektivitas pengajaran guru di kelas.
                                 @break
 
                                 @case('C')
-                                    Tunjukkan mastery Anda sebagai pendidik sejati! Level C mengajak Anda membuktikan keterampilan
-                                    mengajar melalui video praktik langsung dan refleksi diri mendalam. Sertifikasi ini dirancang
-                                    bagi
-                                    guru yang ingin menjadi role model inspiratif di ruang kelas dan komunitas belajar.
+                                    Sertifikasi Level C merupakan tahapan Mastery dalam pelaksanaan pengajaran. Peserta akan
+                                    berfokus dalam praktik pengajaran efektif di dalam kelas berbasis Teaching Mastery Framework
+                                    (TMF). Peserta akan merekam dan mereview proses mengajarnya, kemudian akan di uji oleh asesor.
                                 @break
                             @endswitch
                         </p>
@@ -1606,7 +1610,7 @@
                             <span class="text-gray-500 text-sm line-through">
                                 @switch($level)
                                     @case('A')
-                                        Rp 699.000
+                                        Rp 799.000
                                     @break
 
                                     @case('B')
@@ -1621,15 +1625,15 @@
                             <div class="text-2xl font-bold text-gray-800">
                                 @switch($level)
                                     @case('A')
-                                        Rp 499.000
+                                        Rp.{{ number_format($levels[0]->price, 0, ',', '.') }}
                                     @break
 
                                     @case('B')
-                                        Rp 699.000
+                                        Rp.{{ number_format($levels[1]->price, 0, ',', '.') }}
                                     @break
 
                                     @case('C')
-                                        Rp 999.000
+                                        Rp.{{ number_format($levels[2]->price, 0, ',', '.') }}
                                     @break
                                 @endswitch
                             </div>

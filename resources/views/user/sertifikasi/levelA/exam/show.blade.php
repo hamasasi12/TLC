@@ -46,7 +46,7 @@
 
                 <!-- Enhanced Finish Button -->
                 <div class="flex items-center">
-                    @if ($answeredQuestions > 4)
+                    @if ($answeredQuestions == $totalQuestions)
                         <form action="{{ route('asesi.sertifikasi.level.a.finish', $exam) }}" method="POST"
                             id="finishExamForm" class="inline-block">
                             @csrf
