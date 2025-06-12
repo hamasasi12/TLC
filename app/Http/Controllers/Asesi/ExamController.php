@@ -307,6 +307,15 @@ class ExamController extends Controller
         if (!$category) {
             $category = (object) ['name' => 'Kategori Tidak Ditemukan'];
         }
+
+        if($exam->is_passed) {
+            $user = $exam->user;
+            event(new ExamCompleted($user, $category->name));
+            Alert::success('Ujian Selesai', 'Selamat, Anda telah lulus ujian pada kategori ' . $category->name);
+        }
+        else {
+            Alert::error('Ujian Selesai', 'Maaf, Anda belum lulus ujian pada kategori ' . $category->name);
+        }
     
         return view('user.sertifikasi.levelA.exam.result', compact(
             'exam',
