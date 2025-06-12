@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Asesi;
 
+use App\Events\ExamCompleted;
 use Log;
 use App\Models\ExamA;
 use App\Models\CategoryA;
@@ -261,9 +262,8 @@ class ExamController extends Controller
         ]);
 
         if ($exam->is_passed) {
-            Alert::success('Ujian Selesai', 'Selamat, Anda telah lulus ujian ini!');
-        } else {
-            Alert::error('Ujian Selesai', 'Maaf, Anda belum lulus ujian ini.');
+            $user = $exam->user;
+            event(new ExamCompleted($user, $category));
         }
 
         return redirect()->route('asesi.sertifikasi.level.a.result', $exam);

@@ -24,7 +24,6 @@ class GrandExamPermission
         // $exam = $event->exam;
         $user = $event->user;
         $category = $event->category;
-
         $user->givePermissionTo($category);
     }
 }
