@@ -71,7 +71,7 @@ class ExamController extends Controller
                 $this->autoFinishExpiredExam($unfinishedExam);
                 return redirect()->route('asesi.sertifikasi.level.a.result', $unfinishedExam);
             }
-            
+
             return redirect()->route('asesi.sertifikasi.level.a.show', $unfinishedExam);
         }
 
@@ -83,7 +83,7 @@ class ExamController extends Controller
                 'status' => 'started',
                 'start_time' => now(),
                 'end_time' => now()->addMinutes(30), // 30 minutes duration
-                'is_passed' => false,   
+                'is_passed' => false,
             ]);
 
             Log::channel('exam')->info('New exam started', [
@@ -131,7 +131,7 @@ class ExamController extends Controller
             ]);
             abort(403, 'Unauthorized action.');
         }
-        
+
         // Debug: Log exam data
         \Log::info('Exam Data Debug', [
             'exam_id' => $exam->id,
@@ -139,38 +139,38 @@ class ExamController extends Controller
             'category_id' => $exam->category_id ?? 'NULL',
             'all_attributes' => $exam->getAttributes()
         ]);
-        
+
         // Check if exam has expired
         if ($exam->end_time && now()->gt($exam->end_time) && $exam->status === 'started') {
             $this->autoFinishExpiredExam($exam);
             return redirect()->route('asesi.sertifikasi.level.a.result', $exam);
         }
-    
+
         // If end_time is null, set it to 30 minutes from start_time or now
         if (!$exam->end_time) {
-            $endTime = $exam->start_time ? 
-                $exam->start_time->addMinutes(30) : 
+            $endTime = $exam->start_time ?
+                $exam->start_time->addMinutes(30) :
                 now()->addMinutes(30);
-                
+
             $exam->update(['end_time' => $endTime]);
             $exam->refresh();
         }
-    
+
         // Get category - gunakan logika yang sama seperti di result()
         $categoryId = $exam->category_a_id ?? $exam->category_id;
         $category = CategoryA::find($categoryId);
-        
+
         \Log::info('Category Debug', [
             'category_id_used' => $categoryId,
             'category_found' => $category ? $category->name : 'NULL',
             'category_object' => $category
         ]);
-        
+
         // Jika kategori tidak ditemukan, buat objek default
         if (!$category) {
             $category = (object) ['name' => 'Kategori Tidak Ditemukan'];
         }
-    
+
         $questions = $exam->questionsA()->paginate(1);
         $totalQuestions = $exam->questionsA()->count();
         $answeredQuestions = $exam->questionsA()->wherePivotNotNull('user_answer')->count();
@@ -181,7 +181,7 @@ class ExamController extends Controller
         //     ->count();
 
 
-    
+
         return view('user.sertifikasi.levelA.exam.show', [
             'exam' => $exam,
             'category' => $category,
@@ -191,7 +191,7 @@ class ExamController extends Controller
             'endTime' => $exam->end_time->toIso8601String(),
         ]);
     }
-           
+
     public function answer(Request $request, ExamA $exam)
     {
         // Ensure the exam belongs to the authenticated user
@@ -237,7 +237,7 @@ class ExamController extends Controller
         if ($exam->user_id != Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
-        
+
         return $this->finishExam($exam);
     }
 
@@ -246,7 +246,7 @@ class ExamController extends Controller
         $category = CategoryA::find($exam->category_a_id);
         $totalQuestions = $exam->questionsA()->count();
         $correctAnswers = $exam->questionsA()->wherePivot('is_correct', true)->count();
-        
+
         $score = $totalQuestions > 0 ? round(($correctAnswers / $totalQuestions) * 100, 2) : 0;
 
         // Update exam
@@ -277,7 +277,7 @@ class ExamController extends Controller
                 'user_id' => $exam->user_id,
                 'expired_at' => $exam->end_time
             ]);
-            
+
             $this->finishExam($exam);
         }
     }
@@ -293,30 +293,29 @@ class ExamController extends Controller
                 'user_agent' => request()->userAgent()
             ]);
         }
-    
+
         $totalQuestions = $exam->questionsA()->count();
         $correctAnswers = $exam->questionsA()->wherePivot('is_correct', true)->count();
         $wrongAnswers = $exam->questionsA()->wherePivot('is_correct', false)->count();
         $unansweredQuestions = $totalQuestions - ($correctAnswers + $wrongAnswers);
-        
+
         // Tentukan nama kolom yang benar
         $categoryId = $exam->category_a_id ?? $exam->category_id;
         $category = CategoryA::find($categoryId);
-        
+
         // Jika kategori tidak ditemukan, buat objek default
         if (!$category) {
             $category = (object) ['name' => 'Kategori Tidak Ditemukan'];
         }
 
-        if($exam->is_passed) {
+        if ($exam->is_passed) {
             $user = $exam->user;
             event(new ExamCompleted($user, $category->name));
             Alert::success('Ujian Selesai', 'Selamat, Anda telah lulus ujian pada kategori ' . $category->name);
-        }
-        else {
+        } else {
             Alert::error('Ujian Selesai', 'Maaf, Anda belum lulus ujian pada kategori ' . $category->name);
         }
-    
+
         return view('user.sertifikasi.levelA.exam.result', compact(
             'exam',
             'totalQuestions',
@@ -326,7 +325,7 @@ class ExamController extends Controller
             'category'
         ));
     }
-        
+
     public function continue()
     {
         return 'ok';

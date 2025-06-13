@@ -60,7 +60,7 @@
                 
             </div> --}}
             {{-- <p class="text-sm text-gray-500 italic mb-6">Belum dibuka - Lakukan pembayaran terlebih dahulu disini</p> --}}
-            @if (!$hasAccessA)
+            {{-- @if (!$hasAccessA)
                 <p class="text-sm text-gray-500 italic mb-6">
                     Belum dibuka - Lakukan pembayaran terlebih dahulu
                     <a href="{{ route('payments.create', 1) }}" class="text-blue-600 underline hover:text-blue-800">
@@ -68,18 +68,48 @@
                     </a>
                 </p>
             @else
-                {{-- <p class="text-sm text-gray-500 italic mb-6">Status : <span class="text-blue-600">On Progress</span>
-                </p> --}}
                 <p class="text-sm text-gray-500 italic mb-6">Selesaikan kategori level A terlebih dahulu</p>
+            @endif --}}
+
+            @if ($hasAccessA)
+                {{-- @if (Auth::user()->hasPermissionTo('level_A_completed'))
+                    <p class="text-sm text-gray-500 italic mb-6">Selesaikan kategori level A terlebih dahulu</p>
+                @else
+                    <p class="text-sm text-gray-500 italic mb-6">Selesaikan kategori level A terlebih dahulu</p>
+                @endif --}}
+                @if (Auth::user()->hasPermissionTo('level_A_completed'))
+                    <p class="text-sm text-green-600 italic mb-6">
+                        <i class="fas fa-check-circle mr-1"></i>
+                        Anda telah menyelesaikan kategori Level A dan berhak mendapatkan sertifikat
+                    </p>
+                @else
+                    <p class="text-sm text-gray-500 italic mb-6">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Selesaikan kategori Level A terlebih dahulu untuk mendapatkan sertifikat
+                    </p>
+                @endif
+            @else
+                <p class="text-sm text-gray-500 italic mb-6">
+                    Belum dibuka - Lakukan pembayaran terlebih dahulu
+                    <a href="{{ route('payments.create', 1) }}" class="text-blue-600 underline hover:text-blue-800">
+                        disini
+                    </a>
+                </p>
             @endif
 
             <div class="flex gap-3">
                 @if ($hasAccessA)
-                    {{-- <livewire:component.button-status-badge status="progress" /> --}}
-                    <livewire:component.button-certificate status="sedang_berjalan">
+                    @if (Auth::user()->hasPermissionTo('level_A_completed'))
+                        <a href="{{ route('asesi.sertifikat', Auth::id()) }}"
+                            class="flex-1 font-medium py-3 px-1.5 rounded-xl transform transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 bg-gradient-to-r from-[#1D4E89] to-[#2A5AAF] hover:from-[#14406B] hover:to-[#1F4A92] text-white cursor-pointer text-center block">
+                            Lihat Sertifikat Anda
+                        </a>
                     @else
-                        {{-- <livewire:component.button-status-badge status="belum_tersedia" /> --}}
-                        <livewire:component.button-certificate status="belum_tersedia">
+                        <livewire:component.button-certificate status="sedang_berjalan">
+                    @endif
+                @else                                                                                                                                           
+                    {{-- <livewire:component.button-status-badge status="belum_tersedia" /> --}}
+                    <livewire:component.button-certificate status="belum_tersedia">
                 @endif
             </div>
         </div>

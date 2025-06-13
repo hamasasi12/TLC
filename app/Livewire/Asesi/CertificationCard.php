@@ -15,6 +15,7 @@ class CertificationCard extends Component
     public function mount()
     {
         $user = Auth::user();
+        $this->user = $user;
 
         $this->hasAccessA = $user->hasPermissionTo('access_level_A');
         $this->hasAccessB = $user->hasPermissionTo('access_level_B');
