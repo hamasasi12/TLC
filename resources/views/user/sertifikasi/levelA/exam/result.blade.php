@@ -201,11 +201,11 @@
                                     </button>
                                 </form>
                             @endif
-                            {{-- <a href="{{ route('asesi.nilai') }}"
+                            <a href="{{ route('asesi.nilai') }}"
                                 class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
                                 <i class="fas fa-eye mr-2"></i>
-                                Lihat Nilai Anda
-                            </a> --}}
+                                History Ujian
+                            </a>
 
                             {{-- <button onclick="window.print()"
                                 class="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">

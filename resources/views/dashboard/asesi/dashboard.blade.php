@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="flex flex-wrap my-8 gap-4">
-                        <a href="#mulai"
+                        <a href="#sertifikasi"
                             class="button-primary bg-[#1D4E89] hover:bg-[#14406B] text-white px-8 py-4 rounded-full shadow-lg text-lg font-bold hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 flex items-center relative z-10">
                             <span>Mulai Sertifikasi</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transition-transform duration-300"
@@ -1121,6 +1121,11 @@
                                                 class="bg-white text-orange-500 px-6 py-3 font-bold rounded-xl hover:bg-orange-50 transition-all  shadow-lg">
                                                 Mulai Sekarang
                                             </button>
+                                        @else
+                                            <button onclick="document.getElementById('modalA').classList.remove('hidden')"
+                                                class="bg-white text-orange-500 px-6 py-3 font-bold rounded-xl hover:bg-orange-50 transition-all  shadow-lg">
+                                                Mulai Sekarang
+                                            </button>
                                         @endif
                                     </div>
                                 </div>
@@ -1476,7 +1481,8 @@
                                 @case('C')
                                     Sertifikasi Level C merupakan tahapan Mastery dalam pelaksanaan pengajaran. Peserta akan
                                     berfokus dalam praktik pengajaran efektif di dalam kelas berbasis Teaching Mastery Framework
-                                    (TMF). Peserta akan merekam dan mereview proses mengajarnya, kemudian akan di uji oleh asesor.
+                                    (TMF)
+                                    . Peserta akan merekam dan mereview proses mengajarnya, kemudian akan di uji oleh asesor.
                                 @break
                             @endswitch
                         </p>
@@ -1607,22 +1613,22 @@
                     <!-- Price and CTA -->
                     <div class="flex items-center justify-between">
                         <div>
-                            <span class="text-gray-500 text-sm line-through">
+                            <span class="text-gray-500 text-md font-semibold line-through">
                                 @switch($level)
                                     @case('A')
-                                        Rp 799.000
+                                        Rp 199.000
                                     @break
 
                                     @case('B')
-                                        Rp 999.000
+                                        Rp 269.000
                                     @break
 
                                     @case('C')
-                                        Rp 1.299.000
+                                        Rp 399.000
                                     @break
                                 @endswitch
                             </span>
-                            <div class="text-2xl font-bold text-gray-800">
+                            <div class="text-2xl font-extrabold text-gray-700">
                                 @switch($level)
                                     @case('A')
                                         Rp.{{ number_format($levels[0]->price, 0, ',', '.') }}
@@ -1638,10 +1644,42 @@
                                 @endswitch
                             </div>
                         </div>
-                        <a href="#"
-                            class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] hover:from-[#E76F51] hover:to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105">
-                            Daftar Sekarang
-                        </a>
+                        @switch($level)
+                            @case('A')
+                                <a href="{{ route('payments.create', $levels[0]->id) }}"
+                                    class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] hover:from-[#E76F51] hover:to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105">
+                                    Daftar Sekarang
+                                </a>
+                            @break
+
+                            @case('B')
+                                @if ($user->hasPermissionTo('level_A_completed'))
+                                    <a href="{{ route('payments.create', $levels[1]->id) }}"
+                                        class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] hover:from-[#E76F51] hover:to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105">
+                                        Daftar Sekarang
+                                    </a>
+                                @else
+                                    <button disabled
+                                        class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg opacity-60 cursor-not-allowed">
+                                        Belum Dibuka
+                                    </button>
+                                @endif
+                            @break
+
+                            @case('C')
+                                @if ($user->hasPermissionTo('level_B_completed'))
+                                    <a href="{{ route('payments.create', $levels[2]->id) }}"
+                                        class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] hover:from-[#E76F51] hover:to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105">
+                                        Daftar Sekarang
+                                    </a>
+                                @else
+                                    <button disabled
+                                        class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg opacity-60 cursor-not-allowed">
+                                        Belum Dibuka
+                                    </button>
+                                @endif
+                            @break
+                        @endswitch
                     </div>
                 </div>
             </div>

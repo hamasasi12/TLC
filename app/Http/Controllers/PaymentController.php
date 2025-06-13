@@ -35,19 +35,24 @@ class PaymentController extends Controller
 
     public function create(string $id)
     {
-        $user = auth()->user();
-        $levels = Level::where('id', $id)->first();
+        $level = Level::find($id);
 
-        // Validasi apakah level ada
-        if (!$levels) {
+        if (!$level) {
             return redirect()->back()->with('error', 'Level tidak ditemukan');
         }
 
-        // Jika profile sudah lengkap, tampilkan halaman pembayaran
-        return view('payments.create', [
-            'level' => $levels,
-        ]);
+        switch ($id) {
+            case '1':
+                return view('payments.create', ['level' => $level]);
+            case '2':
+                return view('payments.createB', ['level' => $level]);
+            case '3':
+                return view('payments.createC', ['level' => $level]);
+            default:
+                return view('payments.create', ['level' => $level]);
+        }
     }
+
 
     public function store(Request $request)
     {
