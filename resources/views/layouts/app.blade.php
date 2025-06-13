@@ -16,14 +16,13 @@
 
     <!-- Navbar -->
     <header class="mb-20">
-        <nav
-            class="fixed w-full z-20 top-0 start-0 bg-gradient-to-r from-[#3A6EA5] to-[#90BE6D] shadow-sm border-b border-gray-300">
-            <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-4 px-12">
+        <nav class="fixed w-full z-20 top-0 start-0 bg-gradient-to-r from-[#3A6EA5] to-[#90BE6D] shadow-sm border-b border-gray-300">
+            <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-4 px-4 sm:px-6 lg:px-12">
                 <a href="#" class="flex items-center space-x-3">
                     <img src="{{ asset('images/logo.svg') }}" class="h-12" alt="TLC Logo" loading="lazy">
                     <div class="flex flex-col">
-                        <span class="text-lg font-bold text-[#1D4E89] tracking-wide">TLC Program</span>
-                        <span class="text-sm text-[#f1e686] font-medium">Teaching & Learning Certification</span>
+                        <span class="text-lg font-bold text-white tracking-wide">TLC Program</span>
+                        <span class="text-sm text-[#f1e686] font-medium hidden sm:block">Teaching & Learning Certification</span>
                     </div>
                 </a>
 
@@ -38,60 +37,72 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex lg:items-center lg:space-x-10 text-sm font-semibold" id="menu">
-                    <a href="#home" class="text-white hover:text-[#F4A261] transition duration-300">Beranda</a>
-                    <a href="#about" class="text-white hover:text-[#F4A261] transition duration-300">Tentang TLC</a>
-                    <a href="#harga" class="text-white hover:text-[#F4A261] transition duration-300">Harga</a>
-                    <a href="#skema" class="text-white hover:text-[#F4A261] transition duration-300">Skema</a>
-                    <a href="#proses" class="text-white hover:text-[#F4A261] transition duration-300">Sertifikasi</a>
-                    <a href="#faq" class="text-white hover:text-[#F4A261] transition duration-300">FAQ</a>
+                    <a href="#home" class="text-white hover:text-[#f1e686] transition duration-300">Beranda</a>
+                    <a href="#about" class="text-white hover:text-[#f1e686] transition duration-300">Tentang TLC</a>
+                    <a href="#harga" class="text-white hover:text-[#f1e686] transition duration-300">Harga</a>
+                    <a href="#skema" class="text-white hover:text-[#f1e686] transition duration-300">Skema</a>
+                    {{-- <a href="#proses" class="text-white hover:text-[#f1e686] transition duration-300">Sertifikasi</a> --}}
+                    <a href="#faq" class="text-white hover:text-[#f1e686] transition duration-300">FAQ</a>
                 </div>
 
                 <!-- Authentication Buttons -->
                 <div class="hidden lg:flex lg:items-center lg:space-x-4">
                     <a href="{{ route('login') }}">
                         <button
-                            class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Log
-                            in</button>
+                            class="border-2 border-white font-bold text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#f1e686] hover:text-white hover:font-bold transition duration-300">
+                            Masuk</button>
                     </a>
                     <a href="{{ route('register') }}">
                         <button
-                            class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Register
-                            Now</button>
+                            class="border-2 border-white font-bold text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#f1e686] hover:text-white hover:font-bold transition duration-300">Daftar Sekarang
+                            </button>
                     </a>
                 </div>
             </div>
 
             <!-- Mobile Menu -->
             <div id="mobile-menu"
-                class="hidden lg:hidden flex flex-col items-center space-y-4 py-6 bg-[#3A6EA5] border-t border-gray-300 text-sm font-medium">
-                <a href="#home" class="text-white hover:text-[#F4A261] transition duration-300">Beranda</a>
-                <a href="#about" class="text-white hover:text-[#F4A261] transition duration-300">Tentang TLC</a>
-                <a href="#harga" class="text-white hover:text-[#F4A261] transition duration-300">Harga</a>
-                <a href="#skema" class="text-white hover:text-[#F4A261] transition duration-300">Skema</a>
-                <a href="#proses" class="text-white hover:text-[#F4A261] transition duration-300">Sertifikasi</a>
-                <a href="#faq" class="text-white hover:text-[#F4A261] transition duration-300">FAQ</a>
+                class="hidden lg:hidden flex flex-col items-center space-y-4 py-6 bg-gradient-to-r from-[#3A6EA5] to-[#90BE6D] border-t border-gray-300 text-sm font-medium">
+                <a href="#home" class="text-white hover:text-[#f1e686] transition duration-300">Beranda</a>
+                <a href="#about" class="text-white hover:text-[#f1e686] transition duration-300">Tentang TLC</a>
+                <a href="#harga" class="text-white hover:text-[#f1e686] transition duration-300">Harga</a>
+                <a href="#skema" class="text-white hover:text-[#f1e686] transition duration-300">Skema</a>
+                {{-- <a href="#proses" class="text-white hover:text-[#f1e686] transition duration-300">Sertifikasi</a> --}}
+                <a href="#faq" class="text-white hover:text-[#f1e686] transition duration-300">FAQ</a>
 
-                <a href="{{ route('login') }}">
-
-                    <button
-                        class="border-2 border-white text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#F4A261] hover:text-[#3A6EA5] transition duration-300">Log
-                        in</button>
-                </a>
-                <a href="{{ route('register') }}">
-                    <button
-                        class="bg-gradient-to-r from-[#F4A261] to-[#90BE6D] text-white text-sm px-3 py-1.5 rounded-lg shadow-md hover:opacity-90 transition duration-300">Register
-                        Now</button>
-                </a>
+                <div class="flex flex-col space-y-3 pt-4 w-full max-w-xs">
+                    <a href="{{ route('login') }}" class="w-full">
+                        <button
+                            class="border-2 border-white font-bold text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#f1e686] hover:text-white hover:font-bold transition duration-300 w-full">Masuk
+                            </button>
+                    </a>
+                    <a href="{{ route('register') }}" class="w-full">
+                        <button
+                            class="border-2 border-white font-bold text-white text-sm px-3 py-1.5 rounded-lg hover:bg-[#f1e686] hover:text-white hover:font-bold transition duration-300 w-full">Daftar Sekarang
+                            </button>
+                    </a>
+                </div>
             </div>
 
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                    document.getElementById('menu-toggle').addEventListener('click', function() {
-                        document.getElementById('mobile-menu').classList.toggle('hidden');
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const mobileMenu = document.getElementById('mobile-menu');
+
+                    menuToggle.addEventListener('click', function() {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+
+                    // Close mobile menu when window is resized to desktop
+                    window.addEventListener('resize', function() {
+                        if (window.innerWidth >= 1024) {
+                            mobileMenu.classList.add('hidden');
+                        }
                     });
                 });
             </script>
         </nav>
+
     </header>
     {{-- End Navbar --}}
 
