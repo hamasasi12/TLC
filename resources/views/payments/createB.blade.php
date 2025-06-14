@@ -335,8 +335,6 @@
                             </button>
                         </form>
 
-
-                        
                         <!-- Security Info -->
                         <div class="mt-6 flex items-center justify-center space-x-4 text-xs text-gray-500">
                             <div class="flex items-center">
@@ -394,5 +392,4 @@
             });
         });
     </script>
-
 @endsection
