@@ -1163,8 +1163,8 @@
                 </div>
 
 
-            <!-- Process Timeline -->
-            <div class="max-w-7xl mx-auto px-4">
+                <!-- Process Timeline -->
+                <div class="max-w-7xl mx-auto px-4">
                     <!-- Desktop Timeline -->
                     <div class="hidden lg:block relative">
                         <!-- Connection Line -->
@@ -1337,10 +1337,13 @@
         <section id="vidio" class="w-full px-5 py-16 bg-gray-50 text-gray-900 shadow-lg">
             <div class="text-center mb-12 md:mb-16">
                 <span
-                    class="inline-block px-4 py-1 bg-[#1D4E89]/10 text-[#1D4E89] rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">VIDEO TENTANG TLC</span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1D4E89] mb-4">Kenali Program TLC Lebih Jauh</h2>
+                    class="inline-block px-4 py-1 bg-[#1D4E89]/10 text-[#1D4E89] rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">VIDEO
+                    TENTANG TLC</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1D4E89] mb-4">Kenali Program
+                    TLC Lebih Jauh</h2>
                 <div class="w-24 h-1 bg-[#E76F51] mt-4 mb-6 mx-auto"></div>
-                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Tonton video pengenalan dan testimoni dari program Teaching and Learning Certification</p>
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Tonton video pengenalan dan
+                    testimoni dari program Teaching and Learning Certification</p>
             </div>
 
 
@@ -1372,10 +1375,13 @@
         <section id="galeri" class="w-full px-5 py-16 bg-white text-gray-900 shadow-lg">
             <div class="text-center mb-12 md:mb-16">
                 <span
-                    class="inline-block px-4 py-1 bg-[#1D4E89]/10 text-[#1D4E89] rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">PORTAL BERITA</span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1D4E89] mb-4">Berita & Informasi Terkini TLC</h2>
+                    class="inline-block px-4 py-1 bg-[#1D4E89]/10 text-[#1D4E89] rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">PORTAL
+                    BERITA</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1D4E89] mb-4">Berita &
+                    Informasi Terkini TLC</h2>
                 <div class="w-24 h-1 bg-[#E76F51] mt-4 mb-6 mx-auto"></div>
-                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Dapatkan informasi terbaru, dokumentasi kegiatan, dan perkembangan program Teaching and Learning Certification secara real-time.</p>
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Dapatkan informasi terbaru,
+                    dokumentasi kegiatan, dan perkembangan program Teaching and Learning Certification secara real-time.</p>
             </div>
 
 
@@ -1416,10 +1422,13 @@
         <section id="books" class="w-full px-5 py-20 bg-gray-50 text-gray-900">
             <div class="text-center mb-12 md:mb-16">
                 <span
-                    class="inline-block px-4 py-1 bg-[#1D4E89]/10 text-[#1D4E89] rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">KOLEKSI BUKU TERBAIK</span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1D4E89] mb-4">Temukan Buku Favorit Anda</h2>
+                    class="inline-block px-4 py-1 bg-[#1D4E89]/10 text-[#1D4E89] rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">KOLEKSI
+                    BUKU TERBAIK</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1D4E89] mb-4">Temukan Buku
+                    Favorit Anda</h2>
                 <div class="w-24 h-1 bg-[#E76F51] mt-4 mb-6 mx-auto"></div>
-                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Buku pilihan untuk memperkaya wawasan dan meningkatkan kualitas pengajaran Anda</p>
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Buku pilihan untuk memperkaya
+                    wawasan dan meningkatkan kualitas pengajaran Anda</p>
             </div>
 
 
@@ -1430,128 +1439,184 @@
                     <!-- Book Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Book 1 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                        <div
+                            class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
                             <div class="relative h-64">
-                                <img src="{{ asset('images/buku1.png') }}" alt="The Power of Teaching"
+                                <img src="{{ asset('images/buku1.png') }}"
+                                    alt="Buku Merancang Modul Pengajaran Berbasis CP, TP dan ATP"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
-                                    <h3 class="text-white font-bold text-lg sm:text-xl">The Power of Teaching</h3>
-                                    <p class="text-gray-200 text-sm mt-1">Metode pengajaran efektif untuk hasil maksimal.</p>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
+                                    <h3 class="text-white font-bold text-lg sm:text-xl">Merancang Modul Pengajaran</h3>
+                                    <p class="text-gray-200 text-sm mt-1">Panduan lengkap CP, TP dan ATP - Implementasi
+                                        Kurikulum Merdeka</p>
                                 </div>
-                                <div class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">BESTSELLER</div>
                             </div>
                             <div class="p-4">
-                                <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Beli Sekarang!
-                                </button>
+                                <a
+                                    href="https://shopee.co.id/Buku-Merancang-Modul-Pengajaran-Berbasis-CP-TP-dan-ATP-Implementasi-Kurikulum-Merdeka-i.1352656010.27267262569">
+                                    <button
+                                        class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                        </svg>
+                                        Beli Sekarang!
+                                    </button>
+                                </a>
                             </div>
                         </div>
 
                         <!-- Book 2 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                        <div
+                            class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
                             <div class="relative h-64">
-                                <img src="{{ asset('images/buku2.png') }}" alt="The Art of Learning"
+                                <img src="{{ asset('images/buku2.png') }}"
+                                    alt="Buku Mengembangkan Modul Pembelajaran Siswa"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
-                                    <h3 class="text-white font-bold text-lg sm:text-xl">The Art of Learning</h3>
-                                    <p class="text-gray-200 text-sm mt-1">Strategi pembelajaran yang mudah dan menyenangkan.</p>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
+                                    <h3 class="text-white font-bold text-lg sm:text-xl">Mengembangkan Modul Pembelajaran
+                                    </h3>
+                                    <p class="text-gray-200 text-sm mt-1">Panduan komprehensif berbasis CP, TP dan ATP
+                                        untuk guru</p>
                                 </div>
                             </div>
                             <div class="p-4">
-                                <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Beli Sekarang!
-                                </button>
+                                <a
+                                    href="https://shopee.co.id/Buku-Mengembangkan-Modul-Pembelajaran-Siswa-Berbasis-CP-TP-dan-ATP-i.1352656010.26067403930">
+                                    <button
+                                        class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                        </svg>
+                                        Beli Sekarang!
+                                    </button>
+                                </a>
                             </div>
                         </div>
 
                         <!-- Book 3 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                        <div
+                            class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
                             <div class="relative h-64">
-                                <img src="{{ asset('images/buku3.png') }}" alt="Digital Education"
+                                <img src="{{ asset('images/buku3.png') }}"
+                                    alt="Buku Project Based-Learning Lintas Mata Pelajaran"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
-                                    <h3 class="text-white font-bold text-lg sm:text-xl">Digital Education</h3>
-                                    <p class="text-gray-200 text-sm mt-1">Teknologi dalam pendidikan untuk era digital.</p>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
+                                    <h3 class="text-white font-bold text-lg sm:text-xl">Project Based-Learning</h3>
+                                    <p class="text-gray-200 text-sm mt-1">Lintas mata pelajaran yang mengacu pada CP, TP &
+                                        ATP</p>
                                 </div>
-                                <div class="absolute top-3 right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">BARU</div>
                             </div>
                             <div class="p-4">
-                                <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Beli Sekarang!
-                                </button>
+                                <a
+                                    href="https://shopee.co.id/Buku-Merancang-Project-Based-Learning-Lintas-Mata-Pelajaran-yang-mengacu-pada-CP-TP-ATP-i.1352656010.25238227078">
+                                    <button
+                                        class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                        </svg>
+                                        Beli Sekarang!
+                                    </button>
+                                </a>
                             </div>
                         </div>
 
                         <!-- Book 4 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                        <div
+                            class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
                             <div class="relative h-64">
-                                <img src="{{ asset('images/buku4.png') }}" alt="Curriculum Design"
+                                <img src="{{ asset('images/buku4.png') }}" alt="Buku HOTS Social Science"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
-                                    <h3 class="text-white font-bold text-lg sm:text-xl">Curriculum Design</h3>
-                                    <p class="text-gray-200 text-sm mt-1">Panduan lengkap merancang kurikulum yang efektif.</p>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
+                                    <h3 class="text-white font-bold text-lg sm:text-xl">HOTS Social Science</h3>
+                                    <p class="text-gray-200 text-sm mt-1">Higher Order Thinking Skill - Seri IPS dengan
+                                        panduan praktis</p>
                                 </div>
                             </div>
                             <div class="p-4">
-                                <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Beli Sekarang!
-                                </button>
+                                <a
+                                    href="https://shopee.co.id/Buku-HOTS-Higher-Order-Thingking-Skill-(Seri-IPS-Social-Science)-i.1352656010.26617242538">
+                                    <button
+                                        class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                        </svg>
+                                        Beli Sekarang!
+                                    </button>
+                                </a>
                             </div>
                         </div>
 
                         <!-- Book 5 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                        <div
+                            class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
                             <div class="relative h-64">
-                                <img src="{{ asset('images/buku5.png') }}" alt="Leadership in Education"
+                                <img src="{{ asset('images/buku5.png') }}" alt="Buku HOTS Natural Science"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
-                                    <h3 class="text-white font-bold text-lg sm:text-xl">Leadership in Education</h3>
-                                    <p class="text-gray-200 text-sm mt-1">Menjadi pemimpin inspiratif dalam dunia pendidikan.</p>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
+                                    <h3 class="text-white font-bold text-lg sm:text-xl">HOTS Natural Science</h3>
+                                    <p class="text-gray-200 text-sm mt-1">Higher Order Thinking Skill - Seri IPA dengan
+                                        contoh kasus nyata</p>
                                 </div>
                             </div>
                             <div class="p-4">
-                                <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Beli Sekarang!
-                                </button>
+                                <a
+                                    href="https://shopee.co.id/Buku-HOTS-Higher-Order-Thingking-Skill-(Seri-IPS-Natural-Science)-i.1352656010.28367251630">
+                                    <button
+                                        class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                        </svg>
+                                        Beli Sekarang!
+                                    </button>
+                                </a>
                             </div>
                         </div>
 
                         <!-- Book 6 -->
-                        <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                        <div
+                            class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
                             <div class="relative h-64">
-                                <img src="{{ asset('images/buku6.png') }}" alt="Innovation in Teaching"
+                                <img src="{{ asset('images/buku6.png') }}" alt="Buku PCK Pedagogical Content Knowledge"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
-                                    <h3 class="text-white font-bold text-lg sm:text-xl">Innovation in Teaching</h3>
-                                    <p class="text-gray-200 text-sm mt-1">Metode inovatif dalam dunia pendidikan.</p>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent p-4 flex flex-col justify-end">
+                                    <h3 class="text-white font-bold text-lg sm:text-xl">PCK - Mengajar Efektif</h3>
+                                    <p class="text-gray-200 text-sm mt-1">Pedagogical Content Knowledge - Seri IPS untuk
+                                        guru inovatif</p>
                                 </div>
-                                <div class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">TERBATAS</div>
                             </div>
                             <div class="p-4">
-                                <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Beli Sekarang!
-                                </button>
+                                <a
+                                    href="https://shopee.co.id/Buku-Cara-Mengajar-Lebih-Efektif-dengan-Menggunakan-PCK-(Pedagogical-Content-Knowledge-Seri-IPA)-i.1352656010.24938222501">
+                                    <button
+                                        class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                        </svg>
+                                        Beli Sekarang!
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -1561,23 +1626,16 @@
             <!-- Header -->
             <div class="text-center mb-12 md:mb-16">
                 <span
-                    class="inline-block px-4 py-1 bg-[#1D4E89]/10 text-[#1D4E89] rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">PERTANYAAN UMUM</span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1D4E89] mb-4">Frequently Asked Questions</h2>
+                    class="inline-block px-4 py-1 bg-[#1D4E89]/10 text-[#1D4E89] rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">PERTANYAAN
+                    UMUM</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1D4E89] mb-4">Frequently
+                    Asked Questions</h2>
                 <div class="w-24 h-1 bg-[#E76F51] mt-4 mb-6 mx-auto"></div>
-                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Temukan jawaban untuk pertanyaan yang sering diajukan tentang program TLC</p>
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Temukan jawaban untuk pertanyaan
+                    yang sering diajukan tentang program TLC</p>
             </div>
 
             <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-sm">
-                <!-- Search Bar -->
-                {{-- <div class="mb-6 relative">
-                <input type="text" placeholder="Cari pertanyaan..."
-                    class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <span class="absolute left-3 top-3 text-gray-500">
-                    🔍
-                </span>
-            </div> --}}
-
-
                 <!-- FAQ List -->
                 <div class="space-y-4 text-left">
                     <div
@@ -1651,19 +1709,6 @@
                         </p>
                     </div>
                 </div>
-
-                <!-- Contact Section -->
-                {{-- <div class="mt-10 bg-gray-100 p-6 rounded-lg text-center shadow-md">
-                <p class="text-gray-700">Masih punya pertanyaan?</p>
-                <p class="text-gray-500 text-sm mb-4">Jangan ragu untuk menghubungi tim kami untuk informasi lebih
-                    lanjut</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-3">
-                    <button class="bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-800">Hubungi
-                        Kami</button>
-                    <button
-                        class="border border-gray-300 px-5 py-2 rounded-lg font-semibold text-gray-700 hover:bg-gray-200">info@tlcprogram.id</button>
-                </div>
-            </div> --}}
             </div>
 
             <!-- Script untuk Interaktif FAQ -->

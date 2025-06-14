@@ -576,7 +576,6 @@
         {{-- End Main Tampilan Awal --}}
 
         {{-- Apa guru Dapatkan --}}
-
         <section class="w-full px-5 py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50" id="manfaat">
             <div class="container mx-auto max-w-7xl">
                 <!-- Header Section -->
@@ -1272,25 +1271,6 @@
                         </div>
                     </div>
                 </div>
-
-
-                {{-- <div class="text-center">
-                    <button
-                        class="group relative inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-blue-500/25 transform transition-all hover:scale-105 overflow-hidden">
-                        <span class="relative z-10 flex items-center">
-                            Bandingkan Semua Paket
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                class="h-6 w-6 ml-3 transform group-hover:translate-x-2 transition-transform"
-                                viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                        <div class="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                    </button>
-                </div> --}}
             </div>
 
             <script>
@@ -1320,13 +1300,13 @@
 
                 const style = document.createElement('style');
                 style.textContent = `
-            @keyframes sparkle {
-                0% { transform: scale(0) rotate(0deg); opacity: 1; }
-                50% { transform: scale(1) rotate(180deg); opacity: 1; }
-                100% { transform: scale(0) rotate(360deg); opacity: 0; }
-            }
-            `;
-                document.head.appendChild(style);
+                @keyframes sparkle {
+                    0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                    50% { transform: scale(1) rotate(180deg); opacity: 1; }
+                    100% { transform: scale(0) rotate(360deg); opacity: 0; }
+                }
+                `;
+                    document.head.appendChild(style);
             </script>
 
             <style>
@@ -1702,7 +1682,7 @@
         {{-- End Investasi --}}
 
         {{-- alur Pendaftaraan --}}
-        <section class="relative w-full px-5 py-20 overflow-hidden gradient-bg">
+        {{-- <section class="relative w-full px-5 py-20 overflow-hidden gradient-bg">
 
             <div class="absolute inset-0">
                 <div class="particle" style="left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
@@ -2212,150 +2192,251 @@
                     }
                 }
             </style>
-        </section>
-        {{-- End Alur Pendaftaraan --}}
-
-        {{-- Vidio Keseruan --}}
-        <section
-            class="max-w-7xl mx-auto px-4 md:px-8 py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 relative overflow-hidden">
-            <!-- Heading -->
-            <div class="max-w-4xl mx-auto text-center mb-14 relative z-10 animate-fadeIn">
-                <span class="text-lg text-[#E76F51] font-semibold inline-block px-4 py-1 bg-orange-100 rounded-full mb-4">
-                    #KESERUAN TLC PROGRAM
-                </span>
-                <h2 class="text-3xl md:text-5xl font-extrabold text-[#1D4E89] leading-tight mb-6">
-                    Tonton Keseruan di
-                    <span class="relative inline-block">
-                        <span
-                            class="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[#1D4E89] to-[#E76F51]">
-                            TLC Program
+        </section> --}}
+        
+        <section class="relative w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-20 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
+    
+            <!-- Simplified background pattern -->
+            <div class="absolute inset-0 opacity-20">
+                <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(29,78,137,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
+            </div>
+        
+            <div class="max-w-7xl mx-auto relative z-10">
+                <!-- Header -->
+                <div class="text-center mb-16 lg:mb-20">
+                    <div class="inline-flex items-center justify-center px-4 py-2 bg-orange-100 rounded-full text-orange-600 text-sm font-medium mb-6">
+                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-2 animate-pulse"></span>
+                        Proses Pendaftaran Mudah & Cepat
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl lg:text-7xl font-bold text-blue-900 mb-6 lg:mb-8 leading-tight">
+                        Alur Pendaftaran<br>
+                        <span class="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
+                            Program
                         </span>
-                        <span class="absolute -bottom-2 left-0 w-full h-3 bg-orange-300 opacity-50 z-0"></span>
-                    </span>
-                </h2>
-                <p class="text-lg md:text-xl text-gray-700 font-medium max-w-2xl mx-auto">
-                    <strong class="text-[#E76F51]">Saksikan pengalaman luar biasa</strong> dan momen tak terlupakan dari
-                    para peserta yang telah merasakan transformasi pembelajaran!
-                </p>
-            </div>
-
-            <div class="relative group">
-                <div id="testimonialContainer"
-                    class="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 md:pb-8 no-scrollbar items-center px-2 md:px-4">
-                    <!-- Video 1 -->
-                    <div
-                        class="flex-shrink-0 w-[85%] sm:w-[350px] md:w-[450px] h-[200px] sm:h-[280px] md:h-[350px] snap-center transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-[#E76F51] hover:ring-opacity-50 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl bg-white border-2 border-orange-100">
-                        <iframe class="w-full h-full object-cover rounded-2xl md:rounded-3xl"
-                            src="https://www.youtube.com/embed/Jn7vuXLozJI" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <!-- Video 2 -->
-                    <div
-                        class="flex-shrink-0 w-[85%] sm:w-[350px] md:w-[450px] h-[200px] sm:h-[280px] md:h-[350px] snap-center transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-[#E76F51] hover:ring-opacity-50 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl bg-white border-2 border-orange-100">
-                        <iframe class="w-full h-full object-cover rounded-2xl md:rounded-3xl"
-                            src="https://www.youtube.com/embed/Jn7vuXLozJI" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <!-- Video 3 -->
-                    <div
-                        class="flex-shrink-0 w-[85%] sm:w-[350px] md:w-[450px] h-[200px] sm:h-[280px] md:h-[350px] snap-center transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-[#E76F51] hover:ring-opacity-50 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl bg-white border-2 border-orange-100">
-                        <iframe class="w-full h-full object-cover rounded-2xl md:rounded-3xl"
-                            src="https://www.youtube.com/embed/Jn7vuXLozJI" frameborder="0" allowfullscreen></iframe>
+                    </h2>
+                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                        Ikuti langkah-langkah sederhana berikut untuk mendaftarkan Diri Anda dalam program
+                        <span class="font-bold text-orange-600">Teaching & Learning Certification</span>
+                    </p>
+                </div>
+        
+                <!-- Progress bar for desktop -->
+                <div class="hidden lg:block relative mb-12">
+                    <div class="absolute top-20 left-0 right-0 h-1 bg-gray-200 rounded-full">
+                        <div class="h-full bg-gradient-to-r from-blue-700 to-orange-500 rounded-full w-0 transition-all duration-1000 ease-out" id="progressBar"></div>
                     </div>
                 </div>
-                <div class="hidden md:flex absolute inset-y-0 w-full justify-between items-center px-4">
-                    <button id="prevBtn"
-                        class="bg-[#1D4E89] hover:bg-[#14406B] text-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 active:scale-95">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        
+                <!-- Steps Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 relative">
+                    
+                    <!-- Step 1 -->
+                    <div class="step-card group transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="relative mb-8">
+                                <!-- Step Number -->
+                                <div class="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-blue-700 to-blue-900 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                                    <span class="text-xl lg:text-2xl font-bold text-white">1</span>
+                                </div>
+                                
+                                <!-- Step Icon -->
+                                <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-md">
+                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 h-full">
+                                <h3 class="text-lg lg:text-xl font-bold text-blue-900 mb-4">Isi Formulir</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
+                                    Lengkapi formulir pendaftaran online dengan data peserta dan informasi kontak secara lengkap dan akurat
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Mobile connector -->
+                        <div class="md:hidden flex justify-center mt-6">
+                            <div class="w-0.5 h-8 bg-gradient-to-b from-blue-700 to-orange-500 relative">
+                                <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent border-t-orange-500"></div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Step 2 -->
+                    <div class="step-card group transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="relative mb-8">
+                                <div class="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                                    <span class="text-xl lg:text-2xl font-bold text-white">2</span>
+                                </div>
+                                
+                                <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-md">
+                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 h-full">
+                                <h3 class="text-lg lg:text-xl font-bold text-blue-900 mb-4">Verifikasi</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
+                                    Tim profesional kami akan memverifikasi data dan menghubungi Anda dalam 24 jam untuk konfirmasi
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="md:hidden flex justify-center mt-6">
+                            <div class="w-0.5 h-8 bg-gradient-to-b from-orange-500 to-yellow-500 relative">
+                                <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent border-t-yellow-500"></div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Step 3 -->
+                    <div class="step-card group transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="relative mb-8">
+                                <div class="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-yellow-500 to-amber-600 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                                    <span class="text-xl lg:text-2xl font-bold text-white">3</span>
+                                </div>
+                                
+                                <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-md">
+                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 h-full">
+                                <h3 class="text-lg lg:text-xl font-bold text-blue-900 mb-4">Konfirmasi</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
+                                    Konfirmasi pendaftaran dan lakukan pembayaran biaya program sertifikasi dengan mudah
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="md:hidden flex justify-center mt-6">
+                            <div class="w-0.5 h-8 bg-gradient-to-b from-yellow-500 to-green-500 relative">
+                                <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent border-t-green-500"></div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Step 4 -->
+                    <div class="step-card group transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="relative mb-8">
+                                <div class="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                                    <span class="text-xl lg:text-2xl font-bold text-white">4</span>
+                                </div>
+                                
+                                <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-gradient-to-br from-green-50 to-green-100 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-md">
+                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 h-full">
+                                <h3 class="text-lg lg:text-xl font-bold text-blue-900 mb-4">Jadwal</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
+                                    Dapatkan jadwal pelatihan yang fleksibel dan materi pembelajaran yang terstruktur
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="md:hidden flex justify-center mt-6">
+                            <div class="w-0.5 h-8 bg-gradient-to-b from-green-500 to-purple-500 relative">
+                                <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent border-t-purple-500"></div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Step 5 -->
+                    <div class="step-card group transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="relative mb-8">
+                                <div class="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                                    <span class="text-xl lg:text-2xl font-bold text-white">5</span>
+                                </div>
+                                
+                                <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-gradient-to-br from-indigo-50 to-purple-100 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-md">
+                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 h-full">
+                                <h3 class="text-lg lg:text-xl font-bold text-blue-900 mb-4">Mulai Belajar</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
+                                    Mulai transformasi mengajar dengan metode terpercaya dan dapatkan sertifikasi profesional
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- CTA Button -->
+                <div class="text-center mt-16 lg:mt-20">
+                    <button class="inline-flex items-center justify-center px-8 lg:px-12 py-4 lg:py-6 bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:from-blue-800 hover:via-blue-900 hover:to-indigo-900 text-white text-lg lg:text-xl font-bold rounded-2xl transform transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-3xl group">
+                        <span>Daftar Program Sekarang</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <button id="nextBtn"
-                        class="bg-[#1D4E89] hover:bg-[#14406B] text-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 active:scale-95">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
                 </div>
             </div>
-            <div class="text-center mt-16">
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#daftar"
-                        class="bg-[#1D4E89] text-white px-8 py-4 rounded-xl shadow-lg text-lg font-semibold hover:bg-[#14406B] transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center">
-                        <span>Bergabung Sekarang</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <a href="#info"
-                        class="bg-white border-2 border-[#E76F51] text-[#E76F51] px-8 py-4 rounded-xl shadow-md text-lg font-semibold hover:bg-orange-50 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <span>Info Lengkap</span>
-                    </a>
-                </div>
-            </div>
+        
             <script>
-                const container = document.getElementById('testimonialContainer');
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
-
-                let currentIndex = 0;
-                const videos = container.children;
-                const totalVideos = videos.length;
-
-                function scrollToVideo(index) {
-                    const video = videos[index];
-                    if (video) {
-                        video.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'nearest',
-                            inline: 'center'
-                        });
-                    }
-                }
-
-                prevBtn.addEventListener('click', () => {
-                    currentIndex = (currentIndex - 1 + totalVideos) % totalVideos;
-                    scrollToVideo(currentIndex);
+                // Intersection Observer for animations
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+        
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.style.opacity = '1';
+                                entry.target.style.transform = 'translateY(0)';
+                            }, index * 100);
+                            
+                            // Update progress bar
+                            const progressBar = document.getElementById('progressBar');
+                            if (progressBar) {
+                                progressBar.style.width = '100%';
+                            }
+                        }
+                    });
+                }, observerOptions);
+        
+                // Observe step cards
+                document.querySelectorAll('.step-card').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.6s ease-out';
+                    observer.observe(card);
                 });
-
-                nextBtn.addEventListener('click', () => {
-                    currentIndex = (currentIndex + 1) % totalVideos;
-                    scrollToVideo(currentIndex);
+        
+                // Button click handler
+                document.querySelector('button').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Simple ripple effect using Tailwind classes
+                    const button = e.currentTarget;
+                    button.style.transform = 'scale(0.95)';
+                    
+                    setTimeout(() => {
+                        button.style.transform = '';
+                        alert('Formulir pendaftaran akan segera dibuka! 🚀');
+                    }, 150);
                 });
             </script>
-            <style>
-                .no-scrollbar::-webkit-scrollbar {
-                    display: none;
-                }
-
-                .no-scrollbar {
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-                }
-
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-            </style>
         </section>
-        {{-- End Vidio Keseruan --}}
+        {{-- End Alur Pendaftaraan --}}
 
 
         {{-- Langkah Pembayaran --}}
@@ -2527,452 +2608,6 @@
 
 
 
-        {{-- Tampilan Home Sebelumnya --}}
-        {{-- <div class="w-full px-6 py-24 bg-gradient-to-br from-yellow-50 via-orange-100 to-yellow-100 text-gray-800">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
-                <div class="space-y-8 text-center lg:text-left">
-                    <span
-                        class="inline-block px-4 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-semibold tracking-wide shadow-sm">PROGRAM
-                        UNGGULAN 2025</span>
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-                        Sertifikasi <span class="text-[#ff7300] relative">
-                            Guru Modern
-                            <svg class="absolute -bottom-3 left-0 w-full" viewBox="0 0 200 15"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0,7 Q50,0 100,7 T200,7" stroke="#ff7300" stroke-width="4" fill="none" />
-                            </svg>
-                        </span> di TLC Program
-                    </h1>
-                    <p class="text-xl text-gray-700 leading-relaxed">
-                        Program pengembangan kompetensi guru yang dirancang untuk transformasi pendidikan Indonesia.
-                        Tingkatkan kualifikasi dan perluas pengaruh Anda dalam komunitas pendidikan.
-                    </p>
-                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-5">
-                        <a href="#sertifikasi"
-                            class="bg-[#F4A261] hover:bg-[#E76F51] text-white px-8 py-4 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg">
-                            Mulai Sertifikasi
-                        </a>
-                        <a href="#testimonials"
-                            class="bg-white border-2 border-[#F4A261] text-[#F4A261] hover:bg-orange-50 px-8 py-4 rounded-lg font-bold transition-all">
-                            Lihat Testimoni
-                        </a>
-                    </div>
-                </div>
-                <div class="flex justify-center relative">
-                    <div
-                        class="absolute -inset-4 bg-gradient-to-r from-orange-200 to-yellow-200 rounded-full blur-3xl opacity-60">
-                    </div>
-                    <img src="{{ asset('images/hamass.png') }}" alt="TLC Program"
-                        class="relative z-10 max-w-lg w-full rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500">
-                </div>
-            </div>
-            </div> --}}
-        {{-- End Tampilan Home sebelumnya --}}
-
-        {{-- Testimoni Sebelumnya --}}
-        {{-- <section class="w-full py-16 px-6 bg-gray-50" id="testimonials">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-12">
-                    <span
-                        class="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">TESTIMONI</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-4">Apa Kata Mereka?</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Cerita sukses dari para guru yang telah
-                        menyelesaikan program TLC</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Testimonial 1 -->
-                    <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                        <div class="flex items-center mb-4">
-                            <div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mr-4">
-                                <span class="text-xl font-bold text-orange-600">SA</span>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800">Siti Aminah</h4>
-                                <p class="text-sm text-gray-500">Guru SD Negeri 1 Jakarta</p>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <div class="flex text-yellow-400">
-                                ★★★★★
-                            </div>
-                        </div>
-                        <p class="italic text-gray-600">"Program TLC benar-benar mengubah cara saya mengajar. Sekarang saya
-                            lebih percaya diri dan murid-murid saya lebih antusias dalam belajar!"</p>
-                    </div>
-
-                    <!-- Testimonial 2 -->
-                    <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                        <div class="flex items-center mb-4">
-                            <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                                <span class="text-xl font-bold text-blue-600">BS</span>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800">Budi Santoso</h4>
-                                <p class="text-sm text-gray-500">Guru SMP Negeri 5 Surabaya</p>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <div class="flex text-yellow-400">
-                                ★★★★★
-                            </div>
-                        </div>
-                        <p class="italic text-gray-600">"Sertifikasi Level B membuka kesempatan promosi di sekolah saya.
-                            Materi pelatihannya sangat relevan dengan kebutuhan pendidikan saat ini."</p>
-                    </div>
-
-                    <!-- Testimonial 3 -->
-                    <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                        <div class="flex items-center mb-4">
-                            <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mr-4">
-                                <span class="text-xl font-bold text-green-600">DR</span>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800">Dewi Rahayu</h4>
-                                <p class="text-sm text-gray-500">Kepala Sekolah SMA 2 Bandung</p>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <div class="flex text-yellow-400">
-                                ★★★★★
-                            </div>
-                        </div>
-                        <p class="italic text-gray-600">"Sebagai kepala sekolah, saya melihat perubahan signifikan pada
-                            guru-guru yang mengikuti TLC. Kualitas pembelajaran meningkat drastis!"</p>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-        {{-- Testimoni Sebelumnya --}}
-
-        {{-- pilih jalur Verifikasi --}}
-        {{-- <section class="w-full py-20 px-6 bg-gradient-to-b from-white to-blue-50" id="sertifikasi">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <span
-                        class="inline-block px-4 py-1 bg-yellow-100 text-yellow-600 rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">PROGRAM
-                        SERTIFIKASI</span>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-800 mb-4">Pilih Jalur Sertifikasi Anda</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Program bertingkat yang disesuaikan dengan kebutuhan
-                        dan tujuan karir pendidik</p>
-                </div>
-
-                <!-- Course Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Card Level A -->
-                    <div
-                        class="relative group overflow-hidden rounded-2xl shadow-xl cursor-pointer transform transition-transform hover:shadow-2xl">
-                        <div
-                            class="absolute -right-4 top-6 bg-orange-500 text-white px-8 py-1 rotate-45 text-sm font-bold">
-                            POPULER</div>
-                        <img src="{{ asset('images/levela.png') }}" alt="Level A"
-                            class="w-full h-56 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-6 transition-all duration-500">
-                            <div class="mb-4">
-                                <span
-                                    class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">LEVEL
-                                    A</span>
-                            </div>
-                            <h3 class="text-white text-2xl md:text-3xl font-bold mb-3 leading-tight">
-                                Sertifikasi Dasar</h3>
-                            <p class="text-white/90 text-sm md:text-base mb-4">
-                                Fondasi pengajaran efektif untuk semua guru</p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span
-                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Manajemen
-                                    Kelas</span>
-                                <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Desain
-                                    Pembelajaran</span>
-                                <span
-                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Asesmen</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-white font-bold text-xl">Rp 499.000</span>
-                                <button onclick="document.getElementById('modalA').classList.remove('hidden')"
-                                    class="bg-white text-gray-800 px-4 md:px-6 py-2 text-xs md:text-sm font-bold rounded-lg hover:bg-orange-200 transition-all">Detail
-                                    Program</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Level B -->
-                    <div
-                        class="relative group overflow-hidden rounded-2xl shadow-xl cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="{{ asset('images/levelb.png') }}" alt="Level B"
-                            class="w-full h-56 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-6 transition-all duration-500">
-                            <div class="mb-4">
-                                <span
-                                    class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">LEVEL
-                                    B</span>
-                            </div>
-                            <h3 class="text-white text-2xl md:text-3xl font-bold mb-3 leading-tight">
-                                Sertifikasi Menengah</h3>
-                            <p class="text-white/90 text-sm md:text-base mb-4">
-                                Strategi pembelajaran lanjutan untuk guru berpengalaman</p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Modul
-                                    Interaktif</span>
-                                <span
-                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Literasi
-                                    Digital</span>
-                                <span
-                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Project
-                                    Based</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-white font-bold text-xl">Rp 699.000</span>
-                                <button onclick="document.getElementById('modalB').classList.remove('hidden')"
-                                    class="bg-white text-gray-800 px-4 md:px-6 py-2 text-xs md:text-sm font-bold rounded-lg hover:bg-orange-200 transition-all">Detail
-                                    Program</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Level C -->
-                    <div
-                        class="relative group overflow-hidden rounded-2xl shadow-xl cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                        <div class="absolute -right-4 top-6 bg-blue-500 text-white px-8 py-1 rotate-45 text-sm font-bold">
-                            PREMIUM</div>
-                        <img src="{{ asset('images/levelc.png') }}" alt="Level C"
-                            class="w-full h-56 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-6 transition-all duration-500">
-                            <div class="mb-4">
-                                <span
-                                    class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">LEVEL
-                                    C</span>
-                            </div>
-                            <h3 class="text-white text-2xl md:text-3xl font-bold mb-3 leading-tight">
-                                Sertifikasi Master</h3>
-                            <p class="text-white/90 text-sm md:text-base mb-4">
-                                Pengajaran kreatif tingkat mahir untuk pemimpin pendidikan</p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span
-                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Praktik
-                                    Video</span>
-                                <span
-                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Mentoring
-                                    1-on-1</span>
-                                <span
-                                    class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">Publikasi</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-white font-bold text-xl">Rp 999.000</span>
-                                <button onclick="document.getElementById('modalC').classList.remove('hidden')"
-                                    class="bg-white text-gray-800 px-4 md:px-6 py-2 text-xs md:text-sm font-bold rounded-lg hover:bg-orange-200 transition-all">Detail
-                                    Program</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12">
-                    <a href="#"
-                        class="inline-flex items-center justify-center bg-gradient-to-r from-[#F4A261] to-[#E76F51] text-white px-8 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl transform transition-all hover:scale-105">
-                        <span>Bandingkan Semua Paket</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section> --}}
-        {{-- End pilih jalur Verifikasi --}}
-
-        {{-- Tiga Langkah --}}
-        {{-- <section class="relative w-full px-5 py-20 overflow-hidden bg-gradient-to-b from-white to-blue-50">
-            <div class="max-w-6xl mx-auto relative">
-                <div class="text-center mb-16">
-                    <span
-                        class="inline-block px-4 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm font-semibold tracking-wide shadow-sm mb-4">CARA
-                        BERGABUNG</span>
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-800 mb-4">
-                        Tiga Langkah Mudah Untuk Menjadi
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Guru
-                            Bersertifikat</span>
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Proses pendaftaran yang sederhana dan cepat untuk meningkatkan kualifikasi profesional Anda
-                    </p>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-3xl blur-3xl">
-                    </div>
-
-                    <div class="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
-                        <!-- Step 1 -->
-                        <div
-                            class="group bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
-                            <div class="relative mb-8">
-                                <div
-                                    class="absolute -inset-2 bg-gradient-to-r from-blue-400 to-indigo-400 opacity-20 group-hover:opacity-100 rounded-full blur-lg transition-all duration-300">
-                                </div>
-                                <div
-                                    class="relative z-10 w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                                    <span class="text-4xl font-extrabold text-white">1</span>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <h3
-                                    class="text-xl font-bold text-gray-800 mb-4 group-hover:text-indigo-600 transition-colors">
-                                    Daftar Akun
-                                </h3>
-                                <p class="text-gray-600 group-hover:text-gray-700 transition-colors">
-                                    Buat akun TLC dan lengkapi profil Anda secara mendetail untuk memulai perjalanan
-                                    pengembangan profesional.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div
-                            class="group bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
-                            <div class="relative mb-8">
-                                <div
-                                    class="absolute -inset-2 bg-gradient-to-r from-indigo-400 to-purple-400 opacity-20 group-hover:opacity-100 rounded-full blur-lg transition-all duration-300">
-                                </div>
-                                <div
-                                    class="relative z-10 w-20 h-20 mx-auto bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                                    <span class="text-4xl font-extrabold text-white">2</span>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <h3
-                                    class="text-xl font-bold text-gray-800 mb-4 group-hover:text-purple-600 transition-colors">
-                                    Pilih & Bayar Program
-                                </h3>
-                                <p class="text-gray-600 group-hover:text-gray-700 transition-colors">
-                                    Pilih level sertifikasi yang sesuai dengan kebutuhan Anda dan selesaikan pembayaran
-                                    dengan berbagai metode yang tersedia.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div
-                            class="group bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
-                            <div class="relative mb-8">
-                                <div
-                                    class="absolute -inset-2 bg-gradient-to-r from-purple-400 to-pink-400 opacity-20 group-hover:opacity-100 rounded-full blur-lg transition-all duration-300">
-                                </div>
-                                <div
-                                    class="relative z-10 w-20 h-20 mx-auto bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                                    <span class="text-4xl font-extrabold text-white">3</span>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <h3
-                                    class="text-xl font-bold text-gray-800 mb-4 group-hover:text-pink-600 transition-colors">
-                                    Akses & Dapatkan Sertifikasi
-                                </h3>
-                                <p class="text-gray-600 group-hover:text-gray-700 transition-colors">
-                                    Akses modul pembelajaran, ikuti pelatihan, selesaikan tes, dan raih sertifikasi yang
-                                    diakui secara nasional.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Curved arrow path -->
-                    <svg class="hidden lg:block absolute top-1/3 left-1/2 transform -translate-x-1/2 w-full z-0"
-                        viewBox="0 0 1200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 50C200 20 400 80 600 50C800 20 1000 80 1200 50" stroke="url(#gradient)"
-                            stroke-width="2" stroke-dasharray="6 4" />
-                        <defs>
-                            <linearGradient id="gradient" x1="0" y1="0" x2="1200" y2="0"
-                                gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#4F46E5" />
-                                <stop offset="50%" stop-color="#7C3AED" />
-                                <stop offset="100%" stop-color="#DB2777" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-
-                <div class="text-center mt-16">
-                    <a href="#"
-                        class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white text-lg font-bold rounded-xl transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-indigo-500/30">
-                        <span>Mulai Perjalanan Anda</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section> --}}
-        {{-- End Tiga Langkah --}}
-
-        {{-- Vidio Keseruan TLC --}}
-        {{-- <section class="max-w-7xl mx-auto px-4 md:px-8 py-20 bg-white relative overflow-hidden">
-            <!-- Heading -->
-            <div class="max-w-4xl mx-auto text-center mb-14 relative z-10">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-6">
-                    Tonton Keseruan di
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-500">
-                        TLC Program
-                    </span>
-                </h2>
-                <p class="text-lg md:text-xl text-gray-700 font-medium max-w-2xl mx-auto">
-                    Saksikan pengalaman luar biasa dan momen tak terlupakan!
-                </p>
-            </div>
-
-            <!-- Carousel -->
-            <div class="relative group">
-                <div id="testimonialContainer"
-                    class="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 md:pb-8 no-scrollbar items-center px-2 md:px-4">
-                    <!-- Video 1 -->
-                    <div
-                        class="flex-shrink-0 w-[85%] sm:w-[350px] md:w-[450px] h-[200px] sm:h-[280px] md:h-[350px] snap-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-purple-400 hover:ring-opacity-50 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl">
-                        <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/Jn7vuXLozJI"
-                            frameborder="0" allowfullscreen></iframe>
-                    </div>
-
-                    <!-- Video 2 -->
-                    <div
-                        class="flex-shrink-0 w-[85%] sm:w-[350px] md:w-[450px] h-[200px] sm:h-[280px] md:h-[350px] snap-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-purple-400 hover:ring-opacity-50 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl">
-                        <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/Jn7vuXLozJI"
-                            frameborder="0" allowfullscreen></iframe>
-                    </div>
-
-                    <!-- Video 3 -->
-                    <div
-                        class="flex-shrink-0 w-[85%] sm:w-[350px] md:w-[450px] h-[200px] sm:h-[280px] md:h-[350px] snap-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-purple-400 hover:ring-opacity-50 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl">
-                        <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/Jn7vuXLozJI"
-                            frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <!-- Navigasi Button -->
-                <div class="hidden md:flex absolute inset-y-0 w-full justify-between items-center px-4">
-                    <button id="prevBtn"
-                        class="bg-white/70 hover:bg-white/90 rounded-full p-3 shadow-lg transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-gray-800"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button id="nextBtn"
-                        class="bg-white/70 hover:bg-white/90 rounded-full p-3 shadow-lg transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-gray-800"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </section> --}}
-        {{-- End Video --}}
     </section>
 
     <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>

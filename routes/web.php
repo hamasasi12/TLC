@@ -259,6 +259,10 @@ Route::get('/sertifikasi', function () {
     return view('userDashboard.sertifikasi');
 })->name('sertifikasi');
 
+Route::get('/viewslama', function () {
+    return view('viewslamaDA');
+})->name('viewslama');
+
 Route::get('/transaksi', function () {
     return view('userDashboard.transaksi');
 })->name('transaksi');
