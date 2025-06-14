@@ -2,7 +2,7 @@
 @section('title', 'Teaching & Learning Certification')
 
 @section('content')
-
+    @php use Vinkla\Hashids\Facades\Hashids; @endphp
     <section class="bg-abu">
 
         {{-- Main Tampilan Awal --}}
