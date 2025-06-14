@@ -1,11 +1,16 @@
 <?php
 
 use App\Exports\AsesiExport;
+use App\Exports\UsersExport;
 use App\Exports\AsesorExport;
 use App\Exports\ResultExamsAExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Http\Request;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\Admin\ResultExamsA;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Asesi\ExamController;
@@ -17,23 +22,44 @@ use App\Http\Controllers\Admin\LevelCController;
 use App\Http\Controllers\Asesi\ProfileController;
 use App\Http\Controllers\Asesi\SertifikasiController;
 use App\Http\Controllers\Asesi\TransactionController;
+use App\Http\Controllers\Admin\ResultExamsAController;
 use App\Http\Controllers\Admin\AdminSettingsController;
 use App\Http\Controllers\Admin\LevelSettingsController;
 use App\Http\Controllers\Admin\PaymentDetailController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Asesi\AsesiDashboardController;
 use App\Http\Controllers\Asesor\AsesorDashboardController;
-use App\Exports\UsersExport;
-use Maatwebsite\Excel\Facades\Excel;
-
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
-use App\Http\Controllers\Admin\ResultExamsA;
-use App\Http\Controllers\Admin\ResultExamsAController;
 
 Route::get('register2', function () {
     return view('register2');
 })->name('register2');
+
+// SETELAH PRODUCTION JANGAN LUPA DIHAPUS ROUTE INI 
+Route::get('/permission', function () {
+    return view('permission');
+})->middleware(['auth'])->name('permission');
+
+// SETELAH PRODUCTION JANGAN LUPA DIHAPUS ROUTE INI 
+Route::post('/permission', function (Request $request) {
+    $permission = $request->input('permission');
+    $user = Auth::user();
+
+    if (!$user->hasPermissionTo($permission)) {
+        $user->givePermissionTo($permission);
+    }
+    Alert::success("Permission '$permission' diberikan.");
+
+    if(Auth::user()->hasRole('admin')) {
+        return redirect()->route('admin.dashboard');
+    } else if(Auth::user()->hasRole('asesor')) {
+        return redirect()->route('asesor.dashboard');
+    } else if(Auth::user()->hasRole('asesi')) {
+        return redirect()->route('asesi.dashboard');
+    }
+})->middleware(['auth'])->name('assign.permission');
 
 // GUEST
 Route::middleware('guest')->group(function () {
@@ -258,6 +284,10 @@ Route::get('/index', function () {
 Route::get('/sertifikasi', function () {
     return view('userDashboard.sertifikasi');
 })->name('sertifikasi');
+
+Route::get('/viewslama', function () {
+    return view('viewslamaDA');
+})->name('viewslama');
 
 Route::get('/transaksi', function () {
     return view('userDashboard.transaksi');

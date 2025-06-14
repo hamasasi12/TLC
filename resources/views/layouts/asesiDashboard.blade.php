@@ -15,229 +15,97 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+<style>
+    .rotate-180 {
+        transform: rotate(180deg);
+    }
+</style>
 
 <body>
     <header class="mb-16">
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
-            * {
-                font-family: 'Inter', sans-serif;
-            }
-
-            .glass-effect {
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
-
-            .nav-link {
-                position: relative;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .nav-link::before {
-                content: '';
-                position: absolute;
-                bottom: -6px;
-                left: 50%;
-                width: 0;
-                height: 2px;
-                background: linear-gradient(90deg, #1D4E89 0%, #667eea 100%);
-                border-radius: 2px;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                transform: translateX(-50%);
-            }
-
-            .nav-link.active::before,
-            .nav-link:hover::before {
-                width: 100%;
-            }
-
-            .nav-link:hover {
-                transform: translateY(-1px);
-                color: #1D4E89;
-            }
-
-            .logo-glow {
-                filter: drop-shadow(0 0 15px rgba(29, 78, 137, 0.2));
-                transition: all 0.3s ease;
-            }
-
-            .logo-glow:hover {
-                filter: drop-shadow(0 0 20px rgba(29, 78, 137, 0.4));
-                transform: scale(1.03);
-            }
-
-            .notification-pulse {
-                animation: pulse 2s infinite;
-            }
-
-            @keyframes pulse {
-
-                0%,
-                100% {
-                    transform: scale(1);
-                    opacity: 1;
-                }
-
-                50% {
-                    transform: scale(1.1);
-                    opacity: 0.8;
-                }
-            }
-
-            .dropdown-enter {
-                animation: dropdownEnter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            @keyframes dropdownEnter {
-                0% {
-                    opacity: 0;
-                    transform: translateY(-10px) scale(0.95);
-                }
-
-                100% {
-                    opacity: 1;
-                    transform: translateY(0) scale(1);
-                }
-            }
-
-            .mobile-menu-enter {
-                animation: mobileMenuSlide 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            @keyframes mobileMenuSlide {
-                0% {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .gradient-text {
-                background: linear-gradient(135deg, #1D4E89 0%, #667eea 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-
-            .hover-glow:hover {
-                box-shadow: 0 6px 20px rgba(29, 78, 137, 0.12);
-                transform: translateY(-1px);
-            }
-
-            .profile-ring {
-                background: linear-gradient(135deg, #1D4E89, #667eea);
-                padding: 2px;
-                border-radius: 50%;
-                transition: all 0.3s ease;
-            }
-
-            .profile-ring:hover {
-                transform: scale(1.05);
-                box-shadow: 0 4px 15px rgba(29, 78, 137, 0.2);
-            }
-
-            .welcome-card {
-                background: linear-gradient(135deg, rgba(29, 78, 137, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%);
-                border: 1px solid rgba(29, 78, 137, 0.2);
-                transition: all 0.3s ease;
-            }
-
-            .welcome-card:hover {
-                background: linear-gradient(135deg, rgba(29, 78, 137, 0.15) 0%, rgba(102, 126, 234, 0.15) 100%);
-                transform: translateY(-1px);
-                box-shadow: 0 4px 15px rgba(29, 78, 137, 0.08);
-            }
-
-            .nav-active {
-                color: #1D4E89 !important;
-                font-weight: 700 !important;
-            }
-
-            .mobile-toggle {
-                background: rgba(255, 255, 255, 0.9);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(29, 78, 137, 0.1);
-                transition: all 0.3s ease;
-            }
-
-            .mobile-toggle:hover {
-                background: rgba(255, 255, 255, 1);
-                transform: scale(1.05);
-                box-shadow: 0 4px 15px rgba(29, 78, 137, 0.2);
-            }
-        </style>
-
-        <nav class="fixed w-full z-20 top-0 start-0 glass-effect shadow-lg border-b border-white/20 overflow-visible">
+        <nav
+            class="fixed w-full z-20 top-0 start-0 bg-white/95 backdrop-blur-[20px] shadow-lg border-b border-white/20 overflow-visible">
             <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-3 px-4 lg:px-8">
-
-                <!-- Enhanced Brand Section -->
-                <div class="flex items-center space-x-3 group">
-                    <div class="relative">
+                <!-- Brand Section -->
+                <div class="flex items-center space-x-2 sm:space-x-3 group flex-1 min-w-0 lg:flex-none">
+                    <div class="relative flex-shrink-0">
                         <img src="{{ asset('assets/img/tlc.png') }}"
-                            class="h-10 w-10 md:h-12 md:w-12 rounded-lg logo-glow" alt="TLC Logo">
+                            class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-lg drop-shadow-[0_0_15px_rgba(29,78,137,0.2)] transition-all duration-300 group-hover:drop-shadow-[0_0_20px_rgba(29,78,137,0.4)] group-hover:scale-103"
+                            alt="TLC Logo">
                     </div>
-                    <div class="select-none">
-                        <h1 class="text-lg md:text-2xl font-black gradient-text tracking-tight capitalize">
+                    <div class="select-none min-w-0 flex-1 lg:flex-none">
+                        <h1
+                            class="text-sm sm:text-lg md:text-2xl font-black bg-gradient-to-br from-[#1D4E89] to-[#667eea] bg-clip-text text-transparent tracking-tight capitalize truncate">
                             TLC Program
                         </h1>
-                        <p class="text-xs text-slate-600 font-medium tracking-wide capitalize">
+                        <p class="text-[10px] sm:text-xs text-slate-600 font-medium tracking-wide capitalize truncate">
                             Teaching & Learning Certification
                         </p>
                     </div>
                 </div>
 
-                <!-- Enhanced Mobile Menu Toggle -->
-                <div class="lg:hidden">
+                <!-- Mobile Menu Toggle -->
+                <div class="lg:hidden flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
+                    <!-- Notification Icon for Mobile -->
+                    <div class="relative">
+                        <button
+                            class="p-1.5 sm:p-2 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 hover:bg-white/80 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500/20">
+                            <svg class="h-4 w-4 sm:h-5 sm:w-5 text-gray-700" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14V11a6 6 0 10-12 0v3c0 .386-.149.757-.405 1.035L4 17h5m6 0a3 3 0 11-6 0">
+                                </path>
+                            </svg>
+                            <span
+                                class="absolute -top-1 -right-1 sm:-top-1.5 sm:-right-1.5 bg-gradient-to-r from-red-500 to-pink-500 text-white text-[10px] sm:text-xs font-bold rounded-full px-1 sm:px-1.5 py-0.5 shadow-lg animate-pulse">
+                                3
+                            </span>
+                        </button>
+                    </div>
                     <button id="mobile-menu-toggle"
-                        class="mobile-toggle p-2.5 rounded-lg text-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-500/20">
-                        <svg id="hamburger-icon" class="h-5 w-5 transition-transform duration-300" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
+                        class="p-2 sm:p-2.5 rounded-lg bg-white/90 backdrop-blur-[10px] border border-[#1D4E89]/10 hover:bg-white hover:scale-105 transition-all duration-300 text-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-500/20">
+                        <svg id="hamburger-icon" class="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
-                        <svg id="close-icon" class="h-5 w-5 transition-transform duration-300 hidden" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
+                        <svg id="close-icon" class="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 hidden"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
 
-                <!-- Enhanced Navigation Menu -->
-                <div id="mobile-menu"
-                    class="hidden lg:flex fixed lg:static inset-x-0 top-16 lg:top-0 glass-effect lg:bg-transparent pb-4 lg:pb-0 border-b border-white/20 lg:border-0 mx-4 lg:mx-0 rounded-xl lg:rounded-none">
-                    <div
-                        class="container mx-auto px-4 lg:px-0 flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6 py-3 lg:py-0">
-                        <a href="{{ route('asesi.dashboard') }}"
-                            class="nav-link text-base font-semibold transition-all duration-300 {{ request()->routeIs('asesi.dashboard') ? 'nav-active' : 'text-gray-600 hover:text-[#1D4E89]' }}">
-                            Dashboard
-                        </a>
+                <!-- Navigation Menu for Desktop - Centered -->
+                <div class="hidden lg:flex items-center justify-center space-x-6 flex-1">
+                    <a href="{{ route('asesi.dashboard') }}"
+                        class="nav-link text-base font-semibold transition-all duration-300 relative {{ request()->routeIs('asesi.dashboard') ? 'text-[#1D4E89] font-bold' : 'text-gray-600 hover:text-[#1D4E89]' }}">
+                        Dashboard
+                        <span
+                            class="{{ request()->routeIs('asesi.dashboard') ? 'absolute bottom-[-6px] left-1/2 w-full h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2' : 'absolute bottom-[-6px] left-1/2 w-0 h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2 group-hover:w-full' }}"></span>
+                    </a>
 
-                        <a href="{{ route('asesi.sertifikasi') }}"
-                            class="nav-link text-base font-semibold transition-all duration-300 {{ request()->routeIs('asesi.sertifikasi') ? 'nav-active' : 'text-gray-600 hover:text-[#1D4E89]' }}">
-                            Sertifikasi
-                        </a>
+                    <a href="{{ route('asesi.sertifikasi') }}"
+                        class="nav-link text-base font-semibold transition-all duration-300 relative {{ request()->routeIs('asesi.sertifikasi') ? 'text-[#1D4E89] font-bold' : 'text-gray-600 hover:text-[#1D4E89]' }}">
+                        Sertifikasi
+                        <span
+                            class="{{ request()->routeIs('asesi.sertifikasi') ? 'absolute bottom-[-6px] left-1/2 w-full h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2' : 'absolute bottom-[-6px] left-1/2 w-0 h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2 group-hover:w-full' }}"></span>
+                    </a>
 
-                        <a href="{{ route('asesi.transaksi') }}"
-                            class="nav-link text-base font-semibold transition-all duration-300 {{ request()->routeIs('asesi.transaksi') ? 'nav-active' : 'text-gray-600 hover:text-[#1D4E89]' }}">
-                            Transaksi
-                        </a>
-                    </div>
+                    <a href="{{ route('asesi.transaksi') }}"
+                        class="nav-link text-base font-semibold transition-all duration-300 relative {{ request()->routeIs('asesi.transaksi') ? 'text-[#1D4E89] font-bold' : 'text-gray-600 hover:text-[#1D4E89]' }}">
+                        Transaksi
+                        <span
+                            class="{{ request()->routeIs('asesi.transaksi') ? 'absolute bottom-[-6px] left-1/2 w-full h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2' : 'absolute bottom-[-6px] left-1/2 w-0 h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2 group-hover:w-full' }}"></span>
+                    </a>
                 </div>
 
-                <!-- Enhanced User Interaction -->
-                <div class="hidden lg:flex items-center space-x-4">
-
-                    <!-- Enhanced Welcome Message -->
-                    <div class="welcome-card hover-glow rounded-lg px-3 py-2">
+                <!-- Right Section (Profile & Notifications) for Desktop -->
+                <div class="hidden lg:flex items-center space-x-4 flex-shrink-0">
+                    <!-- Welcome Message -->
+                    <div
+                        class="bg-gradient-to-br from-[#1D4E89]/10 to-[#667eea]/10 border border-[#1D4E89]/20 hover:bg-gradient-to-br hover:from-[#1D4E89]/15 hover:to-[#667eea]/15 hover:translate-y-[-1px] hover:shadow-[0_4px_15px_rgba(29,78,137,0.08)] rounded-lg px-3 py-2 transition-all duration-300">
                         <div class="flex items-center space-x-2">
                             <div class="relative">
                                 <svg class="h-5 w-5 text-[#1D4E89]" fill="none" stroke="currentColor"
@@ -257,7 +125,7 @@
                         </div>
                     </div>
 
-                    <!-- Enhanced Notification -->
+                    <!-- Notification -->
                     <div class="relative">
                         <button
                             class="p-2.5 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 hover:bg-white/80 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500/20">
@@ -268,16 +136,17 @@
                             </svg>
                         </button>
                         <span
-                            class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full px-1.5 py-0.5 notification-pulse shadow-lg">
+                            class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full px-1.5 py-0.5 shadow-lg animate-pulse">
                             3
                         </span>
                     </div>
 
-                    <!-- Enhanced Profile -->
+                    <!-- Profile Dropdown -->
                     <div class="relative">
                         <button id="profile-button-asesi"
                             class="flex items-center space-x-2 p-1.5 rounded-xl hover:bg-white/50 backdrop-blur-sm transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500/20">
-                            <div class="profile-ring">
+                            <div
+                                class="p-[2px] bg-gradient-to-br from-[#1D4E89] to-[#667eea] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_15px_rgba(29,78,137,0.2)]">
                                 <img src="{{ asset('storage/' . (Auth::user()->userProfile->profile_image ?? 'blankProfile.png')) }}"
                                     alt="Profile Image" class="w-9 h-9 rounded-full object-cover">
                             </div>
@@ -289,9 +158,9 @@
                             </svg>
                         </button>
 
-                        <!-- Enhanced Dropdown -->
+                        <!-- Dropdown Menu -->
                         <div id="profile-menu-asesi"
-                            class="absolute right-0 top-12 mt-2 w-48 glass-effect rounded-xl shadow-xl border border-white/20 hidden dropdown-enter overflow-hidden z-50">
+                            class="absolute right-0 top-12 mt-2 w-48 bg-white/95 backdrop-blur-[20px] rounded-xl shadow-xl border border-white/20 hidden overflow-hidden z-[999]">
                             <div class="py-2">
                                 <a href="{{ route('asesi.profile') }}"
                                     class="flex items-center space-x-3 px-4 py-3 transition-all duration-300 group {{ request()->routeIs('asesi.profile') ? 'text-[#1D4E89] font-bold bg-gradient-to-r from-blue-50 to-purple-50' : 'text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-[#1D4E89]' }}">
@@ -357,77 +226,148 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Navigation Menu for Mobile -->
+                <div id="mobile-menu"
+                    class="lg:hidden fixed inset-x-0 top-16 bg-white/95 backdrop-blur-[20px] border border-gray-200/50 mx-4 rounded-2xl shadow-xl transition-all duration-300 overflow-hidden opacity-0 -translate-y-4 pointer-events-none z-50 lg:opacity-100 lg:translate-y-0 lg:pointer-events-auto lg:static lg:flex lg:bg-transparent lg:border-0 lg:mx-0 lg:rounded-none lg:shadow-none">
+                    <div
+                        class="container mx-auto px-6 lg:px-0 flex flex-col lg:flex-row items-center space-y-1 lg:space-y-0 lg:space-x-6 py-6 lg:py-0">
+                        <a href="{{ route('asesi.dashboard') }}"
+                            class="nav-link w-full lg:w-auto text-center lg:text-left px-4 py-3 lg:p-0 text-base font-semibold rounded-xl lg:rounded-none transition-all duration-300 relative {{ request()->routeIs('asesi.dashboard') ? 'text-[#1D4E89] font-bold bg-blue-50/50 lg:bg-transparent' : 'text-gray-600 hover:text-[#1D4E89] hover:bg-gray-50/50 lg:hover:bg-transparent' }}">
+                            Dashboard
+                            <span
+                                class="{{ request()->routeIs('asesi.dashboard') ? 'absolute bottom-[-6px] left-1/2 w-full h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2' : 'absolute bottom-[-6px] left-1/2 w-0 h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2 group-hover:w-full' }}"></span>
+                        </a>
+
+                        <a href="{{ route('asesi.sertifikasi') }}"
+                            class="nav-link w-full lg:w-auto text-center lg:text-left px-4 py-3 lg:p-0 text-base font-semibold rounded-xl lg:rounded-none transition-all duration-300 relative {{ request()->routeIs('asesi.sertifikasi') ? 'text-[#1D4E89] font-bold bg-blue-50/50 lg:bg-transparent' : 'text-gray-600 hover:text-[#1D4E89] hover:bg-gray-50/50 lg:hover:bg-transparent' }}">
+                            Sertifikasi
+                            <span
+                                class="{{ request()->routeIs('asesi.sertifikasi') ? 'absolute bottom-[-6px] left-1/2 w-full h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2' : 'absolute bottom-[-6px] left-1/2 w-0 h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2 group-hover:w-full' }}"></span>
+                        </a>
+
+                        <a href="{{ route('asesi.transaksi') }}"
+                            class="nav-link w-full lg:w-auto text-center lg:text-left px-4 py-3 lg:p-0 text-base font-semibold rounded-xl lg:rounded-none transition-all duration-300 relative {{ request()->routeIs('asesi.transaksi') ? 'text-[#1D4E89] font-bold bg-blue-50/50 lg:bg-transparent' : 'text-gray-600 hover:text-[#1D4E89] hover:bg-gray-50/50 lg:hover:bg-transparent' }}">
+                            Transaksi
+                            <span
+                                class="{{ request()->routeIs('asesi.transaksi') ? 'absolute bottom-[-6px] left-1/2 w-full h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2' : 'absolute bottom-[-6px] left-1/2 w-0 h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2 group-hover:w-full' }}"></span>
+                        </a>
+
+                        <a href="{{ route('asesi.profile') }}"
+                            class="nav-link w-full lg:w-auto text-center lg:text-left px-4 py-3 lg:p-0 text-base font-semibold rounded-xl lg:rounded-none transition-all duration-300 relative {{ request()->routeIs('asesi.profile') ? 'text-[#1D4E89] font-bold bg-blue-50/50 lg:bg-transparent' : 'text-gray-600 hover:text-[#1D4E89] hover:bg-gray-50/50 lg:hover:bg-transparent' }}">
+                            Profile
+                            <span
+                                class="{{ request()->routeIs('asesi.profile') ? 'absolute bottom-[-6px] left-1/2 w-full h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2' : 'absolute bottom-[-6px] left-1/2 w-0 h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2 group-hover:w-full' }}"></span>
+                        </a>
+
+                        <a href="{{ route('asesi.profile') }}"
+                            class="nav-link w-full lg:w-auto text-center lg:text-left px-4 py-3 lg:p-0 text-base font-semibold rounded-xl lg:rounded-none transition-all duration-300 relative {{ request()->routeIs('asesi.profile') ? 'text-[#1D4E89] font-bold bg-blue-50/50 lg:bg-transparent' : 'text-gray-600 hover:text-[#1D4E89] hover:bg-gray-50/50 lg:hover:bg-transparent' }}">
+                            Sertifikat Saya
+                            <span
+                                class="{{ request()->routeIs('asesi.profile') ? 'absolute bottom-[-6px] left-1/2 w-full h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2' : 'absolute bottom-[-6px] left-1/2 w-0 h-[2px] bg-gradient-to-r from-[#1D4E89] to-[#667eea] rounded-[2px] transition-all duration-300 transform -translate-x-1/2 group-hover:w-full' }}"></span>
+                        </a>
+
+                        <form method="POST" action="{{ route('logout') }}" class="w-full">
+                            @csrf
+                            <button type="submit"
+                                class="nav-link w-full lg:w-auto text-center lg:text-left px-4 py-3 lg:p-0 text-base font-semibold rounded-xl lg:rounded-none transition-all duration-300 relative text-red-500 hover:text-red-600 hover:bg-red-50/50 lg:hover:bg-transparent group">
+                                Logout
+                                <span
+                                    class="absolute bottom-[-6px] left-1/2 w-0 h-[2px] bg-gradient-to-r from-red-400 to-red-600 rounded-[2px] transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </nav>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Enhanced mobile menu toggle
-                const mobileToggle = document.getElementById('mobile-menu-toggle');
+            document.addEventListener('DOMContentLoaded', function() {
+                // Mobile menu toggle functionality
+                const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
                 const mobileMenu = document.getElementById('mobile-menu');
                 const hamburgerIcon = document.getElementById('hamburger-icon');
                 const closeIcon = document.getElementById('close-icon');
 
-                mobileToggle.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('hidden');
-                    hamburgerIcon.classList.toggle('hidden');
-                    closeIcon.classList.toggle('hidden');
+                if (mobileMenuToggle && mobileMenu) {
+                    mobileMenuToggle.addEventListener('click', function() {
+                        // Check if menu is currently hidden
+                        const isHidden = mobileMenu.classList.contains('opacity-0');
 
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('mobile-menu-enter');
-                        setTimeout(() => {
-                            mobileMenu.classList.remove('mobile-menu-enter');
-                        }, 300);
-                    }
-                });
+                        if (isHidden) {
+                            // Show menu
+                            mobileMenu.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+                            mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
 
-                // Enhanced profile dropdown with arrow animation
-                const profileButton = document.getElementById("profile-button-asesi");
-                const profileMenu = document.getElementById("profile-menu-asesi");
-                const profileArrow = document.getElementById("profile-arrow");
+                            // Switch icons
+                            hamburgerIcon.classList.add('hidden');
+                            closeIcon.classList.remove('hidden');
+                        } else {
+                            // Hide menu
+                            mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                            mobileMenu.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
 
-                profileButton.addEventListener("click", function(event) {
-                    event.stopPropagation();
-                    profileMenu.classList.toggle("hidden");
+                            // Switch icons
+                            hamburgerIcon.classList.remove('hidden');
+                            closeIcon.classList.add('hidden');
+                        }
+                    });
 
-                    // Animate arrow
-                    if (profileMenu.classList.contains('hidden')) {
-                        profileArrow.style.transform = 'rotate(0deg)';
-                    } else {
-                        profileArrow.style.transform = 'rotate(180deg)';
-                        profileMenu.classList.add('dropdown-enter');
-                        setTimeout(() => {
-                            profileMenu.classList.remove('dropdown-enter');
-                        }, 300);
-                    }
-                });
+                    // Close mobile menu when clicking outside
+                    document.addEventListener('click', function(event) {
+                        if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                            // Hide menu
+                            mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                            mobileMenu.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
 
-                // Close dropdown when clicking outside
-                document.addEventListener("click", function(event) {
-                    if (!profileMenu.contains(event.target) && !profileButton.contains(event.target)) {
-                        profileMenu.classList.add("hidden");
-                        profileArrow.style.transform = 'rotate(0deg)';
-                    }
-                });
+                            // Reset icons
+                            hamburgerIcon.classList.remove('hidden');
+                            closeIcon.classList.add('hidden');
+                        }
+                    });
+                }
 
-                // Close mobile menu on window resize
-                window.addEventListener('resize', function() {
-                    if (window.innerWidth >= 1024) {
-                        mobileMenu.classList.remove('hidden');
-                        hamburgerIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                    }
-                });
+                // Profile dropdown functionality
+                const profileButton = document.getElementById('profile-button-asesi');
+                const profileMenu = document.getElementById('profile-menu-asesi');
+                const profileArrow = document.getElementById('profile-arrow');
 
-                // Add active state animations for navigation links
+                if (profileButton && profileMenu) {
+                    profileButton.addEventListener('click', function() {
+                        profileMenu.classList.toggle('hidden');
+                        profileArrow.classList.toggle('rotate-180');
+                    });
+
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', function(event) {
+                        if (!profileButton.contains(event.target)) {
+                            profileMenu.classList.add('hidden');
+                            profileArrow.classList.remove('rotate-180');
+                        }
+                    });
+                }
+
+                // Close mobile menu when a nav link is clicked (for better UX)
                 const navLinks = document.querySelectorAll('.nav-link');
                 navLinks.forEach(link => {
-                    if (link.classList.contains('nav-active')) {
-                        link.classList.add('active');
-                    }
+                    link.addEventListener('click', function() {
+                        // Check if we're in mobile view and menu is open
+                        if (window.innerWidth < 1024 && !mobileMenu.classList.contains('opacity-0')) {
+                            // Hide menu
+                            mobileMenu.classList.remove('opacity-100', 'translate-y-0',
+                                'pointer-events-auto');
+                            mobileMenu.classList.add('opacity-0', '-translate-y-4',
+                                'pointer-events-none');
+
+                            // Reset icons
+                            hamburgerIcon.classList.remove('hidden');
+                            closeIcon.classList.add('hidden');
+                        }
+                    });
                 });
             });
         </script>
+
     </header>
 
     <main>
@@ -584,15 +524,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
     </footer>
 
-    <style>
-        #profile-menu-asesi {
-            position: absolute;
-            z-index: 999;
-            top: 100%;
-            right: 0;
-            will-change: transform;
-        }
-    </style>
     @livewireScripts
 </body>
 

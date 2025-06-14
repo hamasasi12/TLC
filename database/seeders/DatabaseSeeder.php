@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
         $user->assignRole('asesi');
-        $user->givePermissionTo(('access_level_A'));
+        // $user->givePermissionTo(('access_level_A'));
 
 
         $admin = User::factory()->create([
@@ -45,7 +45,6 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
         $admin->assignRole('admin');
-        $user->givePermissionTo('access_level_A');
 
         AdminsProfile::create([
             'user_id' => $admin->id,

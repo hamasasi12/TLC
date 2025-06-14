@@ -107,7 +107,7 @@
                     @else
                         <livewire:component.button-certificate status="sedang_berjalan">
                     @endif
-                @else                                                                                                                                           
+                @else
                     {{-- <livewire:component.button-status-badge status="belum_tersedia" /> --}}
                     <livewire:component.button-certificate status="belum_tersedia">
                 @endif
@@ -167,8 +167,16 @@
                 </div>
             </div>
 
-            {{-- <p class="text-sm text-gray-500 italic mb-6">Unggah modul & isi kuisioner</p> --}}
-            <p class="text-sm text-gray-500 italic mb-6">Belum dibuka - menunggu Level A selesai</p>
+            @if (Auth::user()->hasPermissionTo('level_A_completed'))
+                <p class="text-sm text-gray-500 italic mb-6">
+                    Belum dibuka - Lakukan pembayaran terlebih dahulu
+                    <a href="{{ route('payments.create', 2) }}" class="text-blue-600 underline hover:text-blue-800">
+                        disini
+                    </a>
+                </p>
+            @else
+                <p class="text-sm text-gray-500 italic mb-6">Belum dibuka - menunggu Level A selesai</p>
+            @endif
 
             <div class="flex gap-3">
                 @if ($hasAccessB)
