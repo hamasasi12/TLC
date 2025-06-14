@@ -263,7 +263,7 @@
                                                         clip-rule="evenodd" />
                                                 </svg>
                                             </button>
-                                        @else
+                                            {{-- @else
                                             <input type="hidden" name="next_question"
                                                 value="{{ $questions->currentPage() }}">
                                             <button type="submit"
@@ -273,7 +273,36 @@
                                                 </div>
                                                 <span class="relative z-10">Simpan Jawaban</span>
                                             </button>
+                                        @endif --}}
+                                        @else
+                                            <input type="hidden" name="next_question"
+                                                value="{{ $questions->currentPage() }}">
+
+                                            @if ($answeredQuestions == $totalQuestions)
+                                                <form action="{{ route('asesi.sertifikasi.level.a.finish', $exam) }}"
+                                                    method="POST" id="finishExamForm" class="flex-1 sm:flex-none">
+                                                    @csrf
+                                                    <button type="button" onclick="confirmFinish()"
+                                                        class="group relative overflow-hidden w-full flex items-center justify-center bg-gradient-to-r from-[#90BE6D] to-[#3A6EA5] hover:from-[#7FA85C] hover:to-[#2E5A8A] text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                                                        <div
+                                                            class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700">
+                                                        </div>
+                                                        <span class="relative z-10 hidden sm:inline">Selesaikan
+                                                            Ujian</span>
+                                                        <span class="relative z-10 sm:hidden">Selesai</span>
+                                                    </button>
+                                                </form>
+                                            @else
+                                                <button type="submit"
+                                                    class="group relative overflow-hidden flex-1 sm:flex-none bg-gradient-to-r from-[#3A6EA5] to-[#90BE6D] hover:from-[#2E5A8A] hover:to-[#7FA85C] text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                                                    <div
+                                                        class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700">
+                                                    </div>
+                                                    <span class="relative z-10">Simpan Jawaban</span>
+                                                </button>
+                                            @endif
                                         @endif
+
                                     </div>
                                 </div>
                             </form>
