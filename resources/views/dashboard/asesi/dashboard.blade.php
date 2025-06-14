@@ -1078,7 +1078,7 @@
                                 <div>
                                     <div class="mb-6">
                                         <span
-                                            class="inline-flex items-center px-4 py-2 bg-white/20 text-black text-sm font-bold rounded-full glass-effect">
+                                            class="inline-flex items-center px-4 py-2 bg-white/20 text-gray-700 text-sm font-bold rounded-full glass-effect">
                                             LEVEL A
                                         </span>
                                     </div>
@@ -1119,7 +1119,7 @@
                                         @if ($user->hasPermissionTo('access_level_A'))
                                             <button onclick="document.getElementById('modalA').classList.remove('hidden')"
                                                 class="bg-white text-orange-500 px-6 py-3 font-bold rounded-xl hover:bg-orange-50 transition-all  shadow-lg">
-                                                Mulai Sekarang
+                                                Detail Program
                                             </button>
                                         @else
                                             <button onclick="document.getElementById('modalA').classList.remove('hidden')"
@@ -1148,7 +1148,7 @@
                                 <div>
                                     <div class="mb-6">
                                         <span
-                                            class="inline-flex items-center px-4 py-2 bg-white/20 text-black text-sm font-bold rounded-full glass-effect">
+                                            class="inline-flex items-center px-4 py-2 bg-white/20 text-gray-700 text-sm font-bold rounded-full glass-effect">
                                             LEVEL B
                                         </span>
                                     </div>
@@ -1183,10 +1183,17 @@
                                             </span>
                                             <span class="block text-sm text-white/70">Per sertifikasi</span>
                                         </div> --}}
-                                        <button onclick="document.getElementById('modalB').classList.remove('hidden')"
-                                            class="bg-white text-blue-600 px-6 py-3 font-bold rounded-xl hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg">
-                                            Detail Program
-                                        </button>
+                                        @if ($user->hasPermissionTo('level_A_completed'))
+                                            <button onclick="document.getElementById('modalB').classList.remove('hidden')"
+                                                class="bg-white text-blue-600 px-6 py-3 font-bold rounded-xl hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg">
+                                                Mulai Sekarang
+                                            </button>
+                                        @else
+                                            <button onclick="document.getElementById('modalB').classList.remove('hidden')"
+                                                class="bg-white text-blue-600 px-6 py-3 font-bold rounded-xl hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg">
+                                                Detail Program
+                                            </button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -1220,7 +1227,7 @@
                                 <div>
                                     <div class="mb-6">
                                         <span
-                                            class="inline-flex items-center px-4 py-2 bg-white/20 text-black text-sm font-bold rounded-full glass-effect">
+                                            class="inline-flex items-center px-4 py-2 bg-white/20 text-gray-700 text-sm font-bold rounded-full glass-effect">
                                             LEVEL C
                                         </span>
                                     </div>
@@ -1646,10 +1653,18 @@
                         </div>
                         @switch($level)
                             @case('A')
-                                <a href="{{ route('payments.create', $levels[0]->id) }}"
-                                    class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] hover:from-[#E76F51] hover:to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105">
-                                    Daftar Sekarang
-                                </a>
+                                @if ($user->hasPermissionTo('access_level_A'))
+                                    <button
+                                        class="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold shadow-lg cursor-not-allowed"
+                                        disabled>
+                                        Sudah Terdaftar
+                                    </button>
+                                @else
+                                    <a href="{{ route('payments.create', $levels[0]->id) }}"
+                                        class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] hover:from-[#E76F51] hover:to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105">
+                                        Daftar Sekarang
+                                    </a>
+                                @endif
                             @break
 
                             @case('B')
