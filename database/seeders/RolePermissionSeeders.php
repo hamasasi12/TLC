@@ -51,7 +51,8 @@ class RolePermissionSeeders extends Seeder
             'ESSAY',
             'VIDEO_UPLOAD',
             'YES_NO_QUESTIONS',
-            'EXPIRED_KATEGORY'
+            'EXPIRED_KATEGORY',
+            'MODUL_AJAR'
         ];
 
         foreach($permission_kategories as $permission_k) {

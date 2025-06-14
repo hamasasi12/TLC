@@ -26,6 +26,7 @@
         'VIDEO_UPLOAD',
         'YES_NO_QUESTIONS',
         'EXPIRED_KATEGORY',
+        'MODUL_AJAR'
     ];
 @endphp
 
