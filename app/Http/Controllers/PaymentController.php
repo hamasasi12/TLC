@@ -163,12 +163,12 @@ class PaymentController extends Controller
         $payment = Payment::findOrFail($id);
 
         // Pastikan payment milik user yang login
-        if ($payment->user_id !== Auth::id()) {
+        if ($payment->user_id != Auth::id()) {
             abort(403);
         }
 
         // Pastikan status masih pending
-        if ($payment->status !== 'pending') {
+        if ($payment->status != 'pending') {
             return redirect()->route('payments.detail', $id)
                 ->with('error', 'Pembayaran ini sudah diproses sebelumnya');
         }
@@ -308,7 +308,7 @@ class PaymentController extends Controller
     {
         $payment = Payment::findOrFail($id);
 
-        if ($payment->user_id !== Auth::id()) {
+        if ($payment->user_id != Auth::id()) {
             abort(403);
         }
 
