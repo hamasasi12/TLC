@@ -27,13 +27,13 @@
             class="fixed w-full z-20 top-0 start-0 bg-white/95 backdrop-blur-[20px] shadow-lg border-b border-white/20 overflow-visible">
             <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-3 px-4 lg:px-8">
                 <!-- Brand Section -->
-                <div class="flex items-center space-x-2 sm:space-x-3 group flex-1 min-w-0">
+                <div class="flex items-center space-x-2 sm:space-x-3 group flex-1 min-w-0 lg:flex-none">
                     <div class="relative flex-shrink-0">
                         <img src="{{ asset('assets/img/tlc.png') }}"
                             class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-lg drop-shadow-[0_0_15px_rgba(29,78,137,0.2)] transition-all duration-300 group-hover:drop-shadow-[0_0_20px_rgba(29,78,137,0.4)] group-hover:scale-103"
                             alt="TLC Logo">
                     </div>
-                    <div class="select-none min-w-0 flex-1">
+                    <div class="select-none min-w-0 flex-1 lg:flex-none">
                         <h1
                             class="text-sm sm:text-lg md:text-2xl font-black bg-gradient-to-br from-[#1D4E89] to-[#667eea] bg-clip-text text-transparent tracking-tight capitalize truncate">
                             TLC Program
@@ -77,8 +77,8 @@
                     </button>
                 </div>
 
-                <!-- Navigation Menu for Desktop -->
-                <div class="hidden lg:flex items-center space-x-6 mr-8">
+                <!-- Navigation Menu for Desktop - Centered -->
+                <div class="hidden lg:flex items-center justify-center space-x-6 flex-1">
                     <a href="{{ route('asesi.dashboard') }}"
                         class="nav-link text-base font-semibold transition-all duration-300 relative {{ request()->routeIs('asesi.dashboard') ? 'text-[#1D4E89] font-bold' : 'text-gray-600 hover:text-[#1D4E89]' }}">
                         Dashboard
@@ -101,8 +101,8 @@
                     </a>
                 </div>
 
-                <!-- User Interaction (Desktop) -->
-                <div class="hidden lg:flex items-center space-x-4">
+                <!-- Right Section (Profile & Notifications) for Desktop -->
+                <div class="hidden lg:flex items-center space-x-4 flex-shrink-0">
                     <!-- Welcome Message -->
                     <div
                         class="bg-gradient-to-br from-[#1D4E89]/10 to-[#667eea]/10 border border-[#1D4E89]/20 hover:bg-gradient-to-br hover:from-[#1D4E89]/15 hover:to-[#667eea]/15 hover:translate-y-[-1px] hover:shadow-[0_4px_15px_rgba(29,78,137,0.08)] rounded-lg px-3 py-2 transition-all duration-300">
@@ -226,7 +226,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <!-- Navigation Menu for Mobile -->
                 <div id="mobile-menu"

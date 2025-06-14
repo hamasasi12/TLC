@@ -575,438 +575,6 @@
         </main>
         {{-- End Main Tampilan Awal --}}
 
-        {{-- Apa guru Dapatkan --}}
-        <section class="w-full px-5 py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50" id="manfaat">
-            <div class="container mx-auto max-w-7xl">
-                <!-- Header Section -->
-                <div class="text-center mb-16 animate-fadeIn">
-                    <span
-                        class="text-lg text-[#E76F51] font-semibold inline-block px-6 py-2 bg-orange-100 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 mb-6">
-                        #MANFAAT PROGRAM TLC
-                    </span>
-                    <h2
-                        class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-[#1D4E89] mb-6 hover:scale-105 transition-transform duration-300">
-                        <span class="relative inline-block">
-                            <span class="relative z-10">Apa yang akan</span>
-                            <span class="absolute -bottom-2 left-0 w-full h-3 bg-yellow-300 opacity-50 z-0"></span>
-                        </span>
-                        <br>
-                        <span class="relative inline-block">
-                            <span class="relative z-10">Guru Dapatkan?</span>
-                            <span class="absolute -bottom-2 left-0 w-full h-3 bg-orange-300 opacity-50 z-0"></span>
-                        </span>
-                    </h2>
-                    <p class="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-                        <strong class="text-[#E76F51]">Bukan sekadar sertifikat biasa.</strong> Program komprehensif yang
-                        telah terbukti meningkatkan <span class="font-semibold text-[#1D4E89]">kompetensi dan karir</span>
-                        ratusan pendidik profesional.
-                    </p>
-                </div>
-
-                <!-- Manfaat -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Box 1: Sertifikasi Terakreditasi -->
-                    <div
-                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
-                        <div
-                            class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative overflow-hidden">
-                            <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
-                            <i class="fas fa-award text-white text-2xl group-hover:animate-bounce relative z-10"></i>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-teal-600 transition-colors duration-300">
-                            Sertifikasi Terakreditasi
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Dapatkan sertifikat yang diakui secara nasional untuk meningkatkan kredibilitas profesional Anda
-                        </p>
-                    </div>
-
-                    <!-- Box 2: Kurikulum Terkini -->
-                    <div
-                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
-                        <div
-                            class="bg-gradient-to-br from-blue-400 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative overflow-hidden">
-                            <div class="absolute inset-0 bg-white/20 animate-ping"></div>
-                            <i
-                                class="fas fa-graduation-cap text-white text-2xl group-hover:animate-pulse relative z-10"></i>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-blue-600 transition-colors duration-300">
-                            Kurikulum Terkini
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Akses materi pembelajaran yang selalu diperbaharui sesuai perkembangan dunia pendidikan
-                        </p>
-                    </div>
-
-                    <!-- Box 3: Pengembangan Keterampilan -->
-                    <div
-                        class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl hover-lift border-2 border-[#E76F51]/30 group cursor-pointer relative overflow-hidden">
-                        <div
-                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-200 to-orange-300 rounded-full -translate-y-10 translate-x-10 opacity-30 animate-pulse">
-                        </div>
-                        <div
-                            class="bg-gradient-to-br from-[#E76F51] to-orange-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative z-10 overflow-hidden">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer">
-                            </div>
-                            <i class="fas fa-rocket text-white text-2xl group-hover:animate-spin relative z-10"></i>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-[#E76F51] transition-colors duration-300 relative z-10">
-                            Pengembangan Keterampilan
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed relative z-10">
-                            Kembangkan keterampilan mengajar modern yang relevan dengan kebutuhan siswa di era digital
-                        </p>
-                    </div>
-
-                    <!-- Box 4: Jaringan Profesional -->
-                    <div
-                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
-                        <div
-                            class="bg-gradient-to-br from-orange-400 to-orange-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative overflow-hidden">
-                            <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
-                            <i class="fas fa-users text-white text-2xl group-hover:animate-bounce relative z-10"></i>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-orange-600 transition-colors duration-300">
-                            Jaringan Profesional
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Bergabung dengan komunitas pendidik dari seluruh Indonesia untuk berbagi pengalaman dan praktik
-                            terbaik
-                        </p>
-                    </div>
-
-                    <!-- Box 5: Peningkatan Karir -->
-                    <div
-                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
-                        <div
-                            class="bg-gradient-to-br from-pink-400 to-pink-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative overflow-hidden">
-                            <div class="absolute inset-0 bg-white/20 animate-ping"></div>
-                            <i class="fas fa-chart-line text-white text-2xl group-hover:animate-pulse relative z-10"></i>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-pink-600 transition-colors duration-300">
-                            Peningkatan Karir
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Buka peluang karir yang lebih luas dan potensi kenaikan pendapatan dengan kualifikasi yang lebih
-                            tinggi
-                        </p>
-                    </div>
-
-                    <!-- Box 6: Pengakuan Profesional -->
-                    <div
-                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
-                        <div
-                            class="bg-gradient-to-br from-green-400 to-green-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative overflow-hidden">
-                            <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
-                            <i class="fas fa-star text-white text-2xl group-hover:animate-spin relative z-10"></i>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-green-600 transition-colors duration-300">
-                            Pengakuan Profesional
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Dapatkan pengakuan sebagai pendidik berkualitas tinggi yang memenuhi standar kompetensi nasional
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <style>
-                .animate-fadeIn {
-                    animation: fadeIn 1s ease-in-out;
-                }
-
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-
-                .hover-lift {
-                    transition: all 0.3s ease-in-out;
-                }
-
-                .hover-lift:hover {
-                    transform: translateY(-8px) scale(1.02);
-                }
-
-                .hover-lift:active {
-                    transform: translateY(-4px) scale(0.98);
-                }
-
-                @keyframes shimmer {
-                    0% {
-                        transform: translateX(-100%);
-                    }
-
-                    100% {
-                        transform: translateX(100%);
-                    }
-                }
-
-                .animate-shimmer {
-                    animation: shimmer 2s infinite;
-                }
-
-                .animate-bounce {
-                    animation: bounce 1s infinite;
-                }
-
-                .animate-spin {
-                    animation: spin 2s linear infinite;
-                }
-
-                .animate-pulse {
-                    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                }
-
-                .animate-ping {
-                    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-                }
-
-                @keyframes bounce {
-
-                    0%,
-                    100% {
-                        transform: translateY(-25%);
-                        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-                    }
-
-                    50% {
-                        transform: none;
-                        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-                    }
-                }
-
-                @keyframes spin {
-                    to {
-                        transform: rotate(360deg);
-                    }
-                }
-
-                @keyframes pulse {
-                    50% {
-                        opacity: .5;
-                    }
-                }
-
-                @keyframes ping {
-
-                    75%,
-                    100% {
-                        transform: scale(2);
-                        opacity: 0;
-                    }
-                }
-            </style>
-        </section>
-        {{-- End Apa yang guru dapatkan --}}
-
-        {{-- Testimoni --}}
-        <section class="w-full py-16 px-6 bg-gradient-to-br from-blue-50 via-white to-orange-50" id="testimonials">
-            <div class="max-w-6xl mx-auto">
-                <!-- Header -->
-                <div class="text-center mb-16">
-                    <span
-                        class="inline-block px-6 py-2 bg-orange-100 text-[#E76F51] rounded-full text-sm font-semibold tracking-wide shadow-sm mb-6">
-                        TESTIMONI
-                    </span>
-                    <h2 class="text-4xl sm:text-5xl font-bold text-[#1D4E89] mb-6">Apa Kata Mereka?</h2>
-                    <p class="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-                        Cerita sukses dari para guru yang telah menyelesaikan program TLC
-                    </p>
-                </div>
-
-                <!-- Testimoni -->
-                <div class="max-w-4xl mx-auto mb-12">
-                    <div
-                        class="testimonial-card p-8 md:p-12 rounded-3xl shadow-xl border-4 border-[#1D4E89] testimonial-content fade-in">
-                        <!-- bintang -->
-                        <div class="flex justify-center mb-8">
-                            <div class="flex text-3xl text-yellow-400">
-                                ★★★★★
-                            </div>
-                        </div>
-
-                        <!-- Quotes -->
-                        <div class="text-center mb-10">
-                            <p
-                                class="text-xl md:text-2xl text-gray-700 italic leading-relaxed font-medium testimonial-quote">
-                                "Program TLC benar-benar mengubah cara saya mengajar. Sekarang saya lebih percaya diri dan
-                                murid-murid saya lebih antusias dalam belajar!"
-                            </p>
-                        </div>
-
-                        <!-- Profile -->
-                        <div class="flex flex-col items-center">
-                            <!-- Avatar -->
-                            <div
-                                class="w-20 h-20 rounded-full bg-[#E76F51] flex items-center justify-center mb-4 shadow-lg testimonial-avatar">
-                                <span class="text-2xl font-bold text-white testimonial-initials">SA</span>
-                            </div>
-                            <!-- Nama dan gelar -->
-                            <div class="text-center">
-                                <h4 class="text-2xl font-bold text-[#1D4E89] mb-2 testimonial-name">Siti Aminah</h4>
-                                <p class="text-lg text-gray-600 testimonial-title">Guru SD Negeri 1 Jakarta</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigasi -->
-                <div class="flex justify-center items-center space-x-4">
-
-                    <button
-                        class="nav-btn p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 border-2 border-[#1D4E89] hover:border-[#E76F51]"
-                        onclick="previousTestimonial()">
-                        <svg class="w-6 h-6 text-[#1D4E89]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
-                            </path>
-                        </svg>
-                    </button>
-
-
-                    <div class="flex space-x-3">
-                        <button class="dot w-4 h-4 rounded-full bg-gray-300 hover:bg-[#E76F51] transition-all duration-300"
-                            onclick="showTestimonial(0)"></button>
-                        <button class="dot w-4 h-4 rounded-full bg-gray-300 hover:bg-[#E76F51] transition-all duration-300"
-                            onclick="showTestimonial(1)"></button>
-                        <button
-                            class="dot w-4 h-4 rounded-full bg-gray-300 hover:bg-[#E76F51] transition-all duration-300 active"
-                            onclick="showTestimonial(2)"></button>
-                    </div>
-
-
-                    <button
-                        class="nav-btn p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 border-2 border-[#1D4E89] hover:border-[#E76F51]"
-                        onclick="nextTestimonial()">
-                        <svg class="w-6 h-6 text-[#1D4E89]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <script>
-                const testimonials = [{
-                        name: "Siti Aminah",
-                        title: "Guru SD Negeri 1 Jakarta",
-                        initials: "SA",
-                        quote: "Program TLC benar-benar mengubah cara saya mengajar. Sekarang saya lebih percaya diri dan murid-murid saya lebih antusias dalam belajar!",
-                        color: "bg-[#E76F51]"
-                    },
-                    {
-                        name: "Budi Santoso",
-                        title: "Guru SMP Negeri 5 Surabaya",
-                        initials: "BS",
-                        quote: "Sertifikasi Level B membuka kesempatan promosi di sekolah saya. Materi pelatihannya sangat relevan dengan kebutuhan pendidikan saat ini.",
-                        color: "bg-[#1D4E89]"
-                    },
-                    {
-                        name: "Ahmad Hidayat",
-                        title: "Kepala Sekolah, SD Cendekia",
-                        initials: "AH",
-                        quote: "Setelah mengirim beberapa guru kami untuk mengikuti program TLC, kami melihat peningkatan signifikan dalam kualitas pembelajaran di sekolah. Siswa menjadi lebih terlibat dan hasil belajar meningkat.",
-                        color: "bg-yellow-500"
-                    }
-                ];
-
-                let currentTestimonial = 2;
-
-                function showTestimonial(index) {
-                    currentTestimonial = index;
-                    const testimonial = testimonials[index];
-
-
-                    const content = document.querySelector('.testimonial-content');
-                    content.classList.remove('fade-in');
-
-                    setTimeout(() => {
-
-                        document.querySelector('.testimonial-quote').textContent = `"${testimonial.quote}"`;
-                        document.querySelector('.testimonial-name').textContent = testimonial.name;
-                        document.querySelector('.testimonial-title').textContent = testimonial.title;
-                        document.querySelector('.testimonial-initials').textContent = testimonial.initials;
-                        document.querySelector('.testimonial-avatar').className =
-                            `w-20 h-20 rounded-full ${testimonial.color} flex items-center justify-center mb-4 shadow-lg testimonial-avatar`;
-
-
-                        document.querySelectorAll('.dot').forEach((dot, i) => {
-                            dot.classList.toggle('active', i === index);
-                        });
-
-
-                        content.classList.add('fade-in');
-                    }, 150);
-                }
-
-                function nextTestimonial() {
-                    const next = (currentTestimonial + 1) % testimonials.length;
-                    showTestimonial(next);
-                }
-
-                function previousTestimonial() {
-                    const prev = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-                    showTestimonial(prev);
-                }
-
-
-                setInterval(() => {
-                    nextTestimonial();
-                }, 8000);
-
-
-                showTestimonial(2);
-            </script>
-
-            <style>
-                .testimonial-card {
-                    background: linear-gradient(135deg, #dbeafe 0%, #fff7ed 100%);
-                }
-
-                .dot {
-                    transition: all 0.3s ease;
-                }
-
-                .dot.active {
-                    background-color: #1D4E89;
-                }
-
-                .nav-btn:hover svg {
-                    color: #E76F51;
-                }
-
-                .fade-in {
-                    animation: fadeIn 0.5s ease-in-out;
-                }
-
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(10px);
-                    }
-
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-            </style>
-        </section>
-        {{-- Testimoni --}}
-
         {{-- Pilih Jalur Sertifikasi --}}
         <section class="relative min-h-screen py-20 px-6 overflow-hidden gradient-bg" id="sertifikasi">
             <!-- Animasi untuk latar belakang -->
@@ -1060,13 +628,13 @@
 
                             {{-- <div class="absolute top-6 right-6 z-20"> --}}
                             {{-- <span
-                                    class="inline-flex items-center px-4 py-2 bg-orange-500 text-white text-xs font-bold rounded-full pulse-glow">
-                                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    POPULER
-                                </span> --}}
+                                            class="inline-flex items-center px-4 py-2 bg-orange-500 text-white text-xs font-bold rounded-full pulse-glow">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            POPULER
+                                        </span> --}}
                             {{-- </div> --}}
 
 
@@ -1086,9 +654,9 @@
                                         Teaching Knowledge Certification
                                     </h3>
                                     {{-- <p class="text-white/90 text-lg mb-8 leading-relaxed">
-                                        Fondasi pengajaran efektif untuk semua guru yang ingin memulai perjalanan
-                                        profesional
-                                    </p> --}}
+                                                Fondasi pengajaran efektif untuk semua guru yang ingin memulai perjalanan
+                                                profesional
+                                            </p> --}}
                                 </div>
 
                                 <div>
@@ -1110,11 +678,11 @@
 
                                     <div class="flex items-center justify-between">
                                         {{-- <div>
-                                            <span class="text-3xl font-black">
-                                                Rp.{{ number_format($levels[0]->price, 0, ',', '.') }}
-                                            </span>
-                                            <span class="block text-sm text-white/70">Per sertifikasi</span>
-                                        </div> --}}
+                                                    <span class="text-3xl font-black">
+                                                        Rp.{{ number_format($levels[0]->price, 0, ',', '.') }}
+                                                    </span>
+                                                    <span class="block text-sm text-white/70">Per sertifikasi</span>
+                                                </div> --}}
                                         @if ($user->hasPermissionTo('access_level_A'))
                                             <button onclick="document.getElementById('modalA').classList.remove('hidden')"
                                                 class="bg-white text-orange-500 px-6 py-3 font-bold rounded-xl hover:bg-orange-50 transition-all  shadow-lg">
@@ -1155,8 +723,8 @@
                                         Teaching Activation Certification
                                     </h3>
                                     {{-- <p class="text-white/90 text-lg mb-8 leading-relaxed">
-                                        Strategi pembelajaran lanjutan untuk guru berpengalaman yang ingin berkembang
-                                    </p> --}}
+                                                Strategi pembelajaran lanjutan untuk guru berpengalaman yang ingin berkembang
+                                            </p> --}}
                                 </div>
 
                                 <div>
@@ -1177,11 +745,11 @@
 
                                     <div class="flex items-center justify-between">
                                         {{-- <div>
-                                            <span class="text-3xl font-black">
-                                                Rp.{{ number_format($levels[1]->price, 0, ',', '.') }}
-                                            </span>
-                                            <span class="block text-sm text-white/70">Per sertifikasi</span>
-                                        </div> --}}
+                                                    <span class="text-3xl font-black">
+                                                        Rp.{{ number_format($levels[1]->price, 0, ',', '.') }}
+                                                    </span>
+                                                    <span class="block text-sm text-white/70">Per sertifikasi</span>
+                                                </div> --}}
                                         @if ($user->hasPermissionTo('level_A_completed'))
                                             <button onclick="document.getElementById('modalB').classList.remove('hidden')"
                                                 class="bg-white text-blue-600 px-6 py-3 font-bold rounded-xl hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg">
@@ -1208,15 +776,15 @@
                             class="relative h-[600px] rounded-3xl shadow-2xl overflow-hidden bg-white border border-gray-200">
 
                             {{-- <div class="absolute top-6 right-6 z-20">
-                                <span
-                                    class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-full pulse-glow">
-                                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                                    </svg>
-                                    PREMIUM
-                                </span>
-                            </div> --}}
+                                        <span
+                                            class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-full pulse-glow">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                            </svg>
+                                            PREMIUM
+                                        </span>
+                                    </div> --}}
 
 
                             <div class="absolute inset-0 card-bg-level-c opacity-90"></div>
@@ -1234,8 +802,8 @@
                                         Teaching Mastery Certification
                                     </h3>
                                     {{-- <p class="text-white/90 text-lg mb-8 leading-relaxed">
-                                        Pengajaran kreatif tingkat mahir untuk pemimpin pendidikan masa depan
-                                    </p> --}}
+                                                Pengajaran kreatif tingkat mahir untuk pemimpin pendidikan masa depan
+                                            </p> --}}
                                 </div>
 
                                 <div>
@@ -1249,18 +817,18 @@
                                             <span class="text-sm font-medium">Self Review</span>
                                         </div>
                                         {{-- <div class="flex items-center space-x-3">
-                                            <div class="w-2 h-2 bg-white rounded-full"></div>
-                                            <span class="text-sm font-medium">Publikasi Karya Ilmiah</span>
-                                        </div> --}}
+                                                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                                                    <span class="text-sm font-medium">Publikasi Karya Ilmiah</span>
+                                                </div> --}}
                                     </div>
 
                                     <div class="flex items-center justify-between">
                                         {{-- <div>
-                                            <span class="text-3xl font-black">
-                                                Rp.{{ number_format($levels[2]->price, 0, ',', '.') }}
-                                            </span>
-                                            <span class="block text-sm text-white/70">Per sertifikasi</span>
-                                        </div> --}}
+                                                    <span class="text-3xl font-black">
+                                                        Rp.{{ number_format($levels[2]->price, 0, ',', '.') }}
+                                                    </span>
+                                                    <span class="block text-sm text-white/70">Per sertifikasi</span>
+                                                </div> --}}
                                         <button onclick="document.getElementById('modalC').classList.remove('hidden')"
                                             class="bg-white text-blue-700 px-6 py-3 font-bold rounded-xl hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg">
                                             Detail Program
@@ -1300,13 +868,13 @@
 
                 const style = document.createElement('style');
                 style.textContent = `
-                @keyframes sparkle {
-                    0% { transform: scale(0) rotate(0deg); opacity: 1; }
-                    50% { transform: scale(1) rotate(180deg); opacity: 1; }
-                    100% { transform: scale(0) rotate(360deg); opacity: 0; }
-                }
-                `;
-                    document.head.appendChild(style);
+                        @keyframes sparkle {
+                            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                            50% { transform: scale(1) rotate(180deg); opacity: 1; }
+                            100% { transform: scale(0) rotate(360deg); opacity: 0; }
+                        }
+                        `;
+                document.head.appendChild(style);
             </script>
 
             <style>
@@ -1410,7 +978,6 @@
         </section>
         {{-- End Pilih Jalur Sertifikasi --}}
 
-        {{-- Investasi untuk Masa Depan --}}
         {{-- @livewire('asesi.payment-card') --}}
         @foreach (['A', 'B', 'C'] as $level)
             <div id="modal{{ $level }}"
@@ -1681,396 +1248,156 @@
         @endforeach
         {{-- End Investasi --}}
 
-        {{-- alur Pendaftaraan --}}
-        {{-- <section class="relative w-full px-5 py-20 overflow-hidden gradient-bg">
-
-            <div class="absolute inset-0">
-                <div class="particle" style="left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
-                <div class="particle" style="left: 20%; width: 3px; height: 3px; animation-delay: 0.5s;"></div>
-                <div class="particle" style="left: 30%; width: 5px; height: 5px; animation-delay: 1s;"></div>
-                <div class="particle" style="left: 40%; width: 4px; height: 4px; animation-delay: 1.5s;"></div>
-                <div class="particle" style="left: 50%; width: 3px; height: 3px; animation-delay: 2s;"></div>
-                <div class="particle" style="left: 60%; width: 4px; height: 4px; animation-delay: 2.5s;"></div>
-                <div class="particle" style="left: 70%; width: 5px; height: 5px; animation-delay: 3s;"></div>
-                <div class="particle" style="left: 80%; width: 3px; height: 3px; animation-delay: 3.5s;"></div>
-                <div class="particle" style="left: 90%; width: 4px; height: 4px; animation-delay: 4s;"></div>
-            </div>
-
-            <div class="max-w-7xl mx-auto relative z-10">
-                <!-- Header -->
-                <div class="text-center mb-20">
-                    <div
-                        class="inline-flex items-center justify-center px-4 py-2 bg-orange-100 rounded-full text-orange-600 text-sm font-medium mb-6">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-2 animate-pulse"></span>
-                        Proses Pendaftaran Mudah & Cepat
-                    </div>
-                    <h2 class="text-5xl md:text-7xl font-bold text-blue-900 mb-8 leading-tight">
-                        Alur Pendaftaran<br>
-                        <span class="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
-                            Program
+        {{-- Apa guru Dapatkan --}}
+        <section class="w-full px-5 py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50" id="manfaat">
+            <div class="container mx-auto max-w-7xl">
+                <!-- Header Section -->
+                <div class="text-center mb-16 animate-fadeIn">
+                    <span
+                        class="text-lg text-[#E76F51] font-semibold inline-block px-6 py-2 bg-orange-100 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 mb-6">
+                        #MANFAAT PROGRAM TLC
+                    </span>
+                    <h2
+                        class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-[#1D4E89] mb-6 hover:scale-105 transition-transform duration-300">
+                        <span class="relative inline-block">
+                            <span class="relative z-10">Apa yang akan</span>
+                            <span class="absolute -bottom-2 left-0 w-full h-3 bg-yellow-300 opacity-50 z-0"></span>
+                        </span>
+                        <br>
+                        <span class="relative inline-block">
+                            <span class="relative z-10">Guru Dapatkan?</span>
+                            <span class="absolute -bottom-2 left-0 w-full h-3 bg-orange-300 opacity-50 z-0"></span>
                         </span>
                     </h2>
-                    <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                        Ikuti langkah-langkah sederhana berikut untuk mendaftarkan Diri Anda dalam program
-                        <span class="font-bold text-orange-600">Teaching & Learning Certification</span>
+                    <p class="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                        <strong class="text-[#E76F51]">Bukan sekadar sertifikat biasa.</strong> Program komprehensif yang
+                        telah terbukti meningkatkan <span class="font-semibold text-[#1D4E89]">kompetensi dan karir</span>
+                        ratusan pendidik profesional.
                     </p>
                 </div>
 
-                <div class="relative">
-                    <div class="hidden md:block absolute top-20 left-0 right-0 z-0">
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
+                <!-- Manfaat -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Box 1: Sertifikasi Terakreditasi -->
+                    <div
+                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
+                        <div
+                            class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative overflow-hidden">
+                            <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+                            <i class="fas fa-award text-white text-2xl group-hover:animate-bounce relative z-10"></i>
                         </div>
+                        <h3
+                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-teal-600 transition-colors duration-300">
+                            Sertifikasi Terakreditasi
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Dapatkan sertifikat yang diakui secara nasional untuk meningkatkan kredibilitas profesional Anda
+                        </p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 relative z-10">
-
-                        <div class="step-card text-center animate-slide-up stagger-1">
-                            <div class="relative mb-8">
-
-                                <div
-                                    class="step-number w-20 h-20 mx-auto bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 rounded-full flex items-center justify-center mb-6 shadow-2xl">
-                                    <span class="text-2xl font-bold text-white">1</span>
-                                </div>
-
-                                <div
-                                    class="step-icon w-16 h-16 mx-auto bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex items-center justify-center floating-icon shadow-lg">
-                                    <svg class="w-8 h-8 text-blue-700" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="glass-card rounded-2xl p-8 shadow-2xl h-full">
-                                <h3 class="text-xl font-bold text-blue-900 mb-4">Isi Formulir</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    Lengkapi formulir pendaftaran online dengan data peserta dan informasi kontak secara
-                                    lengkap dan akurat
-                                </p>
-                            </div>
+                    <!-- Box 2: Kurikulum Terkini -->
+                    <div
+                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
+                        <div
+                            class="bg-gradient-to-br from-blue-400 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative overflow-hidden">
+                            <div class="absolute inset-0 bg-white/20 animate-ping"></div>
+                            <i
+                                class="fas fa-graduation-cap text-white text-2xl group-hover:animate-pulse relative z-10"></i>
                         </div>
-
-
-                        <div class="md:hidden mobile-connector"></div>
-
-                        <!-- langkah 2 -->
-                        <div class="step-card text-center animate-slide-up stagger-2">
-                            <div class="relative mb-8">
-
-                                <div
-                                    class="step-number w-20 h-20 mx-auto bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 rounded-full flex items-center justify-center mb-6 shadow-2xl">
-                                    <span class="text-2xl font-bold text-white">2</span>
-                                </div>
-
-                                <div class="step-icon w-16 h-16 mx-auto bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl flex items-center justify-center floating-icon shadow-lg"
-                                    style="animation-delay: 0.5s;">
-                                    <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="glass-card rounded-2xl p-8 shadow-2xl h-full">
-                                <h3 class="text-xl font-bold text-blue-900 mb-4">Verifikasi</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    Tim profesional kami akan memverifikasi data dan menghubungi Anda dalam 24 jam untuk
-                                    konfirmasi
-                                </p>
-                            </div>
-                        </div>
-
-
-                        <div class="md:hidden mobile-connector"></div>
-
-                        <!-- Langkah 3 -->
-                        <div class="step-card text-center animate-slide-up stagger-3">
-                            <div class="relative mb-8">
-
-                                <div
-                                    class="step-number w-20 h-20 mx-auto bg-gradient-to-br from-yellow-500 via-yellow-600 to-amber-600 rounded-full flex items-center justify-center mb-6 shadow-2xl">
-                                    <span class="text-2xl font-bold text-white">3</span>
-                                </div>
-
-                                <div class="step-icon w-16 h-16 mx-auto bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl flex items-center justify-center floating-icon shadow-lg"
-                                    style="animation-delay: 1s;">
-                                    <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="glass-card rounded-2xl p-8 shadow-2xl h-full">
-                                <h3 class="text-xl font-bold text-blue-900 mb-4">Konfirmasi</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    Konfirmasi pendaftaran dan lakukan pembayaran biaya program sertifikasi dengan mudah
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="md:hidden mobile-connector"></div>
-
-                        <!-- langkah 4 -->
-                        <div class="step-card text-center animate-slide-up stagger-4">
-                            <div class="relative mb-8">
-
-                                <div
-                                    class="step-number w-20 h-20 mx-auto bg-gradient-to-br from-green-500 via-green-600 to-emerald-600 rounded-full flex items-center justify-center mb-6 shadow-2xl">
-                                    <span class="text-2xl font-bold text-white">4</span>
-                                </div>
-
-                                <div class="step-icon w-16 h-16 mx-auto bg-gradient-to-br from-green-50 to-green-100 rounded-2xl flex items-center justify-center floating-icon shadow-lg"
-                                    style="animation-delay: 1.5s;">
-                                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="glass-card rounded-2xl p-8 shadow-2xl h-full">
-                                <h3 class="text-xl font-bold text-blue-900 mb-4">Jadwal</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    Dapatkan jadwal pelatihan yang fleksibel dan materi pembelajaran yang terstruktur
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="md:hidden mobile-connector"></div>
-
-                        <!-- langkah 5 -->
-                        <div class="step-card text-center animate-slide-up stagger-5">
-                            <div class="relative mb-8">
-
-                                <div
-                                    class="step-number w-20 h-20 mx-auto bg-gradient-to-br from-indigo-500 via-purple-500 to-blue-600 rounded-full flex items-center justify-center mb-6 shadow-2xl">
-                                    <span class="text-2xl font-bold text-white">5</span>
-                                </div>
-
-                                <div class="step-icon w-16 h-16 mx-auto bg-gradient-to-br from-indigo-50 to-purple-100 rounded-2xl flex items-center justify-center floating-icon shadow-lg"
-                                    style="animation-delay: 2s;">
-                                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="glass-card rounded-2xl p-8 shadow-2xl h-full">
-                                <h3 class="text-xl font-bold text-blue-900 mb-4">Mulai Belajar</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    Mulai transformasi mengajar dengan metode terpercaya dan dapatkan sertifikasi
-                                    profesional
-                                </p>
-                            </div>
-                        </div>
+                        <h3
+                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                            Kurikulum Terkini
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Akses materi pembelajaran yang selalu diperbaharui sesuai perkembangan dunia pendidikan
+                        </p>
                     </div>
-                </div>
 
-                <div class="text-center mt-20">
-                    <button
-                        class="pulse-button inline-flex items-center justify-center px-12 py-6 bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:from-blue-800 hover:via-blue-900 hover:to-indigo-900 text-white text-xl font-bold rounded-2xl transform transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-3xl relative overflow-hidden group">
-                        <span class="relative z-10">Daftar Program Sekarang</span>
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6 ml-3 group-hover:translate-x-1 transition-transform duration-300 relative z-10"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
+                    <!-- Box 3: Pengembangan Keterampilan -->
+                    <div
+                        class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl hover-lift border-2 border-[#E76F51]/30 group cursor-pointer relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-200 to-orange-300 rounded-full -translate-y-10 translate-x-10 opacity-30 animate-pulse">
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-[#E76F51] to-orange-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative z-10 overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer">
+                            </div>
+                            <i class="fas fa-rocket text-white text-2xl group-hover:animate-spin relative z-10"></i>
+                        </div>
+                        <h3
+                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-[#E76F51] transition-colors duration-300 relative z-10">
+                            Pengembangan Keterampilan
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed relative z-10">
+                            Kembangkan keterampilan mengajar modern yang relevan dengan kebutuhan siswa di era digital
+                        </p>
+                    </div>
+
+                    <!-- Box 4: Jaringan Profesional -->
+                    <div
+                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
+                        <div
+                            class="bg-gradient-to-br from-orange-400 to-orange-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative overflow-hidden">
+                            <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+                            <i class="fas fa-users text-white text-2xl group-hover:animate-bounce relative z-10"></i>
+                        </div>
+                        <h3
+                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-orange-600 transition-colors duration-300">
+                            Jaringan Profesional
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Bergabung dengan komunitas pendidik dari seluruh Indonesia untuk berbagi pengalaman dan praktik
+                            terbaik
+                        </p>
+                    </div>
+
+                    <!-- Box 5: Peningkatan Karir -->
+                    <div
+                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
+                        <div
+                            class="bg-gradient-to-br from-pink-400 to-pink-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative overflow-hidden">
+                            <div class="absolute inset-0 bg-white/20 animate-ping"></div>
+                            <i class="fas fa-chart-line text-white text-2xl group-hover:animate-pulse relative z-10"></i>
+                        </div>
+                        <h3
+                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-pink-600 transition-colors duration-300">
+                            Peningkatan Karir
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Buka peluang karir yang lebih luas dan potensi kenaikan pendapatan dengan kualifikasi yang lebih
+                            tinggi
+                        </p>
+                    </div>
+
+                    <!-- Box 6: Pengakuan Profesional -->
+                    <div
+                        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl hover-lift border border-white/50 group cursor-pointer">
+                        <div
+                            class="bg-gradient-to-br from-green-400 to-green-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative overflow-hidden">
+                            <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+                            <i class="fas fa-star text-white text-2xl group-hover:animate-spin relative z-10"></i>
+                        </div>
+                        <h3
+                            class="text-xl font-bold text-[#1D4E89] mb-4 group-hover:text-green-600 transition-colors duration-300">
+                            Pengakuan Profesional
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Dapatkan pengakuan sebagai pendidik berkualitas tinggi yang memenuhi standar kompetensi nasional
+                        </p>
+                    </div>
                 </div>
             </div>
-
-            <script>
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animate-slide-up');
-                        }
-                    });
-                }, observerOptions);
-
-                document.querySelectorAll('.step-card').forEach(card => {
-                    observer.observe(card);
-                });
-
-                document.querySelectorAll('.step-card').forEach(card => {
-                    card.addEventListener('mouseenter', () => {
-                        card.style.transform = 'translateY(-10px) scale(1.02)';
-                    });
-
-                    card.addEventListener('mouseleave', () => {
-                        card.style.transform = '';
-                    });
-                });
-
-                document.querySelector('.pulse-button').addEventListener('click', (e) => {
-                    e.preventDefault();
-
-                    const rect = e.target.getBoundingClientRect();
-                    const ripple = document.createElement('span');
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-
-                    ripple.style.width = ripple.style.height = size + 'px';
-                    ripple.style.left = x + 'px';
-                    ripple.style.top = y + 'px';
-                    ripple.classList.add('ripple');
-
-                    e.target.appendChild(ripple);
-
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-
-                    setTimeout(() => {
-                        alert('Formulir pendaftaran akan segera dibuka! 🚀');
-                    }, 300);
-                });
-            </script>
-
             <style>
-                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-                * {
-                    font-family: 'Inter', sans-serif;
+                .animate-fadeIn {
+                    animation: fadeIn 1s ease-in-out;
                 }
 
-                .gradient-bg {
-                    background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #fed7aa 100%);
-                    position: relative;
-                    overflow: hidden;
-                }
-
-                .gradient-bg::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231D4E89' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-                    animation: drift 20s linear infinite;
-                }
-
-                @keyframes drift {
-                    0% {
-                        transform: translateX(0) translateY(0);
-                    }
-
-                    100% {
-                        transform: translateX(-60px) translateY(-60px);
-                    }
-                }
-
-                .step-card {
-                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                    position: relative;
-                    overflow: hidden;
-                }
-
-                .step-card::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: -100%;
-                    width: 100%;
-                    height: 100%;
-                    background: linear-gradient(90deg, transparent, rgba(29, 78, 137, 0.1), transparent);
-                    transition: left 0.5s;
-                }
-
-                .step-card:hover::before {
-                    left: 100%;
-                }
-
-                .step-card:hover {
-                    transform: translateY(-10px) scale(1.02);
-                    box-shadow: 0 25px 50px rgba(29, 78, 137, 0.15);
-                }
-
-                .step-number {
-                    transition: all 0.3s ease;
-                    position: relative;
-                    z-index: 10;
-                }
-
-                .step-card:hover .step-number {
-                    transform: scale(1.1) rotate(5deg);
-                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-                }
-
-                .floating-icon {
-                    animation: float 3s ease-in-out infinite;
-                }
-
-                @keyframes float {
-
-                    0%,
-                    100% {
-                        transform: translateY(0px);
-                    }
-
-                    50% {
-                        transform: translateY(-10px);
-                    }
-                }
-
-                .pulse-button {
-                    position: relative;
-                    overflow: hidden;
-                }
-
-                .pulse-button::before {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    width: 0;
-                    height: 0;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.3);
-                    transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
-                }
-
-                .pulse-button:hover::before {
-                    width: 300px;
-                    height: 300px;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
-
-                .glass-card {
-                    background: rgba(255, 255, 255, 0.95);
-                    backdrop-filter: blur(10px);
-                    border: 1px solid rgba(255, 255, 255, 0.2);
-                }
-
-                .step-icon {
-                    transition: all 0.3s ease;
-                }
-
-                .step-card:hover .step-icon {
-                    transform: scale(1.2) rotate(10deg);
-                }
-
-                @keyframes slideInUp {
+                @keyframes fadeIn {
                     from {
                         opacity: 0;
-                        transform: translateY(30px);
+                        transform: translateY(20px);
                     }
 
                     to {
@@ -2079,365 +1406,85 @@
                     }
                 }
 
-                .animate-slide-up {
-                    animation: slideInUp 0.6s ease-out forwards;
+                .hover-lift {
+                    transition: all 0.3s ease-in-out;
                 }
 
-                .stagger-1 {
-                    animation-delay: 0.1s;
+                .hover-lift:hover {
+                    transform: translateY(-8px) scale(1.02);
                 }
 
-                .stagger-2 {
-                    animation-delay: 0.2s;
+                .hover-lift:active {
+                    transform: translateY(-4px) scale(0.98);
                 }
 
-                .stagger-3 {
-                    animation-delay: 0.3s;
+                @keyframes shimmer {
+                    0% {
+                        transform: translateX(-100%);
+                    }
+
+                    100% {
+                        transform: translateX(100%);
+                    }
                 }
 
-                .stagger-4 {
-                    animation-delay: 0.4s;
+                .animate-shimmer {
+                    animation: shimmer 2s infinite;
                 }
 
-                .stagger-5 {
-                    animation-delay: 0.5s;
+                .animate-bounce {
+                    animation: bounce 1s infinite;
                 }
 
-                .mobile-connector {
-                    width: 2px;
-                    height: 40px;
-                    background: linear-gradient(180deg, #1D4E89 0%, #E76F51 100%);
-                    margin: 20px auto;
-                    position: relative;
+                .animate-spin {
+                    animation: spin 2s linear infinite;
                 }
 
-                .mobile-connector::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -5px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 0;
-                    height: 0;
-                    border-left: 5px solid transparent;
-                    border-right: 5px solid transparent;
-                    border-top: 10px solid #E76F51;
+                .animate-pulse {
+                    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
                 }
 
-                .progress-bar {
-                    position: absolute;
-                    top: 50%;
-                    left: 0;
-                    right: 0;
-                    height: 4px;
-                    background: rgba(29, 78, 137, 0.2);
-                    border-radius: 2px;
-                    overflow: hidden;
-                    transform: translateY(-50%);
+                .animate-ping {
+                    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
                 }
 
-                .progress-fill {
-                    height: 100%;
-                    background: linear-gradient(90deg, #1D4E89, #E76F51);
-                    border-radius: 2px;
-                    width: 0%;
-                    animation: fillProgress 3s ease-in-out infinite;
-                }
-
-                @keyframes fillProgress {
+                @keyframes bounce {
 
                     0%,
                     100% {
-                        width: 0%;
+                        transform: translateY(-25%);
+                        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
                     }
 
                     50% {
-                        width: 100%;
+                        transform: none;
+                        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
                     }
                 }
 
-                .particle {
-                    position: absolute;
-                    background: rgba(29, 78, 137, 0.3);
-                    border-radius: 50%;
-                    pointer-events: none;
-                    animation: particle 4s linear infinite;
-                }
-
-                @keyframes particle {
-                    0% {
-                        transform: translateY(100vh) scale(0);
-                        opacity: 1;
-                    }
-
-                    100% {
-                        transform: translateY(-100px) scale(1);
-                        opacity: 0;
-                    }
-                }
-
-                .ripple {
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.6);
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    pointer-events: none;
-                }
-
-                @keyframes ripple {
+                @keyframes spin {
                     to {
-                        transform: scale(4);
+                        transform: rotate(360deg);
+                    }
+                }
+
+                @keyframes pulse {
+                    50% {
+                        opacity: .5;
+                    }
+                }
+
+                @keyframes ping {
+
+                    75%,
+                    100% {
+                        transform: scale(2);
                         opacity: 0;
                     }
                 }
             </style>
-        </section> --}}
-        
-        <section class="relative w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-20 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
-    
-            <!-- Simplified background pattern -->
-            <div class="absolute inset-0 opacity-20">
-                <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(29,78,137,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
-            </div>
-        
-            <div class="max-w-7xl mx-auto relative z-10">
-                <!-- Header -->
-                <div class="text-center mb-16 lg:mb-20">
-                    <div class="inline-flex items-center justify-center px-4 py-2 bg-orange-100 rounded-full text-orange-600 text-sm font-medium mb-6">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-2 animate-pulse"></span>
-                        Proses Pendaftaran Mudah & Cepat
-                    </div>
-                    <h2 class="text-4xl sm:text-5xl lg:text-7xl font-bold text-blue-900 mb-6 lg:mb-8 leading-tight">
-                        Alur Pendaftaran<br>
-                        <span class="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
-                            Program
-                        </span>
-                    </h2>
-                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                        Ikuti langkah-langkah sederhana berikut untuk mendaftarkan Diri Anda dalam program
-                        <span class="font-bold text-orange-600">Teaching & Learning Certification</span>
-                    </p>
-                </div>
-        
-                <!-- Progress bar for desktop -->
-                <div class="hidden lg:block relative mb-12">
-                    <div class="absolute top-20 left-0 right-0 h-1 bg-gray-200 rounded-full">
-                        <div class="h-full bg-gradient-to-r from-blue-700 to-orange-500 rounded-full w-0 transition-all duration-1000 ease-out" id="progressBar"></div>
-                    </div>
-                </div>
-        
-                <!-- Steps Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 relative">
-                    
-                    <!-- Step 1 -->
-                    <div class="step-card group transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                        <div class="text-center">
-                            <div class="relative mb-8">
-                                <!-- Step Number -->
-                                <div class="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-blue-700 to-blue-900 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                    <span class="text-xl lg:text-2xl font-bold text-white">1</span>
-                                </div>
-                                
-                                <!-- Step Icon -->
-                                <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-md">
-                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 h-full">
-                                <h3 class="text-lg lg:text-xl font-bold text-blue-900 mb-4">Isi Formulir</h3>
-                                <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
-                                    Lengkapi formulir pendaftaran online dengan data peserta dan informasi kontak secara lengkap dan akurat
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <!-- Mobile connector -->
-                        <div class="md:hidden flex justify-center mt-6">
-                            <div class="w-0.5 h-8 bg-gradient-to-b from-blue-700 to-orange-500 relative">
-                                <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent border-t-orange-500"></div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Step 2 -->
-                    <div class="step-card group transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                        <div class="text-center">
-                            <div class="relative mb-8">
-                                <div class="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                    <span class="text-xl lg:text-2xl font-bold text-white">2</span>
-                                </div>
-                                
-                                <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-md">
-                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 h-full">
-                                <h3 class="text-lg lg:text-xl font-bold text-blue-900 mb-4">Verifikasi</h3>
-                                <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
-                                    Tim profesional kami akan memverifikasi data dan menghubungi Anda dalam 24 jam untuk konfirmasi
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="md:hidden flex justify-center mt-6">
-                            <div class="w-0.5 h-8 bg-gradient-to-b from-orange-500 to-yellow-500 relative">
-                                <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent border-t-yellow-500"></div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Step 3 -->
-                    <div class="step-card group transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                        <div class="text-center">
-                            <div class="relative mb-8">
-                                <div class="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-yellow-500 to-amber-600 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                    <span class="text-xl lg:text-2xl font-bold text-white">3</span>
-                                </div>
-                                
-                                <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-md">
-                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 h-full">
-                                <h3 class="text-lg lg:text-xl font-bold text-blue-900 mb-4">Konfirmasi</h3>
-                                <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
-                                    Konfirmasi pendaftaran dan lakukan pembayaran biaya program sertifikasi dengan mudah
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="md:hidden flex justify-center mt-6">
-                            <div class="w-0.5 h-8 bg-gradient-to-b from-yellow-500 to-green-500 relative">
-                                <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent border-t-green-500"></div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Step 4 -->
-                    <div class="step-card group transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                        <div class="text-center">
-                            <div class="relative mb-8">
-                                <div class="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                    <span class="text-xl lg:text-2xl font-bold text-white">4</span>
-                                </div>
-                                
-                                <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-gradient-to-br from-green-50 to-green-100 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-md">
-                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 h-full">
-                                <h3 class="text-lg lg:text-xl font-bold text-blue-900 mb-4">Jadwal</h3>
-                                <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
-                                    Dapatkan jadwal pelatihan yang fleksibel dan materi pembelajaran yang terstruktur
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="md:hidden flex justify-center mt-6">
-                            <div class="w-0.5 h-8 bg-gradient-to-b from-green-500 to-purple-500 relative">
-                                <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent border-t-purple-500"></div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Step 5 -->
-                    <div class="step-card group transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                        <div class="text-center">
-                            <div class="relative mb-8">
-                                <div class="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                    <span class="text-xl lg:text-2xl font-bold text-white">5</span>
-                                </div>
-                                
-                                <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-gradient-to-br from-indigo-50 to-purple-100 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-md">
-                                    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 h-full">
-                                <h3 class="text-lg lg:text-xl font-bold text-blue-900 mb-4">Mulai Belajar</h3>
-                                <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
-                                    Mulai transformasi mengajar dengan metode terpercaya dan dapatkan sertifikasi profesional
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- CTA Button -->
-                <div class="text-center mt-16 lg:mt-20">
-                    <button class="inline-flex items-center justify-center px-8 lg:px-12 py-4 lg:py-6 bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 hover:from-blue-800 hover:via-blue-900 hover:to-indigo-900 text-white text-lg lg:text-xl font-bold rounded-2xl transform transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-3xl group">
-                        <span>Daftar Program Sekarang</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        
-            <script>
-                // Intersection Observer for animations
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-        
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach((entry, index) => {
-                        if (entry.isIntersecting) {
-                            setTimeout(() => {
-                                entry.target.style.opacity = '1';
-                                entry.target.style.transform = 'translateY(0)';
-                            }, index * 100);
-                            
-                            // Update progress bar
-                            const progressBar = document.getElementById('progressBar');
-                            if (progressBar) {
-                                progressBar.style.width = '100%';
-                            }
-                        }
-                    });
-                }, observerOptions);
-        
-                // Observe step cards
-                document.querySelectorAll('.step-card').forEach(card => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    card.style.transition = 'all 0.6s ease-out';
-                    observer.observe(card);
-                });
-        
-                // Button click handler
-                document.querySelector('button').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    
-                    // Simple ripple effect using Tailwind classes
-                    const button = e.currentTarget;
-                    button.style.transform = 'scale(0.95)';
-                    
-                    setTimeout(() => {
-                        button.style.transform = '';
-                        alert('Formulir pendaftaran akan segera dibuka! 🚀');
-                    }, 150);
-                });
-            </script>
         </section>
-        {{-- End Alur Pendaftaraan --}}
-
+        {{-- End Apa yang guru dapatkan --}}
 
         {{-- Langkah Pembayaran --}}
         <section class="relative mt-32 max-w-6xl mx-auto px-4 py-12">
@@ -2607,6 +1654,199 @@
         {{-- End Langkah Pembayaran --}}
 
 
+        {{-- Testimoni --}}
+        <section class="w-full py-16 px-6 bg-gradient-to-br from-blue-50 via-white to-orange-50" id="testimonials">
+            <div class="max-w-6xl mx-auto">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <span
+                        class="inline-block px-6 py-2 bg-orange-100 text-[#E76F51] rounded-full text-sm font-semibold tracking-wide shadow-sm mb-6">
+                        TESTIMONI
+                    </span>
+                    <h2 class="text-4xl sm:text-5xl font-bold text-[#1D4E89] mb-6">Apa Kata Mereka?</h2>
+                    <p class="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                        Cerita sukses dari para guru yang telah menyelesaikan program TLC
+                    </p>
+                </div>
+
+                <!-- Testimoni -->
+                <div class="max-w-4xl mx-auto mb-12">
+                    <div
+                        class="testimonial-card p-8 md:p-12 rounded-3xl shadow-xl border-4 border-[#1D4E89] testimonial-content fade-in">
+                        <!-- bintang -->
+                        <div class="flex justify-center mb-8">
+                            <div class="flex text-3xl text-yellow-400">
+                                ★★★★★
+                            </div>
+                        </div>
+
+                        <!-- Quotes -->
+                        <div class="text-center mb-10">
+                            <p
+                                class="text-xl md:text-2xl text-gray-700 italic leading-relaxed font-medium testimonial-quote">
+                                "Program TLC benar-benar mengubah cara saya mengajar. Sekarang saya lebih percaya diri dan
+                                murid-murid saya lebih antusias dalam belajar!"
+                            </p>
+                        </div>
+
+                        <!-- Profile -->
+                        <div class="flex flex-col items-center">
+                            <!-- Avatar -->
+                            <div
+                                class="w-20 h-20 rounded-full bg-[#E76F51] flex items-center justify-center mb-4 shadow-lg testimonial-avatar">
+                                <span class="text-2xl font-bold text-white testimonial-initials">SA</span>
+                            </div>
+                            <!-- Nama dan gelar -->
+                            <div class="text-center">
+                                <h4 class="text-2xl font-bold text-[#1D4E89] mb-2 testimonial-name">Siti Aminah</h4>
+                                <p class="text-lg text-gray-600 testimonial-title">Guru SD Negeri 1 Jakarta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigasi -->
+                <div class="flex justify-center items-center space-x-4">
+
+                    <button
+                        class="nav-btn p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 border-2 border-[#1D4E89] hover:border-[#E76F51]"
+                        onclick="previousTestimonial()">
+                        <svg class="w-6 h-6 text-[#1D4E89]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+
+                    <div class="flex space-x-3">
+                        <button class="dot w-4 h-4 rounded-full bg-gray-300 hover:bg-[#E76F51] transition-all duration-300"
+                            onclick="showTestimonial(0)"></button>
+                        <button class="dot w-4 h-4 rounded-full bg-gray-300 hover:bg-[#E76F51] transition-all duration-300"
+                            onclick="showTestimonial(1)"></button>
+                        <button
+                            class="dot w-4 h-4 rounded-full bg-gray-300 hover:bg-[#E76F51] transition-all duration-300 active"
+                            onclick="showTestimonial(2)"></button>
+                    </div>
+
+
+                    <button
+                        class="nav-btn p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 border-2 border-[#1D4E89] hover:border-[#E76F51]"
+                        onclick="nextTestimonial()">
+                        <svg class="w-6 h-6 text-[#1D4E89]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <script>
+                const testimonials = [{
+                        name: "Siti Aminah",
+                        title: "Guru SD Negeri 1 Jakarta",
+                        initials: "SA",
+                        quote: "Program TLC benar-benar mengubah cara saya mengajar. Sekarang saya lebih percaya diri dan murid-murid saya lebih antusias dalam belajar!",
+                        color: "bg-[#E76F51]"
+                    },
+                    {
+                        name: "Budi Santoso",
+                        title: "Guru SMP Negeri 5 Surabaya",
+                        initials: "BS",
+                        quote: "Sertifikasi Level B membuka kesempatan promosi di sekolah saya. Materi pelatihannya sangat relevan dengan kebutuhan pendidikan saat ini.",
+                        color: "bg-[#1D4E89]"
+                    },
+                    {
+                        name: "Ahmad Hidayat",
+                        title: "Kepala Sekolah, SD Cendekia",
+                        initials: "AH",
+                        quote: "Setelah mengirim beberapa guru kami untuk mengikuti program TLC, kami melihat peningkatan signifikan dalam kualitas pembelajaran di sekolah. Siswa menjadi lebih terlibat dan hasil belajar meningkat.",
+                        color: "bg-yellow-500"
+                    }
+                ];
+
+                let currentTestimonial = 2;
+
+                function showTestimonial(index) {
+                    currentTestimonial = index;
+                    const testimonial = testimonials[index];
+
+
+                    const content = document.querySelector('.testimonial-content');
+                    content.classList.remove('fade-in');
+
+                    setTimeout(() => {
+
+                        document.querySelector('.testimonial-quote').textContent = `"${testimonial.quote}"`;
+                        document.querySelector('.testimonial-name').textContent = testimonial.name;
+                        document.querySelector('.testimonial-title').textContent = testimonial.title;
+                        document.querySelector('.testimonial-initials').textContent = testimonial.initials;
+                        document.querySelector('.testimonial-avatar').className =
+                            `w-20 h-20 rounded-full ${testimonial.color} flex items-center justify-center mb-4 shadow-lg testimonial-avatar`;
+
+
+                        document.querySelectorAll('.dot').forEach((dot, i) => {
+                            dot.classList.toggle('active', i === index);
+                        });
+
+
+                        content.classList.add('fade-in');
+                    }, 150);
+                }
+
+                function nextTestimonial() {
+                    const next = (currentTestimonial + 1) % testimonials.length;
+                    showTestimonial(next);
+                }
+
+                function previousTestimonial() {
+                    const prev = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+                    showTestimonial(prev);
+                }
+
+
+                setInterval(() => {
+                    nextTestimonial();
+                }, 8000);
+
+
+                showTestimonial(2);
+            </script>
+
+            <style>
+                .testimonial-card {
+                    background: linear-gradient(135deg, #dbeafe 0%, #fff7ed 100%);
+                }
+
+                .dot {
+                    transition: all 0.3s ease;
+                }
+
+                .dot.active {
+                    background-color: #1D4E89;
+                }
+
+                .nav-btn:hover svg {
+                    color: #E76F51;
+                }
+
+                .fade-in {
+                    animation: fadeIn 0.5s ease-in-out;
+                }
+
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(10px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            </style>
+        </section>
+        {{-- Testimoni --}}
 
     </section>
 
