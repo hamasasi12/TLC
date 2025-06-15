@@ -1847,7 +1847,6 @@
             </style>
         </section>
         {{-- Testimoni --}}
-
     </section>
 
     <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>

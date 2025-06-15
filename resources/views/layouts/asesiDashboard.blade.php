@@ -289,7 +289,8 @@
                 const hamburgerIcon = document.getElementById('hamburger-icon');
                 const closeIcon = document.getElementById('close-icon');
 
-                if (mobileMenuToggle && mobileMenu) {
+                // if (mobileMenuToggle && mobileMenu) {
+                    if (mobileMenuToggle && mobileMenu && hamburgerIcon && closeIcon) {
                     mobileMenuToggle.addEventListener('click', function() {
                         // Check if menu is currently hidden
                         const isHidden = mobileMenu.classList.contains('opacity-0');
@@ -332,7 +333,8 @@
                 const profileMenu = document.getElementById('profile-menu-asesi');
                 const profileArrow = document.getElementById('profile-arrow');
 
-                if (profileButton && profileMenu) {
+                // if (profileButton && profileMenu) {
+                    if (profileButton && profileMenu && profileArrow) {
                     profileButton.addEventListener('click', function() {
                         profileMenu.classList.toggle('hidden');
                         profileArrow.classList.toggle('rotate-180');

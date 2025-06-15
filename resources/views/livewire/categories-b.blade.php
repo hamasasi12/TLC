@@ -82,6 +82,9 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="relative">
         <div
             class="bg-white rounded-3xl shadow-lg overflow-hidden border border-blue-100 transform transition duration-500 hover:shadow-xl group">
             {{-- Gambar banner --}}
@@ -157,4 +160,5 @@
             </div>
         </div>
     </div>
+
 </div>

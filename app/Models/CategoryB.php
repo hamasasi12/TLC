@@ -16,4 +16,7 @@ class CategoryB extends Model
         'status',
         'image_url'
     ];
+
+
+
 }
