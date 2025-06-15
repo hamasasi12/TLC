@@ -18,7 +18,7 @@ class AsesiTable extends Component
         $users = User::role('asesi')
             ->with('userProfile')
             ->latest()
-            ->paginate(5);
+            ->paginate(10);
 
         return view('livewire.asesi-table', [
             'users' => $users,
