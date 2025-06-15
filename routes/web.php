@@ -4,6 +4,7 @@ use App\Exports\AsesiExport;
 use App\Exports\UsersExport;
 use App\Exports\AsesorExport;
 use App\Exports\ResultExamsAExport;
+use App\Http\Controllers\Asesi\LevelBController;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -17,7 +18,6 @@ use App\Http\Controllers\Asesi\ExamController;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Admin\LevelAController;
-use App\Http\Controllers\Admin\LevelBController;
 use App\Http\Controllers\Admin\LevelCController;
 use App\Http\Controllers\Asesi\ProfileController;
 use App\Http\Controllers\Asesi\SertifikasiController;
@@ -110,6 +110,8 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::get('/sertifikasi/level/a/{exam}/result', [ExamController::class, 'result'])->name('asesi.sertifikasi.level.a.result');
     Route::get('/sertifikasi/level/a/{exam}/continue', [ExamController::class, 'continue'])->name('asesi.sertifikasi.level.a.continue');
 
+    // LEVEL B
+    Route::post('/sertifikasi/level/b/instruction', [LevelBController::class, 'instruction'])->name('asesi.sertifikasi.level.b.instruction');
 });
 
 Route::middleware(['auth'])->prefix('asesi')->group(function () {

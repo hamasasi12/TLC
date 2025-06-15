@@ -43,7 +43,7 @@
                         <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-1"></span>
                         Terbuka
                     </div> --}}
-                    @if ($user->hasPermissionTo('PPT_UPLOAD'))
+                    @if ($user->hasPermissionTo('MODUL_AJAR'))
                         <button disabled
                             class="px-5 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-xl text-sm font-medium shadow-md flex items-center cursor-default">
                             Selesai
@@ -54,15 +54,20 @@
                             </svg>
                         </button>
                     @elseif (Auth::user()->hasPermissionTo('access_level_B'))
-                        <button wire:click="openModal({{ 'dicoding' }})"
-                            class="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-100 hover:shadow-xl hover:-translate-y-0.5 flex items-center">
-                            Mulai
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </button>
+                        <form action="{{ route('asesi.sertifikasi.level.b.instruction') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="category_id" value="1">
+                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+                            <button type="submit"
+                                class="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-100 hover:shadow-xl hover:-translate-y-0.5 flex items-center">
+                                Mulai
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </button>
+                        </form>
                     @else
                         <button disabled
                             class="px-5 py-2 bg-gradient-to-r from-gray-400 to-gray-500 text-gray-200 rounded-xl text-sm font-medium shadow-md cursor-not-allowed flex items-center opacity-60">
@@ -123,15 +128,20 @@
                             </svg>
                         </button>
                     @elseif (Auth::user()->hasPermissionTo('access_level_B'))
-                        <button wire:click="openModal({{ 'dicoding' }})"
-                            class="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-100 hover:shadow-xl hover:-translate-y-0.5 flex items-center">
-                            Mulai
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </button>
+                        <form action="{{ route('asesi.sertifikasi.level.b.instruction') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="category_id" value="2">
+                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+                            <button type="submit"
+                                class="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-xl text-sm font-medium shadow-md transform transition duration-100 hover:shadow-xl hover:-translate-y-0.5 flex items-center">
+                                Mulai
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </button>
+                        </form>
                     @else
                         <button disabled
                             class="px-5 py-2 bg-gradient-to-r from-gray-400 to-gray-500 text-gray-200 rounded-xl text-sm font-medium shadow-md cursor-not-allowed flex items-center opacity-60">
