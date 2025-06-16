@@ -62,7 +62,8 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Menunggu Dinilai</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-yellow-600">12
+                                <h3 class="text-xl sm:text-3xl font-bold text-gray-700 mt-1 group-hover:text-yellow-600">
+                                    {{ $levelBPending }}
                                 </h3>
                             </div>
                             <div
@@ -85,7 +86,8 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Selesai Dinilai</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-green-600">33
+                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-700 mt-1 group-hover:text-green-600">
+                                    {{ $levelBReviewed }}
                                 </h3>
                             </div>
                             <div
@@ -108,8 +110,8 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Total Asesi</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-purple-600">
-                                    {{ $asesi->count() }}
+                                <h3 class="text-xl sm:text-3xl font-bold text-gray-700 mt-1 group-hover:text-purple-600">
+                                    {{ $asesiEligible }}
                                 </h3>
                             </div>
                             <div
