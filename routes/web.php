@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Asesor\LevelBGradedController;
 use App\Models\Testimonial;
 use App\Exports\AsesiExport;
 use App\Exports\UsersExport;
@@ -55,11 +56,11 @@ Route::post('/permission', function (Request $request) {
     }
     Alert::success("Permission '$permission' diberikan.");
 
-    if(Auth::user()->hasRole('admin')) {
+    if (Auth::user()->hasRole('admin')) {
         return redirect()->route('admin.dashboard');
-    } else if(Auth::user()->hasRole('asesor')) {
+    } else if (Auth::user()->hasRole('asesor')) {
         return redirect()->route('asesor.dashboard');
-    } else if(Auth::user()->hasRole('asesi')) {
+    } else if (Auth::user()->hasRole('asesi')) {
         return redirect()->route('asesi.dashboard');
     }
 })->middleware(['auth'])->name('assign.permission');
@@ -95,7 +96,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 // AUTH ASESI
 Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(function () {
     Route::get('/dashboard', [AsesiDashboardController::class, 'index'])->name('asesi.dashboard');
-    Route::get('/testimonials/featured', [AsesiDashboardController::class, 'getFeaturedTestimonials'])->name('asesi.testimonials.featured');    Route::get('/sertifikat/{id}', [SertifikasiController::class, 'mySertifikat'])->name('asesi.sertifikat');
+    Route::get('/testimonials/featured', [AsesiDashboardController::class, 'getFeaturedTestimonials'])->name('asesi.testimonials.featured');
+    Route::get('/sertifikat/{id}', [SertifikasiController::class, 'mySertifikat'])->name('asesi.sertifikat');
     Route::get('/sertifikasi', [SertifikasiController::class, 'index'])->name('asesi.sertifikasi');
     Route::get('/nilai', [SertifikasiController::class, 'nilai'])->name('asesi.nilai');
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('asesi.transaksi');
@@ -248,16 +250,16 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     })->name('admin.resulta.export');
 
     Route::get('/testimonials', [\App\Http\Controllers\Admin\TestimonialController::class, 'index'])
-    ->name('admin.testimonials.index');
+        ->name('admin.testimonials.index');
 
-Route::post('/testimonials/{testimonial}/approve', [\App\Http\Controllers\Admin\TestimonialController::class, 'approve'])
-    ->name('admin.testimonials.approve');
+    Route::post('/testimonials/{testimonial}/approve', [\App\Http\Controllers\Admin\TestimonialController::class, 'approve'])
+        ->name('admin.testimonials.approve');
 
-Route::post('/testimonials/{testimonial}/feature', [\App\Http\Controllers\Admin\TestimonialController::class, 'feature'])
-    ->name('admin.testimonials.feature');
+    Route::post('/testimonials/{testimonial}/feature', [\App\Http\Controllers\Admin\TestimonialController::class, 'feature'])
+        ->name('admin.testimonials.feature');
 
-Route::delete('/testimonials/{testimonial}', [\App\Http\Controllers\Admin\TestimonialController::class, 'destroy'])
-    ->name('admin.testimonials.destroy');
+    Route::delete('/testimonials/{testimonial}', [\App\Http\Controllers\Admin\TestimonialController::class, 'destroy'])
+        ->name('admin.testimonials.destroy');
 
 
 
@@ -271,12 +273,17 @@ Route::delete('/testimonials/{testimonial}', [\App\Http\Controllers\Admin\Testim
 Route::middleware(['auth', 'role:asesor'])->prefix('asesor')->group(function () {
     Route::get('/dashboard', [AsesorDashboardController::class, 'index'])->name('asesor.dashboard');
     Route::get('/list-asesi', [AsesorDashboardController::class, 'listAsesi'])->name('asesor.list-asesi');
+
+    Route::get('/list-asesi/grade/{id}', [LevelBGradedController::class, 'showGradingPage'])->name('asesor.gradeB.asesi');
+
     Route::get('/notifikasi', [AsesorDashboardController::class, 'notifikasi'])->name('asesor.notifikasi');
     Route::get('/form-penilaian', [AsesorDashboardController::class, 'formPenilaian'])->name('asesor.form-penilaian');
     Route::get('/riwayat-penilaian', [AsesorDashboardController::class, 'riwayatPenilaian'])->name('asesor.riwayat-penilaian');
     Route::get('/riwayat-aktifitas', [AsesorDashboardController::class, 'riwayatAktifitas'])->name('asesor.riwayat-aktifitas');
     Route::get('/download-nilai', [AsesorDashboardController::class, 'downloadNilai'])->name('asesor.download-nilai');
     Route::get('/profile-setting', [AsesorDashboardController::class, 'profileSetting'])->name('asesor.profile-setting');
+
+
 });
 
 // INDOREGION
@@ -290,17 +297,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    
+
     // Testimonial routes
     // Route::get('/testimonials', [\App\Http\Controllers\Admin\TestimonialController::class, 'index'])
     //     ->name('testimonials.index');
-    
+
     // Route::post('/testimonials/{testimonial}/approve', [\App\Http\Controllers\Admin\TestimonialController::class, 'approve'])
     //     ->name('testimonials.approve');
-    
+
     // Route::post('/testimonials/{testimonial}/feature', [\App\Http\Controllers\Admin\TestimonialController::class, 'feature'])
     //     ->name('testimonials.feature');
-    
+
     // Route::delete('/testimonials/{testimonial}', [\App\Http\Controllers\Admin\TestimonialController::class, 'destroy'])
     //     ->name('testimonials.destroy');
 });

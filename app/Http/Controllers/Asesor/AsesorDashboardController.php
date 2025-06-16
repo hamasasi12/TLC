@@ -29,7 +29,10 @@ class AsesorDashboardController extends Controller
 
     public function listAsesi()
     {
-        return view('dashboard.asesor.listasesi');
+        $levelB = LevelBSubmission::with('user')->paginate(10);
+        return view('dashboard.asesor.listasesi', [
+            'levelB' => $levelB,
+        ]);
     }
 
     public function notifikasi()

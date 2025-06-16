@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('modul_ajar')->nullable();
             $table->text('description')->nullable();
             $table->enum('status', ['pending', 'reviewed', 'rejected'])->default('pending');
+            $table->enum('is_passed', ['passed', 'rejected', 'reviewed'])->nullable()->default('reviewed');
             $table->text('comment_asesor')->nullable();
             $table->integer('score')->nullable();
             $table->timestamps();

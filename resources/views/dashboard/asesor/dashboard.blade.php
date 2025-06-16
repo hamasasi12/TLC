@@ -5,7 +5,7 @@
     <main class="transition-smooth main-padding" id="main-content">
         <div class="px-4 sm:px-6 lg:px-8" id="main-wrapper">
             <!-- Dashboard Header -->
-            <div class="text-center mb-6 sm:mb-8">
+            {{-- <div class="text-center mb-6 sm:mb-8">
                 <span
                     class="text-xs sm:text-sm text-white font-semibold inline-block px-3 sm:px-4 py-2 bg-gradient-to-r from-secondary to-primary rounded-full shadow-lg hover:shadow-xl transition-smooth hover:scale-105 mb-3 sm:mb-4">
                     #DASHBOARD STATISTIK
@@ -28,7 +28,7 @@
                     data yang
                     <span class="font-semibold text-gradient">interaktif dan modern</span>
                 </p>
-            </div>
+            </div> --}}
 
             <!-- Grid Statistik -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
