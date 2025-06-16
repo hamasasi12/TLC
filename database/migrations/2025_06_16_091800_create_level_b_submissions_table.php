@@ -13,9 +13,9 @@ return new class extends Migration {
         Schema::create('level_b_submissions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('file_ppt');
-            $table->string('modul_ajar');
-            $table->text('description');
+            $table->string('file_ppt')->nullable();
+            $table->string('modul_ajar')->nullable();
+            $table->text('description')->nullable();
             $table->enum('status', ['pending', 'reviewed', 'rejected'])->default('pending');
             $table->text('comment_asesor')->nullable();
             $table->integer('score')->nullable();
