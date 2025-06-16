@@ -74,6 +74,10 @@ class User extends Authenticatable
     public function payment() {
         return $this->hasOne(Payment::class);
     }
+
+    public function LevelBSubmission() {
+        return $this->hasMany(LevelBSubmission::class);
+    }
     public function isProfileComplete()
     {
         if (!$this->userProfile) {

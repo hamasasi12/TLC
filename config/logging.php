@@ -19,7 +19,7 @@ return [
     */
 
     'default' => env('LOG_CHANNEL', 'stack'),
-    
+
     /*
     |--------------------------------------------------------------------------
     | Deprecations Log Channel
@@ -89,7 +89,7 @@ return [
             'handler_with' => [
                 'host' => env('PAPERTRAIL_URL'),
                 'port' => env('PAPERTRAIL_PORT'),
-                'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
+                'connectionString' => 'tls://' . env('PAPERTRAIL_URL') . ':' . env('PAPERTRAIL_PORT'),
             ],
             'processors' => [PsrLogMessageProcessor::class],
         ],
@@ -124,10 +124,17 @@ return [
             'level' => 'debug',
         ],
 
-         'exam' => [
+        'exam' => [
             'driver' => 'single',
             'path' => storage_path('logs/exam.log'),
             'level' => 'debug',
+        ],
+        'level_b' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/level_b.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => 14,
+            'replace_placeholders' => true,
         ],
 
         'null' => [

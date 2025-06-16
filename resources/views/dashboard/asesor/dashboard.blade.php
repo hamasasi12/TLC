@@ -108,7 +108,8 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Total Asesi</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-purple-600">78
+                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-purple-600">
+                                    {{ $asesi->count() }}
                                 </h3>
                             </div>
                             <div

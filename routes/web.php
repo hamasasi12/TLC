@@ -110,8 +110,9 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::get('/sertifikasi/level/a/{exam}/result', [ExamController::class, 'result'])->name('asesi.sertifikasi.level.a.result');
     Route::get('/sertifikasi/level/a/{exam}/continue', [ExamController::class, 'continue'])->name('asesi.sertifikasi.level.a.continue');
 
-    // LEVEL B
+    // LEVEL B ASESI
     Route::post('/sertifikasi/level/b/instruction', [LevelBController::class, 'instruction'])->name('asesi.sertifikasi.level.b.instruction');
+    Route::post('/sertifikasi/level/b/store', [LevelBController::class, 'storeSubmission'])->name('asesi.sertifikasi.level.b.instruction');
 });
 
 Route::middleware(['auth'])->prefix('asesi')->group(function () {

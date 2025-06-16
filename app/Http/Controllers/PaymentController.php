@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\PaymentSuccessful;
 use Midtrans\Snap;
 use App\Models\User;
 use App\Models\Level;
 use App\Models\Payment;
-
 use Illuminate\Support\Str;
+
 use Illuminate\Http\Request;
+use App\Events\PaymentSuccessful;
+use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
@@ -35,6 +36,13 @@ class PaymentController extends Controller
 
     public function create(string $id)
     {
+        $decoded = Hashids::decode($id);
+
+        if(empty($decoded)) {
+            abort(404,'ID Tidak Valid');
+        }
+
+        $id = $decoded[0];
         $level = Level::find($id);
 
         if (!$level) {

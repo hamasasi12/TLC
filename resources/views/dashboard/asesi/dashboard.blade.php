@@ -1207,7 +1207,7 @@
                                         Sudah Terdaftar
                                     </button>
                                 @else
-                                    <a href="{{ route('payments.create', $levels[0]->id) }}"
+                                    <a href="{{ route('payments.create', Hashids::encode($levels[0]->id)) }}"
                                         class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] hover:from-[#E76F51] hover:to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105">
                                         Daftar Sekarang
                                     </a>
@@ -1216,7 +1216,7 @@
 
                             @case('B')
                                 @if ($user->hasPermissionTo('level_A_completed'))
-                                    <a href="{{ route('payments.create', $levels[1]->id) }}"
+                                    <a href="{{ route('payments.create', Hashids::encode($levels[1]->id)) }}"
                                         class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] hover:from-[#E76F51] hover:to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105">
                                         Daftar Sekarang
                                     </a>
@@ -1230,7 +1230,7 @@
 
                             @case('C')
                                 @if ($user->hasPermissionTo('level_B_completed'))
-                                    <a href="{{ route('payments.create', $levels[2]->id) }}"
+                                    <a href="{{ route('payments.create', Hashids::encode($levels[2]->id)) }}"
                                         class="bg-gradient-to-r from-[#F4A261] to-[#E76F51] hover:from-[#E76F51] hover:to-[#E76F51] text-white px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105">
                                         Daftar Sekarang
                                     </a>

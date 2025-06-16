@@ -1,5 +1,8 @@
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     <!-- Level A Card -->
+    @php
+        use Vinkla\Hashids\Facades\Hashids;
+    @endphp
     <div class="bg-white rounded-2xl shadow-lg card-hover overflow-hidden opacity-0 slide-in border border-gray-100"
         style="animation-delay: 0.1s">
         <div class="h-2 bg-gradient-to-r from-[#1D4E89] to-[#2A5AAF]"></div>
@@ -91,7 +94,7 @@
             @else
                 <p class="text-sm text-gray-500 italic mb-6">
                     Belum dibuka - Lakukan pembayaran terlebih dahulu
-                    <a href="{{ route('payments.create', 1) }}" class="text-blue-600 underline hover:text-blue-800">
+                    <a href="{{ route('payments.create', Hashids::encode(1)) }}" class="text-blue-600 underline hover:text-blue-800">
                         disini
                     </a>
                 </p>
@@ -183,7 +186,7 @@
                 @if (Auth::user()->hasPermissionTo('level_A_completed'))
                     <p class="text-sm text-gray-500 italic mb-6">
                         Belum dibuka - Lakukan pembayaran terlebih dahulu
-                        <a href="{{ route('payments.create', 2) }}" class="text-blue-600 underline hover:text-blue-800">
+                        <a href="{{ route('payments.create', Hashids::encode(2)) }}" class="text-blue-600 underline hover:text-blue-800">
                             disini
                         </a>
                     </p>

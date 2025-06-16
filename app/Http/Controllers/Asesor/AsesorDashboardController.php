@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Asesor;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AsesorDashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard.asesor.dashboard');
+        $asesi = User::role('asesi')->get();
+        return view('dashboard.asesor.dashboard', [
+            'asesi' => $asesi
+        ]);
     }
 
     public function listAsesi()
