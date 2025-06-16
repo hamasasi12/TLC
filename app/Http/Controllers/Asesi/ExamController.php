@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Asesi;
 
-use App\Events\ExamCompleted;
 use Log;
 use App\Models\ExamA;
 use App\Models\CategoryA;
 use App\Models\QuestionA;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use App\Events\ExamCompleted;
 use PhpParser\Node\Stmt\TryCatch;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -315,14 +316,19 @@ class ExamController extends Controller
         } else {
             Alert::error('Ujian Selesai', 'Maaf, Anda belum lulus ujian pada kategori ' . $category->name);
         }
+        
+        $userHasTestimonial = Testimonial::where('user_id', Auth::id())
+        ->where('category_a_id', $categoryId)
+        ->exists();
 
-        return view('user.sertifikasi.levelA.exam.result', compact(
+         return view('user.sertifikasi.levelA.exam.result', compact(
             'exam',
             'totalQuestions',
             'correctAnswers',
             'wrongAnswers',
             'unansweredQuestions',
-            'category'
+            'category',
+            'userHasTestimonial'
         ));
     }
 

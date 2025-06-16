@@ -350,6 +350,18 @@
                         <span class="flex-1 ms-3 whitespace-nowrap">Portal Berita</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.testimonials.index') }}"
+                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-gray-800">
+                        <svg class="w-6 h-6 text-yellow-400 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.77 9.77 0 01-4-.846L3 20l1.344-4.03A8.987 8.987 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Testimonial</span>
+                    </a>
+                </li>
+                
                 {{-- <li>
                     <a href="#"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
