@@ -22,10 +22,10 @@ class StoreSubmissionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'required|exists:users,id',
-            'file_ppt' => 'nullable|file|mimes:ppt,pptx,ppsx,odp,odt',
-            'modul_ajar' => 'nullable|string|max:255',
-            'description' => 'nullable|string|max:255',
+            'user_id' => 'nullable',
+            'file_ppt' => 'nullable',
+            'modul_ajar' => 'nullable',
+            'description' => 'nullable',
         ];
     }
 }

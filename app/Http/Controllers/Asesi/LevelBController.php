@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreSubmissionRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LevelBController extends Controller
 {
@@ -43,13 +44,23 @@ class LevelBController extends Controller
         }
     }
 
+    public function formPPT()
+    {
+        return view('user.sertifikasi.levelB.PPT.index');
+    }
+
+    public function formModulAjar()
+    {
+        return view('user.sertifikasi.levelB.MODULAJAR.index');
+    }
+
     public function storeSubmission(StoreSubmissionRequest $request)
     {
         DB::beginTransaction();
-
         try {
             $validated = $request->validated();
             $userId = Auth::id();
+            $user = Auth::user();
 
             $filePptPath = null;
             $modulAjarPath = null;
@@ -59,13 +70,14 @@ class LevelBController extends Controller
                 $filePpt = $request->file('file_ppt');
                 $filePptName = time() . '_ppt_' . $userId . '.' . $filePpt->getClientOriginalExtension();
                 $filePptPath = $filePpt->storeAs('level_b/ppt', $filePptName, 'public');
+                $user->givePermissionTo('PPT_UPLOAD');
             }
 
-            // Handle modul_ajar upload
             if ($request->hasFile('modul_ajar')) {
                 $modulAjar = $request->file('modul_ajar');
                 $modulAjarName = time() . '_modul_' . $userId . '.' . $modulAjar->getClientOriginalExtension();
                 $modulAjarPath = $modulAjar->storeAs('level_b/modul_ajar', $modulAjarName, 'public');
+                $user->givePermissionTo('MODUL_AJAR');
             }
 
             // Create submission record
@@ -76,19 +88,13 @@ class LevelBController extends Controller
                 'description' => $validated['description'],
                 'status' => 'pending',
             ]);
-
             DB::commit();
 
-            Log::channel('level_b')->info('Level B submission created successfully', [
-                'submission_id' => $levelB->id,
-                'user_id' => $userId,
-                'has_ppt' => !is_null($filePptPath),
-                'has_module' => !is_null($modulAjarPath),
-                'description_length' => strlen($validated['description'])
-            ]);
+            Alert::success('Permohonan sertifikasi Level B berhasil dikirim. Silahkan tunggu pengecekan oleh Asesor.');
+            return redirect()->route('asesi.sertifikasi');
 
         } catch (\Exception $e) {
-            DB::rollback();
+            DB::rollBack();
 
             if (isset($filePptPath) && Storage::disk('public')->exists($filePptPath)) {
                 Storage::disk('public')->delete($filePptPath);
@@ -105,6 +111,8 @@ class LevelBController extends Controller
                 'error_line' => $e->getLine(),
                 'trace' => $e->getTraceAsString()
             ]);
+
+            return redirect()->back()->with('error', 'Gagal mengirim permohonan sertifikasi Level B: '. $e->getMessage());
         }
     }
 }
