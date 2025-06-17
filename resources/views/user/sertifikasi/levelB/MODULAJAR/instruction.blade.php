@@ -14,11 +14,11 @@
                 <p class="text-emerald-50 text-sm sm:text-base lg:text-lg">
                     Penilaian oleh Asesor untuk pembuatan Modul Ajar/Lesson Plan yang berkualitas
                 </p>
-                @if(isset($user_id))
+                {{-- @if(isset($user_id))
                     <div class="mt-3 text-emerald-50">
                         <span class="text-xs sm:text-sm font-medium">ID Peserta: {{ $user_id }}</span>
                     </div>
-                @endif
+                @endif --}}
             </div>
 
             {{-- Stats Cards --}}
