@@ -1,5 +1,8 @@
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     <!-- Level A Card -->
+    @php
+        use Vinkla\Hashids\Facades\Hashids;
+    @endphp
     <div class="bg-white rounded-2xl shadow-lg card-hover overflow-hidden opacity-0 slide-in border border-gray-100"
         style="animation-delay: 0.1s">
         <div class="h-2 bg-gradient-to-r from-[#1D4E89] to-[#2A5AAF]"></div>
@@ -91,7 +94,7 @@
             @else
                 <p class="text-sm text-gray-500 italic mb-6">
                     Belum dibuka - Lakukan pembayaran terlebih dahulu
-                    <a href="{{ route('payments.create', 1) }}" class="text-blue-600 underline hover:text-blue-800">
+                    <a href="{{ route('payments.create', Hashids::encode(1)) }}" class="text-blue-600 underline hover:text-blue-800">
                         disini
                     </a>
                 </p>
@@ -167,24 +170,44 @@
                 </div>
             </div>
 
-            @if (Auth::user()->hasPermissionTo('level_A_completed'))
-                <p class="text-sm text-gray-500 italic mb-6">
-                    Belum dibuka - Lakukan pembayaran terlebih dahulu
-                    <a href="{{ route('payments.create', 2) }}" class="text-blue-600 underline hover:text-blue-800">
-                        disini
-                    </a>
-                </p>
+            @if ($hasAccessB)
+                @if (Auth::user()->hasPermissionTo('level_B_completed'))
+                    <p class="text-sm text-green-600 italic mb-6">
+                        <i class="fas fa-check-circle mr-1"></i>
+                        Anda telah menyelesaikan kategori Level B dan berhak mendapatkan sertifikat
+                    </p>
+                @else
+                    <p class="text-sm text-gray-500 italic mb-6">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Selesaikan kategori Level B terlebih dahulu untuk mendapatkan sertifikat
+                    </p>
+                @endif
             @else
-                <p class="text-sm text-gray-500 italic mb-6">Belum dibuka - menunggu Level A selesai</p>
+                @if (Auth::user()->hasPermissionTo('level_A_completed'))
+                    <p class="text-sm text-gray-500 italic mb-6">
+                        Belum dibuka - Lakukan pembayaran terlebih dahulu
+                        <a href="{{ route('payments.create', Hashids::encode(2)) }}" class="text-blue-600 underline hover:text-blue-800">
+                            disini
+                        </a>
+                    </p>
+                @else
+                    <p class="text-sm text-gray-500 italic mb-6">Belum dibuka - menunggu Level B selesai</p>
+                @endif
+
             @endif
 
             <div class="flex gap-3">
                 @if ($hasAccessB)
-                    <livewire:component.button-status-badge status="progress" />
-                    <livewire:component.button-certificate status="lihat_sertifikat">
+                    @if (Auth::user()->hasPermissionTo('level_C_completed'))
+                        <a href="{{ route('asesi.sertifikat', Auth::id()) }}"
+                            class="flex-1 font-medium py-3 px-1.5 rounded-xl transform transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 bg-gradient-to-r from-[#1D4E89] to-[#2A5AAF] hover:from-[#14406B] hover:to-[#1F4A92] text-white cursor-pointer text-center block">
+                            Lihat Sertifikat Anda
+                        </a>
                     @else
-                        {{-- <livewire:component.button-status-badge status="belum_tersedia" /> --}}
-                        <livewire:component.button-certificate status="belum_tersedia">
+                        <livewire:component.button-certificate status="sedang_berjalan">
+                    @endif
+                @else
+                    <livewire:component.button-certificate status="belum_tersedia">
                 @endif
             </div>
         </div>

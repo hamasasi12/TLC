@@ -27,11 +27,39 @@ class AdminDashboardController extends Controller
 {
     public function index()
     {
+        $user = User::role('asesi')->get();
+
+        $userLevelNone = $user->filter(function ($u) {
+            return !$u->hasPermissionTo('access_level_A') &&
+                !$u->hasPermissionTo('access_level_B') &&
+                !$u->hasPermissionTo('access_level_C');
+        })->count();
+
+        $userLevelA = $user->filter(function ($u) {
+            return $u->hasPermissionTo('access_level_A');
+        })->count();
+
+        $userLevelB = $user->filter(function ($u) {
+            return $u->hasPermissionTo('access_level_B');
+        })->count();
+
+        $userLevelC = $user->filter(function ($u) {
+            return $u->hasPermissionTo('access_level_C');
+        })->count();
+
+        $levelCount = [
+            'userLevelNone' => $userLevelNone,
+            'A' => $userLevelA,
+            'B' => $userLevelB,
+            'C' => $userLevelC,
+        ];
+
         return view('dashboard.admin.dashboard', [
             'title' => 'Dashboard Admin',
             'asesi' => User::role('asesi')->count(),
             'asesor' => User::role('asesor')->count(),
             'admins' => User::role('admin')->count(),
+            'levelCount' => $levelCount,
         ]);
     }
 
@@ -272,7 +300,7 @@ class AdminDashboardController extends Controller
             if ($userProfile->profile_image && $userProfile->profile_image !== 'blankProfile.png') {
                 Storage::delete($userProfile->profile_image);
             }
-            
+
             $userProfile->delete();
             $user->removeRole('asesi');
             $user->delete();

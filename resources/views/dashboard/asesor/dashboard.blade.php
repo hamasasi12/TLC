@@ -5,7 +5,7 @@
     <main class="transition-smooth main-padding" id="main-content">
         <div class="px-4 sm:px-6 lg:px-8" id="main-wrapper">
             <!-- Dashboard Header -->
-            <div class="text-center mb-6 sm:mb-8">
+            {{-- <div class="text-center mb-6 sm:mb-8">
                 <span
                     class="text-xs sm:text-sm text-white font-semibold inline-block px-3 sm:px-4 py-2 bg-gradient-to-r from-secondary to-primary rounded-full shadow-lg hover:shadow-xl transition-smooth hover:scale-105 mb-3 sm:mb-4">
                     #DASHBOARD STATISTIK
@@ -28,7 +28,7 @@
                     data yang
                     <span class="font-semibold text-gradient">interaktif dan modern</span>
                 </p>
-            </div>
+            </div> --}}
 
             <!-- Grid Statistik -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
@@ -62,7 +62,8 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Menunggu Dinilai</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-yellow-600">12
+                                <h3 class="text-xl sm:text-3xl font-bold text-gray-700 mt-1 group-hover:text-yellow-600">
+                                    {{ $levelBPending }}
                                 </h3>
                             </div>
                             <div
@@ -85,7 +86,8 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Selesai Dinilai</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-green-600">33
+                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-700 mt-1 group-hover:text-green-600">
+                                    {{ $levelBReviewed }}
                                 </h3>
                             </div>
                             <div
@@ -108,7 +110,8 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Total Asesi</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-purple-600">78
+                                <h3 class="text-xl sm:text-3xl font-bold text-gray-700 mt-1 group-hover:text-purple-600">
+                                    {{ $asesiEligible }}
                                 </h3>
                             </div>
                             <div

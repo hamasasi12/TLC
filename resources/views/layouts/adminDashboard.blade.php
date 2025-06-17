@@ -383,17 +383,32 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.news.index') }}"
-                        class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-white/80 group transition-all duration-300 shadow-sm hover:shadow-md {{ Request::routeIs('admin.news.index') ? 'bg-white/90 border border-[#1D4E89]' : '' }}">
-                        <div
-                            class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#E76F51] flex items-center justify-center text-white shadow-md group-hover:bg-[#1D4E89] transition-all duration-300">
-                            <i class="fas fa-newspaper text-sm"></i>
-                        </div>
-                        <span class="ms-3 text-base font-semibold">Portal Berita</span>
-                        <div
-                            class="ml-auto w-1 h-4 rounded-full bg-[#1D4E89] opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        </div>
+                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-gray-800">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FBCB04"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-9 12V8l6 4-6 4z" />
+                            <path d="M4 7h16v2H4zm0 4h5v2H4zm0 4h5v2H4z" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Portal Berita</span>
                     </a>
                 </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04"
+                            viewBox="0 0 20 20">
+                            <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
+                            <path
+                                d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
+                            <path
+                                d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
+                    </a>
+                </li> --}}
             </ul>
         </div>
     </aside>

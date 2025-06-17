@@ -3,23 +3,18 @@
 
 @section('content')
 
-<!-- Compact Hero Section -->
-<div class="relative p-4 md:p-6 bg-gradient-to-br from-[#E76F51] to-[#1D4E89] rounded-2xl shadow-lg mb-6 mt-4 overflow-hidden">
-    <!-- Subtle Background Elements -->
-    <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-0 left-0 w-20 h-20 bg-white rounded-full blur-xl animate-pulse"></div>
-        <div class="absolute bottom-0 right-0 w-24 h-24 bg-blue-200 rounded-full blur-xl animate-pulse delay-1000"></div>
-    </div>
-    
-    <div class="relative z-10 flex flex-col sm:flex-row justify-between items-center">
-        <div class="text-center sm:text-left mb-4 sm:mb-0">
-            <h1 class="text-xl md:text-3xl font-bold text-white mb-2">
-                Selamat Datang, 
-                <span class="bg-gradient-to-r from-blue-100 to-orange-100 bg-clip-text text-transparent">Admin!</span>
-            </h1>
-            <p class="text-sm md:text-base text-white/90 max-w-md">
-                Kelola dan pantau aktivitas platform TLC
-            </p>
+ <!-- Dashboard Header with Welcome Message -->
+    {{-- <div class="p-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg mb-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold text-white mb-2">Selamat Datang, Admin!</h1>
+                <p class="text-blue-100">Kelola dan pantau aktivitas platform TLC dari satu tempat</p>
+            </div>
+            <div class="mt-4 md:mt-0">
+                <span class="bg-blue-900 bg-opacity-50 text-white px-4 py-2 rounded-lg">
+                    <i class="fas fa-calendar-alt mr-2"></i>{{ date('l, d F Y') }}
+                </span>
+            </div>
         </div>
         <div class="bg-white/20 backdrop-blur-sm text-white px-4 py-3 rounded-xl border border-white/30">
             <div class="flex items-center space-x-2">
@@ -116,16 +111,11 @@
     </div>
 </div>
 
-<!-- Main Content Grid -->
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-6">
-    <!-- Activity Chart -->
-    <div class="xl:col-span-2 bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div class="p-4 md:p-6 border-b border-gray-100">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-3 sm:space-y-0">
-                <div>
-                    <h3 class="text-xl font-bold text-[#1D4E89] mb-1">Aktivitas Pengguna</h3>
-                    <p class="text-sm text-gray-600">Pantau perkembangan aktivitas platform</p>
-                </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <!-- Activity Chart -->
+        <div class="bg-white rounded-xl shadow-md p-6 lg:col-span-2">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold text-gray-800">Aktivitas Pengguna</h3>
                 <div class="flex space-x-2">
                     <button class="px-3 py-2 bg-gradient-to-r from-[#E76F51] to-[#ea580c] text-white rounded-lg text-xs font-semibold shadow-md hover:shadow-lg transition-all duration-300">
                         Minggu Ini
@@ -192,103 +182,73 @@
                     </div>
                 </div>
             </div>
-            <button class="w-full mt-4 py-2 text-center bg-gradient-to-r from-[#1D4E89] to-[#E76F51] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 text-sm">
-                Lihat semua aktivitas
-            </button>
+            <button class="w-full mt-4 text-sm text-blue-600 hover:text-blue-800">Lihat semua aktivitas</button>
         </div>
     </div>
-</div>
 
-<!-- Bottom Section -->
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-6">
-    <!-- Certification Statistics -->
-    <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div class="p-4 bg-gradient-to-r from-[#E76F51] to-[#1D4E89]">
-            <h3 class="text-lg font-bold text-white flex items-center">
-                <i class="fas fa-chart-pie mr-2"></i>
-                Status Sertifikasi
-            </h3>
-        </div>
-        <div class="p-4">
+    <!-- Statistik Sertifikasi dan Tabel Pengguna Terbaru -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <!-- Statistik Sertifikasi -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-4">Status Sertifikasi</h3>
             <div class="space-y-4">
-                <!-- Completed Certifications -->
+                <!-- Sertifikasi Selesai -->
                 <div>
-                    <div class="flex justify-between mb-2">
-                        <span class="font-semibold text-gray-700 flex items-center text-sm">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                            Selesai
-                        </span>
-                        <span class="font-bold text-green-600 text-sm">65%</span>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-gray-700">Selesai</span>
+                        <span class="text-sm font-medium text-gray-700">65%</span>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div class="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full transition-all duration-1000" style="width: 65%"></div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 65%"></div>
                     </div>
                 </div>
 
-                <!-- In Progress Certifications -->
+                <!-- Sertifikasi Dalam Proses -->
                 <div>
-                    <div class="flex justify-between mb-2">
-                        <span class="font-semibold text-gray-700 flex items-center text-sm">
-                            <div class="w-2 h-2 bg-[#E76F51] rounded-full mr-2"></div>
-                            Dalam Proses
-                        </span>
-                        <span class="font-bold text-[#E76F51] text-sm">25%</span>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-gray-700">Dalam Proses</span>
+                        <span class="text-sm font-medium text-gray-700">25%</span>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div class="bg-gradient-to-r from-[#E76F51] to-[#ea580c] h-2 rounded-full transition-all duration-1000" style="width: 25%"></div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 25%"></div>
                     </div>
                 </div>
 
-                <!-- Not Started Certifications -->
+                <!-- Sertifikasi Belum Dimulai -->
                 <div>
-                    <div class="flex justify-between mb-2">
-                        <span class="font-semibold text-gray-700 flex items-center text-sm">
-                            <div class="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
-                            Belum Dimulai
-                        </span>
-                        <span class="font-bold text-gray-600 text-sm">10%</span>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-gray-700">Belum Dimulai</span>
+                        <span class="text-sm font-medium text-gray-700">10%</span>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div class="bg-gradient-to-r from-gray-400 to-gray-500 h-2 rounded-full transition-all duration-1000" style="width: 10%"></div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-gray-400 h-2.5 rounded-full" style="width: 10%"></div>
                     </div>
                 </div>
             </div>
+            <canvas id="userLevelChart"></canvas>
+            {{-- <canvas id="userLevelChart" width="100" height="100"></canvas> --}}
 
             <div class="mt-6 pt-4 border-t border-gray-200">
-                <h4 class="font-bold text-[#1D4E89] mb-3 flex items-center text-sm">
-                    <i class="fas fa-layer-group mr-2 text-[#E76F51]"></i>
-                    Distribusi Level
-                </h4>
-                <div class="grid grid-cols-3 gap-2">
-                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-3 rounded-lg text-center border border-[#1D4E89]/20">
-                        <span class="block text-lg font-bold text-[#1D4E89]">42%</span>
-                        <span class="text-xs font-semibold text-[#1D4E89]">Level A</span>
+                <h4 class="text-sm font-semibold text-gray-800 mb-3">Distribusi Level</h4>
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="bg-blue-50 p-2 rounded-lg">
+                        <span class="block text-xl font-bold text-blue-600">42%</span>
+                        <span class="text-xs text-gray-600">Level A</span>
                     </div>
-                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-3 rounded-lg text-center border border-[#E76F51]/20">
-                        <span class="block text-lg font-bold text-[#E76F51]">35%</span>
-                        <span class="text-xs font-semibold text-[#E76F51]">Level B</span>
+                    <div class="bg-purple-50 p-2 rounded-lg">
+                        <span class="block text-xl font-bold text-purple-600">35%</span>
+                        <span class="text-xs text-gray-600">Level B</span>
                     </div>
-                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-3 rounded-lg text-center border border-green-500/20">
-                        <span class="block text-lg font-bold text-green-600">23%</span>
-                        <span class="text-xs font-semibold text-green-700">Level C</span>
+                    <div class="bg-green-50 p-2 rounded-lg">
+                        <span class="block text-xl font-bold text-green-600">23%</span>
+                        <span class="text-xs text-gray-600">Level C</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- User Table -->
-    <div class="xl:col-span-2 bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div class="p-4 bg-gradient-to-r from-[#1D4E89] to-[#E76F51]">
-            <h3 class="text-lg font-bold text-white flex items-center">
-                <i class="fas fa-users mr-2"></i>
-                Data Pengguna Terbaru
-            </h3>
-        </div>
-        <div class="p-4">
-            @livewire('asesi-table')
-        </div>
-    </div>
-</div>
+
+
 
 @endsection

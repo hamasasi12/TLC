@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title') - Asesor Dashboard</title>
-    
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -35,62 +37,71 @@
             }
         }
     </script>
-    
+
     <style>
         .transition-smooth {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .hover-lift {
             transition: transform 0.3s ease;
         }
+
         .hover-lift:hover {
             transform: translateY(-2px);
         }
-        
+
         .gradient-bg {
             background: linear-gradient(135deg, #1D4E89 0%, #E76F51 100%);
         }
-        
+
         .text-gradient {
             background: linear-gradient(135deg, #1D4E89 0%, #E76F51 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .sidebar-z {
             z-index: 30;
         }
-        
+
         .dropdown-z {
             z-index: 50;
         }
-        
+
         .main-padding {
             padding-top: 80px;
             min-height: calc(100vh - 64px);
         }
-        
+
         @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
-        
+
         .animate-shimmer {
             animation: shimmer 2s infinite;
         }
-        
+
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #1D4E89;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #E76F51;
         }
@@ -101,21 +112,21 @@
             color: white;
             box-shadow: 0 4px 12px rgba(29, 78, 137, 0.3);
         }
-        
+
         .menu-active i {
             color: white !important;
         }
-        
+
         .menu-inactive {
             color: #374151;
         }
-        
+
         .menu-inactive:hover {
             background: linear-gradient(135deg, rgba(29, 78, 137, 0.1) 0%, rgba(231, 111, 81, 0.1) 100%);
             color: #1D4E89;
         }
     </style>
-    
+
     @stack('styles')
 </head>
 
@@ -146,18 +157,20 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- User Section -->
                 <div class="flex items-center space-x-3">
                     <!-- Search -->
                     <div class="relative hidden md:block">
                         <input type="text" placeholder="Cari asesi, penilaian..."
                             class="bg-white/20 backdrop-blur-sm text-white placeholder-white/70 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-smooth w-48 lg:w-64">
-                        <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-white/70 text-sm"></i>
+                        <i
+                            class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-white/70 text-sm"></i>
                     </div>
 
                     <!-- Notification -->
-                    <a href="{{ route('asesor.notifikasi') }}" class="relative p-2 text-white hover:bg-white/20 rounded-lg transition-smooth">
+                    <a href="{{ route('asesor.notifikasi') }}"
+                        class="relative p-2 text-white hover:bg-white/20 rounded-lg transition-smooth">
                         <i class="fas fa-bell text-lg"></i>
                     </a>
 
@@ -190,7 +203,8 @@
                                         AS
                                     </div>
                                     <div>
-                                        <p class="text-sm font-medium text-gray-900" role="none">{{ Auth::user()->name }}</p>
+                                        <p class="text-sm font-medium text-gray-900" role="none">
+                                            {{ Auth::user()->name }}</p>
                                         <p class="text-sm text-gray-500" role="none">{{ Auth::user()->email }}</p>
                                     </div>
                                 </div>
@@ -240,56 +254,64 @@
                     <li>
                         <a href="{{ route('asesor.dashboard') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.dashboard') ? 'menu-active' : 'menu-inactive' }}">
-                            <i class="fas fa-home w-5 h-5 {{ Request::routeIs('asesor.dashboard') ? 'text-white' : 'text-blue-500' }}"></i>
+                            <i
+                                class="fas fa-home w-5 h-5 {{ Request::routeIs('asesor.dashboard') ? 'text-white' : 'text-blue-500' }}"></i>
                             <span class="ml-3 font-medium">Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('asesor.list-asesi') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.list-asesi') ? 'menu-active' : 'menu-inactive' }}">
-                            <i class="fas fa-users w-5 h-5 {{ Request::routeIs('asesor.list-asesi') ? 'text-white' : 'text-secondary' }}"></i>
+                            <i
+                                class="fas fa-users w-5 h-5 {{ Request::routeIs('asesor.list-asesi') ? 'text-white' : 'text-secondary' }}"></i>
                             <span class="ml-3">List Asesi B & C</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('asesor.notifikasi') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.notifikasi') ? 'menu-active' : 'menu-inactive' }}">
-                            <i class="fas fa-bell w-5 h-5 {{ Request::routeIs('asesor.notifikasi') ? 'text-white' : 'text-yellow-500' }}"></i>
+                            <i
+                                class="fas fa-bell w-5 h-5 {{ Request::routeIs('asesor.notifikasi') ? 'text-white' : 'text-yellow-500' }}"></i>
                             <span class="ml-3">Notifikasi</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('asesor.form-penilaian') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.form-penilaian') ? 'menu-active' : 'menu-inactive' }}">
-                            <i class="fas fa-clipboard-list w-5 h-5 {{ Request::routeIs('asesor.form-penilaian') ? 'text-white' : 'text-green-500' }}"></i>
+                            <i
+                                class="fas fa-clipboard-list w-5 h-5 {{ Request::routeIs('asesor.form-penilaian') ? 'text-white' : 'text-green-500' }}"></i>
                             <span class="ml-3">Form Penilaian</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('asesor.riwayat-penilaian') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.riwayat-penilaian') ? 'menu-active' : 'menu-inactive' }}">
-                            <i class="fas fa-chart-line w-5 h-5 {{ Request::routeIs('asesor.riwayat-penilaian') ? 'text-white' : 'text-primary' }}"></i>
+                            <i
+                                class="fas fa-chart-line w-5 h-5 {{ Request::routeIs('asesor.riwayat-penilaian') ? 'text-white' : 'text-primary' }}"></i>
                             <span class="ml-3">Riwayat Penilaian</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('asesor.riwayat-aktifitas') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.riwayat-aktifitas') ? 'menu-active' : 'menu-inactive' }}">
-                            <i class="fa fa-history w-5 h-5 {{ Request::routeIs('asesor.riwayat-aktifitas') ? 'text-white' : 'text-secondary' }}"></i>
+                            <i
+                                class="fa fa-history w-5 h-5 {{ Request::routeIs('asesor.riwayat-aktifitas') ? 'text-white' : 'text-secondary' }}"></i>
                             <span class="ml-3">Riwayat Aktivitas</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('asesor.download-nilai') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.download-nilai') ? 'menu-active' : 'menu-inactive' }}">
-                            <i class="fas fa-download w-5 h-5 {{ Request::routeIs('asesor.download-nilai') ? 'text-white' : 'text-teal-500' }}"></i>
+                            <i
+                                class="fas fa-download w-5 h-5 {{ Request::routeIs('asesor.download-nilai') ? 'text-white' : 'text-teal-500' }}"></i>
                             <span class="ml-3">Download Nilai</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('asesor.profile-setting') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.profile-setting') ? 'menu-active' : 'menu-inactive' }}">
-                            <i class="fas fa-cog w-5 h-5 {{ Request::routeIs('asesor.profile-setting') ? 'text-white' : 'text-gray-500' }}"></i>
+                            <i
+                                class="fas fa-cog w-5 h-5 {{ Request::routeIs('asesor.profile-setting') ? 'text-white' : 'text-gray-500' }}"></i>
                             <span class="ml-3">Profile Setting</span>
                         </a>
                     </li>
@@ -388,7 +410,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             updateSidebarPosition();
-            
+
             document.querySelectorAll('button').forEach(button => {
                 button.addEventListener('click', function(e) {
                     const ripple = document.createElement('span');
@@ -431,7 +453,8 @@
             const toggleButton = event.target.closest('button[onclick="toggleSidebar()"]');
             const mainWrapper = document.getElementById('main-wrapper');
 
-            if (window.innerWidth < 1024 && sidebarOpen && sidebar && !sidebar.contains(event.target) && !toggleButton) {
+            if (window.innerWidth < 1024 && sidebarOpen && sidebar && !sidebar.contains(event.target) && !
+                toggleButton) {
                 sidebar.classList.add('-translate-x-full');
                 if (mainWrapper) {
                     mainWrapper.style.marginLeft = '0';
@@ -440,7 +463,9 @@
             }
         });
     </script>
-    
+
     @stack('scripts')
+    @include('sweetalert::alert')
 </body>
+
 </html>

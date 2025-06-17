@@ -72,12 +72,12 @@
                                     <svg class="w-4 h-4 mr-2 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
-                                    <span class="text-sm font-semibold">eLearning Bersertifikat</span>
+                                    <span class="text-sm font-semibold">Sertifikasi Teaching Activation</span>
                                 </div>
                                 <h1 class="text-2xl md:text-3xl font-bold mb-4 leading-tight">
-                                    Pelajari Ratusan Skill Bersertifikat Sekali Bayar
+                                    Level B Teaching Activation Certification
                                 </h1>
-                                <p class="text-lg opacity-90 mb-6">Fleksibel & Praktikal untuk Pengembangan Karir Anda</p>
+                                <p class="text-lg opacity-90 mb-6">Mengembangkan Teaching Mastery Framework untuk Efektivitas Pengajaran</p>
                             </div>
                             <div class="flex-shrink-0">
                                 <div
@@ -98,9 +98,6 @@
                             <span class="text-4xl font-bold text-gray-900">
                                 Rp. {{ number_format($level->price, 0, ',', '.') }}
                             </span>
-                            <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold">
-                                Terbatas
-                            </span>
                         </div>
                     </div>
 
@@ -108,10 +105,17 @@
                     <div class="mb-8">
                         <h3 class="text-xl font-semibold text-gray-800 mb-4">Tentang Program</h3>
                         <p class="text-gray-600 leading-relaxed text-lg">
-                            Level A merupakan tahap awal dalam program Teaching & Learning Certification (TLC) yang
-                            dirancang untuk mengukur pengetahuan dasar seorang pendidik dalam praktik mengajar yang
-                            efektif. Pada level ini, peserta akan mengikuti tes teori yang berbasis pada pendekatan
-                            Teaching Mastery Framework (TMF).
+                            Sertifikasi Level B bertujuan untuk menguji keterampilan guru melalui aktivasi pengetahuan PCK dan HOTS dalam pengajaran 
+                            serta mengembangkan lesson plan (Modul Ajar), Teaching Tactics dan Teaching Scenario untuk menunjang efektivitas pengajaran 
+                            guru di kelas. Program ini dirancang khusus untuk guru yang telah menyelesaikan Sertifikasi Level A.
+                        </p>
+                    </div>
+
+                    <!-- Requirements Section -->
+                    <div class="mb-8 bg-amber-50 rounded-2xl p-6 border-l-4 border-amber-400">
+                        <h3 class="text-lg font-semibold text-amber-800 mb-3">Syarat Pendaftaran</h3>
+                        <p class="text-amber-700">
+                            Telah mengikuti Sertifikasi Level A oleh Teaching & Learning Certification (TLC) HAFECS
                         </p>
                     </div>
 
@@ -119,7 +123,7 @@
                     <div class="border-t border-gray-100 pt-8">
                         <button id="readMoreBtn" class="flex items-center justify-between w-full text-left group">
                             <span class="text-lg font-semibold text-gray-800 group-hover:text-teal-600 smooth-transition">
-                                Detail Kurikulum & Materi
+                                Detail Program & Modul
                             </span>
                             <svg id="arrow" class="w-5 h-5 text-teal-600 smooth-transition group-hover:text-teal-700"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,82 +135,92 @@
                         <div id="expandableContent" class="overflow-hidden smooth-transition" style="max-height: 0;">
                             <div class="pt-8 space-y-8">
                                 <p class="text-gray-600 text-center text-lg">
-                                    Tes ini terdiri dari empat kategori utama yang mencerminkan aspek fundamental
-                                    dalam dunia pendidikan:
+                                    Program Level B terdiri dari 3 modul komprehensif yang mencakup:
                                 </p>
 
-                                <!-- Categories Grid -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <!-- PCK Card -->
+                                <!-- Modules Grid -->
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <!-- Module 1 -->
                                     <div class="category-card rounded-2xl p-6 smooth-transition hover-lift">
                                         <div class="flex items-center mb-4">
                                             <div
                                                 class="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4">
-                                                P
+                                                1
                                             </div>
                                             <div>
-                                                <h4 class="text-lg font-semibold text-gray-800">PCK</h4>
-                                                <p class="text-sm text-gray-500">Pedagogical Content Knowledge</p>
+                                                <h4 class="text-lg font-semibold text-gray-800">LMS Elevate</h4>
+                                                <p class="text-sm text-gray-500">Penugasan Online</p>
                                             </div>
                                         </div>
                                         <p class="text-gray-600 leading-relaxed">
-                                            Menguji kemampuan peserta dalam mengintegrasikan materi ajar dengan
-                                            strategi pengajaran yang tepat.
+                                            Mengikuti penugasan di Learning Management System Elevate untuk mendalami konsep Teaching Mastery Framework.
                                         </p>
                                     </div>
 
-                                    <!-- HOTS Card -->
+                                    <!-- Module 2 -->
                                     <div class="category-card rounded-2xl p-6 smooth-transition hover-lift">
                                         <div class="flex items-center mb-4">
                                             <div
                                                 class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4">
-                                                H
+                                                2
                                             </div>
                                             <div>
-                                                <h4 class="text-lg font-semibold text-gray-800">HOTS</h4>
-                                                <p class="text-sm text-gray-500">Higher Order Thinking Skills</p>
+                                                <h4 class="text-lg font-semibold text-gray-800">Training</h4>
+                                                <p class="text-sm text-gray-500">12 Kali Pertemuan</p>
                                             </div>
                                         </div>
                                         <p class="text-gray-600 leading-relaxed">
-                                            Menilai kemampuan berpikir kritis, analitis, dan kreatif dalam
-                                            memecahkan masalah pembelajaran.
+                                            Sesi pelatihan intensif dengan 12 kali pertemuan untuk mengasah kemampuan praktis dalam mengajar.
                                         </p>
                                     </div>
 
-                                    <!-- Literasi Card -->
+                                    <!-- Module 3 -->
                                     <div class="category-card rounded-2xl p-6 smooth-transition hover-lift">
                                         <div class="flex items-center mb-4">
                                             <div
                                                 class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4">
-                                                L
+                                                3
                                             </div>
                                             <div>
-                                                <h4 class="text-lg font-semibold text-gray-800">Literasi</h4>
-                                                <p class="text-sm text-gray-500">Reading Comprehension</p>
+                                                <h4 class="text-lg font-semibold text-gray-800">Sertifikasi</h4>
+                                                <p class="text-sm text-gray-500">TMF Assessment</p>
                                             </div>
                                         </div>
                                         <p class="text-gray-600 leading-relaxed">
-                                            Mengasah pemahaman peserta terhadap teks, serta kemampuan menafsirkan,
-                                            menyimpulkan, dan mengidentifikasi makna implisit.
+                                            Merancang pembelajaran berbasis Teaching Mastery Framework dengan penilaian komprehensif.
                                         </p>
                                     </div>
+                                </div>
 
-                                    <!-- Numerasi Card -->
-                                    <div class="category-card rounded-2xl p-6 smooth-transition hover-lift">
-                                        <div class="flex items-center mb-4">
-                                            <div
-                                                class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4">
-                                                N
+                                <!-- Assessment Details -->
+                                <div class="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-6">
+                                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Penilaian Asesor</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                                                    <path fill-rule="evenodd" d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 2a1 1 0 000 2h2a1 1 0 100-2H7z" clip-rule="evenodd"/>
+                                                </svg>
                                             </div>
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800">Numerasi</h4>
-                                                <p class="text-sm text-gray-500">Quantitative Reasoning</p>
-                                            </div>
+                                            <span class="text-gray-700 font-medium">Modul Ajar/Lesson Plan</span>
                                         </div>
-                                        <p class="text-gray-600 leading-relaxed">
-                                            Mengukur kemampuan logika dan berpikir kuantitatif dalam konteks
-                                            pembelajaran dan kehidupan sehari-hari.
-                                        </p>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+                                                </svg>
+                                            </div>
+                                            <span class="text-gray-700 font-medium">Materi Ajar (PPT)</span>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                                </svg>
+                                            </div>
+                                            <span class="text-gray-700 font-medium">LKS (Opsional)</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -214,9 +228,8 @@
                                 <div
                                     class="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl p-6 border-l-4 border-teal-500">
                                     <p class="text-teal-800 font-medium leading-relaxed">
-                                        Level ini menjadi fondasi penting sebelum melanjutkan ke level berikutnya,
-                                        karena menggambarkan kesiapan peserta dalam memahami dan menerapkan prinsip
-                                        dasar pedagogi yang kuat.
+                                        Level B merupakan tahap lanjutan yang memfokuskan pada implementasi praktis dari konsep pedagogis, 
+                                        dengan penekanan pada pengembangan lesson plan yang efektif dan teaching scenario yang inovatif.
                                     </p>
                                 </div>
                             </div>
@@ -225,7 +238,7 @@
 
                     <!-- Features Section -->
                     <div class="mt-8 pt-8 border-t border-gray-100">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Yang Akan Anda Dapatkan</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Benefit Yang Akan Anda Dapatkan</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="flex items-center space-x-3">
                                 <div class="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -233,34 +246,58 @@
                                         <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
-                                <span class="text-gray-700">Sertifikat Resmi</span>
+                                <span class="text-gray-700">Sertifikat Kompetensi ber-NPSN</span>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                                     <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
                                     </svg>
                                 </div>
-                                <span class="text-gray-700">Akses Seumur Hidup</span>
+                                <span class="text-gray-700">Mendapatkan Gelar Non-Formal</span>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <div
                                     class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                                     <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
                                     </svg>
                                 </div>
-                                <span class="text-gray-700">Komunitas Expert</span>
+                                <span class="text-gray-700">Rapor Hasil Ujian</span>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                                     <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" />
+                                        <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                                     </svg>
                                 </div>
-                                <span class="text-gray-700">Support 24/7</span>
+                                <span class="text-gray-700">Worksheet</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">Modul Pembelajaran Digital</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">Akses ke Webinar dan Diskusi Eksklusif HAFECS</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">Koneksi dengan Jaringan Guru Profesional</span>
                             </div>
                         </div>
                     </div>
