@@ -1,22 +1,32 @@
 <?php
 
+use App\Http\Controllers\Asesor\LevelBGradedController;
+use App\Models\Testimonial;
 use App\Exports\AsesiExport;
+use App\Exports\UsersExport;
+use Illuminate\Http\Request;
 use App\Exports\AsesorExport;
-
+use App\Exports\ResultExamsAExport;
+use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\Admin\ResultExamsA;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Asesi\ExamController;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Admin\LevelAController;
-use App\Http\Controllers\Admin\LevelBController;
 use App\Http\Controllers\Admin\LevelCController;
+use App\Http\Controllers\Asesi\LevelBController;
 use App\Http\Controllers\Asesi\ProfileController;
 use App\Http\Controllers\Asesi\SertifikasiController;
 use App\Http\Controllers\Asesi\TransactionController;
+use App\Http\Controllers\Admin\ResultExamsAController;
 use App\Http\Controllers\Admin\AdminSettingsController;
 use App\Http\Controllers\Admin\LevelSettingsController;
 use App\Http\Controllers\Admin\PaymentDetailController;
@@ -24,15 +34,36 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Asesi\AsesiDashboardController;
 use App\Http\Controllers\Asesor\AsesorDashboardController;
-use App\Exports\UsersExport;
-use Maatwebsite\Excel\Facades\Excel;
-
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
-
+use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 
 Route::get('register2', function () {
     return view('register2');
 })->name('register2');
+
+// SETELAH PRODUCTION JANGAN LUPA DIHAPUS ROUTE INI 
+Route::get('/permission', function () {
+    return view('permission');
+})->middleware(['auth'])->name('permission');
+
+// SETELAH PRODUCTION JANGAN LUPA DIHAPUS ROUTE INI 
+Route::post('/permission', function (Request $request) {
+    $permission = $request->input('permission');
+    $user = Auth::user();
+
+    if (!$user->hasPermissionTo($permission)) {
+        $user->givePermissionTo($permission);
+    }
+    Alert::success("Permission '$permission' diberikan.");
+
+    if (Auth::user()->hasRole('admin')) {
+        return redirect()->route('admin.dashboard');
+    } else if (Auth::user()->hasRole('asesor')) {
+        return redirect()->route('asesor.dashboard');
+    } else if (Auth::user()->hasRole('asesi')) {
+        return redirect()->route('asesi.dashboard');
+    }
+})->middleware(['auth'])->name('assign.permission');
 
 // GUEST
 Route::middleware('guest')->group(function () {
@@ -65,14 +96,17 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 // AUTH ASESI
 Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(function () {
     Route::get('/dashboard', [AsesiDashboardController::class, 'index'])->name('asesi.dashboard');
+    Route::get('/testimonials/featured', [AsesiDashboardController::class, 'getFeaturedTestimonials'])->name('asesi.testimonials.featured');
+    Route::get('/sertifikat/{id}', [SertifikasiController::class, 'mySertifikat'])->name('asesi.sertifikat');
     Route::get('/sertifikasi', [SertifikasiController::class, 'index'])->name('asesi.sertifikasi');
+    Route::get('/nilai', [SertifikasiController::class, 'nilai'])->name('asesi.nilai');
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('asesi.transaksi');
     Route::get('/register/2', [AuthController::class, 'registerStepTwo'])->name('asesi.registerStepTwo');
     Route::get('/registeraddtional', [AuthController::class, 'registeraddtional'])->name('registeraddtional');
     Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
 
 
-    // EXAM CONTROLLER 
+    // EXAM CONTROLLER
     Route::post('/sertifikasi/level/a/instruction', [ExamController::class, 'instruction'])->name('asesi.sertifikasi.level.a.instruction');
     Route::get('/sertifikasi/level/a/{exam}/show', [ExamController::class, 'show'])->name('asesi.sertifikasi.level.a.show');
     Route::post('/sertifikasi/level/a/start', [ExamController::class, 'start'])->name('asesi.sertifikasi.level.a.start');
@@ -80,6 +114,12 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::post('/sertifikasi/level/a/{exam}/answer', [ExamController::class, 'answer'])->name('asesi.sertifikasi.level.a.answer');
     Route::get('/sertifikasi/level/a/{exam}/result', [ExamController::class, 'result'])->name('asesi.sertifikasi.level.a.result');
     Route::get('/sertifikasi/level/a/{exam}/continue', [ExamController::class, 'continue'])->name('asesi.sertifikasi.level.a.continue');
+
+    // LEVEL B ASESI
+    Route::post('/sertifikasi/level/b/instruction', [LevelBController::class, 'instruction'])->name('asesi.sertifikasi.level.b.instruction');
+    Route::get('/sertifikasi/level/b/ppt', [LevelBController::class, 'formPPT'])->name('asesi.sertifikasi.level.b.ppt');
+    Route::get('/sertifikasi/level/b/modul', [LevelBController::class, 'formModulAjar'])->name('asesi.sertifikasi.level.b.modulajar');
+    Route::post('/sertifikasi/level/b/modul/store', [LevelBController::class, 'storeSubmission'])->name('asesi.sertifikasi.level.b.store');
 });
 
 Route::middleware(['auth'])->prefix('asesi')->group(function () {
@@ -88,21 +128,20 @@ Route::middleware(['auth'])->prefix('asesi')->group(function () {
     Route::get('/payments/pending', [PaymentController::class, 'pending'])->name('payments.pending');
     Route::get('/payments/eror', [PaymentController::class, 'eror'])->name('payments.eror');
     Route::get('/payments/{id}/create', [PaymentController::class, 'create'])->name('payments.create');
-    Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store'); 
-    Route::get('/payments/{id}/checkout', [PaymentController::class, 'checkout'])->name('payments.checkout'); 
+    Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
+    Route::get('/payments/{id}/checkout', [PaymentController::class, 'checkout'])->name('payments.checkout');
     Route::get('/payments/{id}', [PaymentController::class, 'detail'])->name('payments.detail');
-    
+
     // Profile routes
     Route::get('/profile', [ProfileController::class, 'index'])->name('asesi.profile');
-    Route::put('/profile/update', [ProfileController::class, 'update'])->name('asesi.profile.update'); 
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('asesi.profile.update');
     Route::post('/profile/upload-photo', [ProfileController::class, 'uploadPhoto'])->name('asesi.profile.upload');
     Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('asesi.password.change');
-    
+
     // API routes untuk location cascade
     Route::get('/api/cities/{provinceId}', [ProfileController::class, 'getCities'])->name('asesi.api.cities');
     Route::get('/api/districts/{cityId}', [ProfileController::class, 'getDistricts'])->name('asesi.api.districts');
     Route::get('/api/villages/{districtId}', [ProfileController::class, 'getVillages'])->name('asesi.api.villages');
-
 });
 
 // AUTH ADMIN
@@ -204,6 +243,26 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::patch('/profile', [AdminSettingsController::class, 'update'])->name('admin.settings.update');
     Route::delete('/profile', [AdminSettingsController::class, 'destroy'])->name('admin.settings.destroy');
     Route::put('profile', [AdminSettingsController::class, 'updatePassword'])->name('admin.password.update');
+
+    Route::get('/result-exams-a', [ResultExamsAController::class, 'index'])->name('admin.resulta.index');
+    Route::get('/result-exams-a/export', function () {
+        return Excel::download(new ResultExamsAExport, 'Result Exams A.xlsx');
+    })->name('admin.resulta.export');
+
+    Route::get('/testimonials', [\App\Http\Controllers\Admin\TestimonialController::class, 'index'])
+        ->name('admin.testimonials.index');
+
+    Route::post('/testimonials/{testimonial}/approve', [\App\Http\Controllers\Admin\TestimonialController::class, 'approve'])
+        ->name('admin.testimonials.approve');
+
+    Route::post('/testimonials/{testimonial}/feature', [\App\Http\Controllers\Admin\TestimonialController::class, 'feature'])
+        ->name('admin.testimonials.feature');
+
+    Route::delete('/testimonials/{testimonial}', [\App\Http\Controllers\Admin\TestimonialController::class, 'destroy'])
+        ->name('admin.testimonials.destroy');
+
+
+
 });
 
 // AUTH ASESOR
@@ -214,20 +273,55 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 Route::middleware(['auth', 'role:asesor'])->prefix('asesor')->group(function () {
     Route::get('/dashboard', [AsesorDashboardController::class, 'index'])->name('asesor.dashboard');
     Route::get('/list-asesi', [AsesorDashboardController::class, 'listAsesi'])->name('asesor.list-asesi');
+
+    Route::get('/list-asesi/grade/{id}', [LevelBGradedController::class, 'showGradingPage'])->name('asesor.gradeB.asesi');
+
     Route::get('/notifikasi', [AsesorDashboardController::class, 'notifikasi'])->name('asesor.notifikasi');
     Route::get('/form-penilaian', [AsesorDashboardController::class, 'formPenilaian'])->name('asesor.form-penilaian');
     Route::get('/riwayat-penilaian', [AsesorDashboardController::class, 'riwayatPenilaian'])->name('asesor.riwayat-penilaian');
     Route::get('/riwayat-aktifitas', [AsesorDashboardController::class, 'riwayatAktifitas'])->name('asesor.riwayat-aktifitas');
     Route::get('/download-nilai', [AsesorDashboardController::class, 'downloadNilai'])->name('asesor.download-nilai');
     Route::get('/profile-setting', [AsesorDashboardController::class, 'profileSetting'])->name('asesor.profile-setting');
+
+
 });
-
-
 
 // INDOREGION
 Route::get('/regencies/{provinceId}', [IndoRegionController::class, 'getRegencies']);
 Route::get('/districts/{regencyId}', [IndoRegionController::class, 'getDistricts']);
 Route::get('/villages/{districtId}', [IndoRegionController::class, 'getVillages']);
+
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
+});
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+
+    // Testimonial routes
+    // Route::get('/testimonials', [\App\Http\Controllers\Admin\TestimonialController::class, 'index'])
+    //     ->name('testimonials.index');
+
+    // Route::post('/testimonials/{testimonial}/approve', [\App\Http\Controllers\Admin\TestimonialController::class, 'approve'])
+    //     ->name('testimonials.approve');
+
+    // Route::post('/testimonials/{testimonial}/feature', [\App\Http\Controllers\Admin\TestimonialController::class, 'feature'])
+    //     ->name('testimonials.feature');
+
+    // Route::delete('/testimonials/{testimonial}', [\App\Http\Controllers\Admin\TestimonialController::class, 'destroy'])
+    //     ->name('testimonials.destroy');
+});
+
+Route::get('/featured-testimonials', function () {
+    return response()->json(
+        Testimonial::with(['user', 'category'])
+            ->where('is_approved', true)
+            ->where('is_featured', true)
+            ->orderBy('approved_at', 'desc')
+            ->limit(10)
+            ->get()
+    );
+});
 
 // Auth
 Route::get('/login', function () {
@@ -250,6 +344,10 @@ Route::get('/index', function () {
 Route::get('/sertifikasi', function () {
     return view('userDashboard.sertifikasi');
 })->name('sertifikasi');
+
+Route::get('/viewslama', function () {
+    return view('viewslamaDA');
+})->name('viewslama');
 
 Route::get('/transaksi', function () {
     return view('userDashboard.transaksi');

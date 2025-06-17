@@ -21,9 +21,13 @@ class RolePermissionSeeders extends Seeder
             'level_a_pending_payment',
             'level_b_pending_payment',
             'level_c_pending_payment',
+
+            // MENGAKSES LEVEL 
             'access_level_A',
             'access_level_B',
             'access_level_C',
+
+            // JIKA LEVEL SELESAI DIKERJAKAN
             'level_A_completed',
             'level_B_completed',
             'level_C_completed',
@@ -43,11 +47,17 @@ class RolePermissionSeeders extends Seeder
             'PCK',
             'NUMERASI',
             'LITERASI',
+
             'PPT_UPLOAD',
+            'PPT_COMPLETED',
+
+            'MODUL_AJAR',
+            'MODUL_AJAR_COMPLETED',
+
             'ESSAY',
             'VIDEO_UPLOAD',
             'YES_NO_QUESTIONS',
-            'EXPIRED_KATEGORY'
+            'EXPIRED_KATEGORY',
         ];
 
         foreach($permission_kategories as $permission_k) {

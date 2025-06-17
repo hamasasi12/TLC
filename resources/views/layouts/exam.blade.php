@@ -15,7 +15,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100">
 
     <main>
         <!-- main content here -->

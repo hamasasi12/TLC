@@ -41,7 +41,7 @@ class ExamA extends Model
 
     public function categoryA()
     {
-        return $this->belongsTo(CategoryA::class);
+        return $this->belongsTo(CategoryA::class, 'category_a_id');
     }
 
     public function questionsA()
@@ -56,6 +56,11 @@ class ExamA extends Model
         return $this->questionsA()
             ->wherePivot('is_correct', true)
             ->count();
+    }
+
+    public function examsA()
+    {
+        return $this->hasMany(ExamA::class, 'category_a_id');
     }
 }
 

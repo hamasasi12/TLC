@@ -20,7 +20,8 @@
         "maatwebsite/excel": "^3.1",
         "midtrans/midtrans-php": "^2.6",
         "realrashid/sweet-alert": "^7.3",
-        "spatie/laravel-permission": "^6.17"
+        "spatie/laravel-permission": "^6.17",
+        "vinkla/hashids": "^13.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",

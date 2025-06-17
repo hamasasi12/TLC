@@ -283,14 +283,14 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.categories.index') }}"
+                    <a href="{{ Route('admin.resulta.index') }}"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             fill="#FBCB04" viewBox="0 0 24 24">
                             <path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z" />
                         </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Categories</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Result Exam A</span>
                     </a>
                 </li>
                 <li>
@@ -351,6 +351,18 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.testimonials.index') }}"
+                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-gray-800">
+                        <svg class="w-6 h-6 text-yellow-400 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.77 9.77 0 01-4-.846L3 20l1.344-4.03A8.987 8.987 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Testimonial</span>
+                    </a>
+                </li>
+                
+                {{-- <li>
                     <a href="#"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -364,7 +376,7 @@
                         </svg>
                         <span class="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </aside>

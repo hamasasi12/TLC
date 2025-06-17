@@ -3,7 +3,7 @@
 
 @section('content')
 
- <!-- Dashboard Header with Welcome Message -->
+    <!-- Dashboard Header with Welcome Message -->
     {{-- <div class="p-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg mb-6">
         <div class="flex flex-col md:flex-row justify-between items-center">
             <div>
@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+    {{-- <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         <!-- Activity Chart -->
         <div class="bg-white rounded-xl shadow-md p-6 lg:col-span-2">
             <div class="flex justify-between items-center mb-4">
@@ -149,61 +149,34 @@
             </div>
             <button class="w-full mt-4 text-sm text-blue-600 hover:text-blue-800">Lihat semua aktivitas</button>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Statistik Sertifikasi dan Tabel Pengguna Terbaru -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Statistik Sertifikasi -->
         <div class="bg-white rounded-xl shadow-md p-6">
-            <h3 class="text-lg font-bold text-gray-800 mb-4">Status Sertifikasi</h3>
-            <div class="space-y-4">
-                <!-- Sertifikasi Selesai -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-sm font-medium text-gray-700">Selesai</span>
-                        <span class="text-sm font-medium text-gray-700">65%</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2.5">
-                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 65%"></div>
-                    </div>
-                </div>
-
-                <!-- Sertifikasi Dalam Proses -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-sm font-medium text-gray-700">Dalam Proses</span>
-                        <span class="text-sm font-medium text-gray-700">25%</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2.5">
-                        <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 25%"></div>
-                    </div>
-                </div>
-
-                <!-- Sertifikasi Belum Dimulai -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-sm font-medium text-gray-700">Belum Dimulai</span>
-                        <span class="text-sm font-medium text-gray-700">10%</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2.5">
-                        <div class="bg-gray-400 h-2.5 rounded-full" style="width: 10%"></div>
-                    </div>
-                </div>
+            <h3 class="text-lg font-bold text-gray-700 mb-4">Status Pendaftaran Sertifikasi</h3>
+            <div class="flex gap-2 mb-4">
+                <button onclick="changeChartType('doughnut')"
+                    class="px-4 py-2 bg-blue-500 text-white rounded">Doughnut</button>
+                <button onclick="changeChartType('bar')" class="px-4 py-2 bg-orange-500 text-white rounded">Bar</button>
             </div>
+            <canvas id="userLevelChart"></canvas>
+            {{-- <canvas id="userLevelChart" width="100" height="100"></canvas> --}}
 
             <div class="mt-6 pt-4 border-t border-gray-200">
                 <h4 class="text-sm font-semibold text-gray-800 mb-3">Distribusi Level</h4>
                 <div class="grid grid-cols-3 gap-2 text-center">
                     <div class="bg-blue-50 p-2 rounded-lg">
-                        <span class="block text-xl font-bold text-blue-600">42%</span>
+                        <span class="block text-xl font-bold text-blue-600">{{ $levelCount['A'] }} User</span>
                         <span class="text-xs text-gray-600">Level A</span>
                     </div>
                     <div class="bg-purple-50 p-2 rounded-lg">
-                        <span class="block text-xl font-bold text-purple-600">35%</span>
+                        <span class="block text-xl font-bold text-purple-600">{{ $levelCount['B'] }} User</span>
                         <span class="text-xs text-gray-600">Level B</span>
                     </div>
                     <div class="bg-green-50 p-2 rounded-lg">
-                        <span class="block text-xl font-bold text-green-600">23%</span>
+                        <span class="block text-xl font-bold text-green-600">{{ $levelCount['C'] }} User</span>
                         <span class="text-xs text-gray-600">Level C</span>
                     </div>
                 </div>
@@ -214,6 +187,75 @@
         @livewire('asesi-table')
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const levelData = {
+            labels: ['Belum Terdaftar', 'Level A', 'Level B', 'Level C'],
+            datasets: [{
+                label: 'Distribusi Level Asesi',
+                data: [
+                    {{ $levelCount['userLevelNone'] }},
+                    {{ $levelCount['A'] }},
+                    {{ $levelCount['B'] }},
+                    {{ $levelCount['C'] }}
+                ],
+                backgroundColor: [
+                    '#9CA3AF', // gray
+                    '#4ADE80', // green
+                    '#60A5FA', // blue
+                    '#F472B6' // pink
+                ],
+                borderColor: '#fff',
+                borderWidth: 2
+            }]
+        };
+
+        let currentChartType = 'doughnut';
+        let chartInstance = null;
+
+        function renderChart(type) {
+            const ctx = document.getElementById('userLevelChart').getContext('2d');
+
+            // Destroy chart sebelumnya kalau ada
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+
+            chartInstance = new Chart(ctx, {
+                type: type,
+                data: levelData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const total = {{ array_sum($levelCount) }};
+                                    const value = context.raw;
+                                    const percent = ((value / total) * 100).toFixed(1);
+                                    return `${context.label}: ${value} (${percent}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            currentChartType = type;
+        }
+
+        function changeChartType(type) {
+            renderChart(type);
+        }
+
+        // Render chart default saat load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderChart(currentChartType);
+        });
+    </script>
 
 
 

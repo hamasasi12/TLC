@@ -19,4 +19,32 @@ class SertifikasiController extends Controller
             ->paginate(10);
         return view('dashboard.asesi.sertifikasi', compact('exams'));
     }
+
+    public function nilai()
+    {
+        $exams = ExamA::with(['user', 'categoryA', 'questionsA'])
+            ->where('user_id', Auth::id())
+            ->get()
+            ->map(function ($exam) {
+                // Hitung statistik
+                $totalQuestions = $exam->questionsA->count();
+                $correctAnswers = $exam->questionsA->where('pivot.is_correct', true)->count();
+                $wrongAnswers = $exam->questionsA->where('pivot.is_correct', false)->count();
+                $unansweredQuestions = $totalQuestions - ($correctAnswers + $wrongAnswers);
+
+                // Tambahkan data yang dihitung
+                $exam->total_questions = $totalQuestions;
+                $exam->correct_answers = $correctAnswers;
+                $exam->wrong_answers = $wrongAnswers;
+                $exam->unanswered_questions = $unansweredQuestions;
+
+                return $exam;
+            });
+
+        return view('dashboard.asesi.nilai', compact('exams'));
+    }
+
+    public function mySertifikat(string $id) {
+        return view('user.sertifikasi.mySertifikasi.index');
+    }
 }

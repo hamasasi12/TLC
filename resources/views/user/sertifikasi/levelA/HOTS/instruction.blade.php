@@ -9,7 +9,7 @@
 
             <div class="mb-8 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 text-white shadow-lg md:p-8">
                 <h1 class="mb-2 text-2xl font-bold sm:text-3xl lg:text-4xl">
-                    Instruksi Pengerjaan: Kategori {{ $category->name }}
+                    Instruksi Pengerjaan: Kategori {{ $category->name ?? 'Tidak Diketahui' }}
                 </h1>
                 <p class="text-blue-100 opacity-90">
                     Harap baca semua petunjuk dengan teliti sebelum Anda memulai ujian.

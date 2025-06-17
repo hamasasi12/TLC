@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\PaymentSuccessful;
 use Midtrans\Snap;
 use App\Models\User;
 use App\Models\Level;
 use App\Models\Payment;
-
 use Illuminate\Support\Str;
+
 use Illuminate\Http\Request;
+use App\Events\PaymentSuccessful;
+use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
@@ -35,19 +36,31 @@ class PaymentController extends Controller
 
     public function create(string $id)
     {
-        $user = auth()->user();
-        $levels = Level::where('id', $id)->first();
+        $decoded = Hashids::decode($id);
 
-        // Validasi apakah level ada
-        if (!$levels) {
+        if(empty($decoded)) {
+            abort(404,'ID Tidak Valid');
+        }
+
+        $id = $decoded[0];
+        $level = Level::find($id);
+
+        if (!$level) {
             return redirect()->back()->with('error', 'Level tidak ditemukan');
         }
 
-        // Jika profile sudah lengkap, tampilkan halaman pembayaran
-        return view('payments.create', [
-            'level' => $levels,
-        ]);
+        switch ($id) {
+            case '1':
+                return view('payments.create', ['level' => $level]);
+            case '2':
+                return view('payments.createB', ['level' => $level]);
+            case '3':
+                return view('payments.createC', ['level' => $level]);
+            default:
+                return view('payments.create', ['level' => $level]);
+        }
     }
+
 
     public function store(Request $request)
     {
@@ -158,12 +171,12 @@ class PaymentController extends Controller
         $payment = Payment::findOrFail($id);
 
         // Pastikan payment milik user yang login
-        if ($payment->user_id !== Auth::id()) {
+        if ($payment->user_id != Auth::id()) {
             abort(403);
         }
 
         // Pastikan status masih pending
-        if ($payment->status !== 'pending') {
+        if ($payment->status != 'pending') {
             return redirect()->route('payments.detail', $id)
                 ->with('error', 'Pembayaran ini sudah diproses sebelumnya');
         }
@@ -303,7 +316,7 @@ class PaymentController extends Controller
     {
         $payment = Payment::findOrFail($id);
 
-        if ($payment->user_id !== Auth::id()) {
+        if ($payment->user_id != Auth::id()) {
             abort(403);
         }
 

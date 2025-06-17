@@ -5,7 +5,7 @@
     <main class="transition-smooth main-padding" id="main-content">
         <div class="px-4 sm:px-6 lg:px-8" id="main-wrapper">
             <!-- Dashboard Header -->
-            <div class="text-center mb-6 sm:mb-8">
+            {{-- <div class="text-center mb-6 sm:mb-8">
                 <span
                     class="text-xs sm:text-sm text-white font-semibold inline-block px-3 sm:px-4 py-2 bg-gradient-to-r from-secondary to-primary rounded-full shadow-lg hover:shadow-xl transition-smooth hover:scale-105 mb-3 sm:mb-4">
                     #DASHBOARD STATISTIK
@@ -13,12 +13,14 @@
                 <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight mb-3 sm:mb-4">
                     <span class="relative inline-block">
                         <span class="relative z-10 text-gradient">Dashboard</span>
-                        <span class="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 sm:h-3 bg-yellow-300 opacity-50 z-0"></span>
+                        <span
+                            class="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 sm:h-3 bg-yellow-300 opacity-50 z-0"></span>
                     </span>
                     <br>
                     <span class="relative inline-block">
                         <span class="relative z-10 text-gradient">Statistik</span>
-                        <span class="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 sm:h-3 bg-orange-300 opacity-50 z-0"></span>
+                        <span
+                            class="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 sm:h-3 bg-orange-300 opacity-50 z-0"></span>
                     </span>
                 </h1>
                 <p class="text-sm sm:text-base lg:text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed px-2 sm:px-4">
@@ -26,7 +28,7 @@
                     data yang
                     <span class="font-semibold text-gradient">interaktif dan modern</span>
                 </p>
-            </div>
+            </div> --}}
 
             <!-- Grid Statistik -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
@@ -37,12 +39,13 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Total Tugas</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-blue-800">45</h3>
+                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-blue-800">45
+                                </h3>
                             </div>
                             <div
                                 class="bg-blue-100 p-2 sm:p-3 rounded-full text-blue-800 group-hover:bg-blue-800 group-hover:text-white transition-colors flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
@@ -59,12 +62,14 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Menunggu Dinilai</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-yellow-600">12</h3>
+                                <h3 class="text-xl sm:text-3xl font-bold text-gray-700 mt-1 group-hover:text-yellow-600">
+                                    {{ $levelBPending }}
+                                </h3>
                             </div>
                             <div
                                 class="bg-yellow-100 p-2 sm:p-3 rounded-full text-yellow-600 group-hover:bg-yellow-500 group-hover:text-white transition-colors animate-pulse flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
@@ -81,12 +86,14 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Selesai Dinilai</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-green-600">33</h3>
+                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-700 mt-1 group-hover:text-green-600">
+                                    {{ $levelBReviewed }}
+                                </h3>
                             </div>
                             <div
                                 class="bg-green-100 p-2 sm:p-3 rounded-full text-green-600 group-hover:bg-green-500 group-hover:text-white transition-colors flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
                                 </svg>
@@ -103,12 +110,14 @@
                         <div class="flex justify-between items-start">
                             <div class="flex-1">
                                 <p class="text-xs sm:text-sm text-gray-500">Total Asesi</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1 group-hover:text-purple-600">78</h3>
+                                <h3 class="text-xl sm:text-3xl font-bold text-gray-700 mt-1 group-hover:text-purple-600">
+                                    {{ $asesiEligible }}
+                                </h3>
                             </div>
                             <div
                                 class="bg-purple-100 p-2 sm:p-3 rounded-full text-purple-600 group-hover:bg-purple-500 group-hover:text-white transition-colors flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                                 </svg>
