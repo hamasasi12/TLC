@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->enum('status', ['pending', 'reviewed', 'rejected'])->default('pending');
             $table->enum('is_passed', ['passed', 'rejected', 'reviewed'])->nullable()->default('reviewed');
             $table->text('comment_asesor')->nullable();
-            $table->integer('score')->nullable();
+            $table->string('score')->nullable();
             $table->timestamps();
         });
     }

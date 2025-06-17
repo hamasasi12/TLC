@@ -9,6 +9,8 @@ use App\Models\LevelBSubmission;
 use Illuminate\Support\Facades\Log;
 use Vinkla\Hashids\Facades\Hashids;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreAssessmentRequest;
 
 class LevelBGradedController extends Controller
 {
@@ -43,5 +45,54 @@ class LevelBGradedController extends Controller
             ]);
         }
     }
+
+    public function storeAssessmentAsesi(StoreAssessmentRequest $request, string $id)
+    {
+        $decoded = Hashids::decode($id);
+
+        if (empty($decoded)) {
+            Log::channel('grading')->warning('Gagal decode ID Hashids pada halaman grading.', [
+                'encoded_id' => $id,
+                'reason' => 'ID tidak valid atau tidak dapat didecode',
+                'ip_address' => request()->ip(),
+                'user_id' => auth()->id(),
+                'timestamp' => now()->toDateTimeString(),
+            ]);
+            abort(404, 'ID Tidak Valid');
+        }
+        $id = $decoded[0];
+
+        $levelB = LevelBSubmission::find($id);
+        $user = User::where('id', $levelB->user_id)->first();
+        $levelB->update([
+            'score' => 100,
+            'status' => $request->status,
+            'is_passed' => $request->assessment,
+            'comment_asesor' => $request->comment_asesor,
+        ]);
+
+        if ($request->assessment === 'passed') {
+            if ($levelB->modul_ajar) {
+                $user->givePermissionTo('MODUL_AJAR_COMPLETED');
+            } elseif ($levelB->file_ppt) {
+                $user->givePermissionTo('PPT_COMPLETED');
+            }
+        } elseif ($request->assessment === 'rejected') {
+            if ($levelB->modul_ajar) {
+                $user->revokePermissionTo('MODUL_AJAR');
+                $levelB->update(['status' => 'rejected', 'is_passed' => 'rejected',]);
+            } elseif ($levelB->file_ppt) {
+                $user->revokePermissionTo('PPT_UPLOAD');
+                $levelB->update(['status' => 'rejected', 'is_passed' => 'rejected',]);
+            }
+        }
+
+        Alert::success('Berhasil mengubah status assessment');
+        return redirect()->route('asesor.list-asesi');
+    }
+
+
+
+
 
 }
