@@ -65,7 +65,7 @@ class LevelBGradedController extends Controller
         $levelB = LevelBSubmission::find($id);
         $user = User::where('id', $levelB->user_id)->first();
         $levelB->update([
-            'score' => 100,
+            'score' => $request->score,
             'status' => $request->status,
             'is_passed' => $request->assessment,
             'comment_asesor' => $request->comment_asesor,
@@ -74,8 +74,10 @@ class LevelBGradedController extends Controller
         if ($request->assessment === 'passed') {
             if ($levelB->modul_ajar) {
                 $user->givePermissionTo('MODUL_AJAR_COMPLETED');
+                $user->givePermissionTo('MODUL_AJAR');
             } elseif ($levelB->file_ppt) {
                 $user->givePermissionTo('PPT_COMPLETED');
+                $user->givePermissionTo('PPT_UPLOAD');
             }
         } elseif ($request->assessment === 'rejected') {
             if ($levelB->modul_ajar) {

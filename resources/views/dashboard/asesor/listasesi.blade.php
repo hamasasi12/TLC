@@ -6,14 +6,14 @@
         <!-- List Header -->
         <div class="mb-4 sm:mb-6">
             <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-black border-b-4 border-yellow-500 pb-2 inline-block">
-                List Asesi B & C
+                List Asesi Level B
             </h1>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-3 sm:p-4 lg:p-6 mb-4 sm:mb-6">
             <div class="mb-4 sm:mb-6">
                 <h2 class="text-lg sm:text-xl font-bold text-gray-800">Daftar Asesi</h2>
-                <p class="text-xs sm:text-sm text-gray-600 mt-1">Kelola dan nilai asesi kategori B dan C</p>
+                <p class="text-xs sm:text-sm text-gray-600 mt-1">Kelola dan nilai Asesi Level B </p>
             </div>
 
             <div class="flex flex-col space-y-3 sm:space-y-4 lg:flex-row lg:justify-between lg:space-y-0 mb-4 sm:mb-6">
@@ -56,8 +56,8 @@
                         <select
                             class="appearance-none border border-gray-300 rounded-lg pl-3 sm:pl-4 pr-8 sm:pr-10 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-blue-800 w-full sm:w-auto text-xs sm:text-sm">
                             <option>Semua Kategori</option>
-                            <option>Kategori B</option>
-                            <option>Kategori C</option>
+                            <option>Modul Ajar</option>
+                            <option>PPT</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                             <svg class="fill-current h-3 w-3 sm:h-4 sm:w-4" xmlns="http://www.w3.org/2000/svg"
@@ -129,10 +129,26 @@
 
                                 {{-- STATUS --}}
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <span
-                                        class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                        {{ Str::ucfirst($index->status) }}
-                                    </span>
+                                    @php
+                                        $status = $index->status;
+                                    @endphp
+
+                                    @if ($status === 'pending')
+                                        <span
+                                            class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                            Menunggu
+                                        </span>
+                                    @elseif ($status === 'reviewed')
+                                        <span
+                                            class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Lulus
+                                        </span>
+                                    @elseif ($status === 'rejected')
+                                        <span
+                                            class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                            Tidak Lulus
+                                        </span>
+                                    @endif
                                 </td>
 
                                 {{-- LAST UPDATED --}}
@@ -150,15 +166,28 @@
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium flex justify-end">
-                                    <a href="{{ route('asesor.gradeB.asesi', Vinkla\Hashids\Facades\Hashids::encode($index->id)) }}"
-                                        class="bg-blue-800 hover:bg-blue-700 text-white px-3 py-1 rounded-lg flex items-center gap-1 transition duration-200">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        Nilai
-                                    </a>
+                                    @if ($index->score)
+                                        <a href="{{ route('asesor.gradeB.asesi', Vinkla\Hashids\Facades\Hashids::encode($index->id)) }}"
+                                            class="bg-blue-800 hover:bg-blue-700 text-white px-3 py-1 rounded-lg flex items-center gap-1 transition duration-200">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            Nilai
+                                        </a>
+                                    @else
+                                        <a href="{{ route('asesor.gradeB.asesi', Vinkla\Hashids\Facades\Hashids::encode($index->id)) }}"
+                                            class="bg-blue-800 hover:bg-blue-700 text-white px-3 py-1 rounded-lg flex items-center gap-1 transition duration-200">
+                                            {{-- <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M5 13l4 4L19 7" />
+                                            </svg> --}}
+                                            Nilai
+                                        </a>
+                                    @endif
+
                                     <button class="text-gray-500 hover:text-gray-700 ml-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor">

@@ -264,9 +264,17 @@
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.list-asesi') ? 'menu-active' : 'menu-inactive' }}">
                             <i
                                 class="fas fa-users w-5 h-5 {{ Request::routeIs('asesor.list-asesi') ? 'text-white' : 'text-secondary' }}"></i>
-                            <span class="ml-3">List Asesi B & C</span>
+                            <span class="ml-3">List Penilaian Level B</span>
                         </a>
                     </li>
+                    {{-- <li>
+                        <a href="{{ route('asesor.list-asesi') }}"
+                            class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.list-asesi') ? 'menu-active' : 'menu-inactive' }}">
+                            <i
+                                class="fas fa-users w-5 h-5 {{ Request::routeIs('asesor.list-asesi') ? 'text-white' : 'text-secondary' }}"></i>
+                            <span class="ml-3">List Penilaian Level C</span>
+                        </a>
+                    </li> --}}
                     <li>
                         <a href="{{ route('asesor.notifikasi') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.notifikasi') ? 'menu-active' : 'menu-inactive' }}">
