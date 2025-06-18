@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Asesi;
 
 use App\Models\ExamA;
-use App\Models\CategoryA;
 use App\Models\Payment;
+use App\Models\CategoryA;
 use App\Models\QuestionA;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use Vinkla\Hashids\Facades\Hashids;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,7 +46,17 @@ class SertifikasiController extends Controller
         return view('dashboard.asesi.nilai', compact('exams'));
     }
 
-    public function mySertifikat(string $id) {
-        return view('user.sertifikasi.mySertifikasi.index');
+    public function mySertifikat(string $id)
+    {
+        $decoded = Hashids::decode($id);
+        if (empty($decoded)) {
+            abort(404, 'ID Tidak Valid');
+        }
+        $id = $decoded[0];
+        $userProfile = UserProfile::firstWhere('user_id', $id);
+        $namaGelar = $userProfile->nama_depan;
+        return view('user.sertifikasi.mySertifikasi.index', [
+            'namaGelar' => $namaGelar,
+        ]);
     }
 }
