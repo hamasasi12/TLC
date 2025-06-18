@@ -288,7 +288,7 @@
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.riwayat-penilaian') ? 'menu-active' : 'menu-inactive' }}">
                             <i
                                 class="fas fa-chart-line w-5 h-5 {{ Request::routeIs('asesor.riwayat-penilaian') ? 'text-white' : 'text-primary' }}"></i>
-                            <span class="ml-3">Riwayat Penilaian</span>
+                            <span class="ml-3">Riwayat Penilaian B</span>
                         </a>
                     </li>
                     <li>

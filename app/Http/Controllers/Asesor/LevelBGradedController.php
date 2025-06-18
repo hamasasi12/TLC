@@ -11,6 +11,7 @@ use Vinkla\Hashids\Facades\Hashids;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreAssessmentRequest;
+use App\Models\LevelBHistory;
 
 class LevelBGradedController extends Controller
 {
@@ -71,6 +72,24 @@ class LevelBGradedController extends Controller
             'comment_asesor' => $request->comment_asesor,
         ]);
 
+        $category = null;
+        if ($levelB->modul_ajar) {
+            $category = 'Modul Ajar';
+        } else {
+            $category = 'PPT';
+        }
+
+        LevelBHistory::create([
+            'user_id' => $levelB->user_id,
+            'category' => $category,
+            'file_ppt' => $levelB->file_ppt ?? null,
+            'modul_ajar' => $levelB->modul_ajar ?? null,
+            'score' => 100,
+            'comment_asesor' => $request->comment_asesor,
+        ]);
+
+
+
         if ($request->assessment === 'passed') {
             if ($levelB->modul_ajar) {
                 $user->givePermissionTo('MODUL_AJAR_COMPLETED');
@@ -90,9 +109,4 @@ class LevelBGradedController extends Controller
         Alert::success('Berhasil mengubah status assessment');
         return redirect()->route('asesor.list-asesi');
     }
-
-
-
-
-
 }
