@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Asesor;
 
+use App\Events\GradingCompleted;
 use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -65,7 +66,7 @@ class LevelBGradedController extends Controller
         $levelB = LevelBSubmission::find($id);
         $user = User::where('id', $levelB->user_id)->first();
         $levelB->update([
-            'score' => 100,
+            'score' => $request->score,
             'status' => $request->status,
             'is_passed' => $request->assessment,
             'comment_asesor' => $request->comment_asesor,
@@ -74,9 +75,12 @@ class LevelBGradedController extends Controller
         if ($request->assessment === 'passed') {
             if ($levelB->modul_ajar) {
                 $user->givePermissionTo('MODUL_AJAR_COMPLETED');
+                $user->givePermissionTo('MODUL_AJAR');
             } elseif ($levelB->file_ppt) {
                 $user->givePermissionTo('PPT_COMPLETED');
+                $user->givePermissionTo('PPT_UPLOAD');
             }
+            
         } elseif ($request->assessment === 'rejected') {
             if ($levelB->modul_ajar) {
                 $user->revokePermissionTo('MODUL_AJAR');
@@ -86,13 +90,38 @@ class LevelBGradedController extends Controller
                 $levelB->update(['status' => 'rejected', 'is_passed' => 'rejected',]);
             }
         }
-
+        
+        event(new GradingCompleted($user));
         Alert::success('Berhasil mengubah status assessment');
         return redirect()->route('asesor.list-asesi');
     }
 
-
-
-
-
+    public function ShowGradeDetail(string $id)
+    {
+        $decoded = Hashids::decode($id);
+        if (empty($decoded)) {
+            Log::channel('grading')->warning('Gagal decode ID Hashids pada halaman grading.', [
+                'encoded_id' => $id,
+                'reason' => 'ID tidak valid atau tidak dapat didecode',
+                'ip_address' => request()->ip(),
+                'user_id' => auth()->id(),
+                'timestamp' => now()->toDateTimeString(),
+            ]);
+            abort(404, 'ID Tidak Valid');
+        }
+        $id = $decoded[0];
+        $asesi = LevelBSubmission::with('user')->find($id);
+        $userProfile = UserProfile::where('user_id', $id)->first();
+        if ($asesi->modul_ajar) {
+            return view('dashboard.asesor.Grading.modulAjarShow', [
+                'asesi' => $asesi,
+                'userProfile' => $userProfile,
+            ]);
+        } else {
+            return view('dashboard.asesor.Grading.pptShow', [
+                'asesi' => $asesi,
+                'userProfile' => $userProfile,
+            ]);
+        }
+    }
 }
