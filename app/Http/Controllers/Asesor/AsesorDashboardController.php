@@ -30,13 +30,42 @@ class AsesorDashboardController extends Controller
     }
 
 
-    public function listAsesi()
+    // public function listAsesi(Request $request)
+    // {
+    //     $levelB = LevelBSubmission::with('user')->paginate(10);
+    //     return view('dashboard.asesor.listasesi', [
+    //         'levelB' => $levelB,
+    //     ]);
+    // }
+
+    public function listAsesi(Request $request)
     {
-        $levelB = LevelBSubmission::with('user')->paginate(10);
+        $kategori = $request->input('kategori');
+        $search = $request->input('search');
+
+        $query = LevelBSubmission::with('user')
+            ->when($kategori === 'modul_ajar', function ($q) {
+                $q->whereNotNull('modul_ajar')->where('modul_ajar', '!=', '');
+            })
+            ->when($kategori === 'ppt', function ($q) {
+                $q->whereNotNull('file_ppt')->where('file_ppt', '!=', '');
+            })
+            ->when(!empty($search), function ($q) use ($search) {
+                $q->whereHas('user', function ($userQuery) use ($search) {
+                    $userQuery->where('name', 'like', '%' . $search . '%');
+                });
+            });
+
+        $levelB = $query->latest()->paginate(10)->withQueryString();
+
         return view('dashboard.asesor.listasesi', [
             'levelB' => $levelB,
+            'kategori' => $kategori,
+            'search' => $search,
         ]);
     }
+
+
 
     public function notifikasi()
     {
