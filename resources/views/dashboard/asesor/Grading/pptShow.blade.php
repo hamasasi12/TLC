@@ -15,7 +15,7 @@
                             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                     </svg>
                     <div>
-                        <h2 class="text-lg sm:text-xl lg:text-2xl font-bold text-blue-700">Hasil Penilaian Asesor</h2>
+                        <h2 class="text-lg sm:text-xl lg:text-2xl font-bold text-blue-700">Hasil Penilaian Asesor PPT</h2>
                         <p class="text-xs sm:text-sm mt-1">Isi skor dan komentar berdasarkan hasil evaluasi terhadap asesi
                         </p>
                     </div>
@@ -51,7 +51,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                             </svg>
-                            <h3 class="font-bold text-sm sm:text-base">Modul Ajar:</h3>
+                            <h3 class="font-bold text-sm sm:text-base">PPT:</h3>
                         </div>
 
                         @if ($asesi->file_ppt)
@@ -77,7 +77,7 @@
                     <div class="mb-4 sm:mb-5 lg:mb-6">
                         <h3 class="text-gray-700 mb-3 text-sm sm:text-base font-medium">Hasil Penilaian</h3>
 
-                        @if ($asesi->is_passed === 'passed')
+                        @if ($asesi->is_passed === 'reviewed')
                             <span
                                 class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800">
                                 ✅ Kompeten

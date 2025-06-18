@@ -311,14 +311,14 @@
                             <span class="ml-3">Notifikasi</span>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('asesor.form-penilaian') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.form-penilaian') ? 'menu-active' : 'menu-inactive' }}">
                             <i
                                 class="fas fa-clipboard-list w-5 h-5 {{ Request::routeIs('asesor.form-penilaian') ? 'text-white' : 'text-green-500' }}"></i>
                             <span class="ml-3">Form Penilaian</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="{{ route('asesor.riwayat-penilaian') }}"
                             class="flex items-center p-3 rounded-xl transition-smooth hover-lift {{ Request::routeIs('asesor.riwayat-penilaian') ? 'menu-active' : 'menu-inactive' }}">
