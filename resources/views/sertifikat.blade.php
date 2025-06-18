@@ -2,82 +2,57 @@
 <html>
 <head>
     <style>
-        /* Reset untuk konsistensi */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Ukuran tetap untuk sertifikat - sesuaikan dengan ukuran background image */
         body {
-            width: 297mm; /* A4 landscape width */
-            height: 210mm; /* A4 landscape height */
+            width: 2000px;
+            height: 1414px;
             position: relative;
             font-family: Arial, sans-serif;
             background-image: url('{{ asset('assets/sertifikat/sertifikat.png') }}');
-            background-size: 100% 100%; /* Stretch untuk memenuhi container */
+            background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
         }
 
-        /* Container untuk semua konten */
         .certificate-content {
             position: relative;
             width: 100%;
             height: 100%;
         }
 
-        /* Posisi nama - sesuaikan koordinat ini berdasarkan background image */
         .name {
             position: absolute;
-            top: 120mm; /* Jarak dari atas - sesuaikan dengan posisi di background */
+            top: 590px; /* atur sesuai preview background */
             left: 50%;
-            transform: translateX(-50%); /* Center horizontal */
-            font-size: 36px;
+            transform: translateX(-50%);
+            font-size: 60px;
             font-weight: bold;
             color: #000;
             text-align: center;
-            width: 200mm; /* Lebar area teks */
+            width: 1400px;
         }
 
-        /* Posisi tanggal - sesuaikan koordinat ini berdasarkan background image */
         .date {
             position: absolute;
-            top: 160mm; /* Jarak dari atas - sesuaikan dengan posisi di background */
+            top: 850px;
             left: 50%;
-            transform: translateX(-50%); /* Center horizontal */
-            font-size: 14px;
+            transform: translateX(-50%);
+            font-size: 40px;
             color: #000;
             text-align: center;
-            width: 150mm; /* Lebar area teks */
-        }
-
-        /* Alternatif: Jika ingin posisi dari kanan atau koordinat spesifik */
-        .alternative-positioning {
-            /* Contoh positioning dari koordinat tertentu */
-            /* top: 120mm; */
-            /* left: 148.5mm; */ /* Tengah dari 297mm */
-        }
-
-        /* Media query untuk print/PDF */
-        @media print {
-            body {
-                width: 297mm;
-                height: 210mm;
-            }
-            
-            .name, .date {
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-            }
+            width: 1200px;
         }
     </style>
 </head>
 <body>
     <div class="certificate-content">
-        <div class="name">hamas akif sanieasss</div>
-        <div class="date">Tanggal: asdasdasda</div>
+        <div class="name">hamas akif sanie</div>
+        <div class="date">Tanggal: 18 Juni 2025</div>
     </div>
 </body>
 </html>
