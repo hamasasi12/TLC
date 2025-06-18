@@ -281,6 +281,7 @@ Route::middleware(['auth', 'role:asesor'])->prefix('asesor')->group(function () 
     Route::get('/list-asesi', [AsesorDashboardController::class, 'listAsesi'])->name('asesor.list-asesi');
 
     Route::get('/list-asesi/grade/{id}', [LevelBGradedController::class, 'showGradingPage'])->name('asesor.gradeB.asesi');
+    Route::get('/list-asesi/grade/show/{id}', [LevelBGradedController::class, 'ShowGradeDetail'])->name('asesor.gradeB.show');
     Route::post('/list-asesi/grade/{id}', [LevelBGradedController::class, 'storeAssessmentAsesi'])->name('asesor.gradeB.store');
 
     Route::get('/notifikasi', [AsesorDashboardController::class, 'notifikasi'])->name('asesor.notifikasi');
@@ -289,8 +290,6 @@ Route::middleware(['auth', 'role:asesor'])->prefix('asesor')->group(function () 
     Route::get('/riwayat-aktifitas', [AsesorDashboardController::class, 'riwayatAktifitas'])->name('asesor.riwayat-aktifitas');
     Route::get('/download-nilai', [AsesorDashboardController::class, 'downloadNilai'])->name('asesor.download-nilai');
     Route::get('/profile-setting', [AsesorDashboardController::class, 'profileSetting'])->name('asesor.profile-setting');
-
-
 });
 
 // INDOREGION

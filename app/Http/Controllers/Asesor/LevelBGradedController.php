@@ -93,8 +93,32 @@ class LevelBGradedController extends Controller
         return redirect()->route('asesor.list-asesi');
     }
 
-
-
-
-
+    public function ShowGradeDetail(string $id)
+    {
+        $decoded = Hashids::decode($id);
+        if (empty($decoded)) {
+            Log::channel('grading')->warning('Gagal decode ID Hashids pada halaman grading.', [
+                'encoded_id' => $id,
+                'reason' => 'ID tidak valid atau tidak dapat didecode',
+                'ip_address' => request()->ip(),
+                'user_id' => auth()->id(),
+                'timestamp' => now()->toDateTimeString(),
+            ]);
+            abort(404, 'ID Tidak Valid');
+        }
+        $id = $decoded[0];
+        $asesi = LevelBSubmission::with('user')->find($id);
+        $userProfile = UserProfile::where('user_id', $id)->first();
+        if ($asesi->modul_ajar) {
+            return view('dashboard.asesor.Grading.modulAjarShow', [
+                'asesi' => $asesi,
+                'userProfile' => $userProfile,
+            ]);
+        } else {
+            return view('dashboard.asesor.Grading.pptShow', [
+                'asesi' => $asesi,
+                'userProfile' => $userProfile,
+            ]);
+        }
+    }
 }
