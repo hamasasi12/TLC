@@ -44,7 +44,17 @@ class SertifikasiController extends Controller
         return view('dashboard.asesi.nilai', compact('exams'));
     }
 
-    public function mySertifikat(string $id) {
-        return view('user.sertifikasi.mySertifikasi.index');
+    // public function mySertifikat(string $id) {
+    //     return view('user.sertifikasi.mySertifikasi.index');
+    // }
+
+    public function sertifikatA() {
+        return view('user.sertifikasi.mySertifikasi.sertifikat-a');
+    }
+    public function sertifikatB() {
+        return view('user.sertifikasi.mySertifikasi.sertifikat-b');
+    }
+    public function sertifikatC() {
+        return view('user.sertifikasi.mySertifikasi.sertifikat-c');
     }
 }
