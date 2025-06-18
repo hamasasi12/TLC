@@ -101,8 +101,12 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(function () {
     Route::get('/dashboard', [AsesiDashboardController::class, 'index'])->name('asesi.dashboard');
     Route::get('/testimonials/featured', [AsesiDashboardController::class, 'getFeaturedTestimonials'])->name('asesi.testimonials.featured');
-    Route::get('/sertifikat/{id}', [SertifikasiController::class, 'mySertifikat'])->name('asesi.sertifikat');
+    // Route::get('/sertifikat/{id}', [SertifikasiController::class, 'mySertifikat'])->name('asesi.sertifikat');
+    // Routes
     Route::get('/sertifikasi', [SertifikasiController::class, 'index'])->name('asesi.sertifikasi');
+    Route::get('/sertifikat-a', [SertifikasiController::class, 'sertifikatA'])->name('asesi.sertifikat.a');
+    Route::get('/sertifikat-b', [SertifikasiController::class, 'sertifikatB'])->name('asesi.sertifikat.b');
+    Route::get('/sertifikat-c', [SertifikasiController::class, 'sertifikatC'])->name('asesi.sertifikat.c');
     Route::get('/nilai', [SertifikasiController::class, 'nilai'])->name('asesi.nilai');
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('asesi.transaksi');
     Route::get('/register/2', [AuthController::class, 'registerStepTwo'])->name('asesi.registerStepTwo');
