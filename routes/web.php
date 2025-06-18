@@ -41,6 +41,10 @@ Route::get('register2', function () {
     return view('register2');
 })->name('register2');
 
+Route::get('sertifikat', function () {
+    return view('sertifikat');
+})->name('sertifikat');
+
 // SETELAH PRODUCTION JANGAN LUPA DIHAPUS ROUTE INI 
 Route::get('/permission', function () {
     return view('permission');
