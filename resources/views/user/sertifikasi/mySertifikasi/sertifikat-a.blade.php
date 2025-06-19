@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="text-center mb-8">
-                    <h3 class="text-4xl font-bold text-blue-600 mb-2">Hamas Akif Sanie</h3>
+                    <h3 class="text-4xl font-bold text-blue-600 mb-2">{{ $namaGelar }}</h3>
                     <p class="text-gray-600">atas pencapaian dalam menyelesaikan sertifikasi</p>
                 </div>
 
@@ -88,9 +88,9 @@
 
         {{-- Verification Button --}}
         <div class="text-center mt-6">
-            <button class="bg-gray-700 hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+            <a href="{{ route('asesi.downloadCertificate',Vinkla\Hashids\Facades\Hashids::encode($id)) }}" class="bg-gray-700 hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
                 Download Sertifikat
-            </button>
+            </a>
         </div>
     </div>
 
