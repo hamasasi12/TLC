@@ -59,6 +59,7 @@ class SertifikasiController extends Controller
         if (empty($decoded)) {
             abort(404, 'ID Tidak Valid');
         }
+        // userId
         $id = $decoded[0];
         $userProfile = UserProfile::firstWhere('user_id', $id);
         return view('user.sertifikasi.mySertifikasi.sertifikat-a', [
@@ -75,19 +76,37 @@ class SertifikasiController extends Controller
         return view('user.sertifikasi.mySertifikasi.sertifikat-c');
     }
 
-    public function downloadCertificate(Request $request)
+    public function downloadCertificate(string $id)
     {
+        $decoded = Hashids::decode($id);
+        if (empty($decoded)) {
+            abort(404, 'ID Tidak Valid');
+        }
+        // userId
+        $id = $decoded[0];
+        $userProfile = UserProfile::firstWhere('user_id', $id);
+
+        $backgroundPath = public_path('assets/sertifikat/sertifikat.png');
+        $backgroundImage = base64_encode(file_get_contents($backgroundPath));
+
         $data = [
-            'name' => $request->input('name', 'John Doe'),
-            'course' => $request->input('course', 'Web Development'),
+            'name' => $userProfile->namaDepan,
             'date' => now()->format('d F Y'),
-            'certificate_id' => 'CERT-' . strtoupper(uniqid()),
+            'backgroundImage' => $backgroundImage,
         ];
 
         // Generate PDF menggunakan DomPDF
-        $pdf = Pdf::loadView('certificates.template', $data);
+        $pdf = Pdf::loadView('sertifikat', $data);
         // Set paper size dan orientasi
-        $pdf->setPaper('A4', 'landscape');
+        // $pdf->setPaper('A4', 'landscape');
+        $pdf->setPaper([0, 0, 1414, 2000], 'landscape');
+        
+        $pdf->setOptions([
+            'isRemoteEnabled' => false,
+            'isPhpEnabled' => true,
+            'isHtml5ParserEnabled' => true,
+            'debugKeepTemp' => false,
+        ]);
         // Set nama file
         $filename = 'Sertifikat_' . str_replace(' ', '_', $data['name']) . '_' . date('Y-m-d') . '.pdf';
         // Download PDF
