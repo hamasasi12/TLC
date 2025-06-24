@@ -7,6 +7,7 @@ use App\Exports\UsersExport;
 use Illuminate\Http\Request;
 use App\Exports\AsesorExport;
 use App\Exports\ResultExamsAExport;
+use App\Exports\RiwayatPenilaianBExport;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
@@ -294,6 +295,9 @@ Route::middleware(['auth', 'role:asesor'])->prefix('asesor')->group(function () 
     Route::get('/form-penilaian', [AsesorDashboardController::class, 'formPenilaian'])->name('asesor.form-penilaian');
     Route::get('/riwayat-penilaian', [AsesorDashboardController::class, 'riwayatPenilaian'])->name('asesor.riwayat-penilaian');
     Route::get('/riwayat-penilaian/detail/{id}', [AsesorDashboardController::class, 'riwayatPenilaianDetail'])->name('asesor.riwayat-penilaian-detail');
+    Route::get('/riwayat-penilaian/export', function () {
+        return Excel::download(new RiwayatPenilaianBExport, 'Riwayat Penilaian B.xlsx');
+    })->name('asesor.riwayat-penilaian-b.export');
     Route::get('/riwayat-aktifitas', [AsesorDashboardController::class, 'riwayatAktifitas'])->name('asesor.riwayat-aktifitas');
     Route::get('/download-nilai', [AsesorDashboardController::class, 'downloadNilai'])->name('asesor.download-nilai');
     Route::get('/profile-setting', [AsesorDashboardController::class, 'profileSetting'])->name('asesor.profile-setting');
