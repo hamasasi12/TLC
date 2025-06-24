@@ -4,19 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('level_b_submissions', function (Blueprint $table) {
+        Schema::create('level_b_historys', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('category')->nullable();
             $table->string('file_ppt')->nullable();
             $table->string('modul_ajar')->nullable();
             $table->text('description')->nullable();
-            $table->enum('status', ['pending', 'reviewed', 'rejected'])->default('pending');
             $table->enum('is_passed', ['passed', 'rejected', 'reviewed'])->nullable()->default('reviewed');
             $table->text('comment_asesor')->nullable();
             $table->string('score')->nullable();
@@ -29,6 +30,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('level_b_submissions');
+        Schema::dropIfExists('level_b_historys');
     }
 };

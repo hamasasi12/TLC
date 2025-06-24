@@ -2,6 +2,7 @@
 @section('title', 'Asesor Dashboard')
 @section('content')
     <section class="relative max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
+        @php use Vinkla\Hashids\Facades\Hashids; @endphp
         <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden">
             <div class="p-3 sm:p-4 lg:p-6">
                 <div class="flex items-center text-blue-800">
@@ -96,73 +97,91 @@
                         @endif
                     </div>
 
-                    <p class="text-xs sm:text-sm text-gray-600 ml-0 sm:ml-6">Deskripsi:
-                        <span>{{ $asesi->description }}</span>
+                    <p class="text-xs sm:text-sm text-gray-600 ml-0 sm:ml-6">Deskripsi: <span>{!! $asesi->description !!}</span>
                     </p>
                 </div>
 
-                <div class="mb-4 sm:mb-5 lg:mb-6">
-                    <h3 class="text-gray-700 mb-3 text-sm sm:text-base font-medium">Penilaian</h3>
-                    <div class="space-y-2 sm:space-y-3">
-                        <div class="flex items-center">
-                            <input id="kompeten" name="assessment" type="radio" checked
-                                class="h-4 w-4 text-blue-800 focus:ring-blue-800 focus:ring-2">
-                            <label for="kompeten"
-                                class="ml-2 sm:ml-3 block text-gray-700 text-sm sm:text-base cursor-pointer">Kompeten</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input id="belum-kompeten" name="assessment" type="radio"
-                                class="h-4 w-4 text-blue-800 focus:ring-blue-800 focus:ring-2">
-                            <label for="belum-kompeten"
-                                class="ml-2 sm:ml-3 block text-gray-700 text-sm sm:text-base cursor-pointer">Belum
-                                Kompeten</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4 sm:mb-5 lg:mb-6">
-                    <label class="block text-gray-700 mb-2 text-sm sm:text-base font-medium">Skor</label>
-                    <div class="relative">
-                        <select
-                            class="block w-full bg-white border border-gray-300 text-gray-700 py-2 sm:py-3 px-3 sm:px-4 pr-8 rounded-lg sm:rounded-full leading-tight focus:outline-none focus:border-blue-800 text-sm sm:text-base">
-                            <option>Pilih skor</option>
-                            <option value="90-100">90-100 (Sangat Baik)</option>
-                            <option value="80-89">80-89 (Baik)</option>
-                            <option value="70-79">70-79 (Cukup)</option>
-                            <option value="60-69">60-69 (Kurang)</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                            </svg>
+                <form action="{{ route('asesor.gradeB.store', Vinkla\Hashids\Facades\Hashids::encode($asesi->id)) }}"
+                    method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{ $asesi->user->id }}">
+                    <input type="hidden" name="status" value="reviewed">
+                    <div class="mb-4 sm:mb-5 lg:mb-6">
+                        <h3 class="text-gray-700 mb-3 text-sm sm:text-base font-medium">Penilaian</h3>
+                        <div class="space-y-2 sm:space-y-3">
+                            <div class="flex items-center">
+                                <input id="kompeten" name="assessment" type="radio" value="passed"
+                                    @checked(old('assessment', $asesi->is_passed) === 'passed')
+                                    class="h-4 w-4 text-blue-800 focus:ring-blue-800 focus:ring-2">
+                                <label for="kompeten"
+                                    class="ml-2 sm:ml-3 block text-gray-700 text-sm sm:text-base cursor-pointer">Kompeten</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="belum-kompeten" name="assessment" type="radio" value="rejected"
+                                    @checked(old('assessment', $asesi->is_passed) === 'rejected')
+                                    class="h-4 w-4 text-blue-800 focus:ring-blue-800 focus:ring-2">
+                                <label for="belum-kompeten"
+                                    class="ml-2 sm:ml-3 block text-gray-700 text-sm sm:text-base cursor-pointer">Belum
+                                    Kompeten</label>
+                            </div>
+                            <x-input-error :messages="$errors->get('assessment')" class="mt-1 text-xs" />
                         </div>
                     </div>
-                </div>
 
-                <div class="mb-4 sm:mb-8">
-                    <label for="description" class="block text-gray-700 mb-2 text-sm sm:text-base font-medium">
-                        Komentar</label>
-                    <textarea name="question_text" id="editor" rows="2"
-                        class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-gray-700 focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 text-sm sm:text-base resize-y min-h-[100px]"></textarea>
-                </div>
+                    <div class="mb-4 sm:mb-5 lg:mb-6">
+                        <label class="block text-gray-700 mb-2 text-sm sm:text-base font-medium">Skor</label>
+                        <div class="relative">
+                            <select name="score" required
+                                class="block w-full bg-white border border-gray-300 text-gray-700 py-2 sm:py-3 px-3 sm:px-4 pr-8 rounded-lg sm:rounded-full leading-tight focus:outline-none focus:border-blue-800 text-sm sm:text-base">
+                                <option disabled {{ old('score', $asesi->score) ? '' : 'selected' }}>Pilih skor</option>
+                                <option value="90-100" {{ old('score', $asesi->score) === '90-100' ? 'selected' : '' }}>
+                                    90-100 (Sangat Baik)</option>
+                                <option value="80-89" {{ old('score', $asesi->score) === '80-89' ? 'selected' : '' }}>80-89
+                                    (Baik)</option>
+                                <option value="70-79" {{ old('score', $asesi->score) === '70-79' ? 'selected' : '' }}>
+                                    70-79 (Cukup)</option>
+                                <option value="60-69" {{ old('score', $asesi->score) === '60-69' ? 'selected' : '' }}>
+                                    60-69 (Kurang)</option>
+                            </select>
+                            <x-input-error :messages="$errors->get('score')" class="mt-1 text-xs" />
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="flex flex-col sm:flex-row justify-between gap-3 sm:gap-4 mt-6 sm:mt-8">
-                    <div>
-                        <a href="{{ route('asesor.list-asesi') }}"
-                            class="w-full sm:w-auto order-2 sm:order-1 border border-gray-300 text-gray-700 rounded-lg px-4 sm:px-5 py-2 sm:py-3 hover:bg-gray-100 transition duration-200 text-sm sm:text-base font-medium">
-                            Kembali
-                        </a>
+                    <div class="mb-4 sm:mb-8">
+                        <label for="description" class="block text-gray-700 mb-2 text-sm sm:text-base font-medium">
+                            Komentar</label>
+                        <textarea name="comment_asesor" id="editor" rows="2"
+                            class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-gray-700 focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 text-sm sm:text-base resize-y min-h-[100px]">
+                            {!! $asesi->comment_asesor !!}
+                        </textarea>
+                        <x-input-error :messages="$errors->get('comment_asesor')" class="mt-1 text-xs" />
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-between gap-3 sm:gap-4 mt-6 sm:mt-8">
+                        <div>
+                            <a href="{{ route('asesor.list-asesi') }}"
+                                class="w-full sm:w-auto order-2 sm:order-1 border border-gray-300 text-gray-700 rounded-lg px-4 sm:px-5 py-2 sm:py-3 hover:bg-gray-100 transition duration-200 text-sm sm:text-base font-medium">
+                                Kembali
+                            </a>
+                            <button
+                                class="w-full sm:w-auto order-2 sm:order-1 border border-gray-300 text-gray-700 rounded-lg px-4 sm:px-5 py-2 sm:py-3 hover:bg-gray-100 transition duration-200 text-sm sm:text-base font-medium">
+                                Simpan Draft
+                            </button>
+                        </div>
+
                         <button
-                            class="w-full sm:w-auto order-2 sm:order-1 border border-gray-300 text-gray-700 rounded-lg px-4 sm:px-5 py-2 sm:py-3 hover:bg-gray-100 transition duration-200 text-sm sm:text-base font-medium">
-                            Simpan Draft
+                            class="w-full sm:w-auto order-1 sm:order-2 bg-blue-800 text-white rounded-lg px-4 sm:px-5 py-2 sm:py-3 hover:bg-blue-700 transition duration-200 text-sm sm:text-base font-medium">
+                            Kirim Penilaian
                         </button>
                     </div>
+                </form>
 
-                    <button
-                        class="w-full sm:w-auto order-1 sm:order-2 bg-blue-800 text-white rounded-lg px-4 sm:px-5 py-2 sm:py-3 hover:bg-blue-700 transition duration-200 text-sm sm:text-base font-medium">
-                        Kirim Penilaian
-                    </button>
-                </div>
             </div>
         </div>
         {{-- <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script> --}}
@@ -178,6 +197,5 @@
                 location.reload();
             }
         </script>
-
     </section>
 @endsection
