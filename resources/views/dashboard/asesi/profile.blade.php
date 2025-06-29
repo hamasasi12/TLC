@@ -65,7 +65,7 @@
                             <div
                                 class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gray-100 overflow-hidden border-4 border-white shadow-md">
                                 <img id="profileImage"
-                                    src="{{ asset('storage/' . (auth()->user()->userProfile->profile_image ?? 'assets/images/default-profile.png')) }}"
+                                    src="{{ asset('storage/' . (auth()->user()->userProfile->profile_image ?? '/blankProfile.png')) }}"
                                     alt="Foto Profil" class="w-full h-full object-cover">
                             </div>
                             <label for="profileInput"
@@ -128,10 +128,12 @@
                         <div id="personalContent" class="tab-content active">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                                 <div class="space-y-2">
-                                    <label class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                                    <label class="block text-sm font-medium text-gray-700">Nama Lengkap + Gelar</label>
                                     <input type="text" name="nama_depan" required
                                         value="{{ old('nama_depan', auth()->user()->userProfile->nama_depan ?? auth()->user()->name) }}"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z.,\s]/g, '')"
                                         class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm sm:text-base">
+
                                     @error('nama_depan')
                                         <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>
                                     @enderror
@@ -154,6 +156,7 @@
                                     <label class="block text-sm font-medium text-gray-700">Tempat Lahir</label>
                                     <input type="text" name="tempat_lahir" maxlength="25"
                                         value="{{ old('tempat_lahir', auth()->user()->userProfile->tempat_lahir ?? '') }}"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z.,\s]/g, '')"
                                         class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm sm:text-base">
                                 </div>
 

@@ -4,7 +4,7 @@
 @section('content')
 
 <!-- Hero Section with Standard Size -->
-<div class="relative p-6 bg-gradient-to-br from-[#E76F51] via-[#E76F51] to-[#1D4E89] rounded-xl shadow-lg mb-6 mt-8 overflow-hidden">
+{{-- <div class="relative p-6 bg-gradient-to-br from-[#E76F51] via-[#E76F51] to-[#1D4E89] rounded-xl shadow-lg mb-6 mt-8 overflow-hidden">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 opacity-20">
         <div class="absolute top-0 left-0 w-24 h-24 bg-white rounded-full blur-xl animate-pulse"></div>
@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <!-- Stats Overview Cards with Standard Size -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

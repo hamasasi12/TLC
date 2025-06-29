@@ -129,7 +129,7 @@
                 </div>
 
                 <button type="submit" wire:loading.attr="disabled"
-                    class="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-3 rounded-lg hover:from-blue-700 hover:to-indigo-800 transition-all duration-200 font-semibold disabled:opacity-50">
+                    class="w-full bg-gradient-to-r from-[#0C548C] to-[#2E4D69] text-white py-3 rounded-lg hover:from-[#063B67] hover:to-[#1C3A58] transition-all duration-200 font-semibold disabled:opacity-50">
                     <span wire:loading.remove>DAFTAR</span>
                     <span wire:loading>Memproses...</span>
                 </button>

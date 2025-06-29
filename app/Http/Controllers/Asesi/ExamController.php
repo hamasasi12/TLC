@@ -25,23 +25,28 @@ class ExamController extends Controller
             'category_id' => 'required|numeric',
         ]);
         $category = CategoryA::find($request->category_id);
+        $questionCount = QuestionA::where('category_a_id', $category->id)->count();
 
         switch ($request->category_id) {
             case 1:
                 return view('user.sertifikasi.levelA.HOTS.instruction', [
                     'category' => $category,
+                    'questionCount'=> $questionCount
                 ]);
             case 2:
                 return view('user.sertifikasi.levelA.PCK.instruction', [
                     'category' => $category,
+                    'questionCount'=> $questionCount,
                 ]);
             case 3:
                 return view('user.sertifikasi.levelA.LITERASI.instruction', [
                     'category' => $category,
+                    'questionCount'=> $questionCount,
                 ]);
             case 4:
                 return view('user.sertifikasi.levelA.NUMERASI.instruction', [
                     'category' => $category,
+                    'questionCount'=> $questionCount,
                 ]);
             default:
                 Log::warning('Kategori tidak valid diakses', [

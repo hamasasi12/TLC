@@ -275,7 +275,7 @@
                                     <input type="hidden" name="category_id" value="{{ $index['id'] }}">
                                     @csrf
                                     <button type="submit"
-                                        class="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow hover:shadow-lg transition">
+                                        class="px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-xl shadow hover:shadow-lg transition">
                                         Siap Mengikuti Tes
                                     </button>
                                 </form>
