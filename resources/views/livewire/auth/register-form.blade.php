@@ -67,7 +67,9 @@
                             </svg>
                         </span>
                         <input type="text" wire:model="name" placeholder="Masukkan nama lengkap"
-                            class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-400">
+                            class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 hover:border-blue-400"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+
                     </div>
                     <p class="text-gray-500 text-xs mt-1">Masukkan nama asli anda, nama akan digunakan pada data
                         sertifikat</p>

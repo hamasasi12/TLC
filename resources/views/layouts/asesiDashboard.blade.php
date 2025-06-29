@@ -126,7 +126,7 @@
                     </div>
 
                     <!-- Notification -->
-                    <div class="relative">
+                    {{-- <div class="relative">
                         <button
                             class="p-2.5 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 hover:bg-white/80 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500/20">
                             <svg class="h-5 w-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,7 +139,7 @@
                             class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full px-1.5 py-0.5 shadow-lg animate-pulse">
                             3
                         </span>
-                    </div>
+                    </div> --}}
 
                     <!-- Profile Dropdown -->
                     <div class="relative">

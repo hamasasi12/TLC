@@ -120,7 +120,7 @@
                             Terkunci
                         </div>
                     @endif --}}
-                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-blue-200 to-transparent"></div>
                 </div>
 
                 {{-- Isi konten --}}
