@@ -301,6 +301,11 @@ Route::middleware(['auth', 'role:asesor'])->prefix('asesor')->group(function () 
     Route::get('/riwayat-aktifitas', [AsesorDashboardController::class, 'riwayatAktifitas'])->name('asesor.riwayat-aktifitas');
     Route::get('/download-nilai', [AsesorDashboardController::class, 'downloadNilai'])->name('asesor.download-nilai');
     Route::get('/profile-setting', [AsesorDashboardController::class, 'profileSetting'])->name('asesor.profile-setting');
+
+    // Route::get('/profile-setting', [AsesorDashboardController::class, 'profileSetting'])->name('asesor.profile-setting');
+    Route::post('/profile-setting/update', [AsesorDashboardController::class, 'updateProfile'])->name('asesor.profile-setting.update');
+    Route::post('/profile-setting/update-password', [AsesorDashboardController::class, 'updatePassword'])->name('asesor.profile-setting.update-password');
+    Route::post('/profile-setting/update-photo', [AsesorDashboardController::class, 'updatePhoto'])->name('asesor.profile-setting.update-photo');
 });
 
 // INDOREGION
