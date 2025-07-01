@@ -1916,8 +1916,8 @@
                                 </svg>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-600 mb-2">Belum Ada Testimonial</h3>
-                            <p class="text-gray-500">Testimonial dari pengguna akan muncul di sini setelah disetujui oleh
-                                admin.</p>
+                            {{-- <p class="text-gray-500">Testimonial dari pengguna akan muncul di sini setelah disetujui oleh
+                                admin.</p> --}}
                         </div>
                     </div>
                 @endif
