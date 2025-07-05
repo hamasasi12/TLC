@@ -115,7 +115,6 @@ Route::middleware(['auth', 'role:asesi', 'last_seen'])->prefix('asesi')->group(f
     Route::get('/registeraddtional', [AuthController::class, 'registeraddtional'])->name('registeraddtional');
     Route::post('/registeraddtional', [AuthController::class, 'registeraddtionalpost'])->name('registeraddtionalpost');
 
-
     // EXAM CONTROLLER
     Route::post('/sertifikasi/level/a/instruction', [ExamController::class, 'instruction'])->name('asesi.sertifikasi.level.a.instruction');
     Route::get('/sertifikasi/level/a/{exam}/show', [ExamController::class, 'show'])->name('asesi.sertifikasi.level.a.show');
@@ -239,7 +238,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
     // Route Level Settings
     Route::get('/dashboard/level/settings/index', [LevelSettingsController::class, 'index'])->name('admin.level.settings.index');
-
 
     Route::get('/dashboard/news', [NewsController::class, 'index'])->name('admin.news.index');
     Route::get('/dashboard/news/create', [NewsController::class, 'create'])->name('admin.news.create');
