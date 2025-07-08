@@ -3,43 +3,8 @@
 
 @section('content')
 
-<!-- Hero Section with Standard Size -->
-{{-- <div class="relative p-6 bg-gradient-to-br from-[#E76F51] via-[#E76F51] to-[#1D4E89] rounded-xl shadow-lg mb-6 mt-8 overflow-hidden">
-    <!-- Animated Background Elements -->
-    <div class="absolute inset-0 opacity-20">
-        <div class="absolute top-0 left-0 w-24 h-24 bg-white rounded-full blur-xl animate-pulse"></div>
-        <div class="absolute bottom-0 right-0 w-32 h-32 bg-blue-200 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div class="absolute top-1/2 left-1/3 w-16 h-16 bg-orange-200 rounded-full blur-xl animate-pulse delay-500"></div>
-    </div>
-    
-    <div class="relative z-10 flex flex-col lg:flex-row justify-between items-center">
-        <div class="text-center lg:text-left">
-            <h1 class="text-2xl lg:text-3xl font-bold text-white mb-2 tracking-tight">
-                Selamat Datang, 
-                <span class="bg-gradient-to-r from-blue-100 to-orange-100 bg-clip-text text-transparent">Admin!</span>
-            </h1>
-            <p class="text-sm text-white/90 leading-relaxed max-w-md">
-                Kelola dan pantau aktivitas platform TLC dengan dashboard yang powerful dan intuitif
-            </p>
-        </div>
-        <div class="mt-4 lg:mt-0">
-            <div class="bg-white/20 backdrop-blur-sm text-white px-4 py-3 rounded-lg border border-white/30 shadow-lg">
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                        <i class="fas fa-calendar-alt text-white text-sm"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs font-medium opacity-90">Hari ini</p>
-                        <p class="text-sm font-bold">{{ \Carbon\Carbon::now()->isoFormat('dddd, D MMMM Y') }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
 <!-- Stats Overview Cards with Standard Size -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 mt-10">
     <!-- Asesi Card -->
     <div class="group relative bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
         <div class="absolute inset-0 bg-gradient-to-br from-[#1D4E89] to-[#1D4E89] opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
@@ -58,13 +23,13 @@
             <div class="p-4 bg-gradient-to-b from-white to-blue-50">
                 <div class="flex items-center justify-between">
                     <span class="text-2xl font-bold text-gray-800">{{ $asesi }}</span>
-                    <div class="text-right">
+                    {{-- <div class="text-right">
                         <div class="text-green-500 text-xs font-semibold flex items-center">
                             <i class="fas fa-arrow-up text-xs mr-1"></i>
                             +12%
                         </div>
                         <div class="text-xs text-gray-500">vs bulan lalu</div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -88,13 +53,13 @@
             <div class="p-4 bg-gradient-to-b from-white to-orange-50">
                 <div class="flex items-center justify-between">
                     <span class="text-2xl font-bold text-gray-800">{{ $asesor }}</span>
-                    <div class="text-right">
+                    {{-- <div class="text-right">
                         <div class="text-green-500 text-xs font-semibold flex items-center">
                             <i class="fas fa-arrow-up text-xs mr-1"></i>
                             +8%
                         </div>
                         <div class="text-xs text-gray-500">vs bulan lalu</div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -118,13 +83,13 @@
             <div class="p-4 bg-gradient-to-b from-white to-blue-50">
                 <div class="flex items-center justify-between">
                     <span class="text-2xl font-bold text-gray-800">{{ $admins }}</span>
-                    <div class="text-right">
+                    {{-- <div class="text-right">
                         <div class="text-[#1D4E89] text-xs font-semibold flex items-center">
                             <i class="fas fa-minus text-xs mr-1"></i>
                             Stabil
                         </div>
                         <div class="text-xs text-gray-500">vs bulan lalu</div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -132,7 +97,7 @@
 </div>
 
 <!-- Main Content Grid -->
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8">
+{{-- <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8">
     <!-- Activity Chart -->
     <div class="xl:col-span-2 bg-white rounded-lg shadow-md overflow-hidden">
         <div class="p-6 border-b border-gray-100">
@@ -223,7 +188,7 @@
             </button>
         </div>
     </div>
-</div>
+</div> --}}
 
 <!-- Bottom Section -->
 <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-6">
