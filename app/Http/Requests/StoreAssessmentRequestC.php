@@ -22,9 +22,10 @@ class StoreAssessmentRequestC extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'nullable',
-            'url_video' => 'nullable',
-            'description' => 'nullable',
+            'user_id' => 'nullable', 
+            'url_video' => 'required|url', 
+            'description' => 'required|string|max:1000', 
         ];
     }
+
 }

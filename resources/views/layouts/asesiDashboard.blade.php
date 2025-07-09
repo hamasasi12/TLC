@@ -524,27 +524,11 @@
 
         <!-- FontAwesome Script untuk Icon -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        @include('sweetalert::alert')
     </footer>
 
     @livewireScripts
 </body>
 
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <nav class="flex justify-center items-center">
-        </nav>
-    </header>
-    <main></main>
-    <footer></footer>
-</body>
 </html>
