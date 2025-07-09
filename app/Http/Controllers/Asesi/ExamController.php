@@ -31,22 +31,22 @@ class ExamController extends Controller
             case 1:
                 return view('user.sertifikasi.levelA.HOTS.instruction', [
                     'category' => $category,
-                    'questionCount'=> $questionCount
+                    'questionCount' => $questionCount
                 ]);
             case 2:
                 return view('user.sertifikasi.levelA.PCK.instruction', [
                     'category' => $category,
-                    'questionCount'=> $questionCount,
+                    'questionCount' => $questionCount,
                 ]);
             case 3:
                 return view('user.sertifikasi.levelA.LITERASI.instruction', [
                     'category' => $category,
-                    'questionCount'=> $questionCount,
+                    'questionCount' => $questionCount,
                 ]);
             case 4:
                 return view('user.sertifikasi.levelA.NUMERASI.instruction', [
                     'category' => $category,
-                    'questionCount'=> $questionCount,
+                    'questionCount' => $questionCount,
                 ]);
             default:
                 Log::warning('Kategori tidak valid diakses', [
@@ -140,7 +140,7 @@ class ExamController extends Controller
         }
 
         // Debug: Log exam data
-        \Log::info('Exam Data Debug', [
+        Log::info('Exam Data Debug', [
             'exam_id' => $exam->id,
             'category_a_id' => $exam->category_a_id ?? 'NULL',
             'category_id' => $exam->category_id ?? 'NULL',
@@ -167,7 +167,7 @@ class ExamController extends Controller
         $categoryId = $exam->category_a_id ?? $exam->category_id;
         $category = CategoryA::find($categoryId);
 
-        \Log::info('Category Debug', [
+        Log::info('Category Debug', [
             'category_id_used' => $categoryId,
             'category_found' => $category ? $category->name : 'NULL',
             'category_object' => $category
@@ -322,12 +322,12 @@ class ExamController extends Controller
         } else {
             Alert::error('Ujian Selesai', 'Maaf, Anda belum lulus ujian pada kategori ' . $category->name);
         }
-        
-        $userHasTestimonial = Testimonial::where('user_id', Auth::id())
-        ->where('category_a_id', $categoryId)
-        ->exists();
 
-         return view('user.sertifikasi.levelA.exam.result', compact(
+        $userHasTestimonial = Testimonial::where('user_id', Auth::id())
+            ->where('category_a_id', $categoryId)
+            ->exists();
+
+        return view('user.sertifikasi.levelA.exam.result', compact(
             'exam',
             'totalQuestions',
             'correctAnswers',
